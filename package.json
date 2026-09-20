@@ -1,0 +1,6 @@
+{
+  "name": "liftlog", "version": "1.0.0", "private": true, "type": "module",
+  "description": "按身体部位记录训练的本地健身日志",
+  "scripts": { "dev": "node server.mjs", "start": "node server.mjs", "test": "node --test tests/*.test.mjs", "check": "node --check dist/app.js && node --check dist/data.js && node --check server.mjs" },
+  "engines": { "node": ">=20" }
+}
