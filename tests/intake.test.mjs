@@ -57,7 +57,7 @@ test('模型真实接口适配器的模拟响应可被前端重新校验，密�
 test('模型服务无密钥、HTTP失败、无效输出会明确失败，不产生假结果',async()=>{
   await assert.rejects(generateIntake(request,{apiKey:''}),/尚未配置/);
   await assert.rejects(generateIntake(request,{apiKey:'x',fetchImpl:async()=>({ok:false,status:429})}),/繁忙/);
-  await assert.rejects(generateIntake(request,{apiKey:'x',fetchImpl:async()=>({ok:true,json:async()=>({choices:[{message:{content:'bad'}}]})})}),/有效草稿/);
+  await assert.rejects(generateIntake(request,{apiKey:'x',fetchImpl:async()=>({ok:true,json:async()=>({choices:[{message:{content:'bad'}}]})})}),e=>e.code==='invalid_output'&&e.status===502);
 });
 test('公开API拒绝跨域和非JSON输入，不调用模型',async()=>{
   const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},end(body){this.body=JSON.parse(body);}});
