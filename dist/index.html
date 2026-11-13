@@ -1,13 +1,18 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#182923"><meta name="description" content="按身体部位记录每一组训练，查看训练历史和力量变化。">
-  <title>LiftLog · 训练日志</title><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="LiftLog">
+  <link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+  <meta name="theme-color" content="#f5f6f3"><meta name="description" content="按身体部位记录每一组训练，查看训练历史和力量变化。">
+  <title>LiftLog · 训练日志</title><link rel="icon" href="./favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./styles.css"><link rel="stylesheet" href="./interface.css">
 </head>
 <body>
+  <div class="pwa-strip"><span id="pwa-state" role="status">正在准备离线记录…</span><button id="pwa-install-button" data-action="install-guide">添加到 iPhone 主屏幕</button></div><p id="pwa-update" class="notice" hidden></p>
   <div id="app"></div><dialog id="editor" aria-label="记录训练"></dialog><dialog id="weight-dialog" aria-label="记录体重"></dialog>
+  <dialog id="install-dialog" aria-label="安装到主屏幕"></dialog><dialog id="import-dialog" aria-labelledby="import-heading"></dialog><input id="backup-file" type="file" accept=".json,application/json" hidden>
   <dialog id="custom-dialog" aria-labelledby="custom-title"></dialog>
+  <dialog id="intake-dialog" aria-label="自然语言录入训练"></dialog>
   <div id="toast" role="status" aria-live="polite"></div>
   <script type="module" src="./app.js"></script>
 </body>
