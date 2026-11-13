@@ -4,10 +4,11 @@ import fs from 'node:fs/promises';
 import vm from 'node:vm';
 const root=new URL('../dist/',import.meta.url);
 const source=await fs.readFile(new URL('sw.js',root),'utf8');
+const currentCache='liftlog-shell-'+source.match(/const CACHE=PREFIX\+'([^']+)'/)[1];
 function environment(){
   const handlers={},removed=[];let files=[];
   const cached={html:'offline-shell'};
-  const context={URL,self:{registration:{scope:'https://liftlog.example/'},clients:{claim:async()=>true},addEventListener:(type,fn)=>handlers[type]=fn},caches:{open:async()=>({addAll:async list=>{files=list;},match:async()=>cached}),keys:async()=>['unrelated-cache','liftlog-shell-old','liftlog-shell-v1.7.0-r3'],delete:async key=>removed.push(key)},fetch:async()=>{throw Error('Network offline');}};
+  const context={URL,self:{registration:{scope:'https://liftlog.example/'},clients:{claim:async()=>true},addEventListener:(type,fn)=>handlers[type]=fn},caches:{open:async()=>({addAll:async list=>{files=list;},match:async()=>cached}),keys:async()=>['unrelated-cache','liftlog-shell-old',currentCache],delete:async key=>removed.push(key)},fetch:async()=>{throw Error('Network offline');}};
   vm.runInNewContext(source,context);return {handlers,removed,cached,getFiles:()=>files};
 }
 test('预缓存列表中的所有资源真实存在，manifest图标尺寸正确',async()=>{

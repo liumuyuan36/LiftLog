@@ -48,7 +48,7 @@ test('扩充后的动作库可进入原有自然语言接口，新自重记录�
   const request=validateIntakeRequest({text:'俯卧撑做了10次',today:localDate(),catalog});assert.equal(request.catalog.find(e=>e.name==='俯卧撑').tracking,'reps');
 });
 
-test('每个动作都有不同的两阶段矢量图，坐标有效，细节模式不会回退到未知图',()=>{
+test('每个动作都有不同的两阶段图，坐标有效，细节模式不会回退到未知图',()=>{
   for(const e of builtInExercises){const g=exerciseGuide(e.name),start=exercisePose(g,'start'),end=exercisePose(g,'end');assert.ok(start.startsWith('<svg'));assert.ok(end.includes(e.name));assert.doesNotMatch(start+end,/NaN|undefined|Infinity/);assert.notEqual(start.replace(/起始/g,'阶段'),end.replace(/结束/g,'阶段'));}
   const map=muscleFigure({view:'back',selected:'back',interactive:true});assert.match(map,/data-group="back"/);assert.match(map,/tabindex="0"/);
 });

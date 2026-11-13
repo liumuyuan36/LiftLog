@@ -1,0 +1,19 @@
+Human mesh, macro targets, rig and skin weights: MakeHuman Community. CC0.
+Original assets: https://github.com/makehumancommunity/makehuman/tree/master/makehuman/data
+Mesh copyright holders at CC0 release: Data Collection AB, Joel Palmius, Jonas Hauquier.
+Local derivative: merged adult-male macro targets, 0.8 muscle morph, normalized scale and extracted body/shorts meshes.
+Three.js r180: MIT; see vendor/LICENSE.txt.
+
+Authoring source and static exports
+----------------------------------
+human.json is the locally derived mesh, rig and normalized skin-weight data used by renderer.js.
+Original data paths (all CC0 per file headers/license fields):
+https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/3dobjs/base.obj
+https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/rigs/default.mhskel
+https://raw.githubusercontent.com/makehumancommunity/makehuman/master/makehuman/data/rigs/default_weights.mhw
+https://github.com/makehumancommunity/makehuman/tree/master/makehuman/data/targets/macrodetails
+Derivation: equal African/Caucasian adult male young targets, 0.8 universal male young maxmuscle averageweight target; body surface and helper-tights surface only. Shorts clipped to pelvis-relative y [-0.27,0.13]. Four largest skin weights per vertex normalized.
+Renderer: pinned three@0.180.0 from https://www.npmjs.com/package/three
+Run from project root: node artwork/server.mjs
+Open http://127.0.0.1:52991/artwork/studio.html and click export. Export contains WebP images, manifest and projected hit polygons. dist/media/body3d and dist/art-assets.js are generated outputs. No original photographs or paid exercise assets are used.
+The visual regions are approximate product navigation masks, not anatomical segmentation. The pose configurations are illustrative and have not been independently reviewed by a fitness professional.

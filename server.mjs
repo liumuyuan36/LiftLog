@@ -7,7 +7,7 @@ import {aiRoute} from './lib/ai-http.mjs';
 import {generateIntake} from './lib/intake-model.mjs';
 import {generateDecision} from './lib/decision-model.mjs';
 const root = path.resolve(fileURLToPath(new URL('./dist/', import.meta.url)));
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.webmanifest':'application/manifest+json', '.png':'image/png' };
+const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.webmanifest':'application/manifest+json', '.png':'image/png', '.webp':'image/webp' };
 const server = http.createServer(async (req, res) => {
   const json=(status,body)=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(body));};
   if(req.url==='/api/ai/intake')return aiRoute(req,res,generateIntake);
