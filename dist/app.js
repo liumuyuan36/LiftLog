@@ -1,6 +1,8 @@
 import {mountFitness} from './fitness-ui.js';
 import {checkin,setup,fitnessProfiles,experiment,replacePendingExercise,focusProgress} from './fitness.js';
 import {focusMarkup} from './focus-ui.js';
+import {routineSection,referenceMarkup,summaryMarkup} from './routine-ui.js';
+import {validateRoutines,routineFromSession,sessionFromRoutine,lastExercise,fillReference,restoreRest,sessionSummary} from './workouts.js';
 import { groups, uid, localDate, daysAgo, workSets, volume, bestEstimate, records, makeDemo, inPeriod, validateSet, exerciseCatalog, validateCustomExercise, trackingForName, bodyweightReps, bestReps, setCustomExerciseDeleted } from './data.js';
 import {mountReview} from './review-ui.js';
 import {initPwa,refreshPwa} from './pwa.js';
@@ -41,7 +43,7 @@ function load() {
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed.sessions) || !Array.isArray(parsed.weights) || !parsed.sessions.every(s=>Array.isArray(s.exercises)&&s.exercises.every(e=>Array.isArray(e.sets)))) throw Error('格式错误');
     if (parsed.customExercises !== undefined && !Array.isArray(parsed.customExercises)) throw Error('动作库格式错误');
-    return { ...parsed, customExercises: parsed.customExercises ?? [],decisionReceipts:restoreDecisionReceipts(parsed.decisionReceipts),fitnessProfiles:fitnessProfiles(parsed.fitnessProfiles),fitnessExperiment:experiment(parsed.fitnessExperiment) };
+    return { ...parsed, routines:validateRoutines(parsed.routines),customExercises: parsed.customExercises ?? [],decisionReceipts:restoreDecisionReceipts(parsed.decisionReceipts),fitnessProfiles:fitnessProfiles(parsed.fitnessProfiles),fitnessExperiment:experiment(parsed.fitnessExperiment) };
   } catch { storageError = '无法读取已保存的记录，当前显示临时数据。请先导出备份；原存储不会被覆盖。'; return fallback(); }
 }
 let data = load();
@@ -61,16 +63,19 @@ function persist() {
 }
 let page = 'overview', selectedGroup = 'all', chartExercise = '杠铃卧推', chartRange = '28';
 let editorSession = null, editingId = null, pickerGroup = 'chest', restUntil = 0,restDuration=120,focusMode=false;
+let lastSavedSession=null;
 const app = document.querySelector('#app');
 const editor = document.querySelector('#editor');
 const weightDialog = document.querySelector('#weight-dialog');
 const customDialog = document.querySelector('#custom-dialog');
+const routineDialog=document.querySelector('#routine-dialog');
+const summaryDialog=document.querySelector('#summary-dialog');
 let toastTimer;
 function toast(message) { const el=document.querySelector('#toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),4200); }
 function navButton(id,name,glyph,selected=page===id) { return `<button data-action="nav" data-page="${id}" class="${selected?'active':''}" ${selected?'aria-current="page"':''}>${icon(glyph)}<span>${name}</span></button>`; }
 function render() {
   const headings = {overview:'训练概览',train:'开始训练',history:'训练历史',progress:'进步趋势',settings:'数据与设置',review:'智能复盘',lab:'训练取舍',more:'更多',insights:'训练洞察'};
-  app.innerHTML = `<aside class="sidebar"><div class="brand"><span class="brand-symbol">${icon('dumbbell')}</span><div class="brand-word">Lift<span>Log</span></div></div><div class="brand-sub">每一组，都算数</div><div class="nav-label">我的训练空间</div><nav class="nav desktop-nav" aria-label="主要导航">${navButton('overview','训练概览','grid')}${navButton('train','开始训练','dumbbell')}${navButton('history','训练历史','history')}${navButton('progress','进步趋势','chart')}${navButton('lab','取舍实验','layers')}${navButton('review','智能复盘','layers')}${navButton('insights','训练洞察','chart')}${navButton('settings','数据与设置','settings')}</nav><nav class="nav mobile-nav" aria-label="手机主要导航">${navButton('overview','概览','grid')}${navButton('train','训练','dumbbell')}${navButton('lab','AI 助手','spark',['lab','review','insights'].includes(page))}${navButton('history','记录','history')}${navButton('more','更多','more',['more','progress','settings'].includes(page))}</nav><div class="side-note"><strong>专注当下这一组。</strong>进步，藏在每一次记录里。</div><div class="side-profile"><div class="avatar">L</div><div>我的训练日志<br><small class="muted">${mode==='demo'?'示例体验空间':'本机个人空间'}</small></div></div></aside><main class="main" data-page="${page}"><header class="topbar"><span class="crumb"><span class="mobile-wordmark">LiftLog</span><span class="desktop-crumb">${headings[page]}</span></span><div class="top-actions"><time>${new Date().toLocaleDateString('zh-CN',{month:'long',day:'numeric',weekday:'long'})}</time><span class="mode-badge">${mode==='demo'?'示例数据':'本地保存'}</span>${mode==='demo'?'<button class="text-btn" data-action="personal">开始我的记录</button>':''}</div></header>${storageError?`<div class="notice">${esc(storageError)}</div>`:''}${['lab','review','insights'].includes(page)?assistantTabs():''}${page==='overview'?overview():page==='train'?training():page==='history'?historyPage():page==='progress'?progressPage():page==='review'?'<div id="review-root"></div>':page==='lab'?'<div id="decision-root"></div>':page==='insights'?'<div id="fitness-root"></div>':page==='more'?morePage():settingsPage()}<footer class="footer"><span>LIFTLOG / 每一组，都算数</span><span>${mode==='demo'?'当前为示例数据':'记录仅保存在当前浏览器'} · V1.5</span></footer></main>`;
+  app.innerHTML = `<aside class="sidebar"><div class="brand"><span class="brand-symbol">${icon('dumbbell')}</span><div class="brand-word">Lift<span>Log</span></div></div><div class="brand-sub">每一组，都算数</div><div class="nav-label">我的训练空间</div><nav class="nav desktop-nav" aria-label="主要导航">${navButton('overview','训练概览','grid')}${navButton('train','开始训练','dumbbell')}${navButton('history','训练历史','history')}${navButton('progress','进步趋势','chart')}${navButton('lab','取舍实验','layers')}${navButton('review','智能复盘','layers')}${navButton('insights','训练洞察','chart')}${navButton('settings','数据与设置','settings')}</nav><nav class="nav mobile-nav" aria-label="手机主要导航">${navButton('overview','概览','grid')}${navButton('train','训练','dumbbell')}${navButton('lab','AI 助手','spark',['lab','review','insights'].includes(page))}${navButton('history','记录','history')}${navButton('more','更多','more',['more','progress','settings'].includes(page))}</nav><div class="side-note"><strong>专注当下这一组。</strong>进步，藏在每一次记录里。</div><div class="side-profile"><div class="avatar">L</div><div>我的训练日志<br><small class="muted">${mode==='demo'?'示例体验空间':'本机个人空间'}</small></div></div></aside><main class="main" data-page="${page}"><header class="topbar"><span class="crumb"><span class="mobile-wordmark">LiftLog</span><span class="desktop-crumb">${headings[page]}</span></span><div class="top-actions"><time>${new Date().toLocaleDateString('zh-CN',{month:'long',day:'numeric',weekday:'long'})}</time><span class="mode-badge">${mode==='demo'?'示例数据':'本地保存'}</span>${mode==='demo'?'<button class="text-btn" data-action="personal">开始我的记录</button>':''}</div></header>${storageError?`<div class="notice">${esc(storageError)}</div>`:''}${['lab','review','insights'].includes(page)?assistantTabs():''}${page==='overview'?overview():page==='train'?training():page==='history'?historyPage():page==='progress'?progressPage():page==='review'?'<div id="review-root"></div>':page==='lab'?'<div id="decision-root"></div>':page==='insights'?'<div id="fitness-root"></div>':page==='more'?morePage():settingsPage()}<footer class="footer"><span>LIFTLOG / 每一组，都算数</span><span>${mode==='demo'?'当前为示例数据':'记录仅保存在当前浏览器'} · V1.6</span></footer></main>`;
   if(page==='insights')mountFitness(document.querySelector('#fitness-root'),{getData:()=>data,save:persist,space:mode,openSession,notify:toast});
   if(page==='review') mountReview(document.querySelector('#review-root'), {getData:()=>data,space:mode,save:persist,openSession,notify:toast});
   if(page==='lab')mountDecision(document.querySelector('#decision-root'),{getData:()=>data,save:persist,space:mode,openSession,notify:toast,apply:(decision,id,options)=>{
@@ -90,7 +95,7 @@ function overview() {
   const weights=[...data.weights].sort((a,b)=>a.date.localeCompare(b.date));
   return `<section class="home-hero"><div class="hero-copy"><p class="eyebrow">YOUR DAILY MOMENT</p><h1>今天，练得更从容。</h1><p class="sub">把注意力留给训练，让每一组都有迹可循。</p><button class="primary hero-start" data-action="start">${icon('plus')}${data.draft?'继续训练':'开始记录'} ${icon('arrow')}</button><span class="hero-caption">${data.draft?'未完成训练已为你保留':'逐组记录 · 自动保存草稿'}</span></div><div class="hero-orbit" aria-hidden="true"><div class="orbit-ring ring-outer"></div><div class="orbit-ring ring-middle"></div><div class="orbit-ring ring-inner"></div><span class="orbit-core">${icon('dumbbell')}</span><span class="orbit-dot"></span></div></section>` +
     `<section class="stats" aria-label="训练统计">${stat('本周训练',week.length,'次','周一至今 · 已完成训练','calendar')}${stat('本周训练容量',fmt(week.reduce((n,s)=>n+volume(s),0)),'kg','仅负重工作组 · 自重不计入','weight')}${stat('本周工作组',week.reduce((n,s)=>n+workSets(s).length,0),'组','热身组不计入统计','layers')}${stat('最新体重',weights.length?fmt(weights.at(-1).weight):'—','kg',`<button class="view-link" data-action="weight">${weights.length?weights.at(-1).date+' · 更新':'记录你的第一次体重'} ${icon('plus')}</button>`,'chart')}</section>
-    ${assistantCards()}<button class="panel fitness-entry" data-action="nav" data-page="insights"><span class="shortcut-icon">${icon('chart')}</span><span><strong>这次，有没有真正进步？</strong><small>比较相近条件 · 记住器械设置 · 观察状态</small></span>${icon('arrow')}</button><section class="body-section"><div class="section-head"><h2>今天，练哪里？</h2><span class="muted">按身体部位开始</span></div>${bodyCards(recent)}</section>
+    ${firstRunCard()}${routineSection(data,mode)}${assistantCards()}<button class="panel fitness-entry" data-action="nav" data-page="insights"><span class="shortcut-icon">${icon('chart')}</span><span><strong>这次，有没有真正进步？</strong><small>比较相近条件 · 记住器械设置 · 观察状态</small></span>${icon('arrow')}</button><section class="body-section"><div class="section-head"><h2>今天，练哪里？</h2><span class="muted">按身体部位开始</span></div>${bodyCards(recent)}</section>
     <div class="dashboard-grid">${trendPanel()}${musclePanel(recent)}</div>
     <section class="panel"><div class="section-head"><h2>最近训练</h2><button class="view-link" data-action="nav" data-page="history">全部记录 ${icon('arrow')}</button></div>${historyRows(sortedSessions().slice(0,3))}</section>`;
 }
@@ -124,7 +129,7 @@ function historyRows(sessions) {
 }
 function training() {
   const chosen=catalog().filter(g=>selectedGroup==='all'||g.id===selectedGroup);
-  return heading('BUILD YOUR SESSION','开始今天的训练','选好动作，专注下一组。') + `${data.draft?'<div class="notice">你有一场未完成的训练，点击右上角「继续训练」接着记录。</div>':''}<section class="body-section">${bodyCards([],true)}</section><div class="section-head"><h2>${selectedGroup==='all'?'全部动作':groupById(selectedGroup).name+'部训练动作'}</h2><div class="library-actions">${selectedGroup!=='all'?'<button class="text-btn" data-action="all-groups">查看全部部位</button>':''}<button class="secondary" data-action="new-custom">${icon('plus')}自定义动作</button></div></div><section class="library-grid">${chosen.flatMap(g=>g.exercises.map(name=>{const last=sortedSessions().find(s=>s.exercises.some(e=>e.name===name));return `<article class="exercise-card"><span class="chip">${g.name} · ${g.en}</span><h3>${esc(name)}</h3>${trackingFor(name)==='reps'?'<span class="chip">自重 · 仅次数</span>':''}${customExercise(name)?`<span class="chip custom-badge">自定义动作</span>${customExercise(name).note?`<p class="exercise-note">${esc(customExercise(name).note)}</p>`:''}`:''}<p>${last?'最近训练：'+last.date:'还没有记录，试着完成第一组'}</p><button class="secondary" data-action="start-exercise" data-group="${g.id}" data-name="${esc(name)}">${icon('plus')}加入训练</button>${customExercise(name)?`<button class="danger delete-custom-button" data-action="delete-custom" data-id="${esc(customExercise(name).id)}" aria-label="删除自定义动作 ${esc(name)}">${icon('trash')}删除动作</button>`:''}</article>`;})).join('')}</section>${deletedExercisesPanel()}`;
+  return heading('BUILD YOUR SESSION','开始今天的训练','选好动作，专注下一组。') + routineSection(data,mode) + `${data.draft?'<div class="notice">你有一场未完成的训练，点击右上角「继续训练」接着记录。</div>':''}<section class="body-section">${bodyCards([],true)}</section><div class="section-head"><h2>${selectedGroup==='all'?'全部动作':groupById(selectedGroup).name+'部训练动作'}</h2><div class="library-actions">${selectedGroup!=='all'?'<button class="text-btn" data-action="all-groups">查看全部部位</button>':''}<button class="secondary" data-action="new-custom">${icon('plus')}自定义动作</button></div></div><section class="library-grid">${chosen.flatMap(g=>g.exercises.map(name=>{const last=sortedSessions().find(s=>s.exercises.some(e=>e.name===name));return `<article class="exercise-card"><span class="chip">${g.name} · ${g.en}</span><h3>${esc(name)}</h3>${trackingFor(name)==='reps'?'<span class="chip">自重 · 仅次数</span>':''}${customExercise(name)?`<span class="chip custom-badge">自定义动作</span>${customExercise(name).note?`<p class="exercise-note">${esc(customExercise(name).note)}</p>`:''}`:''}<p>${last?'最近训练：'+last.date:'还没有记录，试着完成第一组'}</p><button class="secondary" data-action="start-exercise" data-group="${g.id}" data-name="${esc(name)}">${icon('plus')}加入训练</button>${customExercise(name)?`<button class="danger delete-custom-button" data-action="delete-custom" data-id="${esc(customExercise(name).id)}" aria-label="删除自定义动作 ${esc(name)}">${icon('trash')}删除动作</button>`:''}</article>`;})).join('')}</section>${deletedExercisesPanel()}`;
 }
 function startIntake(){openIntake({getData:()=>data,save:persist,space:mode,notify:toast,apply:(output,runId)=>{
   const before=data;data=applyIntakeDraft(data,output,runId);
@@ -176,11 +181,11 @@ function changeMode(next) {
 }
 function freshSession() { return {id:uid(),title:'今日训练',date:localDate(),duration:0,createdAt:new Date().toISOString(),exercises:[]}; }
 function startSession(name,group) {
-  focusMode=false;restUntil=0;editingId=null;editorSession=structuredClone(data.draft||freshSession());pickerGroup=group||'chest';
+  focusMode=false;editingId=null;editorSession=structuredClone(data.draft||freshSession());const rest=restoreRest(editorSession.restTimer);restUntil=rest.until;restDuration=rest.duration;pickerGroup=group||'chest';
   if(name)addExercise(name,group,false);
   saveDraft();renderEditor();if(!editor.open)editor.showModal();
 }
-function saveDraft() { if(editorSession&&!editingId){data.draft=structuredClone(editorSession);persist();} }
+function saveDraft() { if(editorSession&&!editingId){editorSession.restTimer={until:restUntil,duration:restDuration};data.draft=structuredClone(editorSession);persist();} }
 function openSession(id) { focusMode=false;restUntil=0; const s=data.sessions.find(s=>s.id===id);if(!s)return;editingId=id;editorSession=structuredClone(s);pickerGroup=s.exercises[0]?.group||'chest';renderEditor();editor.showModal(); }
 function blankSet(previous,tracking='weighted') {return {id:uid(),tracking,weight:tracking==='reps'?null:previous?.weight??'',reps:previous?.reps??'',rir:previous?.rir??'',type:'working',done:false};}
 function addExercise(name,group,refresh=true) {
@@ -188,14 +193,15 @@ function addExercise(name,group,refresh=true) {
   const existing=editorSession.exercises.find(e=>e.name===name);
   if(existing) {if(refresh)toast('这个动作已经在本次训练中');return;}
   const last=sortedSessions().flatMap(s=>s.exercises).find(e=>e.name===name);
-  editorSession.exercises.push({id:uid(),name,group,setup:setup(data.fitnessProfiles?.find(p=>p.name===name)?.setup??{}),tracking:trackingFor(name),note:customExercise(name)?.note||'',sets:[blankSet(last?.sets.find(s=>s.done&&s.type!=='warmup'),trackingFor(name))]});
+  const previous=last?.sets.find(s=>s.done&&s.type!=='warmup');
+  editorSession.exercises.push({id:uid(),name,group,setup:setup(data.fitnessProfiles?.find(p=>p.name===name)?.setup??{}),tracking:trackingFor(name),note:customExercise(name)?.note||'',sets:[blankSet(previous?{...previous,rir:''}:undefined,trackingFor(name))]});
   if(editorSession.title==='今日训练')editorSession.title=groupById(group).name+'部训练';
   if(refresh){saveDraft();renderEditor();}
 }
 function renderEditor() {
   editor.classList.toggle('focus-mode',focusMode);
-  if(focusMode){editor.innerHTML=focusMarkup(editorSession);updateRest();return;}
-  editor.innerHTML=`<header class="dialog-header"><div><p class="eyebrow" style="margin-bottom:5px">${editingId?'TRAINING DETAILS':'ONE SET AT A TIME'}</p><h2>${editingId?'训练详情':'记录今天的训练'}</h2></div><div class="editor-header-actions">${!editingId?'<button class="secondary" data-action="focus-on">◉ 专注模式</button>':''}<button class="icon-button" data-action="close-editor" aria-label="关闭训练">${icon('close')}</button></div></header><div class="dialog-body"><div class="session-fields"><label>训练名称<input id="session-title" maxlength="60" value="${esc(editorSession.title)}"></label><label>训练日期<input id="session-date" type="date" max="${localDate()}" value="${editorSession.date}"></label><label>时长 / 分钟<input id="session-duration" type="number" min="0" max="1440" step="1" value="${editorSession.duration||''}" placeholder="可选"></label></div>${checkinFields()}<div>${editorSession.exercises.map(e=>`<section class="editor-exercise" data-exercise="${e.id}"><div class="section-head"><div><h3>${esc(e.name)} <span class="chip">${groupById(e.group)?.name}</span></h3><p class="history-meta">${esc(exerciseHint(e))} · RIR 可留空</p></div><button class="icon-button" data-action="remove-exercise" data-id="${e.id}" aria-label="移除 ${esc(e.name)}">${icon('close')}</button></div><div class="set-row head ${e.tracking==='reps'?'reps-only':''}"><span>组</span><span>类型</span>${e.tracking==='reps'?'':'<span>重量 kg</span>'}<span>次数</span><span>RIR</span><span>完成</span><span></span></div>${e.sets.map((s,i)=>`<div class="set-row ${e.tracking==='reps'?'reps-only':''} ${s.done?'finished':''}" data-set="${s.id}"><span class="set-index">${i+1}</span><select data-field="type" aria-label="${esc(e.name)} 第${i+1}组类型"><option value="working" ${s.type==='working'?'selected':''}>工作组</option><option value="warmup" ${s.type==='warmup'?'selected':''}>热身组</option></select>${e.tracking==='reps'?'':`<input data-field="weight" aria-label="${esc(e.name)} 第${i+1}组重量" type="number" min="0" max="1500" step="0.5" inputmode="decimal" placeholder="kg" value="${s.weight}">`}<input data-field="reps" aria-label="${esc(e.name)} 第${i+1}组次数" type="number" min="1" max="100" step="1" inputmode="numeric" placeholder="次" value="${s.reps}"><input data-field="rir" aria-label="${esc(e.name)} 第${i+1}组 RIR" type="number" min="0" max="10" step="0.5" inputmode="decimal" placeholder="—" value="${s.rir}"><button class="done-button ${s.done?'checked':''}" data-action="toggle-set" data-id="${s.id}" aria-label="${s.done?'取消完成':'完成'} ${esc(e.name)} 第${i+1}组" aria-pressed="${s.done}">${icon('check')}</button><button class="icon-button" data-action="remove-set" data-id="${s.id}" aria-label="删除 ${esc(e.name)} 第${i+1}组">${icon('trash')}</button></div>`).join('')}<button class="add-set" data-action="add-set" data-id="${e.id}">＋ 添加一组</button>${exerciseSetupFields(e)}</section>`).join('')}</div><div class="exercise-picker"><div class="section-head"><h3>添加训练动作</h3><button class="view-link" data-action="new-custom">＋ 自定义动作</button></div><div class="filter-row">${groups.map(g=>`<button class="${pickerGroup===g.id?'active':''}" data-action="picker-group" data-group="${g.id}">${g.name}</button>`).join('')}</div><div class="exercise-options">${exerciseNames(pickerGroup).map(name=>`<button data-action="add-exercise" data-group="${pickerGroup}" data-name="${esc(name)}">${editorSession.exercises.some(e=>e.name===name)?'✓':'＋'} ${esc(name)}</button>`).join('')}</div></div><div class="rest" id="rest-timer"></div><div class="validation" role="alert" id="editor-error"></div></div><footer class="dialog-footer"><div>${editingId?'<button class="danger" data-action="delete-session">删除这次训练</button>':'<span class="muted">草稿自动保存 · 完成后计入统计</span>'}</div><div style="display:flex;gap:8px">${!editingId?'<button class="secondary" data-action="close-editor">稍后继续</button>':''}<button class="primary" data-action="finish">${icon('check')}${editingId?'保存修改':'完成训练'}</button></div></footer>`;
+  if(focusMode){editor.innerHTML=focusMarkup(editorSession,{data,excludeId:editingId});updateRest();return;}
+  editor.innerHTML=`<header class="dialog-header"><div><p class="eyebrow" style="margin-bottom:5px">${editingId?'TRAINING DETAILS':'ONE SET AT A TIME'}</p><h2>${editingId?'训练详情':'记录今天的训练'}</h2></div><div class="editor-header-actions"><button class="secondary" data-action="save-routine">存为模板</button>${!editingId?'<button class="secondary" data-action="focus-on">◉ 专注模式</button>':''}<button class="icon-button" data-action="close-editor" aria-label="关闭训练">${icon('close')}</button></div></header><div class="dialog-body"><div class="session-fields"><label>训练名称<input id="session-title" maxlength="60" value="${esc(editorSession.title)}"></label><label>训练日期<input id="session-date" type="date" max="${localDate()}" value="${editorSession.date}"></label><label>时长 / 分钟<input id="session-duration" type="number" min="0" max="1440" step="1" value="${editorSession.duration||''}" placeholder="可选"></label></div>${editorSession.routineName?'<p class="routine-editor-note">模板中的数值是参考值。请按本次实际情况填写，并逐组确认完成。</p>':''}${checkinFields()}<div>${editorSession.exercises.map(e=>`<section class="editor-exercise" data-exercise="${e.id}"><div class="section-head"><div><h3>${esc(e.name)} <span class="chip">${groupById(e.group)?.name}</span></h3><p class="history-meta">${esc(exerciseHint(e))} · RIR 可留空</p></div><button class="icon-button" data-action="remove-exercise" data-id="${e.id}" aria-label="移除 ${esc(e.name)}">${icon('close')}</button></div>${referenceMarkup(data,e,editorSession.date,editingId)}<div class="set-row head ${e.tracking==='reps'?'reps-only':''}"><span>组</span><span>类型</span>${e.tracking==='reps'?'':'<span>重量 kg</span>'}<span>次数</span><span>RIR</span><span>完成</span><span></span></div>${e.sets.map((s,i)=>`<div class="set-row ${e.tracking==='reps'?'reps-only':''} ${s.done?'finished':''}" data-set="${s.id}"><span class="set-index">${i+1}</span><select data-field="type" aria-label="${esc(e.name)} 第${i+1}组类型"><option value="working" ${s.type==='working'?'selected':''}>工作组</option><option value="warmup" ${s.type==='warmup'?'selected':''}>热身组</option></select>${e.tracking==='reps'?'':`<input data-field="weight" aria-label="${esc(e.name)} 第${i+1}组重量" type="number" min="0" max="1500" step="0.5" inputmode="decimal" placeholder="kg" value="${s.weight}">`}<input data-field="reps" aria-label="${esc(e.name)} 第${i+1}组次数" type="number" min="1" max="100" step="1" inputmode="numeric" placeholder="次" value="${s.reps}"><input data-field="rir" aria-label="${esc(e.name)} 第${i+1}组 RIR" type="number" min="0" max="10" step="0.5" inputmode="decimal" placeholder="—" value="${s.rir}"><button class="done-button ${s.done?'checked':''}" data-action="toggle-set" data-id="${s.id}" aria-label="${s.done?'取消完成':'完成'} ${esc(e.name)} 第${i+1}组" aria-pressed="${s.done}">${icon('check')}</button><button class="icon-button" data-action="remove-set" data-id="${s.id}" aria-label="删除 ${esc(e.name)} 第${i+1}组">${icon('trash')}</button></div>`).join('')}<button class="add-set" data-action="add-set" data-id="${e.id}">＋ 添加一组</button>${exerciseSetupFields(e)}</section>`).join('')}</div><div class="exercise-picker"><div class="section-head"><h3>添加训练动作</h3><button class="view-link" data-action="new-custom">＋ 自定义动作</button></div><div class="filter-row">${groups.map(g=>`<button class="${pickerGroup===g.id?'active':''}" data-action="picker-group" data-group="${g.id}">${g.name}</button>`).join('')}</div><div class="exercise-options">${exerciseNames(pickerGroup).map(name=>`<button data-action="add-exercise" data-group="${pickerGroup}" data-name="${esc(name)}">${editorSession.exercises.some(e=>e.name===name)?'✓':'＋'} ${esc(name)}</button>`).join('')}</div></div><div class="rest" id="rest-timer"></div><div class="validation" role="alert" id="editor-error"></div></div><footer class="dialog-footer"><div>${editingId?'<button class="danger" data-action="delete-session">删除这次训练</button>':'<span class="muted">草稿自动保存 · 完成后计入统计</span><button class="text-btn discard-draft" data-action="discard-draft">移除草稿</button>'}</div><div style="display:flex;gap:8px">${!editingId?'<button class="secondary" data-action="close-editor">稍后继续</button>':''}<button class="primary" data-action="finish">${icon('check')}${editingId?'保存修改':'完成训练'}</button></div></footer>`;
   updateRest();
 }
 function checkinFields(){const c=editorSession.checkin??{};return `<details class="editor-state"><summary>训练状态 · ${c.sleepHours!==null&&c.sleepHours!==undefined&&c.sleepHours!==''||c.fatigue?'已有记录':'可选，不填也能训练'}</summary><p class="sub">前一晚睡眠与本次训练前的主观疲劳，只在本机保存，用于个人观察。</p><div class="fitness-field-grid"><label>睡眠时长 / 小时<input data-checkin="sleepHours" type="number" min="0" max="24" step="0.5" inputmode="decimal" placeholder="未记录" value="${esc(c.sleepHours??'')}"></label><label>训练前疲劳感<select data-checkin="fatigue"><option value="">未记录</option>${[1,2,3,4,5].map(v=>`<option value="${v}" ${Number(c.fatigue)===v?'selected':''}>${v} · ${['很轻','较轻','一般','较重','很重'][v-1]}</option>`).join('')}</select></label></div></details>`;}
@@ -212,7 +218,7 @@ function finishSession() {
   const done=editorSession.exercises.flatMap(e=>e.sets).filter(s=>s.done);
   if(!done.length)return editorError('请先填写至少一组，并点击右侧勾选按钮完成。');
   for(const s of done){const error=validateSet(s);if(error)return editorError(error);}
-  const saved=structuredClone(editorSession);
+  const saved=structuredClone(editorSession);delete saved.restTimer;delete saved.routineName;
   saved.title=saved.title.trim();saved.duration=duration;saved.checkin=state;saved.exercises=saved.exercises.map(e=>({...e,setup:setup(e.setup??{})}));
   saved.exercises=saved.exercises.map(e=>({...e,sets:e.sets.filter(s=>s.done).map(s=>({...s,tracking:e.tracking??'weighted',weight:e.tracking==='reps'?null:Number(s.weight),reps:Number(s.reps),rir:s.rir===''?'':Number(s.rir)}))})).filter(e=>e.sets.length);
   const before=records(data.sessions).filter(r=>saved.exercises.some(e=>e.name===r.name));
@@ -223,8 +229,8 @@ function finishSession() {
   if(!editingId)data.draft=null;
   if(!persist()){data=oldData;return editorError('保存失败，请保留页面并导出数据备份。');}
   const after=records(data.sessions),pr=before.some(b=>{const a=after.find(r=>r.name===b.name);return a&&(a.bestReps>b.bestReps||a.weight>b.weight||a.estimate>b.estimate||Object.keys(b.repsByWeight).some(w=>a.repsByWeight[w]>b.repsByWeight[w]));});
-  const wasEditing=Boolean(editingId);
-  editor.close();editorSession=null;editingId=null;restUntil=0;render();toast(wasEditing?'修改已保存，统计已更新':pr?'训练已保存，恭喜刷新个人最佳！':'训练已保存，每一组都算数。');
+  const wasEditing=Boolean(editingId);lastSavedSession=structuredClone(saved);
+  editor.close();editorSession=null;editingId=null;restUntil=0;render();toast(wasEditing?'修改已保存，统计已更新':pr?'训练已保存，恭喜刷新个人最佳！':'训练已保存，每一组都算数。');if(!wasEditing){summaryDialog.innerHTML=summaryMarkup(saved,mode);summaryDialog.showModal();}
 }
 function openCustomExercise() {
   const group = editor.open ? pickerGroup : selectedGroup === 'all' ? 'chest' : selectedGroup;
@@ -271,8 +277,8 @@ document.addEventListener('click',event=>{
   if(a==='start')startSession();
   if(a==='focus-on'){focusMode=true;renderEditor();}
   if(a==='focus-off'){focusMode=false;renderEditor();}
-  if(a==='skip-rest'){restUntil=0;updateRest();}
-  if(a==='restart-rest'){restUntil=Date.now()+restDuration*1000;updateRest();}
+  if(a==='skip-rest'){restUntil=0;saveDraft();updateRest();}
+  if(a==='restart-rest'){restUntil=Date.now()+restDuration*1000;saveDraft();updateRest();}
   if(a==='replace-exercise'){const select=editor.querySelector('[data-replacement="'+CSS.escape(id)+'"]');try{editorSession=replacePendingExercise(editorSession,id,select?.value,data.customExercises??[],data.fitnessProfiles??[]);saveDraft();renderEditor();toast('已替换；请重新填写并核对训练数值。');}catch(err){editorError(err.message);}}
   if(a==='start-exercise')startSession(button.dataset.name,g);
   if(a==='edit')openSession(id);
@@ -286,6 +292,30 @@ document.addEventListener('click',event=>{
   if(a==='remove-exercise'){editorSession.exercises=editorSession.exercises.filter(e=>e.id!==id);saveDraft();renderEditor();}
   if(a==='toggle-set'){try{editorSession.exercises.forEach(e=>setup(e.setup??{}));}catch(err){return editorError(err.message);}const s=findSet(id);if(!s.done){const error=validateSet(s);if(error)return editorError(error);}s.done=!s.done;if(s.done){const e=editorSession.exercises.find(e=>e.sets.some(row=>row.id===id));restDuration=setup(e.setup??{}).restSeconds;restUntil=Date.now()+restDuration*1000;}saveDraft();renderEditor();}
   if(a==='finish')finishSession();
+  if(a==='save-routine')openRoutineDialog(editorSession);
+  if(a==='close-routine')routineDialog.close();
+  if(a==='start-routine')startRoutine(id);
+  if(a==='discard-draft'){
+    const old=structuredClone(data.draft);data.draft=null;
+    if(!persist()){data.draft=old;return;}
+    editor.close();editorSession=null;editingId=null;restUntil=0;render();toast('草稿已移除');
+    const undo=document.createElement('button');undo.textContent='撤销';undo.className='toast-undo';document.querySelector('#toast').append(undo);
+    undo.onclick=()=>{if(data.draft){toast('已有新草稿，请先处理后再恢复。');return;}data.draft=old;if(!persist()){data.draft=null;return;}render();toast('草稿已恢复');};
+  }
+  if(a==='delete-routine'){
+    const old=data.routines??[];data.routines=old.filter(r=>r.id!==id);
+    if(!persist()){data.routines=old;return;}render();
+    const undo=document.createElement('button');undo.textContent='撤销';undo.className='toast-undo';
+    toast('模板已删除');document.querySelector('#toast').append(undo);
+    undo.onclick=()=>{const current=data.routines;data.routines=old;if(!persist()){data.routines=current;return;}render();toast('模板已恢复');};
+  }
+  if(a==='fill-reference'){
+    const e=editorSession.exercises.find(x=>x.id===id);
+    try{const ref=lastExercise(data.sessions,e,editorSession.date,editingId);editorSession.exercises=editorSession.exercises.map(x=>x.id===id?fillReference(x,ref):x);saveDraft();renderEditor();toast('已填入参考重量和次数；完成组和 RIR 保持原值。');}catch(err){editorError(err.message);}
+  }
+  if(a==='close-summary')summaryDialog.close();
+  if(a==='summary-detail'){summaryDialog.close();openSession(lastSavedSession.id);}
+  if(a==='summary-template')openRoutineDialog(lastSavedSession);
   if(a==='delete-session'){
     if(!confirm('删除这次训练？相关统计会重新计算，此操作无法撤销。'))return;
     const old=data.sessions;data.sessions=data.sessions.filter(s=>s.id!==editingId);
@@ -332,9 +362,10 @@ editor.addEventListener('input',event=>{
   if(target.id==='session-duration')editorSession.duration=target.value;
   if(target.dataset.checkin){editorSession.checkin={...(editorSession.checkin??{}),[target.dataset.checkin]:target.value};}
   if(target.dataset.setup){const e=editorSession.exercises.find(e=>e.id===target.closest('[data-exercise]').dataset.exercise);e.setup={...setup({}),...(e.setup??{}),[target.dataset.setup]:target.value};}
-  if(target.dataset.field){const s=findSet(target.closest('[data-set]').dataset.set);s[target.dataset.field]=target.value;s.done=false;const row=target.closest('[data-set]');row.classList.remove('finished');const done=row.querySelector('.done-button');done.classList.remove('checked');done.setAttribute('aria-pressed','false');done.setAttribute('aria-label',done.getAttribute('aria-label').replace(/^取消完成/,'完成'));}
+  if(target.dataset.field){const s=findSet(target.closest('[data-set]').dataset.set);s[target.dataset.field]=target.value;s.done=false;const row=target.closest('[data-set]');row.classList.remove('finished');const done=row.querySelector('.done-button');if(done){done.classList.remove('checked');done.setAttribute('aria-pressed','false');done.setAttribute('aria-label',done.getAttribute('aria-label').replace(/^取消完成/,'完成'));}}
   saveDraft();
 });
+editor.addEventListener('change',event=>{if(event.target.id==='session-date')renderEditor();});
 editor.addEventListener('cancel',e=>{e.preventDefault();closeEditor();});
 weightDialog.addEventListener('submit',event=>{
   event.preventDefault();const form=event.target;if(!form.reportValidity())return;
@@ -348,6 +379,34 @@ if(document.modelContext?.registerTool){
   const lifecycle=new AbortController();
   try{Promise.resolve(document.modelContext.registerTool({name:'get_training_summary',description:'Read the currently selected local training space summary.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute(input){if(!input||typeof input!=='object'||Object.keys(input).length)throw Error('Expected an empty object');return {space:mode,sessions:data.sessions.length,volumeKg:data.sessions.reduce((n,s)=>n+volume(s),0),workingSets:data.sessions.reduce((n,s)=>n+workSets(s).length,0)};}},{signal:lifecycle.signal})).catch(()=>{});}catch{}
   window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
+}
+let routineSource=null;
+function firstRunCard(){
+  if(mode==='demo')return '<section class="panel first-run-card"><div><h2>先看看，再记自己的训练</h2><p>当前展示的是示例记录。你的真实训练会保存在独立的个人空间。</p></div><button class="primary" data-action="personal">开始我的记录 ↗</button></section>';
+  if(data.sessions.length||data.draft)return '';
+  return '<section class="panel first-run-card"><div><h2>第一场训练，从一组开始</h2><p>① 选择动作　② 填重量与次数　③ 勾选完成并保存<br>常练的动作可以存成模板，下次直接开始。</p></div><button class="primary" data-action="start">记录第一场训练</button></section>';
+}
+function openRoutineDialog(source){
+  if(!source?.exercises?.length){toast('先添加至少一个动作，再存为模板。');return;}
+  if((data.routines??[]).length>=20){toast('已保存 20 个模板，请先删除不再使用的模板。');return;}
+  routineSource=structuredClone(source);
+  routineDialog.innerHTML=`<form id="routine-form"><header class="dialog-header"><h2 id="routine-title">存为训练模板</h2><button type="button" class="icon-button" data-action="close-routine" aria-label="关闭模板保存">×</button></header><div class="dialog-body"><label>模板名称<input name="name" maxlength="60" required value="${esc(source.title)}" placeholder="例如：推日 · 胸与肩"></label><p class="sub">保留动作顺序、组数、器械设置与参考重量 / 次数。RIR、训练状态和完成标记不会带入下次。</p><p class="validation" role="alert" id="routine-error"></p></div><footer class="dialog-footer"><button type="button" class="secondary" data-action="close-routine">取消</button><button class="primary" type="submit">保存模板</button></footer></form>`;
+  routineDialog.showModal();
+}
+routineDialog.addEventListener('submit',event=>{
+  event.preventDefault();if(!event.target.reportValidity())return;
+  try{
+    const routine=routineFromSession(routineSource,String(new FormData(event.target).get('name')??''));
+    const old=data.routines??[];data.routines=[...old,routine];
+    if(!persist()){data.routines=old;return;}
+    routineDialog.close();render();toast('模板已保存，下次可从首页直接开始。');
+  }catch(err){document.querySelector('#routine-error').textContent=err.message;}
+});
+function startRoutine(id){
+  if(data.draft){toast('已有训练草稿，请先继续完成或保存，再开始模板训练。');startSession();return;}
+  const routine=data.routines?.find(r=>r.id===id);if(!routine)return;
+  const previous=data.draft;
+  try{data.draft=sessionFromRoutine(routine,data.customExercises??[]);if(!persist()){data.draft=previous;return;}startSession();}catch(err){data.draft=previous;toast(err.message);}
 }
 persist();render();initPwa();
 

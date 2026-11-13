@@ -1,6 +1,6 @@
 const PREFIX='liftlog-shell-';
-const CACHE=PREFIX+'v1.5.0';
-const FILES=['./','./index.html','./styles.css','./interface.css','./fitness.js','./fitness-ui.js','./focus-ui.js','./app.js','./data.js','./review.js','./review-ui.js','./intake.js','./intake-ui.js','./decision.js','./decision-ui.js','./backup.js','./pwa.js','./favicon.svg','./manifest.webmanifest','./icons/apple-touch-icon.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
+const CACHE=PREFIX+'v1.6.0-r4';
+const FILES=['./','./index.html','./styles.css','./interface.css','./fitness.js','./fitness-ui.js','./focus-ui.js','./workouts.js','./routine-ui.js','./app.js','./data.js','./review.js','./review-ui.js','./intake.js','./intake-ui.js','./decision.js','./decision-ui.js','./backup.js','./pwa.js','./favicon.svg','./manifest.webmanifest','./icons/apple-touch-icon.png','./icons/icon-192.png','./icons/icon-512.png','./icons/maskable-512.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES))));
 // 不强制替换正在记录训练的页面；新版本在旧页面全部关闭后生效。
 self.addEventListener('activate',event=>event.waitUntil((async()=>{

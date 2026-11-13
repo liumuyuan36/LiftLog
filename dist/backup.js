@@ -1,3 +1,4 @@
+import {validateRoutines} from './workouts.js';
 import {checkin,setup,fitnessProfiles,experiment} from './fitness.js';
 import {localDate,groups,validateSet,validateCustomExercise} from './data.js';
 import {restoreDecisionReceipts} from './decision.js';
@@ -25,5 +26,5 @@ export function validateBackup(raw){
   });
   if(raw.weights.length>10000)throw Error('体重记录过多。');
   const weights=raw.weights.map(w=>{if(!dateValid(w.date)||!Number.isFinite(Number(w.weight))||Number(w.weight)<20||Number(w.weight)>500)throw Error('体重记录无效。');return {date:w.date,weight:Number(w.weight)};});
-  return {sessions,weights,customExercises:checked,draft:null,reviewRuns:[],decisionReceipts:restoreDecisionReceipts(raw.decisionReceipts),fitnessProfiles:fitnessProfiles(raw.fitnessProfiles),fitnessExperiment:experiment(raw.fitnessExperiment)};
+  return {sessions,weights,routines:validateRoutines(raw.routines),customExercises:checked,draft:null,reviewRuns:[],decisionReceipts:restoreDecisionReceipts(raw.decisionReceipts),fitnessProfiles:fitnessProfiles(raw.fitnessProfiles),fitnessExperiment:experiment(raw.fitnessExperiment)};
 }
