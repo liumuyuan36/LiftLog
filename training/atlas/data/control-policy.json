@@ -1,0 +1,37 @@
+{
+  "selection": "first validation sample in each category; exploratory validation comparison, never the final held-out test",
+  "cases": [
+    "validation-standard-0",
+    "validation-chinese-0",
+    "validation-list-0",
+    "validation-last-rir-0",
+    "validation-rir-zero-0",
+    "validation-bodyweight-0",
+    "validation-bodyweight-context-0",
+    "validation-warmup-0",
+    "validation-multi-0",
+    "validation-different-weight-0",
+    "validation-actual-plan-0",
+    "validation-missing-0",
+    "validation-ambiguous-0",
+    "validation-bounds-0",
+    "validation-outside-0",
+    "validation-not-log-0",
+    "validation-future-0",
+    "validation-injection-0",
+    "validation-unknown-rir-0",
+    "validation-unit-0",
+    "validation-date-0",
+    "validation-explicit-date-0",
+    "validation-dumbbell-uncertainty-0",
+    "validation-repeated-name-0",
+    "validation-per-set-rir-0",
+    "validation-irrelevant-numbers-0"
+  ],
+  "fewshotExamples": [
+    "train-standard-1",
+    "train-missing-0",
+    "train-not-log-0"
+  ],
+  "decoding": "greedy non-thinking, max 512 output tokens for every model"
+}

@@ -1,0 +1,36 @@
+{
+  "version": "liftlog-intake-pilot-v1",
+  "provenance": "AI-authored synthetic; no real user data; pending independent human review",
+  "total": 100,
+  "promptSha256": "30377ef43ae49f3952126798fbbc27f64fced09c6c6b77d8cd20c3f431053127",
+  "catalogSha256": "b61ec209dae2efd940915b484679619f2253f73cb9fc5804c206c720eb7b7c14",
+  "files": {
+    "train.cases.jsonl": {
+      "rows": 60,
+      "sha256": "ccef347106a45aafa1980dc1a70feb59a68039c142cdf49d614391dd4ab2b903"
+    },
+    "train.sft.jsonl": {
+      "rows": 60,
+      "sha256": "67a93dc1770f521de75ea7aa4ca5bca8d2c015ca86625a206ea5d21d24dc18ce"
+    },
+    "validation.cases.jsonl": {
+      "rows": 20,
+      "sha256": "7031461bd786af6b829a2a961fb3e28d15156cb82d4101e6f636532ae856130c"
+    },
+    "validation.sft.jsonl": {
+      "rows": 20,
+      "sha256": "e917303df715119f8b7244a30fa7f995ec9ce99ee23c338997d15219729efc8d"
+    },
+    "test.cases.jsonl": {
+      "rows": 20,
+      "sha256": "09870fb703bf9a072687d7d28d77712761f880ce0229f746d333fb16ef039f27"
+    }
+  },
+  "leakageChecks": {
+    "familyCrossSplit": 0,
+    "exactOrNumberTemplateDuplicates": 0,
+    "semanticParaphraseReview": "manual review still required"
+  },
+  "modelCalls": 0,
+  "containsPersonalData": false
+}

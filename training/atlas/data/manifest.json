@@ -1,0 +1,42 @@
+{
+  "version": "atlas-intake-v2",
+  "name": "LiftLog Atlas",
+  "promptSha256": "54c454ec1cdd3d4e88cd958319e7d1084f8b13de4ad01ee361b3ba00960b8c82",
+  "total": 1722,
+  "files": {
+    "train.cases.jsonl": {
+      "rows": 1348,
+      "sha256": "70227a855ff0696df6b1250f6d0e6d81d91c49e7655dcf8569d8b6d25cbf9345"
+    },
+    "train.sft.jsonl": {
+      "rows": 1348,
+      "sha256": "cc5e8b0c8de05b0c7450a982b91807dd4451c42cb0154aecc9053017d1a82039"
+    },
+    "validation.cases.jsonl": {
+      "rows": 156,
+      "sha256": "c359cc027d116c8ab72a0c2488f889a901b81e60aac4ca787dc7d579b08d9b8c"
+    },
+    "validation.sft.jsonl": {
+      "rows": 156,
+      "sha256": "026c1629170c8399d24169a05035e54513504e4a4283fe36758dbc2c0a1fdf63"
+    },
+    "test.cases.jsonl": {
+      "rows": 208,
+      "sha256": "ea83e7a628fc0dd1c828b5bb160d4ab4b091029cb1d5ef14e68a160aed35a789"
+    },
+    "user-terms.cases.jsonl": {
+      "rows": 10,
+      "sha256": "78225be72171ae7a35307573cae20ee494170cfb25298fd0917b283a2be7a48b"
+    }
+  },
+  "provenance": "Programmatic synthetic + inspected legacy development. Labels not independently human reviewed.",
+  "holdoutPolicy": "Distinct template wording/families by split; semantic independence and real-user generalization not established. Standalone user-term cases excluded; vocabulary may occur in synthetic contexts.",
+  "gates": {
+    "exactRate": 0.95,
+    "jsonRate": 0.99,
+    "unsafeReadyCount": 0,
+    "criticalNumericErrors": 0,
+    "cpuP95Ms": 20000
+  },
+  "paidModelCalls": 0
+}

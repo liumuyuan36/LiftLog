@@ -12,3 +12,10 @@ node_modules/
 .vercel/
 
 .openai/
+
+# Local model experiments: never publish credentials, weights or caches.
+.venv-train/
+training/intake/runs/
+training/intake/models/
+training/intake/cache/
+*.predictions.jsonl

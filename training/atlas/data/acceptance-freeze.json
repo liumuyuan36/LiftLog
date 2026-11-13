@@ -1,0 +1,6 @@
+{
+  "rows": 40,
+  "sha256": "d5921f6deea5f0fa9b2f1772b9827fe06d8659c8de43b86c132bf07ba642427f",
+  "policy": "Not used for training or checkpoint selection; assistant-authored, not independent human review",
+  "frozenAt": "2026-11-13T14:55:46.259Z"
+}
