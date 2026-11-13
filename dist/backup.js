@@ -8,7 +8,7 @@ export function validateBackup(raw){
   const custom=raw.customExercises??[];
   if(!Array.isArray(custom)||custom.length>500)throw Error('自定义动作库格式无效。');
   const checked=[];
-  for(const e of custom){if(typeof e.id!=='string'||checked.some(x=>x.id===e.id)||validateCustomExercise(e,checked))throw Error('自定义动作库含有无效或重复动作。');checked.push({...e});}
+  for(const e of custom){if(typeof e.id!=='string'||checked.some(x=>x.id===e.id)||validateCustomExercise(e,checked,{allowBuiltinName:true}))throw Error('自定义动作库含有无效或重复动作。');checked.push({...e});}
   const ids=new Set();let total=0;
   const sessions=raw.sessions.map(s=>{
     if(typeof s.id!=='string'||ids.has(s.id)||typeof s.title!=='string'||!s.title.trim()||s.title.length>100||!dateValid(s.date)||!Array.isArray(s.exercises)||!Number.isInteger(Number(s.duration))||Number(s.duration)<0||Number(s.duration)>1440)throw Error('训练记录格式、日期或时长无效。');

@@ -1,3 +1,4 @@
+import {builtInExercises} from './exercise-library.js';
 export const groups = [
   { id: 'chest', name: '胸', en: 'CHEST', color: '#99c96c', short: '推', exercises: ['杠铃卧推', '上斜哑铃卧推', '器械夹胸'] },
   { id: 'shoulders', name: '肩膀', en: 'SHOULDERS', color: '#93bacc', short: '肩', exercises: ['哑铃肩推', '哑铃侧平举', '反向飞鸟'] },
@@ -5,11 +6,11 @@ export const groups = [
   { id: 'arms', name: '手臂', en: 'ARMS', color: '#e0b88a', short: '臂', exercises: ['哑铃弯举', '绳索下压', '锤式弯举'] },
   { id: 'legs', name: '腿', en: 'LEGS', color: '#d69c9c', short: '腿', exercises: ['杠铃深蹲', '腿举', '罗马尼亚硬拉'] },
   { id: 'core', name: '核心', en: 'CORE', color: '#b9c4a2', short: '核', exercises: ['仰卧起坐', '悬挂举腿', '绳索卷腹', '器械卷腹'] },
-];
+].map(g=>({...g,exercises:builtInExercises.filter(e=>e.group===g.id).map(e=>e.name)}));
 export const uid = () => crypto.randomUUID();
 export function trackingForName(name, customExercises = []) {
   const custom = customExercises.find(e => e.name === name);
-  return custom ? custom.tracking ?? 'weighted' : ['仰卧起坐', '悬挂举腿'].includes(name) ? 'reps' : 'weighted';
+  return custom ? custom.tracking ?? 'weighted' : builtInExercises.find(e=>e.name===name)?.tracking ?? 'weighted';
 }
 export function exerciseCatalog(customExercises = []) {
   return groups.map(g => ({ ...g, exercises: [...g.exercises.filter(name => !customExercises.some(e => e.name === name)), ...customExercises.filter(e => e.group === g.id && !e.deleted).map(e => e.name)] }));
@@ -18,7 +19,7 @@ export function setCustomExerciseDeleted(data, id, deleted) {
   if (!data.customExercises?.some(e => e.id === id)) throw Error('找不到自定义动作');
   return {...data, customExercises:data.customExercises.map(e => e.id === id ? {...e,deleted} : e)};
 }
-export function validateCustomExercise(exercise, customExercises = []) {
+export function validateCustomExercise(exercise, customExercises = [], {allowBuiltinName=false}={}) {
   const normalize = value => String(value ?? '').normalize('NFKC').trim().replace(/\s+/g, ' ').toLowerCase();
   const name = String(exercise.name ?? '').trim();
   if (!name || name.length > 60) return '动作名称请输入 1–60 个字符。';
@@ -26,7 +27,8 @@ export function validateCustomExercise(exercise, customExercises = []) {
   if (exercise.tracking !== undefined && !['weighted','reps'].includes(exercise.tracking)) return '请选择有效的记录方式。';
   if (String(exercise.note ?? '').length > 160) return '器械备注最多 160 个字符。';
   if (customExercises.some(e => e.deleted && normalize(e.name) === normalize(name))) return '同名动作已删除，请在动作库底部的“已删除动作”中恢复，或使用不同名称。';
-  if (exerciseCatalog(customExercises).flatMap(g => g.exercises).some(n => normalize(n) === normalize(name))) return '这个动作名称已存在。不同器械请加上品牌或型号区分。';
+  const existingNames=allowBuiltinName?customExercises.map(e=>e.name):exerciseCatalog(customExercises).flatMap(g=>g.exercises);
+  if (existingNames.some(n => normalize(n) === normalize(name))) return '这个动作名称已存在。不同器械请加上品牌或型号区分。';
   return '';
 }
 export const localDate = (d = new Date()) => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;

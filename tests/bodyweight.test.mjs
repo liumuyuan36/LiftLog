@@ -28,6 +28,6 @@ test('内置和自定义自重类型正确，兼容旧自定义同名动作',()=
   const legacy=[{name:'仰卧起坐',group:'core'}];
   assert.equal(trackingForName('仰卧起坐',legacy),'weighted');
   assert.equal(exerciseCatalog(legacy).flatMap(g=>g.exercises).filter(n=>n==='仰卧起坐').length,1);
-  assert.equal(validateCustomExercise({name:'反向卷腹',group:'core',tracking:'reps'}),'');
+  assert.equal(validateCustomExercise({name:'我的反向卷腹',group:'core',tracking:'reps'}),'');
   assert.ok(validateCustomExercise({name:'反向卷腹',group:'core',tracking:'invalid'}));
 });
