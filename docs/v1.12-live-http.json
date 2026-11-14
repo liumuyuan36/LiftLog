@@ -1,0 +1,116 @@
+{
+  "checkedAt": "2026-11-14T06:09:06.194Z",
+  "commit": "cc03b9a",
+  "requests": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "9fe7c1e2744218ed8f9f5175e138d8bf8f4b6cf181ed08978ce4099d6105ca55"
+    },
+    {
+      "path": "app.js",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "02d43ab8dbd73214f9ae831f4c62fa2c7b367dd5aef5529d23229ccbd3ee55b6"
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "eb40eeba0234083f102b1262a1789a82616934a4f3e3338df48ff9fd37f682ca"
+    },
+    {
+      "path": "knowledge.js",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "26cb524577ef039365cd548ae09d8d2d6a1d71008470af669235581e763cea30"
+    },
+    {
+      "path": "knowledge-data.js",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "c7e159196532ca3d9aaefb23b268c09441d127ea057e792e456669a745eaaaa5"
+    },
+    {
+      "path": "knowledge-ui.js",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "e8e24553a484bb73c5a166a7a33077b5097f95f1870eb98d29cec1e7af8e41de"
+    },
+    {
+      "path": "knowledge.css",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "4607dc3f7984d93b8e67117fb38e281d2c6f56d1cb707962c6d2555ced09313a"
+    },
+    {
+      "path": "voice-ui.js",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "942cd799769c622e5018559b28779d635168896b7205f683767d7516417d5827"
+    },
+    {
+      "path": "audio.js",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "7a4f9f775d1b096bb8b2927ba89e0a63e7f9dccab85a753cf8d98fdb87f84fad"
+    },
+    {
+      "path": "pcm-worklet.js",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "f7032cbccb0e843e75bbde98e8a2c07595e11b08037a3cd0c8c3018b9b0c1772"
+    },
+    {
+      "path": "intake-ui.js",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "5b4c85abfea9eda7fbcd0c310757c5ef406141338412847a17adadd620cce0aa"
+    },
+    {
+      "path": "portfolio/index.html",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "1e5e15277a70f49537341c9dc752734f33fc7b89656aba59d1119f75f2f82073"
+    },
+    {
+      "path": "portfolio/knowledge-evaluation.html",
+      "status": 200,
+      "matchesRelease": true,
+      "sha256": "d1d0ed050f0e9b4bdbcca9fcc516c3140addb624bdd6860ae40bad533e1b409d"
+    },
+    {
+      "path": "healthz",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "version": "1.12.0"
+      }
+    },
+    {
+      "path": "api/ai/status",
+      "status": 200,
+      "body": {
+        "configured": true,
+        "provider": "DeepSeek",
+        "model": "deepseek-flash",
+        "atlas": {
+          "configured": true,
+          "ready": true,
+          "provider": "LiftLog Atlas",
+          "version": "atlas-intake-v3",
+          "artifactSha": "37a915c0d6b128abea960cafbd43e8a0cf48bb7ab395ca95f83d827314325a66"
+        }
+      }
+    }
+  ],
+  "paidCalls": 0,
+  "passed": true,
+  "finalizedAt": "2026-11-14T06:09:48.745Z",
+  "atlasKnowledgeGate": {
+    "status": 503,
+    "code": "atlas_knowledge_not_released",
+    "modelCalled": false
+  }
+}
