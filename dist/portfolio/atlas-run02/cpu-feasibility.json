@@ -1,0 +1,13 @@
+{
+  "kind": "single CPU feasibility probe, not accuracy evaluation",
+  "cpus": 2,
+  "memoryLimitGiB": 8,
+  "dtype": "BF16",
+  "caseId": "FRESH40-003",
+  "loadSeconds": 2.9525075280000124,
+  "generateSeconds": 25.138471573000004,
+  "outputTokens": 23,
+  "limited": true,
+  "maxRssMiB": 3848.109375,
+  "output": "{\"status\":\"answered\",\"points\":[{\"text\":\"该综述提示，超过60秒的组间休息可能"
+}

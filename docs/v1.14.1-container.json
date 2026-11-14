@@ -1,5 +1,5 @@
 {
-  "createdAt": "2026-11-14T09:07:52.990Z",
+  "createdAt": "2026-11-14T09:12:33.881Z",
   "environment": "existing Node24 Docker image, external network disabled",
   "modelCalls": 0,
   "restoredChecksumsVerified": true,
@@ -38,7 +38,7 @@
     {
       "path": "/portfolio/atlas-run02.html",
       "status": 200,
-      "sha256": "ac927978fd9ff3424dadebde6ed68660d4c4a2ba65269227c71b381e84f8fc88"
+      "sha256": "6d080bbedf695ef1f9a21233ece88600b6614d8af9ec3d38473a356dcdd2b4c0"
     },
     {
       "path": "/portfolio/atlas-run02/semantic.fresh40.json",

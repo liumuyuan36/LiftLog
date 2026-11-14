@@ -11,9 +11,11 @@ let app=await read('dist/app.js');app=app.replace(/V1\.14\.\d+ · 主屏幕网�
 let sw=await read('dist/sw.js');sw=sw.replace(/v1\.14\.\d+-r\d+/,`v${version}-r1`);await write('dist/sw.js',sw);
 const publicResults='dist/portfolio/atlas-run02';await fs.mkdir(path.join(root,publicResults),{recursive:true});
 for(const name of ['semantic.fresh40.json','PROMOTION.json','VERIFICATION.json','run02.workflow16.report.json','run01.fresh40.report.json','run02.fresh40.report.json','DECISION.json'])await fs.copyFile(path.join(root,'evaluation/atlas17-run02',name),path.join(root,publicResults,name));
+await fs.copyFile(path.join(root,'docs/atlas17-cpu-feasibility.json'),path.join(root,publicResults,'cpu-feasibility.json'));
 let report=await read('evaluation/atlas17-run02/REPORT.html');
 report=report.replaceAll('href="semantic.fresh40.json"','href="atlas-run02/semantic.fresh40.json"').replaceAll('href="PROMOTION.json"','href="atlas-run02/PROMOTION.json"').replaceAll('href="VERIFICATION.json"','href="atlas-run02/VERIFICATION.json"').replaceAll('href="run02.workflow16.report.json"','href="atlas-run02/run02.workflow16.report.json"');
 report=report.replace('<main>','<main><a href="index.html">← 返回项目案例</a>').replace('</main>','<p><a href="atlas-run02/run01.fresh40.report.json">Run01 原始回答</a> · <a href="atlas-run02/run02.fresh40.report.json">Run02 原始回答</a></p></main>');
+report=report.replace('<h2>全部40题逐项记录</h2>','<h2>线上迁移还有什么要做</h2><p>本机 Docker 模拟 2 核、8GB、无 GPU，BF16 完整模型在一次探针中占用峰值约 3.76GB，25.1 秒仅生成 23 个 token，因时限截断，尚未形成完整回答。这是单次资源可行性检查，不是魔搭真实响应时间，也不是准确率测试。需要进一步适配推理速度、超时和完整流程，再迁移在线模型。</p><p><a href="atlas-run02/cpu-feasibility.json">查看原始 CPU 探针记录</a></p><h2>全部40题逐项记录</h2>');
 await write('dist/portfolio/atlas-run02.html',report);
 let portfolio=await read('dist/portfolio/index.html');
 portfolio=portfolio.replace(/<aside class="evaluation-note" style="margin:24px 0">.*?<\/aside>/s,`<aside class="evaluation-note" style="margin:24px 0"><b>2026.11.14 更新 · V${version}</b><span>公开体验包含 61 条增肌资料与来源说明，在线 AI 功能仍使用 DeepSeek。Atlas 1.7B Run02 已完成本地微调：新增40题严格内容 AI 复核 19/40 → 21/40，跨任务 12/16 → 14/16；尚未部署为在线推理服务。合成评测不代表真实用户准确率。</span></aside>`);
