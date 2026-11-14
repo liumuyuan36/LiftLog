@@ -3,9 +3,9 @@ import {localDate, validateSet} from './data.js';
 export const goals = {consistency:'保持记录习惯',progress:'观察训练变化',quality:'提高记录质量'};
 export const actions = {
   log:{title:'完成下一次训练后及时记录',text:'把实际完成的组记录下来，再回看变化；未记录不代表未训练。'},
-  rir:{title:'补充下一次工作组的 RIR',text:'愿意记录时填写主观估计；不确定可以留空，不用为了完整而猜测。'},
+  rir:{title:'需要时，补充一组的余力',text:'RIR 表示完成一组后估计还能做几次。不确定可以留空，不用为了完整而猜测。'},
   compare:{title:'打开同一动作的历史再比较',text:'保持器械、重量口径与动作名称一致。总容量变化本身不能证明力量增长或训练效果。'},
-  context:{title:'为下次复盘补充背景',text:'当前日志没有睡眠、疼痛或动作质量信息，不能据此判断恢复状态，也不会自动调整训练负重。'},
+  context:{title:'把这份复盘当作记录参考',text:'这份复盘没有使用睡眠、疼痛或动作质量信息，不能据此判断恢复状态，也不会自动调整训练负重。'},
 };
 const shift=(date,n)=>{const d=new Date(date+'T12:00:00');d.setDate(d.getDate()+n);return localDate(d);};
 const round=n=>Math.round(n*10)/10;
@@ -40,7 +40,7 @@ export function buildReview(sessions, {today=localDate(),days=7,goal='consistenc
     {id:'frequency',title:'训练记录',text:`近 ${days} 天有 ${current.length} 次有效训练记录；前 ${days} 天有 ${previous.length} 次。`,refs:comparisonRefs},
     {id:'sets',title:'已完成工作组',text:`本期 ${all.length} 组，前期 ${past.length} 组；排除热身和未完成组。`,refs:comparisonRefs},
     {id:'volume',title:'负重训练容量',text:`本期 ${round(weighted(all))} kg，前期 ${round(weighted(past))} kg；自重动作不计入。`,refs:comparisonRefs},
-    {id:'rir',title:'RIR 记录覆盖',text:`${known.length} / ${all.length} 个工作组填写了 RIR${all.length?`（${Math.round(known.length/all.length*100)}%）`:''}；空值不按 0 处理。`,refs},
+    {id:'rir',title:'余力记录填写情况',text:`${known.length} / ${all.length} 个工作组填写了 RIR${all.length?`（${Math.round(known.length/all.length*100)}%）`:''}；空值保留为未知。`,refs},
     {id:'limits',title:'这些数据不能回答什么',text:'未记录的训练无法统计；不能根据日志推断肌肉增长、动作质量或身体恢复状态。',refs:[]},
   ];
   if(rejected)facts.push({id:'excluded',title:'数据检查',text:`已跳过 ${rejected} 条无效记录或工作组，建议先核对原始日志。`,refs:[]});

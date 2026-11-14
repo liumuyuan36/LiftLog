@@ -7,7 +7,7 @@ export function mountTrail(root,{getData,space,openSession,start}){
   let index=records.length-1,focus='';
   function draw(){
     if(!records.length){
-      root.innerHTML='<section class="trail-panel trail-empty" aria-label="我的训练轨迹"><p class="trail-kicker">YOUR OWN PACE</p><h2>你的起点，留在这里。</h2><div class="trail-start-dot" aria-hidden="true"></div><p>保存第一场已完成的训练，就会留下第一个节点。</p><button type="button" class="primary" data-trail="start">记录第一场训练</button><small>草稿、热身和未来日期不会生成节点。</small></section>';return;
+      root.innerHTML='<section class="trail-panel trail-empty" aria-label="我的训练轨迹"><p class="trail-kicker">YOUR OWN PACE</p><h2>你的起点，留在这里。</h2><div class="trail-start-dot" aria-hidden="true"></div><p>保存第一场已完成的训练，就会留下第一个节点。</p><button type="button" class="primary" data-trail="start">记录第一场训练</button><small>完成并保存训练后，轨迹会自动更新。</small></section>';return;
     }
     const selected=records[index],window=trailWindow(records,index);
     if(!selected.exercises.some(e=>e.name===focus))focus=selected.exercises[0].name;

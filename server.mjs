@@ -12,7 +12,7 @@ import {generateSelection,validatePayload} from './ai.mjs';
 const entry=fileURLToPath(import.meta.url);
 const appVersion=JSON.parse(await readFile(new URL('./package.json',import.meta.url),'utf8')).version;
 const root=fileURLToPath(new URL('./dist/',import.meta.url));
-const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.webmanifest':'application/manifest+json'};
+const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.pdf':'application/pdf','.webmanifest':'application/manifest+json'};
 const routes=new Map([
   ['/api/ai/intake',generateIntake],
   ['/api/atlas/intake',generateAtlasIntake],
