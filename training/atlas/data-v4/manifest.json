@@ -1,0 +1,25 @@
+{
+  "version": "atlas-training-v4",
+  "promptSha256": "54c454ec1cdd3d4e88cd958319e7d1084f8b13de4ad01ee361b3ba00960b8c82",
+  "files": {
+    "train.cases.jsonl": {
+      "rows": 2904,
+      "sha256": "dfc7b941f619592b39cf1d2307f95efb9f84ab17a76bcef585ab2150bdb8210b"
+    },
+    "train.sft.jsonl": {
+      "rows": 2904,
+      "sha256": "773cf71b5842febd0db5ce9f5adb0d29bb05c02abf67e51ae9fe4db2f5da7ff7"
+    },
+    "validation.cases.jsonl": {
+      "rows": 120,
+      "sha256": "9e9e35abb7f71181a6c578820f89a98a2deddcac5f2c3463553f4c7c97c93045"
+    },
+    "validation.sft.jsonl": {
+      "rows": 120,
+      "sha256": "54fc3a4e3df1e6f704fed5bc82aa91940ef5842e80d421e9d24a7097ae25b046"
+    }
+  },
+  "provenance": "All synthetic. Existing v3 test, 40 acceptance and Nov14 fresh32 have now been inspected and are development regressions, not independent final tests. None of these cases added verbatim to training. Original 120 validation is reused development selection, not independent evaluation.",
+  "humanReview": "pending",
+  "paidModelCalls": 0
+}

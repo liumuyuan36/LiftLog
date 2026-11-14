@@ -1,0 +1,845 @@
+{
+  "split": "acceptance",
+  "pipelineVersion": "atlas-pipeline-v3.2",
+  "checkedAt": "2026-11-14T01:04:26.761Z",
+  "datasetSha256": "d5921f6deea5f0fa9b2f1772b9827fe06d8659c8de43b86c132bf07ba642427f",
+  "labels": "synthetic_pending_independent_review",
+  "metrics": {
+    "coverage": {
+      "correct": 40,
+      "total": 40,
+      "rate": 1
+    },
+    "jsonValid": {
+      "correct": 40,
+      "total": 40,
+      "rate": 1
+    },
+    "rawExact": {
+      "correct": 38,
+      "total": 40,
+      "rate": 0.95
+    },
+    "servedExact": {
+      "correct": 39,
+      "total": 40,
+      "rate": 0.975
+    },
+    "policyRouted": 3,
+    "schemaProjected": 0,
+    "guardRejected": 2,
+    "unsafeReady": 0,
+    "criticalNumericErrors": 0,
+    "latencyMs": {
+      "p50": 3405,
+      "p95": 4805
+    }
+  },
+  "qualityGatePassed": true,
+  "categories": {
+    "reps": {
+      "correct": 1,
+      "total": 1
+    },
+    "last-rir": {
+      "correct": 1,
+      "total": 1
+    },
+    "failure": {
+      "correct": 1,
+      "total": 1
+    },
+    "zero": {
+      "correct": 1,
+      "total": 1
+    },
+    "weight-is-body": {
+      "correct": 1,
+      "total": 1
+    },
+    "warmup": {
+      "correct": 1,
+      "total": 1
+    },
+    "actual": {
+      "correct": 1,
+      "total": 1
+    },
+    "dumbbell": {
+      "correct": 1,
+      "total": 1
+    },
+    "ordered-weights": {
+      "correct": 1,
+      "total": 1
+    },
+    "two-names": {
+      "correct": 1,
+      "total": 1
+    },
+    "yesterday": {
+      "correct": 1,
+      "total": 1
+    },
+    "monthday": {
+      "correct": 1,
+      "total": 1
+    },
+    "repeated": {
+      "correct": 1,
+      "total": 1
+    },
+    "scope": {
+      "correct": 1,
+      "total": 1
+    },
+    "mixed-food": {
+      "correct": 1,
+      "total": 1
+    },
+    "form": {
+      "correct": 1,
+      "total": 1
+    },
+    "rest-not-reps": {
+      "correct": 1,
+      "total": 1
+    },
+    "sleep-date": {
+      "correct": 1,
+      "total": 1
+    },
+    "per-group": {
+      "correct": 1,
+      "total": 1
+    },
+    "one-group": {
+      "correct": 1,
+      "total": 1
+    },
+    "partial-name": {
+      "correct": 1,
+      "total": 1
+    },
+    "single-or-total": {
+      "correct": 0,
+      "total": 1
+    },
+    "unknown-unit": {
+      "correct": 1,
+      "total": 1
+    },
+    "shorthand": {
+      "correct": 1,
+      "total": 1
+    },
+    "missing": {
+      "correct": 1,
+      "total": 1
+    },
+    "outside": {
+      "correct": 1,
+      "total": 1
+    },
+    "fractional": {
+      "correct": 1,
+      "total": 1
+    },
+    "pounds": {
+      "correct": 1,
+      "total": 1
+    },
+    "unresolved": {
+      "correct": 1,
+      "total": 1
+    },
+    "empty-bar": {
+      "correct": 1,
+      "total": 1
+    },
+    "future": {
+      "correct": 1,
+      "total": 1
+    },
+    "food": {
+      "correct": 1,
+      "total": 1
+    },
+    "supplement": {
+      "correct": 1,
+      "total": 1
+    },
+    "quality": {
+      "correct": 1,
+      "total": 1
+    },
+    "recovery": {
+      "correct": 1,
+      "total": 1
+    },
+    "injection": {
+      "correct": 1,
+      "total": 1
+    },
+    "delete": {
+      "correct": 1,
+      "total": 1
+    },
+    "no-training": {
+      "correct": 1,
+      "total": 1
+    },
+    "future-date": {
+      "correct": 1,
+      "total": 1
+    },
+    "rir-range": {
+      "correct": 1,
+      "total": 1
+    }
+  },
+  "rows": [
+    {
+      "id": "accept-reps",
+      "category": "reps",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4595,
+      "outputTokens": 39,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-last-rir",
+      "category": "last-rir",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4824,
+      "outputTokens": 46,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-failure",
+      "category": "failure",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4261,
+      "outputTokens": 38,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-zero",
+      "category": "zero",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 3624,
+      "outputTokens": 29,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-weight-is-body",
+      "category": "weight-is-body",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 3612,
+      "outputTokens": 33,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-warmup",
+      "category": "warmup",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4174,
+      "outputTokens": 37,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-actual",
+      "category": "actual",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4295,
+      "outputTokens": 39,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-dumbbell",
+      "category": "dumbbell",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4533,
+      "outputTokens": 40,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-ordered-weights",
+      "category": "ordered-weights",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4417,
+      "outputTokens": 39,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-two-names",
+      "category": "two-names",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4812,
+      "outputTokens": 44,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-yesterday",
+      "category": "yesterday",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4722,
+      "outputTokens": 40,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-monthday",
+      "category": "monthday",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4721,
+      "outputTokens": 39,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-repeated",
+      "category": "repeated",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4318,
+      "outputTokens": 38,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-scope",
+      "category": "scope",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 3854,
+      "outputTokens": 35,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-mixed-food",
+      "category": "mixed-food",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4188,
+      "outputTokens": 36,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-form",
+      "category": "form",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4072,
+      "outputTokens": 35,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-rest-not-reps",
+      "category": "rest-not-reps",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4448,
+      "outputTokens": 39,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-sleep-date",
+      "category": "sleep-date",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 3821,
+      "outputTokens": 32,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-per-group",
+      "category": "per-group",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 4805,
+      "outputTokens": 42,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-one-group",
+      "category": "one-group",
+      "expectedStatus": "ready",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 3286,
+      "outputTokens": 27,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "ready"
+    },
+    {
+      "id": "accept-partial-name",
+      "category": "partial-name",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2079,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "clarify"
+    },
+    {
+      "id": "accept-single-or-total",
+      "category": "single-or-total",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": false,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2075,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-unknown-unit",
+      "category": "unknown-unit",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2010,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "clarify"
+    },
+    {
+      "id": "accept-shorthand",
+      "category": "shorthand",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1968,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "clarify"
+    },
+    {
+      "id": "accept-missing",
+      "category": "missing",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1992,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "clarify"
+    },
+    {
+      "id": "accept-outside",
+      "category": "outside",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": false,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 3480,
+      "outputTokens": 32,
+      "rawRejection": "unsupported_name",
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": true,
+      "actualStatus": "clarify"
+    },
+    {
+      "id": "accept-fractional",
+      "category": "fractional",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1984,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "clarify"
+    },
+    {
+      "id": "accept-pounds",
+      "category": "pounds",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2044,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "clarify"
+    },
+    {
+      "id": "accept-unresolved",
+      "category": "unresolved",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2120,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "clarify"
+    },
+    {
+      "id": "accept-empty-bar",
+      "category": "empty-bar",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2081,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "clarify"
+    },
+    {
+      "id": "accept-future",
+      "category": "future",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2065,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-food",
+      "category": "food",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2029,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-supplement",
+      "category": "supplement",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1849,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-quality",
+      "category": "quality",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1901,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-recovery",
+      "category": "recovery",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1926,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-injection",
+      "category": "injection",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1988,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-delete",
+      "category": "delete",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1936,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-no-training",
+      "category": "no-training",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1940,
+      "outputTokens": 10,
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-future-date",
+      "category": "future-date",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2041,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "accept-rir-range",
+      "category": "rir-range",
+      "expectedStatus": "clarify",
+      "jsonValid": true,
+      "rawExact": false,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 3405,
+      "outputTokens": 28,
+      "rawRejection": "RIR 请输入 0–10，或留空",
+      "policyRouted": false,
+      "schemaProjected": false,
+      "guardRejected": true,
+      "actualStatus": "clarify"
+    }
+  ]
+}

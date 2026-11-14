@@ -29,6 +29,7 @@ def main():
     parser.add_argument('--all-linear',action='store_true')
     parser.add_argument('--learning-rate',type=float,default=1e-4)
     parser.add_argument('--resume-from-checkpoint',default=None)
+    parser.add_argument('--adapter',default=None,help='Warm-start a prior adapter with a new optimizer; not checkpoint resume')
     parser.add_argument('--allow-synthetic', action='store_true', help='Acknowledge this pilot is not independently human-reviewed')
     parser.add_argument('--preflight', action='store_true', help='Tokenize and check loss masks, do not load weights or train')
     args = parser.parse_args()
@@ -63,12 +64,18 @@ def main():
     info['hyperparameters']={'loraRank':args.rank,'loraAlpha':args.rank*2,'loraDropout':0.05,'targetModules':targets,'learningRate':args.learning_rate,'batchSize':args.batch_size,'gradientAccumulationSteps':args.accumulation,'dtype':'bfloat16','optimizer':'adamw_torch','selection':'minimum validation loss','maxLength':args.max_length}
     info['sourceSha256']={name:hashlib.sha256((HERE/name).read_bytes()).hexdigest() for name in ['train_lora.py','predict_local.py','protocol.mjs']}
     info['resumeFromCheckpoint']=args.resume_from_checkpoint
+    info['warmStartAdapter']=args.adapter
     print(json.dumps(info, ensure_ascii=False), flush=True)
     if args.preflight:
         return
     model = AutoModelForCausalLM.from_pretrained(args.model, torch_dtype=torch.bfloat16, attn_implementation='sdpa', trust_remote_code=False)
     model.config.use_cache = False
-    model = get_peft_model(model, LoraConfig(task_type='CAUSAL_LM', r=args.rank, lora_alpha=args.rank*2, lora_dropout=0.05, target_modules=targets))
+    if args.adapter:
+        from peft import PeftModel
+        model=PeftModel.from_pretrained(model,args.adapter,is_trainable=True)
+        if model.peft_config['default'].r!=args.rank:raise ValueError('Warm-start adapter rank differs from requested metadata')
+    else:
+        model = get_peft_model(model, LoraConfig(task_type='CAUSAL_LM', r=args.rank, lora_alpha=args.rank*2, lora_dropout=0.05, target_modules=targets))
     model.print_trainable_parameters()
     def collate(rows):
         length = max(len(r['input_ids']) for r in rows)

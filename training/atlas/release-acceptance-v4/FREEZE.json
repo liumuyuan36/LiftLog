@@ -1,0 +1,6 @@
+{
+  "createdAt": "2026-11-14T01:15:33.563Z",
+  "caseSha": "34e6899ebe45c1e95d313b47287706a8c65ae68682fd95ff30a065bcca5e3b82",
+  "cases": 40,
+  "purpose": "New synthetic release acceptance, no training use. Frozen during run05 before any predictions. Not independent human annotation."
+}

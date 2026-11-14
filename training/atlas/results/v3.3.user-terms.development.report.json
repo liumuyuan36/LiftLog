@@ -1,0 +1,208 @@
+{
+  "split": "user-terms",
+  "pipelineVersion": "atlas-pipeline-v3.2",
+  "checkedAt": "2026-11-14T01:05:30.609Z",
+  "datasetSha256": "78225be72171ae7a35307573cae20ee494170cfb25298fd0917b283a2be7a48b",
+  "labels": "synthetic_pending_independent_review",
+  "metrics": {
+    "coverage": {
+      "correct": 10,
+      "total": 10,
+      "rate": 1
+    },
+    "jsonValid": {
+      "correct": 10,
+      "total": 10,
+      "rate": 1
+    },
+    "rawExact": {
+      "correct": 5,
+      "total": 10,
+      "rate": 0.5
+    },
+    "servedExact": {
+      "correct": 10,
+      "total": 10,
+      "rate": 1
+    },
+    "policyRouted": 10,
+    "schemaProjected": 0,
+    "guardRejected": 0,
+    "unsafeReady": 0,
+    "criticalNumericErrors": 0,
+    "latencyMs": {
+      "p50": 1912,
+      "p95": 6181
+    }
+  },
+  "qualityGatePassed": true,
+  "categories": {
+    "vocabulary_is_not_a_log": {
+      "correct": 10,
+      "total": 10
+    }
+  },
+  "rows": [
+    {
+      "id": "user-term-0",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": false,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 2033,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "user-term-1",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": false,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 6181,
+      "outputTokens": 62,
+      "rawRejection": "unsupported_name",
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "user-term-2",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1901,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "user-term-3",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": false,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1932,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "user-term-4",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": false,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1930,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "user-term-5",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": false,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1846,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "user-term-6",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1910,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "user-term-7",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1912,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "user-term-8",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1872,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    },
+    {
+      "id": "user-term-9",
+      "category": "vocabulary_is_not_a_log",
+      "expectedStatus": "not_log",
+      "jsonValid": true,
+      "rawExact": true,
+      "servedExact": true,
+      "unsafeReady": false,
+      "criticalNumericError": false,
+      "elapsedMs": 1924,
+      "outputTokens": 10,
+      "policyRouted": true,
+      "schemaProjected": false,
+      "guardRejected": false,
+      "actualStatus": "not_log"
+    }
+  ]
+}

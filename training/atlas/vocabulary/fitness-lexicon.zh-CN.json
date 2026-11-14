@@ -1,0 +1,980 @@
+{
+  "version": "atlas-vocabulary-draft-1",
+  "researchedAt": "2026-11-14",
+  "purpose": "训练记录语境识别词表；不是知识问答库，不代表模型权重已学习。来源用于概念参考；中文候选译名及产品处理规则由本项目编写。",
+  "sources": [
+    {
+      "id": "user",
+      "title": "用户提供的口语词；不是权威术语定义",
+      "url": null
+    },
+    {
+      "id": "guide",
+      "title": "国家体育总局《全民健身指南》",
+      "url": "https://www.sport.gov.cn/n315/n20067006/c20324479/content.html"
+    },
+    {
+      "id": "ace",
+      "title": "ACE Exercise Library：肌群、器材及动作目录",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/"
+    },
+    {
+      "id": "body",
+      "title": "国家体育总局：科学减重“质”大于“量”",
+      "url": "https://www.sport.gov.cn/n20001280/n20001265/n20066978/c28489202/content.html"
+    },
+    {
+      "id": "rir",
+      "title": "Estimating Repetitions in Reserve in Four Commonly Used Resistance Exercises",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33337690/"
+    },
+    {
+      "id": "ods",
+      "title": "NIH ODS：Dietary Supplements for Exercise and Athletic Performance",
+      "url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/"
+    },
+    {
+      "id": "product",
+      "title": "LiftLog 自有记录字段与输入分类规范；不是医学资料",
+      "url": null
+    }
+  ],
+  "terms": [
+    {
+      "term": "薄肌",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "用户外形描述；不据此推断体脂率、肌肉量、健康状况或训练处方。"
+    },
+    {
+      "term": "脂包肌",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "用户外形描述；不据此推断体脂率、肌肉量、健康状况或训练处方。"
+    },
+    {
+      "term": "宽肩窄腰",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "用户外形描述；不据此推断体脂率、肌肉量、健康状况或训练处方。"
+    },
+    {
+      "term": "倒三角",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "穿衣显瘦",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "脱衣有肉",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "肌肉线条",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "壮一点",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "显肩宽",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "背变宽",
+      "category": "外形目标与口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "体脂率",
+      "category": "身体信息",
+      "source": "body",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "体脂百分比",
+      "category": "身体信息",
+      "source": "body",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "体重",
+      "category": "身体信息",
+      "source": "body",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "脂肪量",
+      "category": "身体信息",
+      "source": "body",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "瘦体重",
+      "category": "身体信息",
+      "source": "body",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "肌肉量",
+      "category": "身体信息",
+      "source": "body",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "身体成分",
+      "category": "身体信息",
+      "source": "body",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "身高",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "腰围",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "肩围",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "胸围",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "臀围",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "臂围",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "腿围",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "腰臀比",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "骨骼肌量",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "水分",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "BMI",
+      "category": "身体围度与主观描述",
+      "source": "product",
+      "handling": "measurement_context",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "三角肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "三角肌前束",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "三角肌中束",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "三角肌后束",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "胸肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "宽泛部位称呼；不能自动等同于某个完整动作。"
+    },
+    {
+      "term": "胸大肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "背阔肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "斜方肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "菱形肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "肱二头肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "肱三头肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "股四头肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "腘绳肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "臀大肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "臀中肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "腓肠肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "比目鱼肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "腹直肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "腹斜肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "竖脊肌",
+      "category": "肌肉部位",
+      "source": "ace",
+      "handling": "body_region_not_exercise",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "抗阻训练",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "力量训练",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "有氧运动",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "柔韧性",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "肌肉力量",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "肌耐力",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "心肺功能",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "平衡能力",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "热身",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "恢复",
+      "category": "训练类型",
+      "source": "guide",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "组数",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "次数",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "工作组",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "热身组",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "总重量",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "每只重量",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "当前不自动乘二；无法确认总重时请求补充。"
+    },
+    {
+      "term": "单侧重量",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "当前不自动乘二；无法确认总重时请求补充。"
+    },
+    {
+      "term": "双侧总重",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "当前不自动乘二；无法确认总重时请求补充。"
+    },
+    {
+      "term": "自重",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "负重",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "公斤",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "千克",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "kg",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "磅",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "lb",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "半程",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "完整行程",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "动作幅度",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "向心",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "离心",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "等长",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "组间休息",
+      "category": "逐组记录字段",
+      "source": "product",
+      "handling": "explicit_log_fields_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "RIR",
+      "category": "余力与感受",
+      "source": "rir",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "余力次数",
+      "category": "余力与感受",
+      "source": "rir",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "剩余次数",
+      "category": "余力与感受",
+      "source": "rir",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "RPE",
+      "category": "余力与感受",
+      "source": "product",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "口语候选词，暂不作专业定义；不自动转换RIR。"
+    },
+    {
+      "term": "力竭",
+      "category": "余力与感受",
+      "source": "rir",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "发力感",
+      "category": "余力与感受",
+      "source": "rir",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "技术性力竭",
+      "category": "余力与感受",
+      "source": "product",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "口语候选词，暂不作专业定义；不自动转换RIR。"
+    },
+    {
+      "term": "泵感",
+      "category": "余力与感受",
+      "source": "product",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "口语候选词，暂不作专业定义；不自动转换RIR。"
+    },
+    {
+      "term": "借力",
+      "category": "余力与感受",
+      "source": "product",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "口语候选词，暂不作专业定义；不自动转换RIR。"
+    },
+    {
+      "term": "耸肩",
+      "category": "余力与感受",
+      "source": "product",
+      "handling": "do_not_infer_rir",
+      "reviewStatus": "draft_pending_independent_review",
+      "note": "口语候选词，暂不作专业定义；不自动转换RIR。"
+    },
+    {
+      "term": "杠铃",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "哑铃",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "壶铃",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "弹力带",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "绳索",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "史密斯机",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "龙门架",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "训练凳",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "固定器械",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "卧推",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "深蹲",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "硬拉",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "划船",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "下拉",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "推举",
+      "category": "器材与动作语境",
+      "source": "ace",
+      "handling": "require_catalog_full_name",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "肌酸",
+      "category": "营养语境",
+      "source": "ods",
+      "handling": "nutrition_not_training_load",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "蛋白粉",
+      "category": "营养语境",
+      "source": "ods",
+      "handling": "nutrition_not_training_load",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "蛋白质",
+      "category": "营养语境",
+      "source": "ods",
+      "handling": "nutrition_not_training_load",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "碳水化合物",
+      "category": "营养语境",
+      "source": "ods",
+      "handling": "nutrition_not_training_load",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "脂肪",
+      "category": "营养语境",
+      "source": "ods",
+      "handling": "nutrition_not_training_load",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "咖啡因",
+      "category": "营养语境",
+      "source": "ods",
+      "handling": "nutrition_not_training_load",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "乳清蛋白",
+      "category": "营养语境",
+      "source": "ods",
+      "handling": "nutrition_not_training_load",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "氨基酸",
+      "category": "营养语境",
+      "source": "ods",
+      "handling": "nutrition_not_training_load",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "能量摄入",
+      "category": "营养语境",
+      "source": "ods",
+      "handling": "nutrition_not_training_load",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "碳水",
+      "category": "营养及感受口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "优质脂肪",
+      "category": "营养及感受口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "皮质醇",
+      "category": "营养及感受口语",
+      "source": "user",
+      "handling": "context_only",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "已完成",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "做完了",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "练完了",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "补记",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "昨天",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "前天",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "计划",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "准备",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "打算",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "没开始",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "没做",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "跳过",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "只做了",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "还剩",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    },
+    {
+      "term": "忘了记",
+      "category": "行为与时态",
+      "source": "product",
+      "handling": "completion_scope",
+      "reviewStatus": "draft_pending_independent_review"
+    }
+  ]
+}

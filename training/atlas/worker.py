@@ -11,7 +11,7 @@ def main():
     p.add_argument('--model',required=True);p.add_argument('--adapter',required=True)
     p.add_argument('--port',type=int,default=7861);p.add_argument('--threads',type=int,default=2)
     p.add_argument('--quantize',action='store_true')
-    p.add_argument('--quantization',choices=['none','dynamic-all','dynamic-mlp','dynamic-channel'],default='none');a=p.parse_args()
+    p.add_argument('--quantization',choices=['none','float16','dynamic-all','dynamic-mlp','dynamic-channel'],default='none');a=p.parse_args()
     mode='dynamic-all' if a.quantize else a.quantization
     import torch
     from transformers import AutoModelForCausalLM,AutoTokenizer,StoppingCriteria,StoppingCriteriaList
@@ -25,7 +25,7 @@ def main():
         spec={torch.nn.Linear}
         if mode=='dynamic-mlp':spec={name for name,module in model.named_modules() if isinstance(module,torch.nn.Linear) and any(name.endswith('mlp.'+part) for part in ['gate_proj','up_proj','down_proj'])}
         if mode=='dynamic-channel':spec={torch.nn.Linear:torch.ao.quantization.per_channel_dynamic_qconfig}
-        model=torch.ao.quantization.quantize_dynamic(model,spec,dtype=torch.qint8)
+        model=torch.ao.quantization.quantize_dynamic(model,spec,dtype=torch.float16 if mode=='float16' else torch.qint8)
     hasher=hashlib.sha256()
     with (Path(a.adapter)/'adapter_model.safetensors').open('rb') as weights:
         while chunk:=weights.read(1024*1024):hasher.update(chunk)
@@ -37,7 +37,7 @@ def main():
             data=json.dumps(value,ensure_ascii=False).encode('utf-8');self.send_response(status)
             self.send_header('Content-Type','application/json; charset=utf-8');self.send_header('Cache-Control','no-store');self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data)
         def do_GET(self):
-            self.send(200,{'ready':True,'model':'LiftLog Atlas','version':'atlas-intake-v2','quantization':mode,'artifactSha':artifact_sha}) if self.path=='/healthz' else self.send(404,{'error':'not_found'})
+            self.send(200,{'ready':True,'model':'LiftLog Atlas','version':'atlas-intake-v3','quantization':mode,'artifactSha':artifact_sha}) if self.path=='/healthz' else self.send(404,{'error':'not_found'})
         def do_POST(self):
             if self.path!='/generate':return self.send(404,{'error':'not_found'})
             try:

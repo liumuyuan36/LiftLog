@@ -1,0 +1,46 @@
+{
+  "terms": 132,
+  "contextExamples": 264,
+  "status": "prepared_not_trained",
+  "caseSha": "19d264a0cc787e9acc8898518efc306fdc28b0350155b4ebc607e2109b93f532",
+  "sftSha": "99ec56e8e5748a156eab24a2faaa9e9325c0603b2fcd848fd2f83184b8859843",
+  "trainedRun06UsesThisData": false,
+  "provenance": "AI-authored synthetic contexts; pending human review; not evaluation holdout",
+  "sources": [
+    {
+      "id": "user",
+      "title": "用户提供的口语词；不是权威术语定义",
+      "url": null
+    },
+    {
+      "id": "guide",
+      "title": "国家体育总局《全民健身指南》",
+      "url": "https://www.sport.gov.cn/n315/n20067006/c20324479/content.html"
+    },
+    {
+      "id": "ace",
+      "title": "ACE Exercise Library：肌群、器材及动作目录",
+      "url": "https://www.acefitness.org/resources/everyone/exercise-library/"
+    },
+    {
+      "id": "body",
+      "title": "国家体育总局：科学减重“质”大于“量”",
+      "url": "https://www.sport.gov.cn/n20001280/n20001265/n20066978/c28489202/content.html"
+    },
+    {
+      "id": "rir",
+      "title": "Estimating Repetitions in Reserve in Four Commonly Used Resistance Exercises",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33337690/"
+    },
+    {
+      "id": "ods",
+      "title": "NIH ODS：Dietary Supplements for Exercise and Athletic Performance",
+      "url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/"
+    },
+    {
+      "id": "product",
+      "title": "LiftLog 自有记录字段与输入分类规范；不是医学资料",
+      "url": null
+    }
+  ]
+}

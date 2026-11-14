@@ -1,0 +1,46 @@
+{
+  "version": "atlas-intake-v3",
+  "name": "LiftLog Atlas",
+  "inputPolicy": "Exact longest exercise-name matches before model; no gold-label access. Deterministic date normalization, set-preserving duplicate merging and evidence rejection are system components, not learned model accuracy.",
+  "promptSha256": "54c454ec1cdd3d4e88cd958319e7d1084f8b13de4ad01ee361b3ba00960b8c82",
+  "files": {
+    "train.cases.jsonl": {
+      "rows": 2104,
+      "sha256": "7982a44b0bb63bf1cfaeaecee8b1ee4c8a21e3156053151ccd15446cc5bbadd7"
+    },
+    "train.sft.jsonl": {
+      "rows": 2104,
+      "sha256": "162b2c1ffc671073bda6c6ab050dbd12b39e5dc3393e6a0ea0c3b35013117e64"
+    },
+    "validation.cases.jsonl": {
+      "rows": 120,
+      "sha256": "9e9e35abb7f71181a6c578820f89a98a2deddcac5f2c3463553f4c7c97c93045"
+    },
+    "validation.sft.jsonl": {
+      "rows": 120,
+      "sha256": "54fc3a4e3df1e6f704fed5bc82aa91940ef5842e80d421e9d24a7097ae25b046"
+    },
+    "test.cases.jsonl": {
+      "rows": 208,
+      "sha256": "ea83e7a628fc0dd1c828b5bb160d4ab4b091029cb1d5ef14e68a160aed35a789"
+    },
+    "acceptance.cases.jsonl": {
+      "rows": 40,
+      "sha256": "d5921f6deea5f0fa9b2f1772b9827fe06d8659c8de43b86c132bf07ba642427f"
+    },
+    "user-terms.cases.jsonl": {
+      "rows": 10,
+      "sha256": "78225be72171ae7a35307573cae20ee494170cfb25298fd0917b283a2be7a48b"
+    }
+  },
+  "provenance": "Synthetic. V2 inspected validation intentionally reclassified as training/development. V3 validation new wording. Frozen 208/40/user-term case bytes preserved; no model predictions inspected on them.",
+  "gates": {
+    "jsonRate": 0.99,
+    "servedExact": 0.95,
+    "unsafeReady": 0,
+    "criticalReadyErrors": 0,
+    "cpuP95Ms": 20000
+  },
+  "humanReview": "pending",
+  "paidModelCalls": 0
+}

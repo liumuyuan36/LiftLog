@@ -1,0 +1,38 @@
+{
+  "selection": "first validation sample in each category; exploratory validation comparison, never the final held-out test",
+  "cases": [
+    "validation3-0",
+    "validation3-1",
+    "validation3-2",
+    "validation3-3",
+    "validation3-4",
+    "validation3-5",
+    "validation3-6",
+    "validation3-7",
+    "validation3-8",
+    "validation3-9",
+    "validation3-10",
+    "validation3-11",
+    "validation3-12",
+    "validation3-13",
+    "validation3-14",
+    "validation3-15",
+    "validation3-16",
+    "validation3-17",
+    "validation3-18",
+    "validation3-19",
+    "validation3-20",
+    "validation3-21",
+    "validation3-22",
+    "validation3-23"
+  ],
+  "fewshotExamples": [
+    "v2-dev-train-standard-1",
+    "v2-dev-train-last-rir-0",
+    "v2-dev-train-warmup-0",
+    "v2-dev-train-bodyweight-context-0",
+    "v2-dev-train-missing-0",
+    "v2-dev-train-future-0"
+  ],
+  "decoding": "greedy non-thinking, max 512 output tokens for every model"
+}
