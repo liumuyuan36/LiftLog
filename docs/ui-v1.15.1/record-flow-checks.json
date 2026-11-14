@@ -1,0 +1,13 @@
+{
+  "checkedAt": "2026-11-14T13:33:41.204Z",
+  "origin": "http://127.0.0.1:5187",
+  "fixture": "Fresh isolated browser profile, synthetic manual record; no user storage or real model calls",
+  "checks": [
+    "Unfinished draft survives reload; no saved session yet",
+    "Explicit completion saves one real UI fixture session, clears draft",
+    "Saved session appears in home trajectory after reload",
+    "Offline reload and training history preserve the record"
+  ],
+  "errors": [],
+  "passed": 4
+}
