@@ -66,17 +66,17 @@ test('完整备份恢复保留回执和兑现关联，恶意限制或方案被�
   const fake=structuredClone(data.decisionReceipts);fake[0].selectedId='invented';assert.throws(()=>restoreDecisionReceipts(fake));
 });
 test('模型只收到取舍摘要与显式记忆，不收到重量或逐组训练',async()=>{
-  const d=makeDecisionPlans(source(),limits),payload={goal:'想少换动作',candidates:d.candidates.map(decisionSummary),memory:[],history:'do not forward'};
+  const d=makeDecisionPlans(source(),limits),payload={engine:'atlas',consent:true,goal:'想少换动作',candidates:d.candidates.map(decisionSummary),memory:[],history:'do not forward'};
   assert.equal(decisionRequest(payload).history,undefined);
-  const result=await generateDecision(payload,{apiKey:'test-only',fetchImpl:async(url,options)=>{
-    const input=JSON.parse(JSON.parse(options.body).messages[1].content);assert.equal(input.candidates[0].exercises,undefined);assert.equal(JSON.stringify(input).includes('weight'),false);
-    return {ok:true,json:async()=>({choices:[{message:{content:'{"status":"recommend","candidateId":"compact"}'}}],usage:{prompt_tokens:80,completion_tokens:20}})};
+  const result=await generateDecision(payload,{enabled:true,apiKey:'test-only',fetchImpl:async(url,options)=>{
+    const input=JSON.parse(JSON.parse(options.body).prompt.split('<|im_start|>user\n')[1].split('<|im_end|>')[0]);assert.equal(input.candidates[0].exercises,undefined);assert.equal(JSON.stringify(input).includes('weight'),false);
+    return {ok:true,json:async()=>({model:'liftlog-atlas-1.7b-run02',content:'{"status":"recommend","candidateId":"compact"}',stop_type:'eos',tokens_evaluated:80,tokens_predicted:20})};
   }});
   assert.equal(result.advice.candidateId,'compact');assert.equal(result.meta.usage.inputTokens,80);
 });
 test('模型编造方案被拒绝；允许一个澄清问题，不能产生新计划',async()=>{
-  const payload={goal:'想兼顾全部目标',candidates:makeDecisionPlans(source(),limits).candidates.map(decisionSummary)};
-  const stub=content=>({apiKey:'test',fetchImpl:async()=>({ok:true,json:async()=>({choices:[{message:{content:JSON.stringify(content)}}]})})});
+  const payload={engine:'atlas',consent:true,goal:'想兼顾全部目标',candidates:makeDecisionPlans(source(),limits).candidates.map(decisionSummary)};
+  const stub=content=>({enabled:true,apiKey:'test',fetchImpl:async()=>({ok:true,json:async()=>({model:'liftlog-atlas-1.7b-run02',content:JSON.stringify(content),stop_type:'eos'})})});
   await assert.rejects(generateDecision(payload,stub({status:'recommend',candidateId:'invented'})));
   const result=await generateDecision(payload,stub({status:'clarify',question:'如果时间不够，你更愿意保留动作种类还是主项组数？'}));assert.equal(result.advice.status,'clarify');assert.equal(result.advice.candidates,undefined);
 });

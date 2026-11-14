@@ -1,0 +1,17 @@
+{
+  "name": "LiftLog Atlas",
+  "base": "Qwen/Qwen3-1.7B",
+  "baseRevision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "fineTuning": "Local LoRA SFT Run02, merged BF16, then Q8_0 GGUF",
+  "adapterSha256": "bffa62c24fb61a189c350e8f5b7bbbd9f31ccea95fe06d227701f66a2b61e837",
+  "ggufSha256": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+  "ggufBytes": 1834426240,
+  "runtime": {
+    "release": "b12377",
+    "commit": "32bdc3a89e6528d3e419024c833c5dabf32c7541",
+    "archiveSha256": "93713f6bf0ff11e8bc55e64fd14b2415fd8accd3e6f8aecf6e218973b625becd",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/download/b12377/llama-b12377-bin-ubuntu-x64.tar.gz"
+  },
+  "apiFallback": false,
+  "voice": "device/input-method dictation only; Atlas processes confirmed text"
+}

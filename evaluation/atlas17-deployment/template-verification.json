@@ -1,0 +1,342 @@
+{
+  "method": "Exact template and token-count verification against exported Run02 Hugging Face tokenizer, enable_thinking=False. No inference or reference answers used.",
+  "passed": true,
+  "cases": [
+    {
+      "id": "FRESH40-001",
+      "templateMatches": true,
+      "tokens": 527,
+      "promptUtf8Sha256": "0f7a33e97a092b1db5996fc84c16ca2fb4653515cc4aa7bfebdd563c283a4e07"
+    },
+    {
+      "id": "FRESH40-002",
+      "templateMatches": true,
+      "tokens": 539,
+      "promptUtf8Sha256": "3789405f6c4c82c621c656a70c8fb4c325b7e33f85f1bfd9e5f50c0dd4a6e307"
+    },
+    {
+      "id": "FRESH40-003",
+      "templateMatches": true,
+      "tokens": 652,
+      "promptUtf8Sha256": "5499e663f4c38198fc7d4c1d0366e9fb16213b82861378a43224970cae2c4041"
+    },
+    {
+      "id": "FRESH40-004",
+      "templateMatches": true,
+      "tokens": 638,
+      "promptUtf8Sha256": "f8f4f30c50e0f1f79618a6e5c8afaaf265f61f9d1aa7fc50797ca6d190b7364a"
+    },
+    {
+      "id": "FRESH40-005",
+      "templateMatches": true,
+      "tokens": 528,
+      "promptUtf8Sha256": "19e905114256b21745a1d301a72a4eeeade68ea2eddb1c4293046c5828f521de"
+    },
+    {
+      "id": "FRESH40-006",
+      "templateMatches": true,
+      "tokens": 657,
+      "promptUtf8Sha256": "f118882b4b43f6af6c3a118b1834661a473b467d41fd6a7478db637a4fb1aacf"
+    },
+    {
+      "id": "FRESH40-007",
+      "templateMatches": true,
+      "tokens": 662,
+      "promptUtf8Sha256": "dcbc59bce89fae3bde1f8ed2d8b895d9aecd690e36c1ecb8dcf3d18d3e501d4c"
+    },
+    {
+      "id": "FRESH40-008",
+      "templateMatches": true,
+      "tokens": 684,
+      "promptUtf8Sha256": "74bba2566f9053fc6bba053abd05ea193d67496f81e4aa03c378c5e3884ea2e8"
+    },
+    {
+      "id": "FRESH40-009",
+      "templateMatches": true,
+      "tokens": 664,
+      "promptUtf8Sha256": "53e3e47ed5204b3dbd0990db9b35d9019dbb6e1a24c2b18bae64475a5069d78a"
+    },
+    {
+      "id": "FRESH40-010",
+      "templateMatches": true,
+      "tokens": 644,
+      "promptUtf8Sha256": "0b887d57ddf61f55a1cf880133920b8766bad0c9f38c4da2724655b070de0f5b"
+    },
+    {
+      "id": "FRESH40-011",
+      "templateMatches": true,
+      "tokens": 678,
+      "promptUtf8Sha256": "6fa550df5214eb0b5bbee6569b5c4aa875a73a1bf32df4852f4264c713fbd69c"
+    },
+    {
+      "id": "FRESH40-012",
+      "templateMatches": true,
+      "tokens": 675,
+      "promptUtf8Sha256": "3cdcf2a91f6d2ea22c953ca5f6fa29702115b438f8506ddd82da054cc17d2168"
+    },
+    {
+      "id": "FRESH40-013",
+      "templateMatches": true,
+      "tokens": 649,
+      "promptUtf8Sha256": "f9f592a8cd0f273ede60a484b35f39313ac710140203fe936eea18c5d24d1b28"
+    },
+    {
+      "id": "FRESH40-014",
+      "templateMatches": true,
+      "tokens": 664,
+      "promptUtf8Sha256": "c193312450721098310572b9dc5c5d5eee30f9c130f6d0382fb8907a28da8737"
+    },
+    {
+      "id": "FRESH40-015",
+      "templateMatches": true,
+      "tokens": 664,
+      "promptUtf8Sha256": "8a3182ddfd4b6178261372a108325a9e5a32571cbfd75e8b14a053b5ea2439c5"
+    },
+    {
+      "id": "FRESH40-016",
+      "templateMatches": true,
+      "tokens": 676,
+      "promptUtf8Sha256": "a0306e53008e60b04bd05a36889454775174c9e8bfbd44fc010b2bdde64e982e"
+    },
+    {
+      "id": "FRESH40-017",
+      "templateMatches": true,
+      "tokens": 663,
+      "promptUtf8Sha256": "d854eb6ad017459cc9c85f0fec5cf3a046fee2e81cda3b257899fb9e80464214"
+    },
+    {
+      "id": "FRESH40-018",
+      "templateMatches": true,
+      "tokens": 678,
+      "promptUtf8Sha256": "f47692972f874831399a8b3c51171d66da5ab390d9f5f7643f385f9571f2dfdc"
+    },
+    {
+      "id": "FRESH40-019",
+      "templateMatches": true,
+      "tokens": 565,
+      "promptUtf8Sha256": "2e33041a3a4e915dfa44004a13dc27407cc9db38fd279fa37f8fd185ec97d08f"
+    },
+    {
+      "id": "FRESH40-020",
+      "templateMatches": true,
+      "tokens": 659,
+      "promptUtf8Sha256": "f1c4a07b4cd2d9e9111a881ed48797428a25e88b6e56c9614d1e5704b4b21ea2"
+    },
+    {
+      "id": "FRESH40-021",
+      "templateMatches": true,
+      "tokens": 681,
+      "promptUtf8Sha256": "c2ed2abddcfd0b9ffe0f29be321eb229b10697d4b18d26dec9c6436e32a4d116"
+    },
+    {
+      "id": "FRESH40-022",
+      "templateMatches": true,
+      "tokens": 665,
+      "promptUtf8Sha256": "e378f0d9a8f7f705e4528a1b0940fe7efbaf1c01688799ade2f8eb688680b7af"
+    },
+    {
+      "id": "FRESH40-023",
+      "templateMatches": true,
+      "tokens": 656,
+      "promptUtf8Sha256": "0a30f7c9beac708b03857aca3b33ea4d72c220215807fbf312649d3f7a2afd64"
+    },
+    {
+      "id": "FRESH40-024",
+      "templateMatches": true,
+      "tokens": 682,
+      "promptUtf8Sha256": "7d298d05001cd1abb78a0f1989686ac0a208d95d4a1a6db83660fbf5a394ce19"
+    },
+    {
+      "id": "FRESH40-025",
+      "templateMatches": true,
+      "tokens": 690,
+      "promptUtf8Sha256": "1ba328408dd37ae62941684df58c0056377caca5fe8fa1c1f9847c05d5b5e4d5"
+    },
+    {
+      "id": "FRESH40-026",
+      "templateMatches": true,
+      "tokens": 690,
+      "promptUtf8Sha256": "f7e3e247efaa3f566d45aa864b9fafeeece1ecbe7e554cd1377266ca595dbe60"
+    },
+    {
+      "id": "FRESH40-027",
+      "templateMatches": true,
+      "tokens": 574,
+      "promptUtf8Sha256": "842158fd2c624806e25dcb38d9234c7f7afd74d2961a5c25bf1b3db4a9f98210"
+    },
+    {
+      "id": "FRESH40-028",
+      "templateMatches": true,
+      "tokens": 672,
+      "promptUtf8Sha256": "c95ce57fb8f7fe14c103893fca082ac7343b3d0be345077fd1b9764e1a65c9f2"
+    },
+    {
+      "id": "FRESH40-029",
+      "templateMatches": true,
+      "tokens": 576,
+      "promptUtf8Sha256": "76dfe03efe65edf604ea2e25457add3545c108aa30cb1b774c2953a8e1c37ffc"
+    },
+    {
+      "id": "FRESH40-030",
+      "templateMatches": true,
+      "tokens": 677,
+      "promptUtf8Sha256": "696755ae1d4bd16cf4f7a9091efbd0f1dfa54f7908daf6638755246528b37e37"
+    },
+    {
+      "id": "FRESH40-031",
+      "templateMatches": true,
+      "tokens": 648,
+      "promptUtf8Sha256": "766934e125e230daf18ec9ff6a6c743820929889f0c7a5268fa18ca34920e104"
+    },
+    {
+      "id": "FRESH40-032",
+      "templateMatches": true,
+      "tokens": 655,
+      "promptUtf8Sha256": "b97114441838a96dc5382cf12de225957e9070fda1b255d91ef44d0584d74494"
+    },
+    {
+      "id": "FRESH40-033",
+      "templateMatches": true,
+      "tokens": 643,
+      "promptUtf8Sha256": "f15bc9fe321dfcc23dc7d04c2c9b87ddc76c4f804f1e7fc3348e0c16b3770bc4"
+    },
+    {
+      "id": "FRESH40-034",
+      "templateMatches": true,
+      "tokens": 631,
+      "promptUtf8Sha256": "94b333b38a64682703120b55bb54743ba25d921956934357525b8f88b0a99e51"
+    },
+    {
+      "id": "FRESH40-035",
+      "templateMatches": true,
+      "tokens": 438,
+      "promptUtf8Sha256": "2c7b49121fc062bbd630ac4e925b7085eb9a93ec1e8cc1756457022fd0a4917c"
+    },
+    {
+      "id": "FRESH40-036",
+      "templateMatches": true,
+      "tokens": 335,
+      "promptUtf8Sha256": "17acf5f9be8a8af4c57005166e639f1d22abb01ccf2c41c708bfc8e3115c764b"
+    },
+    {
+      "id": "FRESH40-037",
+      "templateMatches": true,
+      "tokens": 336,
+      "promptUtf8Sha256": "92c5d8289074fb3c018b62773ad0a3152114557558aa34c490d620bfb73119bb"
+    },
+    {
+      "id": "FRESH40-038",
+      "templateMatches": true,
+      "tokens": 330,
+      "promptUtf8Sha256": "4166f51ffe01fe7072b0958df76b35e9839389ede71dd8fa66a237349b0e7d9a"
+    },
+    {
+      "id": "FRESH40-039",
+      "templateMatches": true,
+      "tokens": 332,
+      "promptUtf8Sha256": "9208c69c00eb62197dcaf5a1dce3c32c0c3a364430579e9d19265b69b4de33f8"
+    },
+    {
+      "id": "FRESH40-040",
+      "templateMatches": true,
+      "tokens": 333,
+      "promptUtf8Sha256": "de227b2199af7ca269aaad51c4f11967aaf3fd999d1a57cfbd35ed2b5460ad55"
+    },
+    {
+      "id": "WF-I01",
+      "templateMatches": true,
+      "tokens": 1384,
+      "promptUtf8Sha256": "c8e915867c8f275c7e928ae8fc09f1b185847b56a5db485a74a292fc354b2cad"
+    },
+    {
+      "id": "WF-I03",
+      "templateMatches": true,
+      "tokens": 1388,
+      "promptUtf8Sha256": "27d009d76311cbc6462438f93862924e6cfd82b686afd63a24d88bd0ee57d851"
+    },
+    {
+      "id": "WF-I05",
+      "templateMatches": true,
+      "tokens": 1383,
+      "promptUtf8Sha256": "3b46471229d5cd564f855c66b8b42dd7e996d5fb3ccf03b776ad0055fc5c0aed"
+    },
+    {
+      "id": "WF-I09",
+      "templateMatches": true,
+      "tokens": 1383,
+      "promptUtf8Sha256": "2dd0d8c6e261b0fcebd5a8b7374b6b49674d1822f7e8b981c777f436d1a590c6"
+    },
+    {
+      "id": "WF-I16",
+      "templateMatches": true,
+      "tokens": 1378,
+      "promptUtf8Sha256": "cef1fa0522cc4e4278b04127017f79a1eaf94a4f794e5a347c00a71937223935"
+    },
+    {
+      "id": "WF-I23",
+      "templateMatches": true,
+      "tokens": 1381,
+      "promptUtf8Sha256": "fecd80d9e5318e5a372516bfaf912e6589aafd0ebe594953352fc117fe7de13f"
+    },
+    {
+      "id": "WF-I31",
+      "templateMatches": true,
+      "tokens": 1381,
+      "promptUtf8Sha256": "07ac77d32a20d7f2a82eb305e1e80da936ae15dbfe4bdb27d411e234e17dd4df"
+    },
+    {
+      "id": "WF-I40",
+      "templateMatches": true,
+      "tokens": 1395,
+      "promptUtf8Sha256": "cb720a700473834b97ef8278a9de74181c12a7e11e9d1eacd6e19bb51f69474d"
+    },
+    {
+      "id": "WF-R0",
+      "templateMatches": true,
+      "tokens": 259,
+      "promptUtf8Sha256": "51999e0e5a4070a8307ee05269c51909a3ee84d5b785ccc2bc2210a0911591f2"
+    },
+    {
+      "id": "WF-R1",
+      "templateMatches": true,
+      "tokens": 258,
+      "promptUtf8Sha256": "ffa6dd37127a0335cc14c40dcaabc0472dc89a881ce19aaf3466288392e9fb7c"
+    },
+    {
+      "id": "WF-R2",
+      "templateMatches": true,
+      "tokens": 258,
+      "promptUtf8Sha256": "0de97c13b6bebd86fdeaf9b24340816fb28513bb66d0b494a2e722530b9cd5e5"
+    },
+    {
+      "id": "WF-R3",
+      "templateMatches": true,
+      "tokens": 277,
+      "promptUtf8Sha256": "357691b010427d42f36fa2d948961ab7dc8224b3a842e125596bbdc7f514a909"
+    },
+    {
+      "id": "WF-D0",
+      "templateMatches": true,
+      "tokens": 358,
+      "promptUtf8Sha256": "3cd4c50500cb2b1a3b2e81ab2b0a08fa9ecdf45e33501017291577931ad1ceae"
+    },
+    {
+      "id": "WF-D1",
+      "templateMatches": true,
+      "tokens": 359,
+      "promptUtf8Sha256": "bc8830913b0c58102804ab23f93d07ca1b910a4473cfa2b5f4eaae5ff2c70591"
+    },
+    {
+      "id": "WF-D2",
+      "templateMatches": true,
+      "tokens": 358,
+      "promptUtf8Sha256": "711d501508c346fcb3a7236a71725c3f99c84f6f1ac7e1f615cc9dc81b9bb3af"
+    },
+    {
+      "id": "WF-D3",
+      "templateMatches": true,
+      "tokens": 372,
+      "promptUtf8Sha256": "8a11900773aeb1178941ac98c4a1cfa44cbccd4471f445c6d09ce9979c185c12"
+    }
+  ]
+}

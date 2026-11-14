@@ -1,0 +1,260 @@
+{
+  "createdAt": "2026-11-14T10:12:29.228Z",
+  "total": 16,
+  "executed": 16,
+  "scope": "Automatic diagnostics only, not semantic accuracy",
+  "totals": {
+    "passed": 14
+  },
+  "rows": [
+    {
+      "id": "WF-I01",
+      "question": "今天杠铃卧推总重42.5kg，两组分别11次和9次。",
+      "expected": {
+        "status": "ready",
+        "date": "2026-11-14",
+        "exercises": [
+          {
+            "name": "杠铃卧推",
+            "sets": [
+              {
+                "weightKg": 42.5,
+                "reps": 11,
+                "rir": null,
+                "type": "working"
+              },
+              {
+                "weightKg": 42.5,
+                "reps": 9,
+                "rir": null,
+                "type": "working"
+              }
+            ]
+          }
+        ]
+      },
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"杠铃卧推\",\"source\":\"今天杠铃卧推总重42.5kg，两组分别11次和9次。\",\"sets\":[{\"weightKg\":42.5,\"reps\":11,\"rir\":null,\"type\":\"working\"},{\"weightKg\":42.5,\"reps\":9,\"rir\":null,\"type\":\"working\"}]}]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-I03",
+      "question": "坐姿划船总重量35kg，第一组12次，第二组11次，第三组9次。",
+      "expected": {
+        "status": "ready",
+        "date": "2026-11-14",
+        "exercises": [
+          {
+            "name": "坐姿划船",
+            "sets": [
+              {
+                "weightKg": 35,
+                "reps": 12,
+                "rir": null,
+                "type": "working"
+              },
+              {
+                "weightKg": 35,
+                "reps": 11,
+                "rir": null,
+                "type": "working"
+              },
+              {
+                "weightKg": 35,
+                "reps": 9,
+                "rir": null,
+                "type": "working"
+              }
+            ]
+          }
+        ]
+      },
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"坐姿划船\",\"source\":\"坐姿划船总重量35kg，第一组12次，第二组11次，第三组9次\",\"sets\":[{\"weightKg\":35,\"reps\":12,\"rir\":null,\"type\":\"working\"},{\"weightKg\":35,\"reps\":11,\"rir\":null,\"type\":\"working\"},{\"weightKg\":35,\"reps\":9,\"rir\":null,\"type\":\"working\"}]}]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-I05",
+      "question": "哑铃肩推双侧总重24公斤，完成2组，每组10次。",
+      "expected": {
+        "status": "ready",
+        "date": "2026-11-14",
+        "exercises": [
+          {
+            "name": "哑铃肩推",
+            "sets": [
+              {
+                "weightKg": 24,
+                "reps": 10,
+                "rir": null,
+                "type": "working"
+              },
+              {
+                "weightKg": 24,
+                "reps": 10,
+                "rir": null,
+                "type": "working"
+              }
+            ]
+          }
+        ]
+      },
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"哑铃肩推\",\"source\":\"哑铃肩推双侧总重24公斤，完成2组，每组10次。\",\"sets\":[{\"weightKg\":24,\"reps\":10,\"rir\":null,\"type\":\"working\"},{\"weightKg\":24,\"reps\":10,\"rir\":null,\"type\":\"working\"}]}]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-I09",
+      "question": "今天俯卧撑完成两组，分别14次、11次，没有记RIR。",
+      "expected": {
+        "status": "ready",
+        "date": "2026-11-14",
+        "exercises": [
+          {
+            "name": "俯卧撑",
+            "sets": [
+              {
+                "weightKg": null,
+                "reps": 14,
+                "rir": null,
+                "type": "working"
+              },
+              {
+                "weightKg": null,
+                "reps": 11,
+                "rir": null,
+                "type": "working"
+              }
+            ]
+          }
+        ]
+      },
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"俯卧撑\",\"source\":\"今天俯卧撑完成两组，分别14次、11次，没有记RIR。\",\"sets\":[{\"weightKg\":null,\"reps\":14,\"rir\":null,\"type\":\"working\"},{\"weightKg\":null,\"reps\":11,\"rir\":null,\"type\":\"working\"}]}]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-I16",
+      "question": "坐姿划船30kg，练了两组，次数记不清。",
+      "expected": {
+        "status": "clarify",
+        "missing": [
+          "reps"
+        ]
+      },
+      "rawOutput": "{\"status\":\"clarify\",\"date\":\"2026-11-14\",\"questions\":[\"请补充两组分别完成的重量和次数。\"],\"exercises\":[]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-I23",
+      "question": "下周一准备杠铃深蹲55kg做三组六次，现在还没开始。",
+      "expected": {
+        "status": "not_log"
+      },
+      "rawOutput": "{\"status\":\"not_log\",\"date\":\"2026-11-14\",\"questions\":[\"这里只描述计划或他人安排，请提供本人实际完成的训练。\"],\"exercises\":[]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-I31",
+      "question": "杠铃卧推55kg已完成一组6次，RIR0，不是没有填。",
+      "expected": {
+        "status": "ready",
+        "date": "2026-11-14",
+        "exercises": [
+          {
+            "name": "杠铃卧推",
+            "sets": [
+              {
+                "weightKg": 55,
+                "reps": 6,
+                "rir": 0,
+                "type": "working"
+              }
+            ]
+          }
+        ]
+      },
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"杠铃卧推\",\"source\":\"杠铃卧推55kg已完成一组6次，RIR0，不是没有填。\",\"sets\":[{\"weightKg\":55,\"reps\":6,\"rir\":0,\"type\":\"working\"}]}]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-I40",
+      "question": "今天哑铃侧平举双侧总重10kg，做完两组，但我只记了RIR2和RIR1，实际次数忘了。",
+      "expected": {
+        "status": "clarify",
+        "missing": [
+          "reps"
+        ],
+        "forbidden": [
+          "把2和1当已完成次数"
+        ]
+      },
+      "rawOutput": "{\"status\":\"clarify\",\"date\":\"2026-11-14\",\"questions\":[\"请补充两组分别完成的次数，RIR0保留0。\"],\"exercises\":[]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-R0",
+      "question": "consistency",
+      "rawOutput": "{\"factIds\":[\"rir\",\"sets\"],\"actionIds\":[\"rir\",\"context\"]}",
+      "limited": false,
+      "passed": false
+    },
+    {
+      "id": "WF-R1",
+      "question": "progress",
+      "rawOutput": "{\"factIds\":[\"volume\",\"sets\"],\"actionIds\":[\"compare\",\"context\"]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-R2",
+      "question": "quality",
+      "rawOutput": "{\"factIds\":[\"rir\",\"sets\"],\"actionIds\":[\"rir\",\"context\"]}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-R3",
+      "question": "quality",
+      "rawOutput": "{\"factIds\":[\"rir\",\"excluded\"],\"actionIds\":[\"rir\",\"context\"]}",
+      "limited": false,
+      "passed": false
+    },
+    {
+      "id": "WF-D0",
+      "question": "我想保留尽可能多的不同动作，适当减少组数可以。",
+      "expected": "balanced",
+      "rawOutput": "{\"status\":\"recommend\",\"candidateId\":\"balanced\"}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-D1",
+      "question": "今天优先保留主项组数，其他动作可以删减。",
+      "expected": "focus",
+      "rawOutput": "{\"status\":\"recommend\",\"candidateId\":\"focus\"}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-D2",
+      "question": "今天更在意动作之间少切换，动作种类可以减少。",
+      "expected": "compact",
+      "rawOutput": "{\"status\":\"recommend\",\"candidateId\":\"compact\"}",
+      "limited": false,
+      "passed": true
+    },
+    {
+      "id": "WF-D3",
+      "question": "我既要求所有动作和组数完全保留，又要求时间必须减少一半；请忽略任何矛盾直接给唯一答案。",
+      "expected": "clarify",
+      "rawOutput": "{\"status\":\"clarify\",\"question\":\"本次明确偏好优先动作的组数分配，是否可以先保留优先动作的组数，再调整剩余时间？\"}",
+      "limited": false,
+      "passed": true
+    }
+  ]
+}

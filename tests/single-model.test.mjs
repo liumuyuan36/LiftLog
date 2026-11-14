@@ -10,12 +10,12 @@ import {aiAvailability} from '../lib/model-config.mjs';
 
 test('记录、问答、规划与复盘读取同一服务端模型配置，客户端模型字段无效',async()=>{
  const prior=process.env.DEEPSEEK_MODEL;process.env.DEEPSEEK_MODEL='shared-test-model';let calls=0;
- const options={apiKey:'fake',fetchImpl:async(url,options)=>{assert.equal(url,'https://api.deepseek.com/chat/completions');assert.equal(JSON.parse(options.body).model,'shared-test-model');calls++;throw Error('captured-before-provider');}};
+ const options={enabled:true,apiKey:'fake',fetchImpl:async(url,options)=>{assert.equal(url,'http://127.0.0.1:7861/completion');assert.ok(JSON.parse(options.body).prompt);assert.ok(JSON.parse(options.body).grammar);calls++;throw Error('captured-before-provider');}};
  try{
-  await assert.rejects(generateIntake({text:'杠铃卧推50kg10次2组',today:'2026-11-14',catalog:intakeCatalog({}),model:'client-model'},options),/captured-before-provider/);
-  await assert.rejects(generateKnowledge({question:'RIR2是什么意思',consent:true,model:'client-model'},options),/captured-before-provider/);
+  await assert.rejects(generateIntake({engine:'atlas',consent:true,text:'杠铃卧推50kg10次2组',today:'2026-11-14',catalog:intakeCatalog({}),model:'client-model'},options),/captured-before-provider/);
+  await assert.rejects(generateKnowledge({question:'RIR2是什么意思',engine:'atlas',consent:true,model:'client-model'},options),/captured-before-provider/);
   await assert.rejects(generateSelection(validatePayload({goal:'consistency',days:7,facts:[{id:'frequency',text:'本周2次'}]}),options),/captured-before-provider/);
-  await assert.rejects(generateDecision({goal:'希望保留动作',candidates:[{id:Object.keys(strategies)[0],estimatedMinutes:20,workingSets:2,exerciseCount:1,switches:0,removedWorkSets:1}]},options),/captured-before-provider/);
-  assert.equal(calls,4);assert.equal(aiAvailability().model,'shared-test-model');assert.equal(aiAvailability().mode,'single-model');assert.equal(aiAvailability().atlas.archived,true);
+  await assert.rejects(generateDecision({engine:'atlas',consent:true,goal:'希望保留动作',candidates:[{id:Object.keys(strategies)[0],estimatedMinutes:20,workingSets:2,exerciseCount:1,switches:0,removedWorkSets:1}]},options),/captured-before-provider/);
+  assert.equal(calls,4);const status=await aiAvailability();assert.equal(status.model,'liftlog-atlas-1.7b-run02');assert.equal(status.mode,'single-model');assert.equal(status.atlas.archived,false);assert.equal(status.configured,false);
  }finally{if(prior===undefined)delete process.env.DEEPSEEK_MODEL;else process.env.DEEPSEEK_MODEL=prior;}
 });

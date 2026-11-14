@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {intakeCatalog,validateIntakeRequest,validateIntakeOutput,applyIntakeDraft,intakeOutcomes} from '../dist/intake.js';
 import {generateIntake} from '../lib/intake-model.mjs';
 import {aiRoute} from '../lib/ai-http.mjs';
-const request={text:'杠铃卧推50kg，10次1组',today:'2026-11-13',catalog:intakeCatalog({})};
+const request={engine:'atlas',consent:true,text:'杠铃卧推50kg，10次1组',today:'2026-11-13',catalog:intakeCatalog({})};
 const output={status:'ready',date:'2026-11-13',questions:[],exercises:[{name:'杠铃卧推',source:request.text,sets:[{weightKg:50,reps:10,rir:null,type:'working'}]}]};
 test('已删除动作不进入发送动作库，自重记录方式正确',()=>{
   const catalog=intakeCatalog({customExercises:[{id:'x',name:'器械X',group:'chest',deleted:true}]});
@@ -48,16 +48,16 @@ test('用户保存后的修改计入字段变化，删除组单独统计',()=>{
   saved.exercises=[];assert.equal(intakeOutcomes(next,saved)[0].removedSets,1);
 });
 test('模型真实接口适配器的模拟响应可被前端重新校验，密钥不进入返回值',async()=>{
-  const result=await generateIntake(request,{apiKey:'test-secret',fetchImpl:async(url,options)=>{
-    assert.equal(url,'https://api.deepseek.com/chat/completions');const body=JSON.parse(options.body);assert.equal(body.response_format.type,'json_object');
-    return {ok:true,json:async()=>({choices:[{message:{content:JSON.stringify(output)}}],usage:{prompt_tokens:100,completion_tokens:50}})};
+  const result=await generateIntake(request,{enabled:true,apiKey:'test-secret',fetchImpl:async(url,options)=>{
+    assert.equal(url,'http://127.0.0.1:7861/completion');const body=JSON.parse(options.body);assert.ok(body.grammar);
+    return {ok:true,json:async()=>({model:'liftlog-atlas-1.7b-run02',content:JSON.stringify(output),stop_type:'eos',tokens_evaluated:100,tokens_predicted:50})};
   }});
   assert.equal(validateIntakeOutput(result.result,request).exercises[0].sets[0].weight,50);assert.equal(result.meta.usage.inputTokens,100);assert.equal(JSON.stringify(result).includes('test-secret'),false);
 });
 test('模型服务无密钥、HTTP失败、无效输出会明确失败，不产生假结果',async()=>{
-  await assert.rejects(generateIntake(request,{apiKey:''}),/尚未配置/);
-  await assert.rejects(generateIntake(request,{apiKey:'x',fetchImpl:async()=>({ok:false,status:429})}),/繁忙/);
-  await assert.rejects(generateIntake(request,{apiKey:'x',fetchImpl:async()=>({ok:true,json:async()=>({choices:[{message:{content:'bad'}}]})})}),e=>e.code==='invalid_output'&&e.status===502);
+  await assert.rejects(generateIntake(request,{enabled:false}),/尚未配置/);
+  await assert.rejects(generateIntake(request,{enabled:true,apiKey:'x',fetchImpl:async()=>({ok:false,status:429})}),/另一条请求/);
+  await assert.rejects(generateIntake(request,{enabled:true,apiKey:'x',fetchImpl:async()=>({ok:true,json:async()=>({model:'liftlog-atlas-1.7b-run02',content:'bad',stop_type:'eos'})})}),e=>e.code==='atlas_invalid_json'&&e.status===502);
 });
 test('公开API拒绝跨域和非JSON输入，不调用模型',async()=>{
   const response=()=>({headers:{},setHeader(k,v){this.headers[k]=v;},end(body){this.body=JSON.parse(body);}});

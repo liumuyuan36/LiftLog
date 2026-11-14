@@ -1,0 +1,26 @@
+{
+  "createdAt": "2026-11-14T09:58:22.909Z",
+  "model": "liftlog-atlas-1.7b-run02",
+  "ggufSha256": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+  "sourceModel": "LiftLog Atlas 1.7B Run02 merged BF16",
+  "sourceAdapterSha256": "bffa62c24fb61a189c350e8f5b7bbbd9f31ccea95fe06d227701f66a2b61e837",
+  "runtime": "official llama.cpp b12377 / 32bdc3a89e6528d3e419024c833c5dabf32c7541",
+  "cpuLimit": 2,
+  "memoryGiB": 8,
+  "decoding": "greedy, seed42, exact two-message Qwen3 template, JSON grammar, no prompt cache",
+  "protocol": "Existing fresh40 + workflow16 deployment regression, already viewed and shared-source synthetic questions; NOT new accuracy benchmark. No labels or checkpoint changes. Grammar and runtime differ from the GPU test; differences are not attributed to weights alone.",
+  "maxTokens": {
+    "knowledge": 512,
+    "workflow": 1024
+  },
+  "inputs": [
+    {
+      "path": "evaluation/atlas17-run02/fresh40.prompts.jsonl",
+      "sha256": "72ce2715e9b19e247cd1fbe79062a0bfbd210203175b5b877944e4210473749d"
+    },
+    {
+      "path": "evaluation/fitness-100/workflow.prompts.jsonl",
+      "sha256": "8c8a69437002387e6a87f143e29b4671b77a5eda1f99593ef77f4e3e46cad6e4"
+    }
+  ]
+}

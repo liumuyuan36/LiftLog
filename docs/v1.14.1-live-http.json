@@ -1,0 +1,134 @@
+{
+  "checkedAt": "2026-11-14T09:30:48.669Z",
+  "version": "1.14.1",
+  "sourceCommit": "248a5d40c1b17057bfc73384e261692b26e0940c",
+  "modelCalls": 0,
+  "requests": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "9fe7c1e2744218ed8f9f5175e138d8bf8f4b6cf181ed08978ce4099d6105ca55"
+    },
+    {
+      "path": "app.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "52259b71bb7c033155310ecd426f013f0d2bf2af751db6e39a07f7cce1d04ea6"
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "dc05ed22ee26db2f6e868998f0fb8f9ad8453ffa3e540f166c2ad2a4628b0033"
+    },
+    {
+      "path": "knowledge.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "c7ab8d72ad1ee397159f1329211c2c0950d44384e5a6cb6b51810b3c40046236"
+    },
+    {
+      "path": "knowledge-data.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "e6c8e0e992db66b9450b385d43de4b1affcba25e338b89de95e46dfe2a551853"
+    },
+    {
+      "path": "knowledge-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "e12adf38fa979489aa7afe72ca85e77cb8aa7a18e122629e997a06675399ff3a"
+    },
+    {
+      "path": "knowledge.css",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "4607dc3f7984d93b8e67117fb38e281d2c6f56d1cb707962c6d2555ced09313a"
+    },
+    {
+      "path": "voice-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "942cd799769c622e5018559b28779d635168896b7205f683767d7516417d5827"
+    },
+    {
+      "path": "portfolio/index.html",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "e832b89b35a72c5c35dd6be388ef065ba981fdd51284e86fc417b8f04a104549"
+    },
+    {
+      "path": "portfolio/fitness-rag.html",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "0c658fabb171d71c4e9fbbfcceca8bc0b148754fd430d215c57d71165d34f028"
+    },
+    {
+      "path": "portfolio/atlas-run02.html",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "6d080bbedf695ef1f9a21233ece88600b6614d8af9ec3d38473a356dcdd2b4c0"
+    },
+    {
+      "path": "portfolio/atlas-run02/semantic.fresh40.json",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "9bac42ae174e84bbfc80b8e7aa3d2c8b1a3ce275a263efcd279ae2a93fed2412"
+    },
+    {
+      "path": "portfolio/atlas-run02/run02.fresh40.report.json",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "db4a279d048dcfd966129c9539d383e397ffda03e2b597bb20e6ab521c176843"
+    },
+    {
+      "path": "/healthz",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "version": "1.14.1"
+      }
+    },
+    {
+      "path": "/api/ai/status",
+      "status": 200,
+      "body": {
+        "configured": true,
+        "provider": "DeepSeek",
+        "model": "deepseek-flash",
+        "mode": "single-model",
+        "atlas": {
+          "configured": false,
+          "ready": false,
+          "archived": true
+        }
+      }
+    },
+    {
+      "path": "/api/ai/knowledge uncovered",
+      "status": 200,
+      "body": {
+        "result": {
+          "status": "insufficient",
+          "points": [],
+          "limitation": "当前资料不足以回答这个问题。可以了解余力、负荷、动作行程、训练安排、营养与进步观察等一般增肌知识。"
+        },
+        "retrieval": {
+          "question": "量子计算机是什么",
+          "version": "fitness-notes-2026-11-14-v3",
+          "status": "insufficient",
+          "chunks": [],
+          "message": "当前资料不足以回答这个问题。可以了解余力、负荷、动作行程、训练安排、营养与进步观察等一般增肌知识。"
+        },
+        "meta": {
+          "engine": "retrieval-policy",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v3",
+          "promptVersion": "fitness-rag-v2",
+          "modelCalled": false
+        }
+      }
+    }
+  ],
+  "passed": true
+}

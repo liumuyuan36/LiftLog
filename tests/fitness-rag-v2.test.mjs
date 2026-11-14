@@ -20,6 +20,6 @@ test('新问题能检索具体证据，相关的泛词不能替代缺失专题',
 test('适用条件也不能悄悄加入未提供的数值；未覆盖主题免调用',async()=>{
  const r=retrieveKnowledge('RIR是什么意思');
  assert.throws(()=>validateKnowledgeAnswer({status:'answered',points:[{text:'这是主观估计。',sourceIds:['F01']}],limitation:'999人研究证明。'},r),/适用条件/);
- const response=await generateKnowledge({question:'VO2max怎么测',consent:true},{fetchImpl:()=>assert.fail('Uncovered topic must not incur model cost')});
+ const response=await generateKnowledge({question:'VO2max怎么测',engine:'atlas',consent:true},{fetchImpl:()=>assert.fail('Uncovered topic must not incur model cost')});
  assert.equal(response.meta.modelCalled,false);assert.equal(response.meta.promptVersion,'fitness-rag-v2');
 });

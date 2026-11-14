@@ -35,15 +35,6 @@ test('非JSON、空对象以外的原始值、错误结束原因和异常外层�
   await assert.rejects(deepseekJSON({messages,apiKey:'test-only',fetchImpl:async()=>({ok:true,json:async()=>{throw Error('sensitive-body');}})}),e=>e.code==='invalid_response'&&!e.message.includes('sensitive-body'));
 });
 
-test('复盘成功仍校验依据编号；格式修复不放宽库外引用和业务校验',async()=>{
-  const review=validatePayload({goal:'consistency',days:7,facts:[{id:'frequency',text:'合成训练汇总'}]});
-  const result=await generateSelection(review,{apiKey:'test-only',fetchImpl:async(_url,options)=>{
-    assert.equal(JSON.parse(options.body).thinking.type,'disabled');return response('{"factIds":["frequency"],"actionIds":["log"]}');
-  }});
-  assert.deepEqual(result.factIds,['frequency']);assert.deepEqual(result.actionIds,['log']);
-  await assert.rejects(generateSelection(review,{apiKey:'test-only',fetchImpl:async()=>response('{"factIds":["invented"],"actionIds":["log"]}')}));
-});
-
 test('失败日志仅含结构诊断，不包含模型原文、输入或密钥',async()=>{
   const entries=[],before=console.warn;console.warn=(...args)=>entries.push(args.join(' '));
   try{await assert.rejects(deepseekJSON({messages:[{role:'user',content:'private-user-input'}],apiKey:'private-api-key',fetchImpl:async()=>response('private-model-output')}));}

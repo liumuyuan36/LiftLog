@@ -4,7 +4,9 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {aiRoute,send} from './lib/ai-http.mjs';
 import {generateIntake} from './lib/intake-model.mjs';
-import {aiAvailability,retiredProvider} from './lib/model-config.mjs';
+import {aiAvailability} from './lib/model-config.mjs';
+import {startAtlasText,stopAtlasText} from './lib/atlas-text-runtime.mjs';
+import {requireAtlasConsent} from './lib/atlas-text-config.mjs';
 import {generateDecision} from './lib/decision-model.mjs';
 import {generateKnowledge} from './lib/knowledge-model.mjs';
 import {audioRoute} from './lib/transcribe.mjs';
@@ -18,7 +20,7 @@ const routes=new Map([
   ['/api/ai/intake',generateIntake],
   ['/api/ai/decision',generateDecision],
   ['/api/ai/knowledge',generateKnowledge],
-  ['/api/ai/review',body=>generateSelection(validatePayload(body))]
+  ['/api/ai/review',(body,options)=>{requireAtlasConsent(body);return generateSelection(validatePayload(body),options);}]
 ]);
 
 export function normalizePublicOrigin(value=''){
@@ -48,12 +50,13 @@ export function createAppServer({publicOrigin=process.env.PUBLIC_ORIGIN??''}={})
     if(pathname==='/healthz')return send(res,req.method==='GET'||req.method==='HEAD'?200:405,{status:'ok',version:appVersion});
     if(pathname==='/api/ai/status'){
       if(req.method!=='GET')return send(res,405,{error:'仅支持 GET。'});
-      return send(res,200,aiAvailability());
+      return send(res,200,await aiAvailability());
     }
     if(pathname==='/api/atlas/intake'){
       if(req.method!=='POST')return send(res,405,{error:'仅支持 POST。'});
       if(!allowedOrigin(req,expected))return send(res,403,{error:'请求来源无效。'});
-      return send(res,410,retiredProvider);
+      req.headers['x-forwarded-host']=new URL(req.headers.origin).host;
+      return aiRoute(req,res,generateIntake);
     }
     if(pathname==='/api/ai/transcribe'){
       if(!allowedOrigin(req,expected))return send(res,403,{error:'请求来源无效。'});
@@ -82,10 +85,10 @@ export function createAppServer({publicOrigin=process.env.PUBLIC_ORIGIN??''}={})
 }
 
 if(process.argv[1]&&path.resolve(process.argv[1])===entry){
-  let server;try{server=createAppServer();}catch(e){console.error(e.message);process.exit(1);}
+  let server;try{server=createAppServer();void startAtlasText();}catch(e){console.error(e.message);process.exit(1);}
   const port=Number(process.env.PORT??5173),host=process.env.HOST??'127.0.0.1';
   if(!Number.isInteger(port)||port<0||port>65535){console.error('Invalid PORT');process.exit(1);}
   server.listen(port,host,()=>console.log(`LiftLog ready on ${host}:${server.address().port}`));
   server.on('error',e=>{console.error(e.message);process.exit(1);});
-  for(const signal of['SIGINT','SIGTERM'])process.once(signal,()=>{server.close(()=>process.exit(0));server.closeIdleConnections();});
+  for(const signal of['SIGINT','SIGTERM'])process.once(signal,()=>{stopAtlasText();server.close(()=>process.exit(0));server.closeIdleConnections();});
 }

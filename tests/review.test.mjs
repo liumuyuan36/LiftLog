@@ -31,25 +31,30 @@ test('引用不存在、重复和空输出被拒绝，模型额外文字不进�
   assert.deepEqual(validateSelection({factIds:['rir'],actionIds:['log'],text:'凭空生成的结论'},r),{factIds:['rir'],actionIds:['log']});
 });
 test('服务端只保留允许的汇总字段，拒绝未知编号和重复编号',()=>{
-  const p=validatePayload({goal:'quality',days:7,facts:[{id:'rir',text:'0/1'}],weights:[60],apiKey:'do-not-forward'});
+  const p=validatePayload({goal:'quality',days:7,facts:[{id:'rir',text:'0/1'}],weights:[60],enabled:true,apiKey:'do-not-forward'});
   assert.equal(p.weights,undefined);assert.equal(p.apiKey,undefined);
   assert.throws(()=>validatePayload({...p,facts:[{id:'fake',text:'x'}]}));
   assert.throws(()=>validatePayload({...p,facts:[p.facts[0],p.facts[0]]}));
 });
 test('模拟模型成功：请求不包含原始日志，返回经校验的选择',async()=>{
   const review=validatePayload({goal:'quality',days:7,facts:[{id:'rir',text:'RIR覆盖0/1'}]});
-  const result=await generateSelection(review,{apiKey:'test-key',fetchImpl:async(url,options)=>{
-    assert.equal(url,'https://api.deepseek.com/chat/completions');assert.equal(options.headers.Authorization,'Bearer test-key');
-    const body=JSON.parse(options.body);assert.equal(body.response_format.type,'json_object');assert.equal(body.messages[1].content.includes('sessions'),false);
-    return {ok:true,json:async()=>({choices:[{message:{content:'{"factIds":["rir"],"actionIds":["rir"]}'}}]})};
+  const result=await generateSelection(review,{enabled:true,apiKey:'test-key',fetchImpl:async(url,options)=>{
+    assert.equal(url,'http://127.0.0.1:7861/completion');assert.equal(options.headers.Authorization,undefined);
+    const body=JSON.parse(options.body);assert.ok(body.grammar);assert.equal(body.prompt.includes('sessions'),false);
+    return {ok:true,json:async()=>({model:'liftlog-atlas-1.7b-run02',content:'{"factIds":["rir"],"actionIds":["rir"]}',stop_type:'eos'})};
   }});
   assert.deepEqual(result.factIds,['rir']);
 });
 test('缺少密钥、HTTP失败、空JSON和伪造引用都明确失败',async()=>{
   const review=validatePayload({goal:'quality',days:7,facts:[{id:'rir',text:'x'}]});
-  await assert.rejects(generateSelection(review,{apiKey:''}),/未配置/);
-  await assert.rejects(generateSelection(review,{apiKey:'x',fetchImpl:async()=>({ok:false})}),/暂不可用/);
+  await assert.rejects(generateSelection(review,{enabled:false}),/未配置/);
+  await assert.rejects(generateSelection(review,{enabled:true,apiKey:'x',fetchImpl:async()=>({ok:false})}),/未完成处理/);
   for(const content of ['', '{"factIds":["fake"],"actionIds":["log"]}']){
-    await assert.rejects(generateSelection(review,{apiKey:'x',fetchImpl:async()=>({ok:true,json:async()=>({choices:[{message:{content}}]})})}));
+    await assert.rejects(generateSelection(review,{enabled:true,apiKey:'x',fetchImpl:async()=>({ok:true,json:async()=>({model:'liftlog-atlas-1.7b-run02',content,stop_type:'eos'})})}));
   }
+});
+
+test('已知重点偏差明确拒绝，不将程序纠正伪装成模型结果',async()=>{
+ const review=validatePayload({goal:'consistency',days:7,facts:[{id:'frequency',text:'本周4次'},{id:'rir',text:'7/18'}]});
+ await assert.rejects(generateSelection(review,{enabled:true,fetchImpl:async()=>({ok:true,json:async()=>({model:'liftlog-atlas-1.7b-run02',content:'{"factIds":["rir"],"actionIds":["rir"]}',stop_type:'eos'})})}),e=>e.code==='review_priority_failed');
 });

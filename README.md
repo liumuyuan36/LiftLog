@@ -1,16 +1,14 @@
 # LiftLog · iPhone 主屏幕训练日志
 
-[大陆体验（魔搭）](https://modelscope.cn/studios/VermouthLau/liftlog?mode=full) · [Vercel 备用](https://liftlog-pwa.vercel.app/) · [功能流程视频（V1.5，89 秒）](docs/demo.mp4)
+[大陆体验（魔搭）](https://modelscope.cn/studios/VermouthLau/liftlog?mode=full) · [Vercel 历史版本](https://liftlog-pwa.vercel.app/) · [功能流程视频（V1.5，89 秒）](docs/demo.mp4)
 
 <a href="docs/demo.mp4"><img src="docs/demo-poster.png" width="320" alt="LiftLog 功能流程视频预览"></a>
 
 视频使用本机示例空间录制，含中文步骤字幕，无旁白；为真实界面采样录屏的剪辑版。本次演示未调用真实模型，不代表真实训练或用户效果。
 
-当前主线版本：V1.13.0 · DeepSeek 单主模型。保持深绿、浅鼠尾草绿和青柠点缀，以及五栏手机导航。生产统一调用 DeepSeek API；Atlas 推理与训练记录保留为历史实验档案。
+当前集成版本：V1.15.0 · LiftLog Atlas 1.7B Run02。四个文字AI功能统一使用本地LoRA微调后的Qwen3-1.7B，合并并转换为Q8_0 GGUF，在魔搭免费CPU容器推理；不回退DeepSeek。语音使用设备/输入法听写，Atlas只处理核对后的文字。公开切换状态以 [公网验收](docs/atlas17-live.json) 为准。
 
-2026-11-14 已准备 V1.14.1 魔搭更新包：同步 61 条资料、来源与范围说明、Run01 历史实验和 [Run02 同题对照](dist/portfolio/atlas-run02.html)。Run02 本地实际追加 2 轮，40 道新题严格内容 AI 复核 19/40 → 21/40，跨任务 12/16 → 14/16；仍有 3 题退步，旧100题引用数值校验 99/100 → 98/100。非盲合成评测不代表市场准确率。137 项测试与无外网 Docker 恢复、页面、范围路由检查通过，见 [容器验收](docs/v1.14.1-container.json)。是否已发布以公开版本与文件哈希验收记录为准；更新报告不代表 Atlas 权重已成为在线服务。
-
-Atlas 部署可行性探针：本机 Docker 限制 2 核、8GB，BF16 完整模型在 25.1 秒内仅生成 23 个 token，被时限截断，峰值约 3.76GB；[原始记录](docs/atlas17-cpu-feasibility.json)。这是一次资源模拟，不能当作魔搭实际延迟或内容准确率。当前发布不切换 Atlas 在线推理，后续需要推理优化及端到端验收。
+143项检查通过，断网2核8GB实际容器验收22项通过。[部署来源与复现](training/atlas-1.7b/deployment/README.md) · [容器记录](docs/atlas17-container.json) · [40问与16跨任务回归](evaluation/atlas17-deployment) · [作品集部署说明](dist/portfolio/atlas-deployment.html)。56条全部完整返回；严格内容AI复核21/40→20/40，2题改善3题退步；跨任务14/16。属于已见合成题回归，不代表真实用户准确率。
 
 项目定位：面向健身市场需求的个人探索作品，用于 AI 产品经理校招／实习作品集，不以正式商业运营为目标。当前重点是产品体验、健身 RAG、模型评测与可复核的迭代过程；招募用户、专业人士审核和收费均不是本次交付条件。市场需求与增长设想作为待验证假设呈现，合成测试不代表真实用户效果。
 
@@ -18,7 +16,7 @@ Atlas 部署可行性探针：本机 Docker 限制 2 核、8GB，BF16 完整模�
 
 用户于2026-11-14明确选择独立训练的小模型，固定为 **LiftLog Atlas，官方Qwen3-1.7B底模＋本地LoRA微调**。[训练方案与复现](training/atlas-1.7b/README.md) · [单独保存的100道知识验收题](evaluation/fitness-100/PROTOCOL.md)。61张带来源知识卡作为RAG资料；977条训练、131条验证用于学习输出结构、资料使用和任务边界，100道题不参与权重更新或检查点选择。旧0.6B权重保留为历史实验，不冒称可用于1.7B。
 
-这里区分训练目标与在线状态：线上目前仍为上述V1.13 DeepSeek版本；本地Atlas实验的完成、评测及迁移状态以实际运行报告为准。DeepSeek API不是我们训练的权重，不再将API提示词优化称为独立模型训练。
+当前Atlas部署详见上方V1.15证据。下方数字是Run01历史训练快照，后续Run02与量化部署回归另行报告。DeepSeek API不是我们训练的权重，不再将API提示词优化称为独立模型训练。
 
 本轮已实际完成3轮，选择第2轮checkpoint246；验证损失依次0.1822、0.1718、0.1796。已导出可直接离线加载的完整BF16模型，并用该导出模型完成100题。以下为固定资料、固定提示、非思考贪心解码下的合成题结果，不代表通用健身知识准确率或真实用户效果：
 
@@ -31,7 +29,7 @@ Atlas 部署可行性探针：本机 Docker 限制 2 核、8GB，BF16 完整模�
 
 另16条跨任务回归通过12条，暴露未来计划误录、缺次数、无效记录优先与冲突澄清问题。本地模型与失败结果已保存，尚不直接替换线上；后续沿用Atlas1.7B补齐负例、澄清与多证据回答，而不是更换模型或仅追加轮数。[逐题结果](evaluation/fitness-100) · [运行记录](training/atlas-1.7b/results/summary.json) · [案例报告](dist/portfolio/fitness-rag.html)。专业审核与真实用户招募不是该个人实验的交付门槛。
 
-## 单主模型（V1.13）
+## 历史单主模型（V1.13 DeepSeek，现已替换）
 
 [选型决策与迁移边界](docs/single-model-v1.13.md)。记录整理、资料问答、时间规划与复盘统一调用DeepSeek，同一服务端模型配置，默认deepseek-flash。前台不再选择模型；语音用DeepSeek配套ASR工具，RAG仍为本机资料检索。Atlas训练数据、权重与历史评测保留为实验档案，生产不再启动本地模型，也不再安装Python/深度学习依赖。
 
