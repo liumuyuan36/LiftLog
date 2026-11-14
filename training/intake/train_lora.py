@@ -30,9 +30,14 @@ def main():
     parser.add_argument('--learning-rate',type=float,default=1e-4)
     parser.add_argument('--resume-from-checkpoint',default=None)
     parser.add_argument('--adapter',default=None,help='Warm-start a prior adapter with a new optimizer; not checkpoint resume')
+    parser.add_argument('--early-stopping-patience',type=int,default=0,help='0 disables; otherwise stop after this many non-improving epoch evaluations')
+    parser.add_argument('--early-stopping-threshold',type=float,default=0.001)
+    parser.add_argument('--baseline-eval',action='store_true',help='Record warm-start validation loss before any training')
     parser.add_argument('--allow-synthetic', action='store_true', help='Acknowledge this pilot is not independently human-reviewed')
     parser.add_argument('--preflight', action='store_true', help='Tokenize and check loss masks, do not load weights or train')
     args = parser.parse_args()
+    if args.epochs<=0 or args.early_stopping_patience<0 or args.early_stopping_threshold<0:
+        parser.error('Epochs must be positive and early-stopping values non-negative')
     if not args.allow_synthetic:
         parser.error('Synthetic labels need independent review; experimental pilot requires --allow-synthetic')
     if Path(args.output).exists():
@@ -81,12 +86,25 @@ def main():
         length = max(len(r['input_ids']) for r in rows)
         return {key:torch.tensor([r[key] + [tokenizer.pad_token_id if key=='input_ids' else -100 if key=='labels' else 0]*(length-len(r[key])) for r in rows], dtype=torch.long) for key in ['input_ids','attention_mask','labels']}
     training_args = TrainingArguments(output_dir=args.output, num_train_epochs=args.epochs, learning_rate=args.learning_rate, per_device_train_batch_size=args.batch_size, per_device_eval_batch_size=args.batch_size, gradient_accumulation_steps=args.accumulation, bf16=True, gradient_checkpointing=True, gradient_checkpointing_kwargs={'use_reentrant':False}, eval_strategy='epoch', save_strategy='epoch', save_total_limit=2, load_best_model_at_end=True, metric_for_best_model='eval_loss', greater_is_better=False, logging_steps=20, report_to='none', push_to_hub=False, dataloader_num_workers=0, seed=42, data_seed=42, optim='adamw_torch', remove_unused_columns=False)
-    trainer = Trainer(model=model, args=training_args, train_dataset=train, eval_dataset=validation, data_collator=collate)
+    callbacks=[]
+    if args.early_stopping_patience:
+        from transformers import EarlyStoppingCallback
+        callbacks.append(EarlyStoppingCallback(early_stopping_patience=args.early_stopping_patience,early_stopping_threshold=args.early_stopping_threshold))
+    trainer = Trainer(model=model, args=training_args, train_dataset=train, eval_dataset=validation, data_collator=collate,callbacks=callbacks)
+    info['earlyStopping']={'patience':args.early_stopping_patience,'threshold':args.early_stopping_threshold,'maxEpochs':args.epochs}
+    if args.baseline_eval:
+        info['baselineValidationMetrics']=trainer.evaluate()
+        print(json.dumps({'baselineValidationMetrics':info['baselineValidationMetrics']},ensure_ascii=False),flush=True)
     result = trainer.train(resume_from_checkpoint=args.resume_from_checkpoint)
     adapter_dir = Path(args.output) / 'adapter'
     trainer.save_model(str(adapter_dir))
     tokenizer.save_pretrained(str(adapter_dir))
     info.update({'status':'trained_experimental_not_production', 'metrics':result.metrics, 'bestCheckpoint':trainer.state.best_model_checkpoint, 'trainableParameters':sum(p.numel() for p in model.parameters() if p.requires_grad), 'totalParameters':sum(p.numel() for p in model.parameters()), 'datasetManifest':json.loads((args.data/'manifest.json').read_text(encoding='utf-8')), 'versions':{package:__import__('importlib.metadata',fromlist=['version']).version(package) for package in ['torch','transformers','peft','accelerate']}})
+    info['bestValidationLoss']=trainer.state.best_metric
+    info['epochsCompleted']=trainer.state.epoch
+    info['stoppedBeforeMaxEpochs']=trainer.state.epoch<args.epochs
+    info['improvedOverWarmStartValidation']=trainer.state.best_metric<info['baselineValidationMetrics']['eval_loss'] if args.baseline_eval else None
+    info['epochEvaluations']=[r for r in trainer.state.log_history if 'eval_loss' in r]
     (Path(args.output)/'run.json').write_text(json.dumps(info,ensure_ascii=False,indent=2),encoding='utf-8')
 
 if __name__ == '__main__':

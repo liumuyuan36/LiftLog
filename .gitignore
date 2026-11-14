@@ -19,3 +19,5 @@ training/intake/runs/
 training/intake/models/
 training/intake/cache/
 *.predictions.jsonl
+__pycache__/
+*.pyc

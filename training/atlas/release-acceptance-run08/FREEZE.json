@@ -1,0 +1,13 @@
+{
+  "createdAt": "2026-11-14T04:20:13.327Z",
+  "rows": 36,
+  "sha256": "df7e573cd4c51d76102e39514804d6d07eec0188d8e9b3360214261b274e2f05",
+  "policy": "AI-authored new synthetic cases frozen before predictions; not used for training/checkpoint selection. Independent human review pending. Old48 is regression.",
+  "gates": {
+    "servedExactMinimum": 0.95,
+    "jsonValidMinimum": 0.99,
+    "unsafeReadyMaximum": 0,
+    "criticalNumericErrorsMaximum": 0
+  },
+  "comparison": "Run07 vs Run08 same GPU bfloat16 greedy 512 output tokens; candidate selection already uses separate development validation."
+}

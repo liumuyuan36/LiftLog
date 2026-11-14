@@ -1,0 +1,344 @@
+{
+  "readAt": "2026-11-14",
+  "status": "source_review_and_original_contexts; not a trained knowledge-QA model",
+  "sources": [
+    {
+      "id": "video-volume",
+      "type": "video_discovery_only",
+      "url": "https://www.youtube.com/watch?v=2kwl5LiuCs4",
+      "title": "Jeff Nippard / Mike Israetel: Training Volume & Hypertrophy",
+      "access": "Page and creator verified; player requires sign-in, transcript export unavailable. Not watched or transcribed."
+    },
+    {
+      "id": "video-progression",
+      "type": "video_discovery_only",
+      "url": "https://www.bilibili.com/video/BV1X79NY5Etj/",
+      "title": "如何应用渐进超负荷促进肌肉生长",
+      "access": "Indexed description only; no transcript read. Topic discovery, not evidence for coaching claims."
+    },
+    {
+      "id": "creator-levels",
+      "type": "creator_primary_text",
+      "url": "https://jeffnippard.com/blogs/news/how-to-build-muscle-explained-in-5-levels",
+      "title": "How To Build Muscle (Explained In 5 Levels)",
+      "access": "Author article read; paraphrased topic notes only."
+    },
+    {
+      "id": "creator-effort",
+      "type": "creator_primary_text",
+      "url": "https://jeffnippard.com/blogs/news/how-hard-should-you-train-to-build-muscle",
+      "title": "How Hard Should You Train to Build Muscle?",
+      "access": "Author article read; distinguish RIR and colloquial failure."
+    },
+    {
+      "id": "creator-minimalist",
+      "type": "creator_primary_text",
+      "url": "https://jeffnippard.com/blogs/news/how-to-train-like-a-minimalist-more-gains-in-less-time",
+      "title": "How To Train Like A Minimalist",
+      "access": "Author article read; volume and time-saving terminology."
+    },
+    {
+      "id": "acsm2026",
+      "type": "professional_society",
+      "url": "https://acsm.org/resistance-training-guidelines-update-2026/",
+      "title": "ACSM 2026 resistance training update",
+      "access": "Official summary read; evidence scope is healthy adults."
+    },
+    {
+      "id": "failure-review",
+      "type": "research_abstract",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36334240/",
+      "title": "Refalo et al. Proximity-to-Failure and Hypertrophy",
+      "access": "Abstract read; failure definitions and evidence limitations recorded."
+    },
+    {
+      "id": "protein-review",
+      "type": "research_abstract",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28698222/",
+      "title": "Morton et al. Protein supplementation and resistance training",
+      "access": "Indexed abstract read; nutrition terms are context, not exercise fields."
+    },
+    {
+      "id": "bilibili-volume",
+      "type": "creator_primary_text",
+      "url": "https://www.bilibili.com/opus/886079425677885472",
+      "title": "力型PB：增肌容量/组数综述",
+      "access": "Creator article read as Chinese usage reference, not sole scientific authority. No article copied."
+    }
+  ],
+  "notes": [
+    {
+      "topic": "容量口径",
+      "note": "科普中可能按每周工作组描述容量；LiftLog 的公斤容量按重量乘次数计算。二者在产品中需要区分。",
+      "sources": [
+        "creator-levels",
+        "acsm2026"
+      ]
+    },
+    {
+      "topic": "力竭与RIR",
+      "note": "研究对力竭的定义和比较条件不同。记录任务只保留用户明确报告的RIR；疲劳、泵感、技术性力竭均不自动转换成0。",
+      "sources": [
+        "creator-effort",
+        "failure-review"
+      ]
+    },
+    {
+      "topic": "增肌与力量目标",
+      "note": "训练目标会影响变量选择；目标描述本身不构成已完成的组。群体研究结论不直接变成个体自动处方。",
+      "sources": [
+        "acsm2026"
+      ]
+    },
+    {
+      "topic": "训练目标与已完成数据",
+      "note": "视频里的示例重量、建议周组数、营养摄入与用户本次完成记录应分别识别。科学知识笔记不作为问答SFT标签。",
+      "sources": [
+        "creator-minimalist",
+        "protein-review"
+      ]
+    }
+  ],
+  "terms": [
+    {
+      "term": "肌肥大",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "渐进超负荷",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "机械张力",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "训练容量",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "周训练量",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "有效工作组",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "垃圾容量",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "训练频率",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "相对强度",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "肌肉募集",
+      "category": "肌肥大与训练变量",
+      "source": "creator-levels",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "接近力竭",
+      "category": "训练努力程度",
+      "source": "creator-effort",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "技术性力竭",
+      "category": "训练努力程度",
+      "source": "creator-effort",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "动作变形",
+      "category": "训练努力程度",
+      "source": "creator-effort",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "速度损失",
+      "category": "训练努力程度",
+      "source": "creator-effort",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "余力估计",
+      "category": "训练努力程度",
+      "source": "creator-effort",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "主观用力程度",
+      "category": "训练努力程度",
+      "source": "creator-effort",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "保留次数",
+      "category": "训练努力程度",
+      "source": "creator-effort",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "重复次数上限",
+      "category": "训练努力程度",
+      "source": "creator-effort",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "全幅度",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "拉长位",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "缩短位",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "向心阶段",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "离心阶段",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "顶峰收缩",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "复合动作",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "孤立动作",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "递减组",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "超级组",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "休息暂停组",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "热身递增组",
+      "category": "动作与组织方式",
+      "source": "creator-minimalist",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "渐进加量",
+      "category": "恢复与长期目标",
+      "source": "acsm2026",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "减量周",
+      "category": "恢复与长期目标",
+      "source": "acsm2026",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "恢复能力",
+      "category": "恢复与长期目标",
+      "source": "acsm2026",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "训练适应",
+      "category": "恢复与长期目标",
+      "source": "acsm2026",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "训练平台期",
+      "category": "恢复与长期目标",
+      "source": "acsm2026",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "增肌周期",
+      "category": "恢复与长期目标",
+      "source": "acsm2026",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "热量盈余",
+      "category": "饮食语境",
+      "source": "protein-review",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "蛋白质摄入",
+      "category": "饮食语境",
+      "source": "protein-review",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "营养时机",
+      "category": "饮食语境",
+      "source": "protein-review",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    },
+    {
+      "term": "增肌饮食",
+      "category": "饮食语境",
+      "source": "protein-review",
+      "handling": "Context only. Record explicit completed sets; no knowledge answers, inferred RIR, automatic advice, or invented muscle activation."
+    }
+  ]
+}

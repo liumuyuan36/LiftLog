@@ -3,6 +3,16 @@ import assert from 'node:assert/strict';
 import {compact,expand,evidenceGuard,normalizedText,dateFor,mentionedExercises,requestFor,compileAtlas,literalDisposition} from '../training/atlas/protocol.mjs';
 const make=(text,sets)=>({text,today:'2026-11-13',expected:{status:'ready',date:'2026-11-13',questions:[],exercises:[{name:'杠铃卧推',source:text,sets}]}});
 const set=(weightKg,reps,rir=null,type='working')=>({weightKg,reps,rir,type});
+test('千克单位先于中文数字归一化，真实重量保留且未出现的重量仍拒绝',()=>{
+ for(const [weight,expected]of [['22.5千克',22.5],['二十二点五千克',22.5],['四十千克',40]]){
+  const c=make(`杠铃卧推总重${weight}，已完成8次和7次各一组，RIR未记录。`,[set(expected,8),set(expected,7)]);
+  const result=compileAtlas(compact(c.expected),c);
+  assert.equal(result.result.status,'ready');assert.equal(result.result.exercises[0].sets[0].weightKg,expected);
+  const invented=structuredClone(c.expected);invented.exercises[0].sets[0].weightKg=42.5;
+  assert.equal(compileAtlas(compact(invented),c).result.status,'clarify');
+ }
+ assert.equal(normalizedText('二十二点五千克，十一次'),'22.5公斤,11次');
+});
 test('没有训练证据的短语不生成记录，完整动作和不完整日志仍交给解析',()=>{
  for(const text of ['动作幅度','肩峰','膳食纤维','力竭','三角肌','肱二头肌','想了解薄肌，今天没有完成任何训练。'])assert.equal(literalDisposition(make(text,[])).status,'not_log');
  for(const text of ['俯卧撑','今天练了卧推','卧推40kg','卧推八次','今天没练，昨天已完成俯卧撑10次1组'])assert.equal(literalDisposition(make(text,[])),null);
