@@ -1,0 +1,84 @@
+{
+  "checkedAt": "2026-11-14T02:00:21.752Z",
+  "origin": "https://vermouthlau-liftlog.ms.show",
+  "health": {
+    "status": "ok",
+    "version": "1.10.0"
+  },
+  "status": {
+    "configured": true,
+    "provider": "DeepSeek",
+    "model": "deepseek-flash",
+    "atlas": {
+      "configured": true,
+      "ready": true,
+      "provider": "LiftLog Atlas",
+      "version": "atlas-intake-v3",
+      "artifactSha": "37a915c0d6b128abea960cafbd43e8a0cf48bb7ab395ca95f83d827314325a66"
+    }
+  },
+  "files": [
+    {
+      "name": "intake-ui.js",
+      "sha256": "51812b1d4b3a30bb0292bc7ea28c1d95a7a4e1d719ae40bec6a254b9c5c8a99f",
+      "matchesRelease": true
+    },
+    {
+      "name": "app.js",
+      "sha256": "a8b3c792beeeb34f77a4cb96925c41ef8df6f0878cb4a7602fa88e7bad4ebaaa",
+      "matchesRelease": true
+    },
+    {
+      "name": "sw.js",
+      "sha256": "ef0eb5b0520f055f07bde6deba5346c5eaaaaf2aa77ee9a71be690e67ace6e73",
+      "matchesRelease": true
+    }
+  ],
+  "syntheticRequest": "想练薄肌，我的体脂率18%。今天已经完成俯卧撑，第一组12次、第二组9次，没加负重。RIR未记录。",
+  "output": {
+    "result": {
+      "status": "ready",
+      "date": "2026-11-14",
+      "questions": [],
+      "exercises": [
+        {
+          "name": "俯卧撑",
+          "source": "想练薄肌，我的体脂率18%。今天已经完成俯卧撑，第一组12次、第二组9次，没加负重。RIR未记录。",
+          "sets": [
+            {
+              "weightKg": null,
+              "reps": 12,
+              "rir": null,
+              "type": "working"
+            },
+            {
+              "weightKg": null,
+              "reps": 9,
+              "rir": null,
+              "type": "working"
+            }
+          ]
+        }
+      ]
+    },
+    "meta": {
+      "model": "LiftLog Atlas",
+      "modelVersion": "atlas-intake-v3",
+      "pipelineVersion": "atlas-pipeline-v3.4",
+      "promptVersion": "atlas-intake-v3",
+      "engine": "atlas",
+      "elapsedMs": 6240,
+      "guardRejected": false,
+      "schemaProjected": false,
+      "policyRouted": false,
+      "usage": {
+        "inputTokens": 332,
+        "outputTokens": 32
+      }
+    }
+  },
+  "modelCalls": 1,
+  "paidApiCalls": 0,
+  "personalHistorySent": false,
+  "passed": true
+}

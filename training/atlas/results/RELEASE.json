@@ -1,0 +1,133 @@
+{
+  "appVersion": "1.10.0",
+  "model": "LiftLog Atlas",
+  "base": "Qwen/Qwen3-0.6B",
+  "baseRevision": "c1899de289a04d12100db370d81485cdf75e47ca",
+  "adapterSha256": "37a915c0d6b128abea960cafbd43e8a0cf48bb7ab395ca95f83d827314325a66",
+  "pipelineVersion": "atlas-pipeline-v3.4",
+  "sourceCommit": "170c60b",
+  "paidApiCalls": 0,
+  "localChecks": 121,
+  "trainedEpochsRequested": 2,
+  "additionalVocabularyEpochs": 1,
+  "run06": {
+    "epochs": 2,
+    "seconds": 609.3582,
+    "best": "work/atlas-run-06\\checkpoint-363"
+  },
+  "run07": {
+    "rows": 679,
+    "newVocabularyContexts": 264,
+    "replayRows": 415,
+    "seconds": 78.2803
+  },
+  "freshSyntheticCpuAcceptance": {
+    "coverage": {
+      "correct": 48,
+      "total": 48,
+      "rate": 1
+    },
+    "jsonValid": {
+      "correct": 48,
+      "total": 48,
+      "rate": 1
+    },
+    "rawExact": {
+      "correct": 44,
+      "total": 48,
+      "rate": 0.9166666666666666
+    },
+    "servedExact": {
+      "correct": 48,
+      "total": 48,
+      "rate": 1
+    },
+    "policyRouted": 9,
+    "schemaProjected": 0,
+    "guardRejected": 3,
+    "unsafeReady": 0,
+    "criticalNumericErrors": 0,
+    "latencyMs": {
+      "p50": 4356,
+      "p95": 5006
+    }
+  },
+  "loggingCpuRegression": {
+    "coverage": {
+      "correct": 40,
+      "total": 40,
+      "rate": 1
+    },
+    "jsonValid": {
+      "correct": 40,
+      "total": 40,
+      "rate": 1
+    },
+    "rawExact": {
+      "correct": 37,
+      "total": 40,
+      "rate": 0.925
+    },
+    "servedExact": {
+      "correct": 40,
+      "total": 40,
+      "rate": 1
+    },
+    "policyRouted": 2,
+    "schemaProjected": 0,
+    "guardRejected": 3,
+    "unsafeReady": 0,
+    "criticalNumericErrors": 0,
+    "latencyMs": {
+      "p50": 4297,
+      "p95": 4942
+    }
+  },
+  "vocabularyGpuRegression": {
+    "coverage": {
+      "correct": 28,
+      "total": 28,
+      "rate": 1
+    },
+    "jsonValid": {
+      "correct": 28,
+      "total": 28,
+      "rate": 1
+    },
+    "rawExact": {
+      "correct": 22,
+      "total": 28,
+      "rate": 0.7857142857142857
+    },
+    "servedExact": {
+      "correct": 28,
+      "total": 28,
+      "rate": 1
+    },
+    "policyRouted": 14,
+    "schemaProjected": 0,
+    "guardRejected": 0,
+    "unsafeReady": 0,
+    "criticalNumericErrors": 0,
+    "latencyMs": {
+      "p50": 533,
+      "p95": 1838
+    }
+  },
+  "liveDeployed": true,
+  "liveVerification": "LiftLog-Atlas-Live-Verification.json",
+  "limits": [
+    "All labels synthetic; no independent human review",
+    "No real-user accuracy or market validation claims",
+    "Context extraction only, no fitness knowledge QA",
+    "Drafts require human review before saving",
+    "Previously inspected sets clearly labeled development regressions"
+  ],
+  "liveVerifiedAt": "2026-11-14T02:00:21.752Z",
+  "publicLink": "https://modelscope.cn/studios/VermouthLau/liftlog?mode=full",
+  "liveInferenceElapsedMs": 6240,
+  "liveUiVerified": true,
+  "liveOwnModelCalls": 2,
+  "mobileViewportTest": "390px local final app; not a physical iPhone test",
+  "screenshot": "LiftLog-Atlas-Online.png"
+}
