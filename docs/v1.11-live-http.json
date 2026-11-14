@@ -1,0 +1,129 @@
+{
+  "checkedAt": "2026-11-14T03:02:24.928Z",
+  "origin": "https://vermouthlau-liftlog.ms.show",
+  "authentication": "none",
+  "realModelCalls": 0,
+  "requests": [
+    {
+      "path": "/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 2046,
+      "matchesRelease": true,
+      "sha256": "04175fd3816582971a09c9d721a15cada03574a1a7a779834be479a914f91155"
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=utf-8",
+      "bytes": 61426,
+      "matchesRelease": true,
+      "sha256": "36df975b8910c68c3875eb962266ec5e2b2919a3c3a65f21773b8e47e64f62ff"
+    },
+    {
+      "path": "/trail.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=utf-8",
+      "bytes": 3054,
+      "matchesRelease": true,
+      "sha256": "d6f776efc517e7bcc505c03c0d54a543de49556ed043337b329d101606d7543e"
+    },
+    {
+      "path": "/trail-ui.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=utf-8",
+      "bytes": 8144,
+      "matchesRelease": true,
+      "sha256": "a66dd40baf76b9dac44aebd775d60eaf0766953dedb0f5681ce9532fc8cb3c84"
+    },
+    {
+      "path": "/trail.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 5289,
+      "matchesRelease": true,
+      "sha256": "0eb5ca52304582ba17c31d9a532540743da51549f076cd97b585172515221c77"
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=utf-8",
+      "bytes": 7484,
+      "matchesRelease": true,
+      "sha256": "f7d24433630b2cacda5f5fc01285360d24fa7b555e5f1f3b51a5e9aa405f9ecf"
+    },
+    {
+      "path": "/product.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 4644,
+      "matchesRelease": true,
+      "sha256": "bdc6fe6e4b60ec8fdc9ae2ef791a183467fe7c8cf97a292b9ca52fc6dc5b82fa"
+    },
+    {
+      "path": "/review-ui.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=utf-8",
+      "bytes": 11770,
+      "matchesRelease": true,
+      "sha256": "73cd26dc035cbd1d985f34f219801075d79cc67447b5ed3c6931f1c1b13beac8"
+    },
+    {
+      "path": "/intake-ui.js",
+      "status": 200,
+      "contentType": "text/javascript; charset=utf-8",
+      "bytes": 8716,
+      "matchesRelease": true,
+      "sha256": "300713b3a0da6e8898ae926e2ff1ceead3919040dc4d588ce49e87a60db3e393"
+    },
+    {
+      "path": "/portfolio/index.html",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 18417,
+      "matchesRelease": true,
+      "sha256": "dff35adc1705485f12514da73755cf9209856b98561b26de6282c646b46daaf2"
+    },
+    {
+      "path": "/portfolio/case.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 13558,
+      "matchesRelease": true,
+      "sha256": "7611f6eb12ade9b1b83ca29743cfe6a6374d2a954bd40ca667c3a70439c3159b"
+    },
+    {
+      "path": "/portfolio/LiftLog-AI-PM-CaseStudy.pdf",
+      "status": 200,
+      "contentType": "application/pdf",
+      "bytes": 478276,
+      "matchesRelease": true,
+      "sha256": "bb77b4a3b5b7f86ff5d84f93224c879cb207944898bae996751e3af7cdbb0234"
+    },
+    {
+      "path": "/healthz",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "version": "1.11.0"
+      }
+    },
+    {
+      "path": "/api/ai/status",
+      "status": 200,
+      "body": {
+        "configured": true,
+        "provider": "DeepSeek",
+        "model": "deepseek-flash",
+        "atlas": {
+          "configured": true,
+          "ready": true,
+          "provider": "LiftLog Atlas",
+          "version": "atlas-intake-v3",
+          "artifactSha": "37a915c0d6b128abea960cafbd43e8a0cf48bb7ab395ca95f83d827314325a66"
+        }
+      }
+    }
+  ],
+  "passed": true
+}
