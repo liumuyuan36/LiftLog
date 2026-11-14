@@ -34,7 +34,7 @@ test('HTTPS代理入口下三个AI接口接受正确来源；伪造转发头和�
         assert.equal((await fetch(url)).status,405);
       }
       const status=await fetch(base+'/api/ai/status'),availability=await status.json();assert.equal(availability.configured,false);assert.equal(availability.atlas.ready,false);
-      const atlas=await fetch(base+'/api/atlas/intake',{method:'POST',headers:{origin:'https://liftlog-demo.example','content-type':'application/json'},body:'{}'});assert.equal(atlas.status,503);assert.equal((await atlas.json()).code,'not_configured');
+      const atlas=await fetch(base+'/api/atlas/intake',{method:'POST',headers:{origin:'https://liftlog-demo.example','content-type':'application/json'},body:'{}'});assert.equal(atlas.status,410);assert.equal((await atlas.json()).code,'provider_retired');
     });
   }finally{if(before===undefined)delete process.env.DEEPSEEK_API_KEY;else process.env.DEEPSEEK_API_KEY=before;}
 });

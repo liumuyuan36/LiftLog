@@ -1,4 +1,3 @@
-export default function handler(req,res){
-  res.setHeader('Cache-Control','no-store');res.statusCode=200;
-  res.json({configured:Boolean(process.env.DEEPSEEK_API_KEY),provider:'DeepSeek',model:process.env.DEEPSEEK_MODEL||'deepseek-flash'});
-}
+import {aiAvailability} from '../../lib/model-config.mjs';
+import {send} from '../../lib/ai-http.mjs';
+export default function handler(req,res){if(req.method!=='GET')return send(res,405,{error:'仅支持 GET。'});return send(res,200,aiAvailability());}

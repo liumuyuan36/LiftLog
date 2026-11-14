@@ -5,9 +5,8 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 let sequence=0;
 export function openIntake({getData,save,space,apply,notify,manual=()=>{}}){
   const dialog=document.querySelector('#intake-dialog'),session=++sequence;
-  let provider='deepseek',providerChosen=false;
-  const available=()=>provider==='atlas'?status?.atlas?.ready:status?.configured;
-  const providerName=()=>provider==='atlas'?'Atlas · Beta':'DeepSeek';
+  const available=()=>Boolean(status?.configured);
+  const providerName=()=> 'DeepSeek';
   let text='',consent=false,busy=false,status=null,result=null,runId=null,error='',controller=null;
   const active=()=>dialog.open&&session===sequence;
   const remember=(state,meta={})=>{
@@ -17,9 +16,8 @@ export function openIntake({getData,save,space,apply,notify,manual=()=>{}}){
     if(!save()){data.intakeRuns=previous;return null;}return run.id;
   };
   function render(){
-    dialog.innerHTML=`<header class="dialog-header"><div><p class="eyebrow">DESCRIBE. REVIEW. LOG.</p><h2>用一句话，记下这次训练</h2></div><button class="icon-button" data-intake="close" aria-label="关闭快捷录入">×</button></header><div class="dialog-body intake-body"><p class="sub">输入已经完成的动作、总重量、每组次数和组数。也可以语音录入，核对后再整理；RIR 可省略。</p><label>识别服务<select id="intake-provider" ${busy?'disabled':''}><option value="deepseek" ${provider==='deepseek'?'selected':''}>DeepSeek · 通用识别</option>${status?.atlas?.configured?`<option value="atlas" ${provider==='atlas'?'selected':''}>Atlas · 训练记录（测试版）</option>`:''}</select></label>${provider==='atlas'?'<p class="sub">专门整理已完成的训练。遇到不确定的信息会请你补充，生成后请逐组核对。</p>':''}<label>本次训练描述<textarea id="intake-text" maxlength="1200" rows="4" placeholder="例如：杠铃卧推50kg，做了10、9、8次，RIR2" ${busy?'disabled':''}>${esc(text)}</textarea></label><p class="intake-counter">${text.length} / 1200 字 · ${space==='demo'?'当前为示例空间':'当前为个人空间'}</p><div class="intake-examples"><button data-intake="voice" ${busy?'disabled':''}>语音录入</button><button data-intake="example" ${busy?'disabled':''}>填入示例</button><button data-intake="context-example" ${busy?'disabled':''}>目标＋训练示例</button><span>${status===null?'正在连接服务…':available()?providerName()+' 可用':provider==='atlas'?'Atlas 正在准备，稍后可用':'服务暂不可用'}</span></div><label class="review-consent"><input id="intake-consent" type="checkbox" ${consent?'checked':''} ${busy?'disabled':''}>${provider==='atlas'?'同意由 LiftLog 服务器上的 Atlas 处理本次描述和动作名称，不调用 DeepSeek。':'同意将本次描述和动作名称发送至 DeepSeek。'} 不会发送其他训练历史，也不会将本次描述加入训练集。</label><button class="primary" data-intake="generate" ${busy||!consent||!text.trim()||!available()?'disabled':''}>${busy?'正在整理训练草稿…':'整理训练草稿'}</button>${status&&!available()?'<p class="sub">服务暂不可用，你仍可手动记录。</p>':''}<div class="validation" role="status" aria-live="polite">${esc(error)}</div>${result?preview():''}<button class="text-btn intake-manual" data-intake="manual" ${busy?'disabled':''}>改为手动记录</button></div>`;
+    dialog.innerHTML=`<header class="dialog-header"><div><p class="eyebrow">DESCRIBE. REVIEW. LOG.</p><h2>用一句话，记下这次训练</h2></div><button class="icon-button" data-intake="close" aria-label="关闭快捷录入">×</button></header><div class="dialog-body intake-body"><p class="sub">输入已经完成的动作、总重量、每组次数和组数。也可以语音录入，核对后再整理；RIR 可省略。</p><p class="sub">由 DeepSeek 整理草稿，保存前由你核对。</p><label>本次训练描述<textarea id="intake-text" maxlength="1200" rows="4" placeholder="例如：杠铃卧推50kg，做了10、9、8次，RIR2" ${busy?'disabled':''}>${esc(text)}</textarea></label><p class="intake-counter">${text.length} / 1200 字 · ${space==='demo'?'当前为示例空间':'当前为个人空间'}</p><div class="intake-examples"><button data-intake="voice" ${busy?'disabled':''}>语音录入</button><button data-intake="example" ${busy?'disabled':''}>填入示例</button><button data-intake="context-example" ${busy?'disabled':''}>目标＋训练示例</button><span>${status===null?'正在连接服务…':available()?providerName()+' 可用':'服务暂不可用'}</span></div><label class="review-consent"><input id="intake-consent" type="checkbox" ${consent?'checked':''} ${busy?'disabled':''}>同意将本次描述和动作名称发送至 DeepSeek。 不会发送其他训练历史，也不会将本次描述加入训练集。</label><button class="primary" data-intake="generate" ${busy||!consent||!text.trim()||!available()?'disabled':''}>${busy?'正在整理训练草稿…':'整理训练草稿'}</button>${status&&!available()?'<p class="sub">服务暂不可用，你仍可手动记录。</p>':''}<div class="validation" role="status" aria-live="polite">${esc(error)}</div>${result?preview():''}<button class="text-btn intake-manual" data-intake="manual" ${busy?'disabled':''}>改为手动记录</button></div>`;
     dialog.querySelector('#intake-text').oninput=e=>{text=e.target.value;consent=false;const consentBox=dialog.querySelector('#intake-consent');if(consentBox)consentBox.checked=false;result=null;runId=null;error='';dialog.querySelector('.intake-counter').textContent=`${text.length} / 1200 字 · ${space==='demo'?'当前为示例空间':'当前为个人空间'}`;dialog.querySelector('[data-intake="generate"]').disabled=busy||!consent||!text.trim()||!available();const old=dialog.querySelector('.intake-preview');if(old)old.remove();};
-    dialog.querySelector('#intake-provider').onchange=e=>{provider=e.target.value;providerChosen=true;consent=false;result=null;runId=null;error='';render();};
     dialog.querySelector('#intake-consent').onchange=e=>{consent=e.target.checked;render();};
   }
   function preview(){
@@ -45,15 +43,15 @@ export function openIntake({getData,save,space,apply,notify,manual=()=>{}}){
       busy=true;error='';result=null;runId=null;controller=new AbortController();const timer=setTimeout(()=>controller.abort(),30000);render();
       const request={text:text.trim(),today:localDate(),catalog:intakeCatalog(getData())},started=performance.now();
       try{
-        const response=await fetch(provider==='atlas'?'/api/atlas/intake':'/api/ai/intake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(request),signal:controller.signal});
+        const response=await fetch('/api/ai/intake',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(request),signal:controller.signal});
         const payload=await response.json();if(!active())return;
         if(!response.ok)throw Object.assign(Error(payload.error||'暂时无法整理草稿，请稍后重试。'),{code:payload.code??'http_'+response.status});
         result=validateIntakeOutput(payload.result,request);
         runId=remember(result.status,{...payload.meta,clientElapsedMs:Math.round(performance.now()-started),generatedSets:result.exercises.reduce((n,e)=>n+e.sets.length,0)});
-      }catch(e){if(active()){error=e.name==='AbortError'?'这次整理超时了，输入内容已保留。可以稍后重试，或改为手动记录。':e instanceof TypeError?'暂时连不上识别服务，输入内容已保留。请检查网络，或改为手动记录。':e.code==='rate_limited'||e.code==='atlas_unavailable'?'服务正在忙，请稍后重试。你也可以改为手动记录。':'这次没有整理出完整草稿。可以补充描述再试，或改为手动记录。';remember('failed',{clientElapsedMs:Math.round(performance.now()-started),failureCode:e.code??(e.name==='AbortError'?'timeout':e instanceof TypeError?'network':'invalid_output')});}}
+      }catch(e){if(active()){error=e.name==='AbortError'?'这次整理超时了，输入内容已保留。可以稍后重试，或改为手动记录。':e instanceof TypeError?'暂时连不上识别服务，输入内容已保留。请检查网络，或改为手动记录。':e.code==='rate_limited'?'服务正在忙，请稍后重试。你也可以改为手动记录。':'这次没有整理出完整草稿。可以补充描述再试，或改为手动记录。';remember('failed',{clientElapsedMs:Math.round(performance.now()-started),failureCode:e.code??(e.name==='AbortError'?'timeout':e instanceof TypeError?'network':'invalid_output')});}}
       finally{clearTimeout(timer);busy=false;if(active())render();}
     }
   };
   render();dialog.showModal();
-  fetch('/api/ai/status').then(r=>{if(!r.ok)throw Error();return r.json();}).then(value=>{status=value;if(!providerChosen){provider=value.atlas?.ready?'atlas':'deepseek';consent=false;}if(active())render();}).catch(()=>{status={configured:false};if(!providerChosen)provider='deepseek';if(active())render();});
+  fetch('/api/ai/status').then(r=>{if(!r.ok)throw Error();return r.json();}).then(value=>{status=value;if(active())render();}).catch(()=>{status={configured:false};if(active())render();});
 }

@@ -42,8 +42,6 @@ test('转写只上传校验后的PCM音频，使用FormData；失败不产生假
  await assert.rejects(transcribeAudio(bytes,{apiKey:''}),/暂不可用/);
 });
 
-test('未通过问答门槛的Atlas不作为公开回答服务；保留独立的训练记录服务',async()=>{
- const before=process.env.ATLAS_KNOWLEDGE_EXPERIMENT;delete process.env.ATLAS_KNOWLEDGE_EXPERIMENT;
- try{await assert.rejects(generateKnowledge({question:'力竭是什么意思',engine:'atlas',consent:true},{fetchImpl:()=>{throw Error('must not call');}}),e=>e.code==='atlas_knowledge_not_released');}
- finally{if(before===undefined)delete process.env.ATLAS_KNOWLEDGE_EXPERIMENT;else process.env.ATLAS_KNOWLEDGE_EXPERIMENT=before;}
+test('旧Atlas问答授权不会被静默改作DeepSeek授权',async()=>{
+ await assert.rejects(generateKnowledge({question:'力竭是什么意思',engine:'atlas',consent:true},{fetchImpl:()=>{throw Error('must not call');}}),e=>e.code==='provider_retired'&&e.status===410);
 });

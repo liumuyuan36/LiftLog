@@ -1,6 +1,6 @@
 {
   "name": "liftlog",
-  "version": "1.12.0",
+  "version": "1.13.0",
   "private": true,
   "type": "module",
   "description": "可添加到 iPhone 主屏幕、支持离线记录与可追溯复盘的 LiftLog PWA",
@@ -8,7 +8,7 @@
     "dev": "node server.mjs",
     "start": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check dist/app.js && node --check dist/data.js && node --check dist/review.js && node --check dist/review-ui.js && node --check dist/pwa.js && node --check dist/backup.js && node --check dist/sw.js && node --check ai.mjs && node --check server.mjs && node --check dist/intake.js && node --check dist/intake-ui.js && node --check lib/intake-model.mjs && node --check lib/ai-http.mjs && node --check api/ai/intake.js && node --check api/ai/review.js && node --check api/ai/status.js && node --check dist/decision.js && node --check dist/decision-ui.js && node --check lib/decision-model.mjs && node --check lib/deepseek.mjs && node --check api/ai/decision.js && node --check dist/fitness.js && node --check dist/fitness-ui.js && node --check dist/focus-ui.js && node --check dist/workouts.js && node --check dist/routine-ui.js && node --check dist/exercise-library.js && node --check dist/exercise-art.js && node --check dist/library-ui.js && node --check dist/trail.js && node --check dist/trail-ui.js && node --check dist/knowledge-data.js && node --check dist/knowledge.js && node --check dist/knowledge-ui.js && node --check dist/audio.js && node --check dist/voice-ui.js && node --check dist/pcm-worklet.js && node --check lib/knowledge-model.mjs && node --check lib/transcribe.mjs && node --check api/ai/knowledge.js && node --check api/ai/transcribe.js",
+    "check": "node --check dist/app.js && node --check dist/data.js && node --check dist/review.js && node --check dist/review-ui.js && node --check dist/pwa.js && node --check dist/backup.js && node --check dist/sw.js && node --check ai.mjs && node --check server.mjs && node --check dist/intake.js && node --check dist/intake-ui.js && node --check lib/intake-model.mjs && node --check lib/ai-http.mjs && node --check api/ai/intake.js && node --check api/ai/review.js && node --check api/ai/status.js && node --check dist/decision.js && node --check dist/decision-ui.js && node --check lib/decision-model.mjs && node --check lib/deepseek.mjs && node --check api/ai/decision.js && node --check dist/fitness.js && node --check dist/fitness-ui.js && node --check dist/focus-ui.js && node --check dist/workouts.js && node --check dist/routine-ui.js && node --check dist/exercise-library.js && node --check dist/exercise-art.js && node --check dist/library-ui.js && node --check dist/trail.js && node --check dist/trail-ui.js && node --check dist/knowledge-data.js && node --check dist/knowledge.js && node --check dist/knowledge-ui.js && node --check dist/audio.js && node --check dist/voice-ui.js && node --check dist/pcm-worklet.js && node --check lib/knowledge-model.mjs && node --check lib/transcribe.mjs && node --check api/ai/knowledge.js && node --check api/ai/transcribe.js && node --check lib/model-config.mjs && node --check api/atlas/intake.js",
     "eval:intake": "node scripts/evaluate-intake.mjs"
   },
   "engines": {

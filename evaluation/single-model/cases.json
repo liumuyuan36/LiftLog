@@ -1,0 +1,12 @@
+{
+ "frozenAt":"2026-11-14",
+ "purpose":"单主模型迁移的合成冒烟验收，不是准确率评测；每题一次，无自动重试。由AI编写，未独立人工审核。",
+ "budgetUSD":0.2,
+ "intake":[
+  {"id":"I01","text":"今天杠铃卧推50kg，做了10、9、8次，RIR2","status":"ready","exercise":"杠铃卧推","weights":[50,50,50],"reps":[10,9,8],"rir":[2,2,2]},
+  {"id":"I02","text":"今天俯卧撑，做了12次和10次，RIR没记。","status":"ready","exercise":"俯卧撑","weights":[null,null],"reps":[12,10],"rir":[null,null]},
+  {"id":"I03","text":"今天做了杠铃卧推，但是重量和次数我忘了。","status":"clarify"},
+  {"id":"I04","text":"明天计划杠铃卧推50kg做10次3组。","status":"not_log"},
+  {"id":"I05","text":"教练演示杠铃卧推50公斤10次3组，我今天没有做。","status":"not_log"}
+ ]
+}

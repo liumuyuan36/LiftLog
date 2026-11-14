@@ -4,8 +4,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {aiRoute,send} from './lib/ai-http.mjs';
 import {generateIntake} from './lib/intake-model.mjs';
-import {generateAtlasIntake} from './lib/atlas-model.mjs';
-import {atlasAvailability,startAtlasWorker} from './lib/atlas-runtime.mjs';
+import {aiAvailability,retiredProvider} from './lib/model-config.mjs';
 import {generateDecision} from './lib/decision-model.mjs';
 import {generateKnowledge} from './lib/knowledge-model.mjs';
 import {audioRoute} from './lib/transcribe.mjs';
@@ -17,7 +16,6 @@ const root=fileURLToPath(new URL('./dist/',import.meta.url));
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.pdf':'application/pdf','.webmanifest':'application/manifest+json'};
 const routes=new Map([
   ['/api/ai/intake',generateIntake],
-  ['/api/atlas/intake',generateAtlasIntake],
   ['/api/ai/decision',generateDecision],
   ['/api/ai/knowledge',generateKnowledge],
   ['/api/ai/review',body=>generateSelection(validatePayload(body))]
@@ -50,7 +48,12 @@ export function createAppServer({publicOrigin=process.env.PUBLIC_ORIGIN??''}={})
     if(pathname==='/healthz')return send(res,req.method==='GET'||req.method==='HEAD'?200:405,{status:'ok',version:appVersion});
     if(pathname==='/api/ai/status'){
       if(req.method!=='GET')return send(res,405,{error:'仅支持 GET。'});
-      return send(res,200,{configured:Boolean(process.env.DEEPSEEK_API_KEY),provider:'DeepSeek',model:process.env.DEEPSEEK_MODEL||'deepseek-flash',atlas:await atlasAvailability()});
+      return send(res,200,aiAvailability());
+    }
+    if(pathname==='/api/atlas/intake'){
+      if(req.method!=='POST')return send(res,405,{error:'仅支持 POST。'});
+      if(!allowedOrigin(req,expected))return send(res,403,{error:'请求来源无效。'});
+      return send(res,410,retiredProvider);
     }
     if(pathname==='/api/ai/transcribe'){
       if(!allowedOrigin(req,expected))return send(res,403,{error:'请求来源无效。'});
@@ -64,7 +67,7 @@ export function createAppServer({publicOrigin=process.env.PUBLIC_ORIGIN??''}={})
       // The shared Vercel handler checks forwarded-host. Supply only the host
       // from the origin validated above, never a browser-provided proxy value.
       req.headers['x-forwarded-host']=new URL(req.headers.origin).host;
-      return aiRoute(req,res,generate,pathname==='/api/atlas/intake'?{configured:async()=> (await atlasAvailability()).ready}:pathname==='/api/ai/knowledge'?{configured:()=>true}:undefined);
+      return aiRoute(req,res,generate,pathname==='/api/ai/knowledge'?{configured:()=>true}:undefined);
     }
     if(pathname.startsWith('/api/'))return send(res,404,{error:'接口不存在。'});
     if(!['GET','HEAD'].includes(req.method))return send(res,405,{error:'仅支持 GET 或 HEAD。'});
@@ -80,7 +83,6 @@ export function createAppServer({publicOrigin=process.env.PUBLIC_ORIGIN??''}={})
 
 if(process.argv[1]&&path.resolve(process.argv[1])===entry){
   let server;try{server=createAppServer();}catch(e){console.error(e.message);process.exit(1);}
-  try{startAtlasWorker();}catch{console.warn('atlas_start_failed');}
   const port=Number(process.env.PORT??5173),host=process.env.HOST??'127.0.0.1';
   if(!Number.isInteger(port)||port<0||port>65535){console.error('Invalid PORT');process.exit(1);}
   server.listen(port,host,()=>console.log(`LiftLog ready on ${host}:${server.address().port}`));
