@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-14",
+  "reviewer": "AI source check; not independent professional review",
+  "independentReview": "not-performed",
+  "purpose": "Chinese general hypertrophy education and evidence-grounded RAG; no individual prescriptions, doses, diagnosis or guaranteed outcomes",
+  "method": "Read original author abstracts, selected original article sections, and official professional/NIH pages. Systematic reviews are cited as the authors' original evidence syntheses, not as new randomized experiments. No social-media summaries were used as evidence.",
+  "existingSourceReview": [
+    {
+      "key": "A",
+      "url": "https://acsm.org/resistance-training-guidelines-update-2026/",
+      "title": "ACSM Unveils Landmark 2026 Resistance Training Guidelines — First Update in 17 Years",
+      "year": 2026,
+      "accessedAt": "2026-11-14",
+      "readStatus": "official_summary_read",
+      "evidenceType": "professional_organization_summary",
+      "population": "Generally healthy adults; the summary is not an individualized plan",
+      "assessment": "Existing Chinese label and 2026 year are appropriate. It must stay identified as the official summary, not a full-text review of the position stand. Approximate weekly sets and general frequency statements must not become mandatory novice targets.",
+      "independentReview": "not-performed"
+    },
+    {
+      "key": "B",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36334240/",
+      "title": "Influence of Resistance Training Proximity-to-Failure on Skeletal Muscle Hypertrophy: A Systematic Review with Meta-analysis",
+      "year": 2023,
+      "onlineYear": 2022,
+      "doi": "10.1007/s40279-022-01784-y",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "systematic_review_meta_analysis",
+      "assessment": "2023 is the journal publication year. Preserve uncertainty from different definitions of failure and study protocols; absence of consistent failure superiority does not establish that effort is irrelevant.",
+      "independentReview": "not-performed"
+    },
+    {
+      "key": "C",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27531969/",
+      "fullTextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4961270/",
+      "title": "Application of the Repetitions in Reserve-Based Rating of Perceived Exertion Scale for Resistance Training",
+      "authors": "Eric R Helms, John Cronin, Adam Storey, Michael C Zourdos",
+      "year": 2016,
+      "doi": "10.1519/SSC.0000000000000218",
+      "accessedAt": "2026-11-14",
+      "readStatus": "selected_full_text_sections_read",
+      "evidenceType": "method_application_review",
+      "assessment": "Title/year correct. Prefer 方法应用综述 to an undifferentiated 研究文章 label: this is an application article, not a new controlled efficacy trial.",
+      "independentReview": "not-performed"
+    },
+    {
+      "key": "D",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33337690/",
+      "title": "Estimating Repetitions in Reserve in Four Commonly Used Resistance Exercises",
+      "authors": "Liam J Hughes, Jeremiah J Peiffer, Brendan Scott",
+      "year": 2020,
+      "onlinePublishedAt": "2020-12-17",
+      "publicationYearBasis": "online ahead of print date shown by PubMed; no print year inferred",
+      "doi": "10.1519/JSC.0000000000003865",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "repeated_measures_experiment",
+      "population": "21 resistance-trained men; squat, bench press, overhead press and prone row; free-weight and Smith-machine conditions; estimated 2RIR at 65/75/85%1RM",
+      "assessment": "This PMID is correctly linked and the existing 2020 date is defensible as online publication. Accuracy was greatest at the heaviest tested load; do not generalize the exact result to beginners, women, all RIR values or every exercise. The experiment is about estimation accuracy, not which equipment grows more muscle.",
+      "independentReview": "not-performed"
+    },
+    {
+      "key": "E",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39205815/",
+      "fullTextUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11349676/",
+      "title": "Give it a rest: a systematic review with Bayesian meta-analysis on the effect of inter-set rest interval duration on muscle hypertrophy",
+      "year": 2024,
+      "doi": "10.3389/fspor.2024.1429789",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "systematic_review_bayesian_meta_analysis",
+      "population": "Healthy adult studies; nine studies and 19 hypertrophy measurements",
+      "assessment": "Existing source identity/year correct. Consider replacing the F08 clause with 超过90秒后未观察到明确差异，但估计区间重叠且研究有异质性; this is not proof of an optimal 90-second rest or proof that longer rest is useless.",
+      "independentReview": "not-performed"
+    },
+    {
+      "key": "F",
+      "url": "https://ods.od.nih.gov/factsheets/ExerciseAndAthleticPerformance-HealthProfessional/",
+      "title": "Dietary Supplements for Exercise and Athletic Performance: Fact Sheet for Health Professionals",
+      "year": 2024,
+      "updatedAt": "2024-04-01",
+      "accessedAt": "2026-11-14",
+      "readStatus": "selected_official_sections_read",
+      "sectionsRead": ["Introduction", "Creatine: Efficacy and Safety", "Protein", "Selected Ingredients: combination-product limitation", "Regulation", "Updated footer"],
+      "evidenceType": "official_evidence_fact_sheet",
+      "assessment": "Existing year:null can be replaced with 2024 only if labeled page update year. Do not imply a 2024 original trial. US FDA regulation text is US-specific and should not be used as a statement of Chinese regulation.",
+      "independentReview": "not-performed"
+    },
+    {
+      "key": "G",
+      "url": "https://www.acsm.org/docs/default-source/files-for-resource-library/delayed-onset-muscle-soreness-%28doms%29.pdf",
+      "title": "Delayed Onset Muscle Soreness (DOMS)",
+      "year": null,
+      "accessedAt": "2026-11-14",
+      "readStatus": "unavailable_on_this_review_attempt",
+      "evidenceType": "professional_organization_information_sheet",
+      "assessment": "The legacy URL redirected to an unavailable ACSM URL in this review. Do not claim its full text was reverified today or invent its publication year. Preserve prior provenance or replace with a reachable official copy before marking this source verified. New soreness cards below instead cite accessible original studies.",
+      "independentReview": "not-performed"
+    }
+  ],
+  "sources": {
+    "H": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33874848/",
+      "title": "Influence of resistance training load on measures of skeletal muscle hypertrophy and improvements in maximal strength and neuromuscular task performance: A systematic review and meta-analysis",
+      "authors": "Martin C Refalo, D Lee Hamilton, D Robert Paval, Iain J Gallagher, Simon A Feros, Jackson J Fyfe",
+      "year": 2021,
+      "doi": "10.1080/02640414.2021.1898094",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read_in_search_result; later direct fetch returned incomplete page",
+      "evidenceType": "systematic_review_meta_analysis",
+      "scope": "45 studies comparing higher and lower resistance-training loads; outcomes include hypertrophy and maximal strength",
+      "independentReview": "not-performed"
+    },
+    "I": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34170576/",
+      "publisherUrl": "https://onlinelibrary.wiley.com/doi/full/10.1111/sms.14006",
+      "title": "Effects of range of motion on resistance training adaptations: A systematic review and meta-analysis",
+      "authors": "Jesús G Pallarés et al.",
+      "year": 2021,
+      "doi": "10.1111/sms.14006",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_and_selected_publisher_methods_results_read",
+      "evidenceType": "systematic_review_meta_analysis",
+      "scope": "16 studies, healthy adults; searches through March 2021; strongest hypertrophy conclusion concerns lower limbs",
+      "independentReview": "not-performed"
+    },
+    "J": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36662126/",
+      "title": "Which ROMs Lead to Rome? A Systematic Review of the Effects of Range of Motion on Muscle Hypertrophy",
+      "authors": "Witalo Kassiano et al.",
+      "year": 2023,
+      "doi": "10.1519/JSC.0000000000004415",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "systematic_review",
+      "scope": "11 studies through April 2022; muscle-specific and regional effects of full and partial movement ranges",
+      "independentReview": "not-performed"
+    },
+    "K": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36622555/",
+      "title": "Resistance Training Induces Improvements in Range of Motion: A Systematic Review and Meta-Analysis",
+      "authors": "Shahab Alizadeh et al.",
+      "year": 2023,
+      "doi": "10.1007/s40279-022-01804-x",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "systematic_review_meta_analysis",
+      "scope": "55 controlled/randomized studies in healthy participants; joint flexibility outcome, not muscle growth",
+      "independentReview": "not-performed"
+    },
+    "L": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38595233/",
+      "title": "Efficacy of Split Versus Full-Body Resistance Training on Strength and Muscle Growth: A Systematic Review With Meta-Analysis",
+      "authors": "Domingo J Ramos-Campo et al.",
+      "year": 2024,
+      "doi": "10.1519/JSC.0000000000004774",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "systematic_review_meta_analysis",
+      "scope": "14 studies, 392 healthy adults; split versus full-body programs with volume equated",
+      "independentReview": "not-performed"
+    },
+    "M": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8884877/",
+      "pubmedUrl": "https://pubmed.ncbi.nlm.nih.gov/35291645/",
+      "title": "A Systematic Review of The Effects of Different Resistance Training Volumes on Muscle Hypertrophy",
+      "authors": "Eneko Baz-Valle, Carlos Balsalobre-Fernández, Carlos Alix-Fages, Jordan Santos-Concejero",
+      "year": 2022,
+      "doi": "10.2478/hukin-2022-0017",
+      "accessedAt": "2026-11-14",
+      "readStatus": "abstract_methods_selected_results_and_discussion_read",
+      "evidenceType": "systematic_review_meta_analysis",
+      "scope": "Seven qualitative/six quantitative studies; young trained men, generally 18–35 and at least one year of training; interventions at least six weeks",
+      "qualityFlag": "Triceps quantitative-results text reports p=.01 but its printed CI crosses zero; do not turn that apparent inconsistency into a firm triceps prescription. The conservative card uses only the non-significant quadriceps/biceps comparison.",
+      "independentReview": "not-performed"
+    },
+    "N": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35438660/",
+      "title": "Does Varying Resistance Exercises Promote Superior Muscle Hypertrophy and Strength Gains? A Systematic Review",
+      "authors": "Witalo Kassiano et al.",
+      "year": 2022,
+      "doi": "10.1519/JSC.0000000000004258",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "systematic_review",
+      "scope": "Eight studies, 241 participants, all young men; systematic versus excessive/random exercise variation",
+      "independentReview": "not-performed"
+    },
+    "O": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28698222/",
+      "title": "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults",
+      "authors": "Robert W Morton et al.",
+      "year": 2018,
+      "onlineYear": 2017,
+      "doi": "10.1136/bjsports-2017-097608",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_and_2020_correction_read",
+      "correctionUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7513243/",
+      "correctionNote": "2020 correction adds a supplement-industry advisory-board competing-interest declaration; it does not announce a changed efficacy estimate.",
+      "evidenceType": "systematic_review_meta_analysis_meta_regression",
+      "scope": "49 trials, 1863 healthy adults; resistance exercise interventions lasting at least six weeks with protein supplementation",
+      "independentReview": "not-performed"
+    },
+    "Q": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12453160/",
+      "title": "Delayed-onset muscle soreness does not reflect the magnitude of eccentric exercise-induced muscle damage",
+      "authors": "Kazunori Nosaka, Mike Newton, Paul Sacco",
+      "year": 2002,
+      "doi": "10.1034/j.1600-0838.2002.10178.x",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "controlled_experimental_study",
+      "scope": "110 male students, maximal eccentric elbow-flexor actions; soreness and indirect damage markers followed for four days",
+      "independentReview": "not-performed"
+    },
+    "R": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC59671/",
+      "title": "Time course of muscle soreness following different types of exercise",
+      "year": 2001,
+      "pmid": "11701094",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "secondary_analysis_of_original_trial_data",
+      "scope": "400 long-distance runners and 82 untrained bench-stepping volunteers; soreness followed for five days; exercise and population differ between groups",
+      "independentReview": "not-performed"
+    },
+    "S": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6724585/",
+      "title": "Similar Muscular Adaptations in Resistance Training Performed Two Versus Three Days Per Week",
+      "authors": "Thiago Lasevicius et al.",
+      "year": 2019,
+      "doi": "10.2478/hukin-2019-0062",
+      "accessedAt": "2026-11-14",
+      "readStatus": "abstract_and_selected_methods_read",
+      "evidenceType": "randomized_parallel_trial",
+      "scope": "36 trained men randomized, 28 completed; ten weeks; muscle-group frequency two versus three days with weekly volume equated",
+      "independentReview": "not-performed"
+    },
+    "T": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37414459/",
+      "title": "Resistance training prescription for muscle strength and hypertrophy in healthy adults: a systematic review and Bayesian network meta-analysis",
+      "authors": "Brad S Currier et al.",
+      "year": 2023,
+      "doi": "10.1136/bjsports-2023-106807",
+      "accessedAt": "2026-11-14",
+      "readStatus": "author_abstract_read",
+      "evidenceType": "systematic_review_bayesian_network_meta_analysis",
+      "scope": "Healthy adult randomized trials; strength network 178 studies/5097 people; hypertrophy network 119 studies/3364 people",
+      "independentReview": "not-performed"
+    },
+    "U": {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34881412/",
+      "title": "Effects of Resistance Training to Muscle Failure on Acute Fatigue: A Systematic Review and Meta-Analysis",
+      "authors": "João Guilherme Vieira et al.",
+      "year": 2022,
+      "onlineYear": 2021,
+      "doi": "10.1007/s40279-021-01602-x",
+      "accessedAt": "2026-11-14",
+      "readStatus": "complete_author_abstract_read_in_PubMed_search_result",
+      "evidenceType": "systematic_review_meta_analysis",
+      "scope": "Twenty crossover studies reviewed/twelve pooled; acute biomechanical, metabolic, indirect damage and perceived-exertion outcomes",
+      "independentReview": "not-performed"
+    },
+    "W": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9528903/",
+      "title": "Progressive overload without progressing load? The effects of load or repetition progression on muscular adaptations",
+      "authors": "Daniel Plotkin et al.",
+      "year": 2022,
+      "doi": "10.7717/peerj.14142",
+      "accessedAt": "2026-11-14",
+      "readStatus": "abstract_training_methods_and_measurement_sections_read",
+      "evidenceType": "randomized_parallel_trial",
+      "scope": "43 resistance-trained adults randomized; eight-week supervised lower-body program; load progression versus repetition progression; ultrasound muscle thickness measured at standardized sites after a rest interval",
+      "independentReview": "not-performed"
+    }
+  },
+  "cards": [
+    {
+      "id": "F13", "title": "增肌没有唯一的次数区间",
+      "text": "负荷综述中，较轻与较重负荷训练都能增加肌肉尺寸，平均增肌差异并不明确。不能把某个次数区间当成唯一有效区间，也不能忽略研究中的努力程度和训练安排。",
+      "scope": "研究负荷比较；不把任意轻松活动视为同等刺激。", "unsupportedInferences": ["所有重量随便练效果相同", "直接生成个人次数处方"], "topics": ["load", "repetitions", "hypertrophy"], "sources": ["H"], "evidenceType": "systematic_review_meta_analysis", "sourceSection": "Abstract: results and conclusion", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F14", "title": "力量进步与肌肉增长分别看",
+      "text": "在负荷比较研究中，较重负荷对最大力量测试通常更有优势，肌肉尺寸的结果却不一定相同。因此，举得更重是力量表现的进步，不能直接换算成已经长了多少肌肉。",
+      "scope": "最大力量与肌肥大为不同研究结局；最后一句为保守的产品解释边界。", "unsupportedInferences": ["力量和肌肉增长完全无关", "从训练公斤数计算肌肉公斤数"], "topics": ["load", "strength", "progress"], "sources": ["H"], "evidenceType": "systematic_review_meta_analysis", "sourceSection": "Abstract: maximal-strength versus hypertrophy findings", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F15", "title": "完整行程的证据有具体范围",
+      "text": "一项汇总十六项研究的分析发现，完整行程对力量和下肢肌肥大平均更有利。这并不证明所有局部行程都无效，也不能据此要求有疼痛或活动受限的人强行加深动作。",
+      "scope": "健康成人、截至2021年的研究；肌肥大优势主要涉及下肢。", "unsupportedInferences": ["所有肌群完整行程必然胜出", "疼痛时必须强行拉到极限"], "topics": ["rom", "technique"], "sources": ["I"], "evidenceType": "systematic_review_meta_analysis", "sourceSection": "Abstract; Methods 2.2; Discussion 4.3", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F16", "title": "局部行程还要看训练在哪一段",
+      "text": "局部行程不是单一做法。相关综述提示，在较长肌肉长度位置训练，部分肌肉或区域可能获得较好增长。结果受动作、肌群和测量位置影响，不能概括为半程永远优于全程。",
+      "scope": "十一项研究的系统综述；并非对所有动作和所有身体区域的结论。", "unsupportedInferences": ["任何半程都更增肌", "统一替换所有完整行程动作"], "topics": ["rom", "muscle-length", "exercise-selection"], "sources": ["J"], "evidenceType": "systematic_review", "sourceSection": "Abstract: regional findings and conclusion", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F17", "title": "力量训练也可以改善活动范围",
+      "text": "健康人群的研究汇总发现，使用外部负荷的抗阻训练也能改善关节活动范围，与拉伸训练的平均差异不明确。这是柔韧性方面的结果，不代表拉伸毫无用途或能够治疗关节问题。",
+      "scope": "健康参与者、长期训练的活动范围结局；不是急性热身或康复结论。", "unsupportedInferences": ["任何拉伸都不需要", "抗阻训练可自行治疗关节病"], "topics": ["rom", "flexibility"], "sources": ["K"], "evidenceType": "systematic_review_meta_analysis", "sourceSection": "Abstract: eligibility, results and conclusion", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F18", "title": "分化和全身训练都可以有效",
+      "text": "十四项研究的汇总显示，在训练量相等时，分化训练与全身训练的力量和增肌结果没有明确差异。计划名称本身不决定效果，选择时可以考虑日程、偏好和能否持续完成。",
+      "scope": "健康成人、训练量相等的比较；坚持因素为作者讨论的选择依据。", "unsupportedInferences": ["任意分化都与任意全身方案等效", "训练量不必比较"], "topics": ["split", "frequency", "adherence"], "sources": ["L"], "evidenceType": "systematic_review_meta_analysis", "sourceSection": "Abstract: sample, volume-equated conclusion", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F19", "title": "多加工作组不保证多长肌肉",
+      "text": "在年轻且有训练经验男性的研究汇总中，中等与更高周训练量的股四头肌和肱二头肌增长差异不明确。这不能证明额外组数永远无效，也不支持仅因变化慢就不断叠加组数。",
+      "scope": "有限样本、特定肌群和训练量分组；不能作为新手组数起点。", "unsupportedInferences": ["某个周组数是所有人的上限", "新手必须照搬研究组数"], "topics": ["volume", "plateau", "hypertrophy"], "sources": ["M"], "evidenceType": "systematic_review_meta_analysis", "sourceSection": "Abstract; quadriceps and biceps quantitative results", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F20", "title": "动作变化应有明确目的",
+      "text": "动作变化的综述提示，有计划地调整动作，可能影响局部肌肉增长和力量适应。重点是动作提供了什么不同刺激，而不是单纯增加动作数量；结论主要来自年轻男性研究。",
+      "scope": "八项研究、二百四十一名年轻男性；综述没有给出通用动作清单。", "unsupportedInferences": ["动作越多一定越好", "某个动作组合对所有人最优"], "topics": ["exercise-selection", "variation"], "sources": ["N"], "evidenceType": "systematic_review", "sourceSection": "Abstract: sample and systematic-variation conclusion", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F21", "title": "每天随机换动作未必更先进",
+      "text": "研究综述提醒，过度、随机地更换动作，或堆叠刺激重复的动作，可能不利于训练适应。追求新鲜感不能直接等同于效果提升；这也不意味着计划中的动作永远不能调整。",
+      "scope": "综述的谨慎结论；不指定必须固定几周或某种换动作周期。", "unsupportedInferences": ["任何换动作都会损失肌肉", "存在统一换动作时间表"], "topics": ["exercise-selection", "variation", "consistency"], "sources": ["N"], "evidenceType": "systematic_review", "sourceSection": "Abstract: excessive/random variation limitation", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F22", "title": "蛋白补充的效果要结合训练理解",
+      "text": "健康成人试验的汇总发现，在持续抗阻训练期间，蛋白补充对力量和肌肉相关指标有平均额外收益。它描述的是群体结果，不能保证每个人获得同样变化，也不能替代实际训练。",
+      "scope": "至少六周抗阻训练加蛋白补充的试验；已读取2020年利益冲突更正。", "unsupportedInferences": ["喝蛋白粉即可增肌", "群体平均变化就是个人承诺"], "topics": ["protein", "nutrition", "hypertrophy"], "sources": ["O"], "evidenceType": "systematic_review_meta_analysis_meta_regression", "sourceSection": "Abstract: eligibility and results; 2020 correction", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F23", "title": "蛋白研究中的人群差异不能抹平",
+      "text": "蛋白补充综述发现，年龄与训练经历会影响部分平均结果。不能把一种研究人群的收益直接套给所有新手，也不能仅凭年龄、体重或外形目标，就推算个人该吃多少蛋白质。",
+      "scope": "研究层面的调节分析，不能预测某一个人的反应。", "unsupportedInferences": ["年龄较大就没有收益", "仅凭人口信息计算个人营养处方"], "topics": ["protein", "individual-differences", "nutrition"], "sources": ["O"], "evidenceType": "systematic_review_meta_regression", "sourceSection": "Abstract: age and training-status moderators", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F24", "title": "增肌饮食不只看蛋白质",
+      "text": "运动营养资料强调，充足的能量、水分、碳水化合物、脂肪和微量营养素同样属于饮食基础。碳水参与运动供能和肌糖原补充，不能把只增加蛋白质当成完整的增肌饮食。",
+      "scope": "一般营养教育；不生成热量盈余或个体营养素目标。", "unsupportedInferences": ["碳水越多越好", "所有人应采用同一饮食比例"], "topics": ["nutrition", "carbohydrate", "fat", "energy"], "sources": ["F"], "evidenceType": "official_evidence_fact_sheet", "sourceSection": "Introduction: dietary foundation", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F25", "title": "开始补肌酸后的体重变化要分清",
+      "text": "肌酸补充可能伴随体内水分增加和体重上升，因此体重变化不能全部解释成新增肌肉。记录补充剂使用有助于理解趋势，但单凭体重秤无法判断这次变化中肌肉与水分各有多少。",
+      "scope": "NIH资料的水分相关体重变化；后半为测量解释边界。", "unsupportedInferences": ["肌酸增重全部是水", "可以按固定比例扣除体重变化"], "topics": ["creatine", "body-weight", "progress"], "sources": ["F"], "evidenceType": "official_evidence_fact_sheet", "sourceSection": "Creatine: Safety", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F26", "title": "复合补剂不能借用单一成分结论",
+      "text": "一款复合补剂包含某种有研究的成分，不代表整个配方已有同样证据。NIH资料指出，成分组合与含量不同，不能仅凭单一成分试验推断整款产品的效果和安全性。",
+      "scope": "补充剂证据解读；不替具体品牌背书或判断个人适用性。", "unsupportedInferences": ["所有复合补剂都无效", "单一成分安全就证明任何配方安全"], "topics": ["supplement", "evidence-literacy", "nutrition"], "sources": ["F"], "evidenceType": "official_evidence_fact_sheet", "sourceSection": "Selected Ingredients: combination-product limitations", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F27", "title": "酸痛强度不是肌肉损伤计量器",
+      "text": "一项离心运动实验发现，酸痛程度与其他肌肉损伤指标的相关性较弱。因此，感觉越酸不能直接解释为肌肉受损越多，更不能进一步当作这次一定长了更多肌肉的证明。",
+      "scope": "男性学生的肘屈肌最大离心实验；最后一句为不作过度推断的边界。", "unsupportedInferences": ["没有酸痛就绝对没有损伤", "可忽略急性或异常疼痛"], "topics": ["soreness", "recovery", "progress"], "sources": ["Q"], "evidenceType": "controlled_experimental_study", "sourceSection": "Abstract: methods, correlations and conclusion", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F28", "title": "酸痛的时间变化并不完全一致",
+      "text": "不同运动情境的原始试验资料显示，长跑后的酸痛变化与未训练者踏阶运动后的曲线不同。常见的延迟酸痛时间描述只是一般现象，不能当作判断每个人是否恢复的固定倒计时。",
+      "scope": "不同人群和运动的资料再分析；无法单独区分训练经历与运动形式的作用。", "unsupportedInferences": ["能仅按小时数证明完全恢复", "把长跑结果直接套给所有抗阻训练"], "topics": ["soreness", "recovery", "individual-differences"], "sources": ["R"], "evidenceType": "secondary_analysis_of_original_trial_data", "sourceSection": "Abstract: population, time-course comparison and conclusion", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F29", "title": "多一天训练不自动代表更多增长",
+      "text": "一项十周训练实验中，在周训练量相等的条件下，同一肌群每周练两天与三天的主要适应差异不明确。这提示比较频率时要同时看总量，不能只用打卡天数判断训练更有效。",
+      "scope": "有训练经验男性的小型试验；不能证明所有频率、所有人群完全等效。", "unsupportedInferences": ["训练频率永远不重要", "不同总量计划可以只比天数"], "topics": ["frequency", "volume", "progress"], "sources": ["S"], "evidenceType": "randomized_parallel_trial", "sourceSection": "Abstract; Methods: volume-equated training groups", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F30", "title": "不必等到找到完美计划才开始",
+      "text": "健康成人的网络荟萃分析发现，所比较的多种抗阻训练安排，相对于不训练都改善了力量和肌肉相关结果。研究中的方案排名不是个人最优答案，也不是所有安排都毫无差别。",
+      "scope": "研究比较的十二种负荷、组数和频率组合；不覆盖任意自创方案。", "unsupportedInferences": ["任何计划都有效且安全", "排名第一应推荐给所有用户"], "topics": ["programming", "adherence", "evidence-literacy"], "sources": ["T"], "evidenceType": "systematic_review_bayesian_network_meta_analysis", "sourceSection": "Abstract: eligibility, comparative results and ranking", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F31", "title": "力竭还伴随当次疲劳成本",
+      "text": "急性研究的汇总发现，练到力竭通常比未力竭带来更明显的即时疲劳和运动表现下降。比较训练方式时，除了是否完成更多重复，也需要区分刺激目标与当次疲劳表现。",
+      "scope": "交叉试验的急性结局；不是长期增肌或个人恢复时间处方。", "unsupportedInferences": ["力竭一定有害", "据此认定力竭长期增肌一定更差"], "topics": ["failure", "fatigue", "recovery"], "sources": ["U"], "evidenceType": "systematic_review_meta_analysis", "sourceSection": "Abstract: acute biomechanical results and conclusion", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F32", "title": "练得很累不等于长期一定更有效",
+      "text": "急性疲劳研究测量的是运动后短时间内的表现、代谢或感受，并不直接测量数周后的肌肉增长。因此，练完更累、当次指标更高，都不能单独作为长期增肌方案优劣的结论。",
+      "scope": "根据研究设计划定证据边界，不声称疲劳与适应毫无关系。", "unsupportedInferences": ["疲劳完全不影响适应", "用单次乳酸或疲劳感预测增肌量"], "topics": ["fatigue", "progress", "evidence-literacy"], "sources": ["U"], "evidenceType": "study_design_boundary", "sourceSection": "Abstract: selected acute outcomes and longitudinal limitation", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F33", "title": "进步不只有加重量这一种形式",
+      "text": "一项有训练经验成人的下肢实验发现，在八周周期内，逐步加重量与逐步加重复次数都可带来肌肉适应。没有每次加片不等于没有进步，但不能把次数增加直接换算成肌肉增长量。",
+      "scope": "特定监督训练方案、成年训练者；不能承诺所有进阶方式永久等效。", "unsupportedInferences": ["每次都必须加次数", "无限增加重复次数一定持续增肌"], "topics": ["progress", "progressive-overload", "repetitions"], "sources": ["W"], "evidenceType": "randomized_parallel_trial", "sourceSection": "Abstract; Methods: training progression", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    },
+    {
+      "id": "F34", "title": "比较肌肉尺寸要注意测量条件",
+      "text": "肌肉适应实验会统一测量位置，并安排训练后的休息间隔，以减少肿胀对肌厚结果的干扰。日常观察也应留意测量条件；刚练完的外观变化不能直接当成已经稳定增长的证据。",
+      "scope": "原始试验的测量流程加保守产品解释；不提供家庭测量误差或通用等待时限。", "unsupportedInferences": ["休息固定小时后任何测量都精确", "凭照片精确估算新增肌肉"], "topics": ["progress", "measurement", "hypertrophy"], "sources": ["W"], "evidenceType": "original_trial_measurement_method", "sourceSection": "Methods: Muscle thickness; standardized locations and delayed measurements", "reviewStatus": "ai-reviewed", "independentReview": "not-performed"
+    }
+  ],
+  "integrationNotes": [
+    "These 22 proposed cards are additional to F01–F12. IDs are proposals, not already-published records.",
+    "Sources are AI-organized and have no professional endorsement. Independent professional review was not performed and is not a delivery or publication gate for this exploratory portfolio.",
+    "F source metadata refers to an updated official page. Resolve source keys against both existingSourceReview and sources.",
+    "Study-design boundary cards explain unsupported inference limits; they must not be mislabeled as new experimental findings.",
+    "No personal calorie, supplement-dose, body-fat, rehabilitation or medication prescriptions are included."
+  ]
+}

@@ -1,0 +1,914 @@
+{
+  "createdAt": "2026-11-14T07:14:02.230Z",
+  "method": "AI-authored conceptual mapping, offline retrieval only; not answer accuracy",
+  "total": 35,
+  "covered": 28,
+  "baseline": {
+    "queries": 28,
+    "hitAt3": 17,
+    "meanRecallAt3": 0.5714285714285714
+  },
+  "candidate": {
+    "queries": 28,
+    "hitAt3": 28,
+    "meanRecallAt3": 1
+  },
+  "rows": [
+    {
+      "id": "K01",
+      "split": "development",
+      "question": "RIR3是不是表示这组已经做了3次？",
+      "goldIds": [
+        "F01"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F01",
+          "F02"
+        ],
+        "hits": [
+          "F01"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F01",
+          "F02"
+        ],
+        "hits": [
+          "F01"
+        ]
+      }
+    },
+    {
+      "id": "K02",
+      "split": "development",
+      "question": "我不确定还能做几次，RIR可以不填吗？",
+      "goldIds": [
+        "F02"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F01",
+          "F02"
+        ],
+        "hits": [
+          "F02"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F01",
+          "F02"
+        ],
+        "hits": [
+          "F02"
+        ]
+      }
+    },
+    {
+      "id": "K03",
+      "split": "development",
+      "question": "想增肌就必须把每一个工作组都做到力竭吗？",
+      "goldIds": [
+        "F03"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F04",
+          "F03",
+          "F07"
+        ],
+        "hits": [
+          "F03"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F31",
+          "F03",
+          "F04"
+        ],
+        "hits": [
+          "F03"
+        ]
+      }
+    },
+    {
+      "id": "K04",
+      "split": "development",
+      "question": "日志里3000kg容量能换算成每周多少组吗？",
+      "goldIds": [
+        "F07"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F07",
+          "F04"
+        ],
+        "hits": [
+          "F07"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F07",
+          "F37",
+          "F35"
+        ],
+        "hits": [
+          "F07"
+        ]
+      }
+    },
+    {
+      "id": "K05",
+      "split": "development",
+      "question": "每肌群每周约10组这句话，是所有新手第一周必须达标的硬指标吗？",
+      "goldIds": [
+        "F04"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F04",
+          "F07"
+        ],
+        "hits": [
+          "F04"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F04",
+          "F23",
+          "F29"
+        ],
+        "hits": [
+          "F04"
+        ]
+      }
+    },
+    {
+      "id": "K06",
+      "split": "development",
+      "question": "每周练几天和每周练多少组，是同一个概念吗？",
+      "goldIds": [
+        "F05",
+        "F29"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F05",
+          "F07",
+          "F04"
+        ],
+        "hits": [
+          "F05"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F29",
+          "F05",
+          "F07"
+        ],
+        "hits": [
+          "F05",
+          "F29"
+        ]
+      }
+    },
+    {
+      "id": "K07",
+      "split": "development",
+      "question": "家里只有弹力带和自重，是不是完全练不出抗阻训练的效果？",
+      "goldIds": [
+        "F06"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F06"
+        ],
+        "hits": [
+          "F06"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F06",
+          "F36"
+        ],
+        "hits": [
+          "F06"
+        ]
+      }
+    },
+    {
+      "id": "K08",
+      "split": "development",
+      "question": "为了增肌，把组间休息压到非常短是不是总比多休息好？",
+      "goldIds": [
+        "F08"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F08"
+        ],
+        "hits": [
+          "F08"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F08"
+        ],
+        "hits": [
+          "F08"
+        ]
+      }
+    },
+    {
+      "id": "K09",
+      "split": "development",
+      "question": "喝蛋白粉能直接代替正常吃饭和抗阻训练吗？",
+      "goldIds": [
+        "F09"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F09"
+        ],
+        "hits": [
+          "F09"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F09",
+          "F22",
+          "F23"
+        ],
+        "hits": [
+          "F09"
+        ]
+      }
+    },
+    {
+      "id": "K10",
+      "split": "development",
+      "question": "我每天已经能从食物吃到蛋白质，还一定得买蛋白粉吗？",
+      "goldIds": [
+        "F09"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F09"
+        ],
+        "hits": [
+          "F09"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F09",
+          "F23",
+          "F22"
+        ],
+        "hits": [
+          "F09"
+        ]
+      }
+    },
+    {
+      "id": "K11",
+      "split": "development",
+      "question": "肌酸证据主要针对哪类运动表现？",
+      "goldIds": [
+        "F10"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F10"
+        ],
+        "hits": [
+          "F10"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F10",
+          "F25",
+          "F32"
+        ],
+        "hits": [
+          "F10"
+        ]
+      }
+    },
+    {
+      "id": "K12",
+      "split": "development",
+      "question": "补肌酸是不是能保证每个人长出相同数量的肌肉？",
+      "goldIds": [
+        "F10",
+        "F25"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F10"
+        ],
+        "hits": [
+          "F10"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F25",
+          "F10",
+          "F28"
+        ],
+        "hits": [
+          "F10",
+          "F25"
+        ]
+      }
+    },
+    {
+      "id": "K13",
+      "split": "development",
+      "question": "隔天才酸痛，是乳酸一直留在肌肉里的结果吗？",
+      "goldIds": [
+        "F11"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F11"
+        ],
+        "hits": [
+          "F11"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F11",
+          "F27",
+          "F28"
+        ],
+        "hits": [
+          "F11"
+        ]
+      }
+    },
+    {
+      "id": "K14",
+      "split": "development",
+      "question": "很久没做某个动作，再做后酸痛能说明什么？",
+      "goldIds": [
+        "F11"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F11"
+        ],
+        "hits": [
+          "F11"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F11",
+          "F28",
+          "F27"
+        ],
+        "hits": [
+          "F11"
+        ]
+      }
+    },
+    {
+      "id": "K15",
+      "split": "development",
+      "question": "只听见“脂包肌”，你能算出我的体脂率吗？",
+      "goldIds": [
+        "F12"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F12"
+        ],
+        "hits": [
+          "F12"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F12"
+        ],
+        "hits": [
+          "F12"
+        ]
+      }
+    },
+    {
+      "id": "K16",
+      "split": "development",
+      "question": "训练容量涨了，就可以说肌肉也按相同比例增长了吗？",
+      "goldIds": [
+        "F07",
+        "F14"
+      ],
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F14",
+          "F07",
+          "F27"
+        ],
+        "hits": [
+          "F07",
+          "F14"
+        ]
+      }
+    },
+    {
+      "id": "K17",
+      "split": "development",
+      "question": "没填RIR与明确填RIR0，在复盘时能一起算成0吗？",
+      "goldIds": [
+        "F02"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F01",
+          "F02"
+        ],
+        "hits": [
+          "F02"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F01",
+          "F02",
+          "F35"
+        ],
+        "hits": [
+          "F02"
+        ]
+      }
+    },
+    {
+      "id": "K18",
+      "split": "development",
+      "question": "只在受过训练的男性身上做的RIR研究，能直接代表所有新手吗？",
+      "goldIds": [
+        "F02"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F02",
+          "F01"
+        ],
+        "hits": [
+          "F02"
+        ]
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F02",
+          "F01",
+          "F23"
+        ],
+        "hits": [
+          "F02"
+        ]
+      }
+    },
+    {
+      "id": "K19",
+      "split": "development",
+      "question": "一篇研究写平均有效，就能保证我按它做一定有相同结果吗？",
+      "goldIds": [],
+      "uncoveredReason": "未指定研究或干预；可解释一般证据边界，但本库没有直接对应的研究卡，不能将任意主题召回算作证据命中。",
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F32",
+          "F30",
+          "F26"
+        ],
+        "hits": []
+      }
+    },
+    {
+      "id": "K20",
+      "split": "development",
+      "question": "负荷轻一些和重一些，增肌研究怎么比较，而不是只看单次举多重？",
+      "goldIds": [
+        "F13"
+      ],
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F14",
+          "F13",
+          "F36"
+        ],
+        "hits": [
+          "F13"
+        ]
+      }
+    },
+    {
+      "id": "K21",
+      "split": "development",
+      "question": "讨论动作行程时，是不是只看手或器械移动了多远？",
+      "goldIds": [],
+      "uncoveredReason": "行程卡讨论训练结局，不提供器械位移与关节运动关系的生物力学证据。",
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F06"
+        ],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F16",
+          "F15",
+          "F17"
+        ],
+        "hits": []
+      }
+    },
+    {
+      "id": "K22",
+      "split": "development",
+      "question": "同一台器械的配重与另一台的配重一样，可以直接比较力量吗？",
+      "goldIds": [
+        "F36"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F06"
+        ],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F36",
+          "F06"
+        ],
+        "hits": [
+          "F36"
+        ]
+      }
+    },
+    {
+      "id": "K23",
+      "split": "development",
+      "question": "重量没变但同条件次数多了，能算记录上的变化吗？",
+      "goldIds": [
+        "F33",
+        "F36"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F07"
+        ],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F33",
+          "F36",
+          "F07"
+        ],
+        "hits": [
+          "F33",
+          "F36"
+        ]
+      }
+    },
+    {
+      "id": "K24",
+      "split": "development",
+      "question": "只看训练日志，能知道我的睡眠和身体恢复情况吗？",
+      "goldIds": [
+        "F35"
+      ],
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F35",
+          "F28",
+          "F27"
+        ],
+        "hits": [
+          "F35"
+        ]
+      }
+    },
+    {
+      "id": "K25",
+      "split": "locked",
+      "question": "动作越慢是否就一定更增肌？",
+      "goldIds": [],
+      "uncoveredReason": "未收录动作节奏比较研究。",
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      }
+    },
+    {
+      "id": "K26",
+      "split": "locked",
+      "question": "先练哪个动作会不会影响后面动作的表现？",
+      "goldIds": [],
+      "uncoveredReason": "未收录动作顺序比较研究。",
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      }
+    },
+    {
+      "id": "K27",
+      "split": "locked",
+      "question": "是不是每周都换一套新动作，比保留熟悉动作更有利？",
+      "goldIds": [
+        "F21"
+      ],
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F20",
+          "F16",
+          "F21"
+        ],
+        "hits": [
+          "F21"
+        ]
+      }
+    },
+    {
+      "id": "K28",
+      "split": "locked",
+      "question": "同一篇新手研究中的变化幅度，可以直接当作老手的预期进步吗？",
+      "goldIds": [
+        "F23"
+      ],
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F36",
+          "F23",
+          "F14"
+        ],
+        "hits": [
+          "F23"
+        ]
+      }
+    },
+    {
+      "id": "K29",
+      "split": "locked",
+      "question": "力量表现变好与肌肉围度变大，能当成同一种结果吗？",
+      "goldIds": [
+        "F14"
+      ],
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F14",
+          "F34"
+        ],
+        "hits": [
+          "F14"
+        ]
+      }
+    },
+    {
+      "id": "K30",
+      "split": "locked",
+      "question": "两次体脂秤读数不同，就能确定是肌肉增长了吗？",
+      "goldIds": [],
+      "uncoveredReason": "未收录体脂秤测量方法与误差资料。",
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      }
+    },
+    {
+      "id": "K31",
+      "split": "locked",
+      "question": "保健品广告说人人适合，我可以把这句话当成证据吗？",
+      "goldIds": [],
+      "uncoveredReason": "复合补剂卡不直接研究人人适合广告断言，不计为直接证据金标。",
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F26",
+          "F30",
+          "F32"
+        ],
+        "hits": []
+      }
+    },
+    {
+      "id": "K32",
+      "split": "locked",
+      "question": "如果周总组数相同，只改变分到几天，结论需要看什么条件？",
+      "goldIds": [
+        "F29"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F07",
+          "F04"
+        ],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F05",
+          "F29",
+          "F18"
+        ],
+        "hits": [
+          "F29"
+        ]
+      }
+    },
+    {
+      "id": "K33",
+      "split": "locked",
+      "question": "卧推和夹胸都涉及胸，就能把动作数当作胸肌工作组数吗？",
+      "goldIds": [
+        "F37"
+      ],
+      "baseline": {
+        "status": "retrieved",
+        "ids": [
+          "F07",
+          "F04"
+        ],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F37",
+          "F07",
+          "F19"
+        ],
+        "hits": [
+          "F37"
+        ]
+      }
+    },
+    {
+      "id": "K34",
+      "split": "locked",
+      "question": "如果今天完全不酸，是不是就能证明昨天没有训练刺激？",
+      "goldIds": [
+        "F27"
+      ],
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F27",
+          "F28",
+          "F11"
+        ],
+        "hits": [
+          "F27"
+        ]
+      }
+    },
+    {
+      "id": "K35",
+      "split": "locked",
+      "question": "不知道我的饮食、训练情况，只凭“偏瘦”能给我固定摄入量吗？",
+      "goldIds": [],
+      "uncoveredReason": "不支持据偏瘦生成个体摄入量；可做一般知识回应，不将拒绝处方算作模型知识成绩。",
+      "baseline": {
+        "status": "insufficient",
+        "ids": [],
+        "hits": []
+      },
+      "candidate": {
+        "status": "retrieved",
+        "ids": [
+          "F24",
+          "F22",
+          "F23"
+        ],
+        "hits": []
+      }
+    }
+  ]
+}

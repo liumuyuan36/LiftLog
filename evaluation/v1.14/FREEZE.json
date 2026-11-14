@@ -1,0 +1,33 @@
+{
+  "createdAt": "2026-11-14T07:14:27.454Z",
+  "promptVersion": "fitness-rag-v2",
+  "liveIds": [
+    "K02",
+    "K05",
+    "K08",
+    "K20",
+    "K23",
+    "K27",
+    "K29",
+    "K34"
+  ],
+  "maxRequestsPerVersion": 8,
+  "attemptsPerQuestion": 1,
+  "maxTotalRequests": 16,
+  "budgetUsd": 0.1,
+  "conservativeReserveUsd": 0.015531300000000001,
+  "reserveMethod": "One input token per UTF-8 byte upper estimate, peak uncached input $0.30/M, output $1.20/M; excludes future price changes; no retries",
+  "scope": "All35 retrieval questions used for diagnostics, not unseen holdout. Eight API pairs fixed before predictions; remaining85 cases not executed.",
+  "requestMode": "existing same-origin public synthetic knowledge route; no production key read or exported",
+  "hashes": {
+    "dist/knowledge.js": "816aaa881c01b8275f2b7ade38adc21e46718363c20b768756f0ad8bb82ff7c6",
+    "dist/knowledge-data.js": "4a138f5ba17ffe9726fbdaeec9c1366df1c994321fef8682bc0795a9114e907e",
+    "lib/knowledge-model.mjs": "1d61ca9dd5db16816d916f93102fe4665e86ffe5630935e94ab44628106b8e95",
+    "lib/deepseek.mjs": "9c6ad59a916a8af6819754b36be3290be552ac4373fb0f37216c9c73bec18ffc",
+    "lib/model-config.mjs": "b8843d8c002cedd10bc0e827bb9132298588f29c435ff75fc4495e65bdd71437",
+    "evaluation/v1.14/cases.raw.json": "dd8c64fbc39cf4d747108f4b019056bed5a94bf22646ab2b1c05ab20ca2d8654",
+    "evaluation/v1.14/knowledge-gold.json": "ea49a7d6108db9b6ca026a2a52b869d213b98a9b4ab428168eafe6137963f329",
+    "evaluation/v1.14/baseline/knowledge.js": "26cb524577ef039365cd548ae09d8d2d6a1d71008470af669235581e763cea30",
+    "evaluation/v1.14/baseline/knowledge-data.js": "c7e159196532ca3d9aaefb23b268c09441d127ea057e792e456669a745eaaaa5"
+  }
+}

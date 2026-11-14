@@ -1,0 +1,10 @@
+{
+  "baselineValidationMetrics": {
+    "eval_loss": 1.8927806615829468,
+    "eval_model_preparation_time": 0.0147,
+    "eval_runtime": 31.4567,
+    "eval_samples_per_second": 4.164,
+    "eval_steps_per_second": 2.098,
+    "epoch": 0
+  }
+}

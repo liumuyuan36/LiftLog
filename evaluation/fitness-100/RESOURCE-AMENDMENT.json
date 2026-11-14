@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-11-14T07:44:50.557Z",
+  "reason": "GPU cache pressure after first-epoch validation, checkpoint123 preserved; release unused cache before evaluation and every20 optimizer steps",
+  "resumeCheckpoint": "work/atlas-1.7b-run-01/checkpoint-123",
+  "nextOutput": "work/atlas-1.7b-run-01-resume",
+  "oldSourceSha256": "47ca1569b84e4eaafc78cdfe67f1bc75e99b30cb95cbcc8d9da1cc11edf6dab5",
+  "newSourceSha256": "7b44654a5553e2037f477f38aae9a1c626d1fb0205b6bec8896d1f437dfe1a1f",
+  "unchanged": [
+    "base revision",
+    "dataset bytes",
+    "100 questions and prompts",
+    "batch2 accumulation4",
+    "learning rate5e-5",
+    "max3 total epochs",
+    "minimum validation loss selection"
+  ],
+  "testPredictionsGeneratedBeforeAmendment": 0
+}

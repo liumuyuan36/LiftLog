@@ -11,14 +11,17 @@ def sha256(path):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument('--output',required=True,help='New directory; existing files are never overwritten')
-    p.add_argument('--revision',default='c1899de289a04d12100db370d81485cdf75e47ca')
+    p.add_argument('--repo',choices=['Qwen/Qwen3-0.6B','Qwen/Qwen3-1.7B'],default='Qwen/Qwen3-0.6B')
+    p.add_argument('--revision',default=None)
     a=p.parse_args();folder=Path(a.output).resolve()
     if folder.exists():p.error('Output directory already exists; choose a new directory')
     os.environ['HF_HOME']=str(folder.parent/'hf-cache')
     os.environ['HF_HUB_DISABLE_TELEMETRY']='1'
     os.environ['HF_HUB_DISABLE_XET']='1'
     from huggingface_hub import model_info,snapshot_download,hf_hub_url
-    repo='Qwen/Qwen3-0.6B';info=model_info(repo,revision=a.revision,files_metadata=True,token=False)
+    repo=a.repo
+    revision=a.revision or ('c1899de289a04d12100db370d81485cdf75e47ca' if repo=='Qwen/Qwen3-0.6B' else 'main')
+    info=model_info(repo,revision=revision,files_metadata=True,token=False)
     snapshot_download(repo,revision=info.sha,local_dir=str(folder),allow_patterns=['*.json','*.txt','*.model','LICENSE','README.md'],token=False,max_workers=4)
     for weight in [f for f in info.siblings if f.rfilename.endswith('.safetensors')]:
         if '/' in weight.rfilename or '\\' in weight.rfilename or not weight.lfs:raise ValueError('Unexpected weight entry')

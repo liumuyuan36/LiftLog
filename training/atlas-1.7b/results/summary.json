@@ -1,0 +1,76 @@
+{
+  "completedDate": "2026-11-14",
+  "name": "LiftLog Atlas",
+  "base": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "trainableParameters": 17432576,
+  "epochsCompleted": 3,
+  "selectedCheckpoint": "checkpoint-246",
+  "validationLosses": {
+    "beforeTraining": 1.8927806615829468,
+    "epochs": [
+      {
+        "epoch": 1,
+        "loss": 0.18223540484905243
+      },
+      {
+        "epoch": 2,
+        "loss": 0.17177747189998627
+      },
+      {
+        "epoch": 3,
+        "loss": 0.17962601780891418
+      }
+    ]
+  },
+  "wallClockIncludingValidationAndResumeSeconds": 2047.5613645019532,
+  "wallClockBoundary": "Creation of original redirected training log to final resumed run metadata write; includes interruption and resume",
+  "trainingRows": 977,
+  "validationRows": 131,
+  "knowledgeCards": 61,
+  "questions": 100,
+  "baseAutomatic": {
+    "present": 100,
+    "json": 70,
+    "structure": 70,
+    "providedCitationsAndNumbers": 67,
+    "expectedStatus": 55,
+    "goldEvidenceInAnswer": 45
+  },
+  "atlasAutomatic": {
+    "present": 100,
+    "json": 100,
+    "structure": 100,
+    "providedCitationsAndNumbers": 99,
+    "expectedStatus": 72,
+    "goldEvidenceInAnswer": 48
+  },
+  "semantic": {
+    "base": {
+      "n": 100,
+      "strictContentPass": 4,
+      "endToEndPass": 2,
+      "itemGradeMean": 0.4609053497942387,
+      "forbidden": 4,
+      "unsupported": 39,
+      "citationFaithful": 56
+    },
+    "atlas": {
+      "n": 100,
+      "strictContentPass": 51,
+      "endToEndPass": 51,
+      "itemGradeMean": 0.654320987654321,
+      "forbidden": 1,
+      "unsupported": 0,
+      "citationFaithful": 99
+    }
+  },
+  "workflow": {
+    "passed": 12,
+    "total": 16
+  },
+  "completeMergedModel": true,
+  "paidTrainingApiCalls": 0,
+  "notDeployed": true,
+  "readyForFullReplacement": false
+}

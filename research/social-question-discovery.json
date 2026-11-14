@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "accessedAt": "2026-11-14",
+  "purpose": "Public-content question, vocabulary and presentation discovery; not fitness evidence or representative user research",
+  "reviewStatus": "ai-reviewed",
+  "independentReview": "not-performed",
+  "fullVideoViewed": false,
+  "limitations": [
+    "Small convenience sample from public search; no prevalence or popularity inference.",
+    "Questions below are our paraphrases derived from visible topics, not quotations or verified user interviews.",
+    "No login, access circumvention, private data collection, external contact or paid API call.",
+    "Creator claims are not automatically eligible for the evidence knowledge base. No full transcripts copied.",
+    "Douyin shipin URLs can be changing aggregation pages; do not assign their visible transcript to a fixed video or author.",
+    "One Xiaohongshu ordinary-note URL could not be read. Its public official-domain course collection was readable; observations are limited to listed titles."
+  ],
+  "observations": [
+    {
+      "id": "SQ01",
+      "question": "我想练薄肌，训练和记录需要有什么不同？",
+      "terms": ["薄肌", "瘦子增肌"],
+      "platform": "douyin",
+      "url": "https://www.douyin.com/video/7670088604194065702",
+      "visibleTopic": "薄肌方法论、新手训练",
+      "accessStatus": "search snippet only; direct page had no readable text",
+      "evidencePointers": {"cards": ["F12", "F13", "F24"], "sources": ["V", "H", "F"]},
+      "verificationBoundary": "外形词先记录成目标；不能自动换算体脂率或保证某种体型。"
+    },
+    {
+      "id": "SQ02",
+      "question": "增肌是不是每组只能做六到十二次？",
+      "terms": ["次数区间", "每组次数"],
+      "platform": "douyin",
+      "url": "https://www.douyin.com/video/7670088604194065702",
+      "visibleTopic": "摘要出现固定增肌次数范围",
+      "accessStatus": "search snippet only; not full video viewed",
+      "evidencePointers": {"cards": ["F13", "F14"], "sources": ["H"]},
+      "verificationBoundary": "解释多个研究负荷范围，不把创作者的数字变成唯一区间。"
+    },
+    {
+      "id": "SQ03",
+      "question": "我每次都很累，为什么重量还是上不去？",
+      "terms": ["平台期", "渐进超负荷", "越练越累"],
+      "platform": "douyin",
+      "url": "https://jingxuan.douyin.com/m/video/7640661947541288699",
+      "visibleTopic": "表现未进步与刺激、疲劳的区分",
+      "accessStatus": "page read: public description text; not full video viewed",
+      "evidencePointers": {"cards": ["F19", "F31", "F32", "F33"], "sources": ["M", "U", "W"]},
+      "verificationBoundary": "不能只凭一句没进步诊断恢复不足，先查看可比训练记录与缺失信息。"
+    },
+    {
+      "id": "SQ04",
+      "question": "突破平台期是不是必须一直换动作、缩短休息？",
+      "terms": ["突破瓶颈", "换动作", "超级组"],
+      "platform": "douyin",
+      "url": "https://jingxuan.douyin.com/m/video/7634969881637286890",
+      "visibleTopic": "平台期与改变训练方式",
+      "accessStatus": "search snippet only",
+      "evidencePointers": {"cards": ["F08", "F20", "F21", "F33"], "sources": ["E", "N", "W"]},
+      "verificationBoundary": "随机变化和更短休息不能直接当成通用解决方法。"
+    },
+    {
+      "id": "SQ05",
+      "question": "RPE 和 RIR 到底有什么区别，要怎么填？",
+      "terms": ["RPE", "RIR", "余力", "剩余次数"],
+      "platform": "douyin",
+      "url": "https://www.douyin.com/shipin/7304346143712987151",
+      "visibleTopic": "RPE 含义与训练单位介绍",
+      "accessStatus": "page read: aggregation titles and limited public text; not full video viewed",
+      "evidencePointers": {"cards": ["F01", "F02"], "sources": ["C", "D"]},
+      "verificationBoundary": "RPE 有不同量表与用途；不能把任何 RPE 数值都机械当成同一个 RIR 换算。"
+    },
+    {
+      "id": "SQ06",
+      "question": "做到动作变形、只能做半程，算力竭吗？",
+      "terms": ["力竭", "半程", "代偿", "完整行程"],
+      "platform": "douyin",
+      "url": "https://www.douyin.com/shipin/7616909385494956086",
+      "visibleTopic": "重量瓶颈与力竭定义相关搜索片段",
+      "accessStatus": "search snippet only for the definition; opened aggregation page contained different related content",
+      "evidencePointers": {"cards": ["F01", "F03", "F15", "F16"], "sources": ["C", "B", "I", "J"]},
+      "verificationBoundary": "记录用户原话及行程改变，不能自动将变形或半程等同于规范重复的某个精确 RIR。"
+    },
+    {
+      "id": "SQ07",
+      "question": "新手是不是必须三分化才能更快增肌？",
+      "terms": ["三分化", "推拉蹲", "循环"],
+      "platform": "douyin",
+      "url": "https://www.douyin.com/shipin/7266986847220959269",
+      "visibleTopic": "新手三分化安排与推拉蹲",
+      "accessStatus": "search snippet only; aggregation result",
+      "evidencePointers": {"cards": ["F18", "F29", "F30"], "sources": ["L", "S", "T"]},
+      "verificationBoundary": "先比较总量与可持续性，不按计划名称承诺增肌速度。"
+    },
+    {
+      "id": "SQ08",
+      "question": "瘦胖子该先增肌还是先减脂？",
+      "terms": ["瘦胖子", "先增肌还是减脂", "碳水"],
+      "platform": "douyin",
+      "url": "https://www.douyin.com/video/7683132420530486419",
+      "visibleTopic": "新手增肌和减脂选择的个人理解",
+      "accessStatus": "search snippet only; direct page had no readable text",
+      "evidencePointers": {"cards": ["F12", "F24"], "sources": ["V", "F"]},
+      "verificationBoundary": "本批证据不足以决定个体先增后减；不采用大多数人都应直接增肌的比例断言。"
+    },
+    {
+      "id": "SQ09",
+      "question": "我只有十分钟，可以从哪些动作开始记录？",
+      "terms": ["十分钟", "新手", "低冲击", "全身训练"],
+      "platform": "xiaohongshu",
+      "url": "https://fe.xiaohongshu.com/ditto/vincent/cd8a5b25b03a4d43b4fcf414df1917ad?fullscreen=true&naviHidden=yes",
+      "visibleTopic": "平台公开课表按时长、难度和身体区域组织内容",
+      "accessStatus": "page read: course titles only; not videos viewed",
+      "evidencePointers": {"cards": ["F05", "F30"], "sources": ["A", "T"]},
+      "verificationBoundary": "短时、清楚标签是表达与组织启发；这些标题不是已验证的增肌处方。"
+    },
+    {
+      "id": "SQ10",
+      "question": "练完更有线条、看起来变大，算实际长肌肉了吗？",
+      "terms": ["肌肉线条", "沙漏身材", "外观变化"],
+      "platform": "xiaohongshu",
+      "url": "https://fe.xiaohongshu.com/ditto/vincent/cd8a5b25b03a4d43b4fcf414df1917ad?fullscreen=true&naviHidden=yes",
+      "visibleTopic": "合集标题将部位与外形结果结合表达",
+      "accessStatus": "page read: course titles only; the question is researcher-derived, not quoted from a user",
+      "evidencePointers": {"cards": ["F12", "F25", "F34"], "sources": ["V", "F", "W"]},
+      "verificationBoundary": "不从标题推断局部减脂、体态治疗或长肌肉保证；区分外观愿望、短期波动和标准化测量。"
+    }
+  ],
+  "accessFailures": [
+    {"url": "https://www.xiaohongshu.com/explore/665ae7610000000005006079", "status": "direct page unavailable; not read", "usedAsEvidence": false}
+  ],
+  "presentationIdeas": [
+    "把 RIR 写成还能规范完成几次，并允许不确定。",
+    "把问题拆成一个短问题、一个证据范围和一个可核对记录。",
+    "短时长与部位标签可降低理解成本，但不承诺局部瘦身或固定时间见效。",
+    "将平台常见问法放入独立验收集；回答仍引用研究卡，不引用热度作为可信度。"
+  ]
+}

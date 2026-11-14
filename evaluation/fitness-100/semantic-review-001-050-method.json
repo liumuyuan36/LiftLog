@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-14T08:13:53.977Z",
+  "range": {
+    "first": "FIT100-001",
+    "last": "FIT100-050",
+    "count": 50
+  },
+  "reviewer": {
+    "identity": "Codex AI",
+    "exactUnderlyingModelId": null,
+    "modelIdDisclosure": "精确底层模型ID未向本次评审暴露，不推测具体版本。",
+    "professionalReview": false,
+    "userReview": false,
+    "independentReview": false,
+    "independenceNote": "由参与合成题编写的Codex AI执行复核，不是外部专家、真实用户或独立评审。"
+  },
+  "blinding": {
+    "blind": false,
+    "visibleLabels": [
+      "base",
+      "atlas"
+    ],
+    "note": "可见候选标签、原始回答、金标、检索资料和输入提示；属于非盲AI复核。"
+  },
+  "taskInstructionSummary": [
+    "逐题阅读原始可读回答，依据冻结mustConvey与forbidden及实际提供的资料判断含义。",
+    "逐项记0/0.5/1；0为缺失或错误，0.5为部分表达或重要限定不全，1为语义完整。允许同义改写和清楚的上下文指代，不要求逐字复述。",
+    "forbiddenTriggered仅在回答实质肯定被禁结论时触发；否定错误说法不触发。unsupportedClaim检查实质无依据扩写或不当泛化，未答/合理弃答本身不等同编造。",
+    "citationFaithful检查引用的真实卡是否支持所述要点，结合scope；不存在的F2等不擅自改成F02。无引用且没有冒充引用的合理弃答可为true，不能由此得知识内容通过。",
+    "strictContentPass要求每个必要项为1、无禁止结论、无无依据扩写、引文忠实；partial问题正常部分不能全部拒绝。",
+    "JSON解析失败仍审核原始可读语义，不修复或改写产品输出；结构合规和端到端通过由主流程另行计算。",
+    "实际检索未给知识与有资料却漏读分开说明；不拿报告中的ID命中、预期状态或数字检查代替语义判断。",
+    "禁止修改金标、预测、模型、提示、检索或训练材料；未调用收费API，未委派其他代理。"
+  ],
+  "inputs": {
+    "cases.json": "887b1f1ef2e844afd7e5255424412e164f5f349ca46ed91c4e1b4a9f473cd39e",
+    "base.report.json": "506cac8c0c6ff9cfa50eb08adf272b019387b6740fc9e184fa433f5648986ac2",
+    "atlas.report.json": "946c6713210cf24f7416bf32fda859daba4e3596d2cdbceb734781e2cbb9c571",
+    "snapshot/knowledge-data.js": "e6c8e0e992db66b9450b385d43de4b1affcba25e338b89de95e46dfe2a551853",
+    "prompts.jsonl": "59e90ec845fab5c6e10d811f3185b41c32197be64dc6274b9bbcd205bea0bc1a"
+  },
+  "promptEvidenceVerification": {
+    "first50Parsed": true,
+    "questionMatchesFrozenCases": true,
+    "providedPassagesMatchSnapshotByIdTextAndScope": true,
+    "meaning": "仅用于核对实际给定资料；该机械验证不是语义评分。"
+  },
+  "scoringMethod": "Codex AI逐题含义判读，分批写入。代码仅序列化人工式AI判定、核对完整性/字段数量并计算汇总，不以关键词、状态、数字或引用命中生成语义等级。",
+  "limitations": [
+    "合成题及AI金标未经专业审核，分数不是专家背书或真实用户准确率。",
+    "非盲且与题目编写者同属Codex AI，可能存在一致性偏好；边界判读需按原文可复查。",
+    "同一知识卡可与训练共有；此复核不声称知识独立泛化。",
+    "内容通过不等于产品端到端通过、医疗安全或真实增肌效果。"
+  ],
+  "validation": {
+    "caseCount": 50,
+    "idsSequential": true,
+    "gradeLengthsMatchGold": true,
+    "gradeValuesValid": true,
+    "strictFlagConsistent": true
+  },
+  "contentOnlySummary": {
+    "baseStrict": 2,
+    "atlasStrict": 35,
+    "denominator": 50,
+    "description": "仅前50题非盲AI严格内容复核，不能作为100题总分；未合并结构错误。"
+  }
+}

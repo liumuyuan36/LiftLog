@@ -1,0 +1,377 @@
+{
+  "createdAt": "2026-11-14T07:14:27.538Z",
+  "mode": "live-baseline",
+  "origin": "https://vermouthlau-liftlog.ms.show",
+  "authorship": "Synthetic, AI-authored; structural results only until separate semantic review",
+  "rows": [
+    {
+      "id": "K02",
+      "question": "我不确定还能做几次，RIR可以不填吗？",
+      "httpStatus": 200,
+      "elapsedMs": 3061,
+      "body": {
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "不确定的RIR可以留空，空值不会作为零处理。",
+              "sourceIds": [
+                "F02"
+              ]
+            },
+            {
+              "text": "RIR只是对还能规范完成几次的主观估计，并非精确测量。",
+              "sourceIds": [
+                "F01"
+              ]
+            },
+            {
+              "text": "RIR估计会受训练负荷等条件影响，可靠性因情境而异。",
+              "sourceIds": [
+                "F02"
+              ]
+            }
+          ],
+          "limitation": "RIR误差研究样本为受过训练的男性；留空规则属LiftLog产品约定，非研究结论。"
+        },
+        "retrieval": {
+          "question": "我不确定还能做几次，RIR可以不填吗？",
+          "version": "fitness-notes-2026-11-14-v1",
+          "status": "retrieved",
+          "chunks": [
+            {
+              "id": "F01",
+              "title": "RIR 在记录什么",
+              "topics": [
+                "rir"
+              ],
+              "sources": [
+                "C"
+              ],
+              "text": "RIR 是完成一组后，对还能规范完成多少次的主观估计。例如 RIR2 表示估计还能做2次，RIR0 表示估计不能再完成一次规范重复。它不是已经完成的次数，也不是下一组必须完成的次数。",
+              "scope": "训练感受量尺；不是精确测量。",
+              "score": 15.155,
+              "topicHits": 1
+            },
+            {
+              "id": "F02",
+              "title": "RIR 的估计存在误差",
+              "topics": [
+                "rir",
+                "accuracy"
+              ],
+              "sources": [
+                "D",
+                "P"
+              ],
+              "text": "RIR 估计会受训练负荷等条件影响；研究中的重负荷估计更准确，不能假定所有情境同样可靠。LiftLog 不确定的 RIR 可以留空，空值不会作为零处理。",
+              "scope": "研究样本为受过训练的男性；记录规则为本产品约定。",
+              "score": 14.594,
+              "topicHits": 1
+            }
+          ],
+          "message": "已找到相关资料，回答仍需保留原文的适用条件。"
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 1286,
+          "usage": {
+            "inputTokens": 365,
+            "outputTokens": 116
+          },
+          "engine": "deepseek",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v1",
+          "modelCalled": true
+        }
+      }
+    },
+    {
+      "id": "K05",
+      "question": "每肌群每周约10组这句话，是所有新手第一周必须达标的硬指标吗？",
+      "httpStatus": 200,
+      "elapsedMs": 2023,
+      "body": {
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "不是硬指标；ACSM证据摘要仅把每肌群每周约10组作为参考，并非所有新手必须立即达到的固定处方",
+              "sourceIds": [
+                "F04"
+              ]
+            },
+            {
+              "text": "应结合目标与可持续性理解该参考值，而非当作第一周必须达标的规则",
+              "sourceIds": [
+                "F04"
+              ]
+            }
+          ],
+          "limitation": "资料为健康成人一般证据，不针对新手第一周设定硬性组数；且周肌群组数与LiftLog公斤容量口径不同，不可互换。"
+        },
+        "retrieval": {
+          "question": "每肌群每周约10组这句话，是所有新手第一周必须达标的硬指标吗？",
+          "version": "fitness-notes-2026-11-14-v1",
+          "status": "retrieved",
+          "chunks": [
+            {
+              "id": "F04",
+              "title": "周工作组是观察增肌训练量的一种口径",
+              "topics": [
+                "volume"
+              ],
+              "sources": [
+                "A"
+              ],
+              "text": "ACSM 的健康成人证据摘要指出，较高的周训练量有助于肌肥大，并以每肌群每周约10组作为参考。它不是所有新手都必须立即达到的固定处方。",
+              "scope": "健康成人的一般证据；应结合目标和可持续性理解。",
+              "score": 27.687,
+              "topicHits": 1
+            },
+            {
+              "id": "F07",
+              "title": "日志的公斤容量与周组数不是同一指标",
+              "topics": [
+                "log-volume",
+                "volume"
+              ],
+              "sources": [
+                "P",
+                "A"
+              ],
+              "text": "LiftLog 的负重容量是已完成负重工作组的重量乘次数之和，不含热身组，自重组不计公斤容量。增肌资料中的周肌群工作组数采用另一种口径，不能把两者直接互换。",
+              "scope": "前半为产品计算约定；不代表肌肉增长量。",
+              "score": 11.166,
+              "topicHits": 1
+            }
+          ],
+          "message": "已找到相关资料，回答仍需保留原文的适用条件。"
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 1613,
+          "usage": {
+            "inputTokens": 368,
+            "outputTokens": 118
+          },
+          "engine": "deepseek",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v1",
+          "modelCalled": true
+        }
+      }
+    },
+    {
+      "id": "K08",
+      "question": "为了增肌，把组间休息压到非常短是不是总比多休息好？",
+      "httpStatus": 200,
+      "elapsedMs": 1673,
+      "body": {
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "并非越短越好：超过60秒的组间休息可能带来小幅肌肥大收益。",
+              "sourceIds": [
+                "F08"
+              ]
+            },
+            {
+              "text": "超过90秒后未发现明显的额外差异，研究结果仍有异质性。",
+              "sourceIds": [
+                "F08"
+              ]
+            }
+          ],
+          "limitation": "资料来自健康成人研究汇总，不能据此给所有人规定唯一最佳休息时间，也不等于个人训练处方。"
+        },
+        "retrieval": {
+          "question": "为了增肌，把组间休息压到非常短是不是总比多休息好？",
+          "version": "fitness-notes-2026-11-14-v1",
+          "status": "retrieved",
+          "chunks": [
+            {
+              "id": "F08",
+              "title": "组间休息并非越短越好",
+              "topics": [
+                "rest"
+              ],
+              "sources": [
+                "E"
+              ],
+              "text": "该综述提示，超过60秒的组间休息可能有小幅肌肥大收益；超过90秒后未发现明显的额外差异，研究结果仍有异质性。不能据此给所有人规定唯一最佳休息时间。",
+              "scope": "健康成人研究汇总，不等于个人训练处方。",
+              "score": 17.085,
+              "topicHits": 1
+            }
+          ],
+          "message": "已找到相关资料，回答仍需保留原文的适用条件。"
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 1147,
+          "usage": {
+            "inputTokens": 284,
+            "outputTokens": 93
+          },
+          "engine": "deepseek",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v1",
+          "modelCalled": true
+        }
+      }
+    },
+    {
+      "id": "K20",
+      "question": "负荷轻一些和重一些，增肌研究怎么比较，而不是只看单次举多重？",
+      "httpStatus": 200,
+      "elapsedMs": 353,
+      "body": {
+        "result": {
+          "status": "insufficient",
+          "points": [],
+          "limitation": "当前资料不足以回答这个问题。可以换一个有关 RIR、力竭、组数、频率、休息或补充剂的一般问题。"
+        },
+        "retrieval": {
+          "question": "负荷轻一些和重一些，增肌研究怎么比较，而不是只看单次举多重？",
+          "version": "fitness-notes-2026-11-14-v1",
+          "status": "insufficient",
+          "chunks": [],
+          "message": "当前资料不足以回答这个问题。可以换一个有关 RIR、力竭、组数、频率、休息或补充剂的一般问题。"
+        },
+        "meta": {
+          "engine": "retrieval-policy",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v1",
+          "modelCalled": false
+        }
+      }
+    },
+    {
+      "id": "K23",
+      "question": "重量没变但同条件次数多了，能算记录上的变化吗？",
+      "httpStatus": 200,
+      "elapsedMs": 1345,
+      "body": {
+        "result": {
+          "status": "insufficient",
+          "points": [],
+          "limitation": "所给资料仅说明公斤容量与周组数的计算口径差异，未涉及相同重量下次数增加是否算记录变化，无法据此回答。"
+        },
+        "retrieval": {
+          "question": "重量没变但同条件次数多了，能算记录上的变化吗？",
+          "version": "fitness-notes-2026-11-14-v1",
+          "status": "retrieved",
+          "chunks": [
+            {
+              "id": "F07",
+              "title": "日志的公斤容量与周组数不是同一指标",
+              "topics": [
+                "log-volume",
+                "volume"
+              ],
+              "sources": [
+                "P",
+                "A"
+              ],
+              "text": "LiftLog 的负重容量是已完成负重工作组的重量乘次数之和，不含热身组，自重组不计公斤容量。增肌资料中的周肌群工作组数采用另一种口径，不能把两者直接互换。",
+              "scope": "前半为产品计算约定；不代表肌肉增长量。",
+              "score": 11.007,
+              "topicHits": 1
+            }
+          ],
+          "message": "已找到相关资料，回答仍需保留原文的适用条件。"
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 897,
+          "usage": {
+            "inputTokens": 289,
+            "outputTokens": 45
+          },
+          "engine": "deepseek",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v1",
+          "modelCalled": true
+        }
+      }
+    },
+    {
+      "id": "K27",
+      "question": "是不是每周都换一套新动作，比保留熟悉动作更有利？",
+      "httpStatus": 200,
+      "elapsedMs": 353,
+      "body": {
+        "result": {
+          "status": "insufficient",
+          "points": [],
+          "limitation": "当前资料不足以回答这个问题。可以换一个有关 RIR、力竭、组数、频率、休息或补充剂的一般问题。"
+        },
+        "retrieval": {
+          "question": "是不是每周都换一套新动作，比保留熟悉动作更有利？",
+          "version": "fitness-notes-2026-11-14-v1",
+          "status": "insufficient",
+          "chunks": [],
+          "message": "当前资料不足以回答这个问题。可以换一个有关 RIR、力竭、组数、频率、休息或补充剂的一般问题。"
+        },
+        "meta": {
+          "engine": "retrieval-policy",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v1",
+          "modelCalled": false
+        }
+      }
+    },
+    {
+      "id": "K29",
+      "question": "力量表现变好与肌肉围度变大，能当成同一种结果吗？",
+      "httpStatus": 200,
+      "elapsedMs": 354,
+      "body": {
+        "result": {
+          "status": "insufficient",
+          "points": [],
+          "limitation": "当前资料不足以回答这个问题。可以换一个有关 RIR、力竭、组数、频率、休息或补充剂的一般问题。"
+        },
+        "retrieval": {
+          "question": "力量表现变好与肌肉围度变大，能当成同一种结果吗？",
+          "version": "fitness-notes-2026-11-14-v1",
+          "status": "insufficient",
+          "chunks": [],
+          "message": "当前资料不足以回答这个问题。可以换一个有关 RIR、力竭、组数、频率、休息或补充剂的一般问题。"
+        },
+        "meta": {
+          "engine": "retrieval-policy",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v1",
+          "modelCalled": false
+        }
+      }
+    },
+    {
+      "id": "K34",
+      "question": "如果今天完全不酸，是不是就能证明昨天没有训练刺激？",
+      "httpStatus": 200,
+      "elapsedMs": 370,
+      "body": {
+        "result": {
+          "status": "insufficient",
+          "points": [],
+          "limitation": "当前资料不足以回答这个问题。可以换一个有关 RIR、力竭、组数、频率、休息或补充剂的一般问题。"
+        },
+        "retrieval": {
+          "question": "如果今天完全不酸，是不是就能证明昨天没有训练刺激？",
+          "version": "fitness-notes-2026-11-14-v1",
+          "status": "insufficient",
+          "chunks": [],
+          "message": "当前资料不足以回答这个问题。可以换一个有关 RIR、力竭、组数、频率、休息或补充剂的一般问题。"
+        },
+        "meta": {
+          "engine": "retrieval-policy",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v1",
+          "modelCalled": false
+        }
+      }
+    }
+  ],
+  "complete": true,
+  "usage": {
+    "inputTokens": 1306,
+    "outputTokens": 372
+  },
+  "conservativeCostUsd": 0.0008382000000000001
+}

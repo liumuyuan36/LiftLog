@@ -1,0 +1,1298 @@
+[
+  {
+    "id": "FIT100-001",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "有F01/F02资料，答“还能完成的规范重复次数”，但没有解读8次已完成、RIR2的例子；误引不存在的F2。JSON失败不改变可读内容判断。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F01解释“RIR2…还能做2次”且“不是已经完成的次数”；结合题目已给的完成8次，已清楚区分两个字段，无需机械重抄数字8。"
+    }
+  },
+  {
+    "id": "FIT100-002",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "资料齐全；“RIR0表示无法完成一次”缺少“再”，且没有区分已完成零次，答其他误差信息不能补上该区别。引文支持其他要点。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "明确“不能再完成一次规范重复”“不是已经完成的次数”，直接区分两种零，F01支持。"
+    }
+  },
+  {
+    "id": "FIT100-003",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "有F02，说明“主观估计”“受训练负荷影响”，但未保留受过训练男性的人群范围，误引F2；测量围度旁枝未回答人群限制。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "正确说“主观估计”“不是精确测量”，引用F01忠实；已提供F02却只复述定义，遗漏负荷和受试人群限制。"
+    }
+  },
+  {
+    "id": "FIT100-004",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "“留空RIR不视为零”正确；没有解释零的真实含义。“估计存在误差需留空”把可留空变成必须，且以未提供且不相关F25引用RIR误差；另称无误差研究与F02冲突。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "内容“可以留空，空值不会作为零”正确，但未解释RIR0实际含义；资料给的是F02，输出F2无效，不代为纠正引用。"
+    }
+  },
+  {
+    "id": "FIT100-005",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "答“参考值”且区分容量/组数，但遗漏健康成人约10组背景；“训练频率和总量比天数更重要”不是F29支持的优先级结论，且资料已给研究人群却称未提供。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "引用F04说明“健康成人”“约10组作为参考”“不是所有新手…固定处方”，相关限度完整。"
+    }
+  },
+  {
+    "id": "FIT100-006",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "检索漏F04但有F19；“不保证增肌速度”守住非无限收益，未述年轻训练男性/特定肌群不确定性，也未说明不能据偏瘦或慢变化定个人组数。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "虽检索无F04，F19已支持核心边界；答年轻训练男性、具体肌群差异不明确、不支持因慢叠加，且限度说“不能作为新手组数起点”，无个人处方。"
+    }
+  },
+  {
+    "id": "FIT100-007",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "提到“向心与离心阶段”，但未说明举起/放下各对应何者；“不建议仅凭耗时判断”由F38支持。资料有完整定义却省略方向解释。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F39支持“举起…向心”“放下…离心”及“不把整组耗时直接当成增肌量”，完整回答。"
+    }
+  },
+  {
+    "id": "FIT100-008",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "有F38但只说“放慢不必然增加”“耗时不等于增肌量”，未讲平均差异小/估计不确定，也没保留极端节奏与失控甩动边界。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "引用F38，明确平均差异小、不确定、耗时不等于增长，并在局限中保留研究节奏范围和不支持失控动作。"
+    }
+  },
+  {
+    "id": "FIT100-009",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "正确区分变量并说天数不等于量，但未明确定义频率是肌群天数、周组数是组数量，也没给同总组数分配不同天数的例子；资料虽未含例子仍可解释。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        0.5,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "复述F05“两天”和变量不同，引用忠实；没有直接定义两个量，也没回应举例要求。不是资料不足，而是没有把资料组织成所问解释。"
+    }
+  },
+  {
+    "id": "FIT100-010",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "有F05却未给主要肌群每周至少两天，未保留健康成人范围或说明无月度对照。“维持适应、避免过度疲劳和适应性下降”无本次资料支持，局限还误说无明确频率建议。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "正确给F05健康成人两天建议和非康复边界；对partial所含“每月一次”比较未说明缺直接证据，虽未编造仍未完成边界回答。"
+    }
+  },
+  {
+    "id": "FIT100-011",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "资料给F61/F29但仅泛说“共同决定”“不能仅凭天数”，没有说明同时改变导致无法单归因，也未述等总量和人群；F05不直接支持其训练经验要点，局限误称无直接比较证据。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "虽未采用金标F29，所引F61真实支持等量/不等量比较、不能把天数当独立保证，并保留力量结局和主要新手人群，语义上完整回应混杂问题。"
+    }
+  },
+  {
+    "id": "FIT100-012",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "有F40/F41却只说顺序“可影响力量”，未述前置动作优势，未回答平均增肌无明确优势；“孤立动作不一定最后”只部分覆盖非统一顺序。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        0,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "F40回答前置力量优势并否定统一先复合，引用忠实；遗漏已给F41的先孤立/预疲劳不保证增肌这一半问题。"
+    }
+  },
+  {
+    "id": "FIT100-013",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "正确说“次数区间不唯一”，但把F13写成“不同负荷区间效果不同”，未保留平均增肌差异不明确；遗漏努力与安排，且称无直接关联证据，与给定综述不符。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F13原意完整：轻重都可增加尺寸、平均差异不明确、无唯一次数区间且考虑努力和安排。"
+    }
+  },
+  {
+    "id": "FIT100-014",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "有F13但未解释努力和条件，仅说轻重量也能增肌；局限“未发现明确差异不等于完全相同”部分守边界，没有直接回应随便轻松动几下不能视同刺激。F14的强度/效果说法可作负荷结果概括。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "明确“不忽略努力程度和训练安排”，局限“不把任意轻松活动视为同等刺激”，F13支持，未给个人处方。"
+    }
+  },
+  {
+    "id": "FIT100-015",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "“重重量更利于最大力量，但肌肉尺寸增长不一定更多”已清楚区分结局并阻止直接等同，F14支持；其余测量条件和次数区间旁枝亦有给定卡支持。可读内容通过，JSON错误另计。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F14说明重负荷最大力量优势、不同尺寸结果，明确不能换算肌肉增长，局限点出不同研究结局。"
+    }
+  },
+  {
+    "id": "FIT100-016",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "有F42却未说瘦体重/力量的不同结果；仅“重量增加不等于饮食充足”答到部分边界。将F44省去已进食/低训练量条件，写成一般“碳水补充无明确力量收益”，属无条件外推。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F42支持长期缺口影响瘦体重、力量不同，以及力量增加不排除饮食不足；局限明确瘦体重非纯肌肉且不设个人热量。"
+    }
+  },
+  {
+    "id": "FIT100-017",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0.5,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "正确给“力量和下肢肌肥大更有利”，但未明确主要下肢、不能概括全部肌群，也没述疼痛受限不能强加深；资料有这些条件却遗漏。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F15的平均优势、下肢为主和疼痛/受限边界都完整保留。"
+    }
+  },
+  {
+    "id": "FIT100-018",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "仅“局部效果因动作肌群而异”部分反驳全无效，遗漏长度位置/区域；还把F17抗阻训练活动范围结果改写成“拉伸训练有改善”这一额外正向结论，本次卡未直接给该结果。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "以F15明确“不证明所有局部行程无效”，引文忠实；未使用已给F16说明局部位置、肌群、区域的差异。"
+    }
+  },
+  {
+    "id": "FIT100-019",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "有F16却没解释长肌肉长度位置，只泛说部位和动作特性；F15“明确优势”弱化平均条件，F17又从抗阻结果转述成拉伸效果，额外结论未由所引卡直接支持。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F16完整区分局部做法、长肌长位置、部分肌肉或区域，明确不能概括半程永远更好。"
+    }
+  },
+  {
+    "id": "FIT100-020",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "“增重速度不等于肌肉增长”“需区分肌肉与水分”守住非全部肌肉，但未述小实验皮褶关联和肌厚/力量结果，也无有限试验不设通用上限的条件。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F43完整保留小型训练者试验、皮褶关联、肌厚力量未同步，否定把全部增重算肌肉，局限不设通用速度上限。"
+    }
+  },
+  {
+    "id": "FIT100-021",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "正确说器材非唯一因素，却未直答弹力带/自重也可受益；将仅有匹配行程侧平举条件的F49泛化成“器械选择…效果相近”，缺少必要范围。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F06直接列弹力带、自重等可带来益处，并说明器材类型不持续决定所有结果，完整回应门槛。"
+    }
+  },
+  {
+    "id": "FIT100-022",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "第一点正确列多种形式可受益，但“器械选择不影响训练效果”把F49特定动作结果改成普遍无影响，局限还误称无具体器械对比。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F06保留多种形式获益和非所有情况下绝对优劣，未夸大为器械从来不重要。"
+    }
+  },
+  {
+    "id": "FIT100-023",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "正确提活动范围但缺健康人群、外部负荷和长期/非治疗条件；额外把F15主要下肢结论概括为“完整行程对肌肥大更有效”，扩大肌群范围。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F17答健康人群外部负荷、活动范围改善，并明确柔韧性/长期结局非关节治疗和急性康复。"
+    }
+  },
+  {
+    "id": "FIT100-024",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0.5,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "F44的已进食低训练量未必增力正确；泛说F45需看进食训练量，未说明收益较常见空腹/高量；局限不作个体建议，但未区分表现与肌肉增长。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        0,
+        1,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "忠实复述F45空腹/高训练量和非个人剂量；F44明明已提供，却没答已进食低量额外补充未必收益，且未区分表现与肌肥大。"
+    }
+  },
+  {
+    "id": "FIT100-025",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "“不是唯一途径”未讲补足饮食，也未说不能替代训练吃饭；“训练时机不决定增肌效果”把F60蛋白进食时机改成训练时机且绝对化；F23调节研究结果不能直接证明个人需求。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F09明确补足饮食、不能替代训练与整体饮食，是否需要取决既有饮食，不据偏瘦开处方。"
+    }
+  },
+  {
+    "id": "FIT100-026",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "“不喝不等于失去机会”方向正确，但仅否定句，未解释蛋白粉补充形式、已有饮食及不构成训练获益必要条件的缘由。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F09说明补足饮食且是否需要依现有饮食，清楚呈现可选补充形式，非训练的替代或必要条件。"
+    }
+  },
+  {
+    "id": "FIT100-027",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "检索漏F22，仅给日志规则/训练方案/复合补剂卡；却编出“研究基于日志记录的训练数据”，F35不支持研究设计，并用其他主题冒充蛋白研究背景。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "本次确未给F22或蛋白试验背景；回答“本次资料没有支持”守住证据边界，没有误读或编造。仍未满足题目的知识回答，主要是检索缺证，不把合理弃答当内容通过。"
+    }
+  },
+  {
+    "id": "FIT100-028",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "“不立即喝不等于白费”正确，F60支持；未说明控制蛋白总量后的汇总结果，也没有防止外推为所有进食时机无意义及不设时限的条件。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F60完整说明调整总量后的结果、非立即必需、非所有时机无意义，局限保留研究年代和无个人时限。"
+    }
+  },
+  {
+    "id": "FIT100-029",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "只讲碳水等营养素，遗漏能量水脂肪微量营养素和供能/糖原功能；额外把F23年龄/经验对研究均值影响说成“个体蛋白需求”变化，本次资料不支持该个体需求推断。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F24列完整饮食基础并解释碳水供能和肌糖原，非个体目标，引用忠实。"
+    }
+  },
+  {
+    "id": "FIT100-030",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "没解释供能或糖原，转说“碳水对增肌有帮助”；所引F44/F45测的是训练表现，不能当直接肌肥大结论。按条件调整/无摄入阈值仅部分守住份量边界。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "F24正确解释供能与糖原，局限明确不生成个人目标；未明确防止“吃越多越好”的推论，边界必要项只覆盖个人份量一部分。"
+    }
+  },
+  {
+    "id": "FIT100-031",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "泛说综合能量来源，未讲脂肪是饮食基础，也未直接反驳一概排除；“不建议统一比例”在整体资料边界可成立，但该点所引F44不支持比例问题，应与实际营养卡区分。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F24明确碳水和脂肪同属基础且不能只增蛋白，语义上否定把二者统当敌人。"
+    }
+  },
+  {
+    "id": "FIT100-032",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "短时重复高强度证据范围正确，F10支持；未保留已提供的个体反应差异，而用体重和可比条件旁枝替代。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F10完整回答运动类型及个体可能不同，并不承诺固定肌肉量。"
+    }
+  },
+  {
+    "id": "FIT100-033",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "提及个体差异并无朋友保证，但把“可能不同”强化为“差异较大”，F10没有幅度依据；未提供量化数据只部分覆盖不能判断个体反应，没说明不能定用量。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "有F10却只复述F25体重/水分，未答朋友与本人反应差异，也未说明不能由体验诊断反应或定用量；所述水分知识本身有支持但偏题。"
+    }
+  },
+  {
+    "id": "FIT100-034",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "“不能全部归肌肉”“需区分水分”仅部分解释可能水分，未明确体重秤不能分量，也没有记录补充剂背景的做法。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F25说明水分增加可能、秤无法分肌肉水分，并建议记录补充剂使用，三项完整。"
+    }
+  },
+  {
+    "id": "FIT100-035",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "正确否定体重全部归肌肉且无比例保证；但主问除了数字还记录什么，未给补充剂使用背景，资料已有而遗漏。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F25直接给“记录补充剂使用有助理解趋势”，同时清楚不能单凭体重分肌肉水分，回答主问。"
+    }
+  },
+  {
+    "id": "FIT100-036",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "“复合补剂不能借单一成分结论”正确，但未解释含量与组合为什么需要考虑；已有F26被过度缩短。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F26明确整配方并非同证据，含量和组合影响整体效果/安全，未替品牌背书。"
+    }
+  },
+  {
+    "id": "FIT100-037",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "说“相近”后又写“支持相同增肌效果”，把有限实验相近强化为相同；没保留行程/经验/周期或阻力感觉边界，F06又被概括成器械类型不决定结果。虽末点反对直接器械等价，仍有过度结论。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F49完整保留八周、行程匹配、有经验者、中束肌厚相近和非人人绳索更好，限制不推广全部器械动作。"
+    }
+  },
+  {
+    "id": "FIT100-038",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        1,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "区域不同不能代表全胸更好答对；未说明一般力量相近，也没保留新手男性/有限周期和非统一角度处方；其他要点虽有出处，不能替代这些条件。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F50答一般力量相近而区域不同、非全面优势，附未训练年轻男性和不规定所有人角度，完整。"
+    }
+  },
+  {
+    "id": "FIT100-039",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0.5,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "“部分腘绳肌有益、不代表俯卧无用”方向正确，但未说跨髋跨膝和俯卧也增长，肌肉差异仅由“部分”隐含；没有不推广全部长肌长动作的边界。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F51保留跨髋跨膝部分肌肉、两姿势均可增长、肌间差异和不能推广所有长肌长动作，语义完整。"
+    }
+  },
+  {
+    "id": "FIT100-040",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0.5,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "公式和热身排除正确，也明确LiftLog统计；但资料F07明说“自重组不计”，局限却说未提及，漏答俯卧撑。这里是有证据却漏读，不是检索缺失。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "本次唯一F07已完整给公式、热身和自重口径，却输出“资料没有支持”全拒。属于有直接资料仍误拒，未扩写健身事实但内容不通过。"
+    }
+  },
+  {
+    "id": "FIT100-041",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "清楚说两指标不同，但未直接解释容量增长不能推出肌群组数增长或不可互换；其余F37分类及F04参考背景有支持，不能替代核心推断说明。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F07明确两种统计口径并说“不能直接互换”，直接否定容量增长可当组数增长。"
+    }
+  },
+  {
+    "id": "FIT100-042",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        0.5,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "算出20×10=200正确；“未完成无法推断容量”未明确统计上排除，且所引F35只谈背景未知，非排除规则；没有说明容量不是肌肉增长量。计算正确不是整题通过。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "有F07计算口径却全拒，既未计算也未说明排除未完成/非肌肉量；本次系统另有不新增数值限制，可能干扰算术，但无法解释连非数值口径也遗漏。"
+    }
+  },
+  {
+    "id": "FIT100-043",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "自重有益处且低容量不等白练答对；未述关键原因“自重组不计公斤容量”，已有F07/F06却未连接完整口径解释。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "本次F07和F06已给自重不计容量及可获益，输出无依据全拒；属资料齐全仍误拒，非正确的检索缺证弃答。"
+    }
+  },
+  {
+    "id": "FIT100-044",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        0.5,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "把F08的“超过60秒可能小幅收益”错写成“超过90秒可能收益”，混淆两项比较；提异质性但漏区间重叠；不锁定90秒和非个体处方边界正确。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F08正确区分超过60秒与超过90秒结论，保留区间重叠/异质性，否定唯一最优或更长无价值，完整。"
+    }
+  },
+  {
+    "id": "FIT100-045",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "实际检索为空，未给F08，答资料缺设计/依据守住边界而未编造；但金标知识内容均未答，主要为检索漏召回。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "实际没有任何passage，拒作结论符合当前证据约束；F08存在于库但未提供，不能据此叫模型误读，仍属知识任务未答。"
+    }
+  },
+  {
+    "id": "FIT100-046",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "本次检索为空，说明无相关证据没有编造力竭结论；全部知识项缺失，主因检索没把F03提供给模型。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        0,
+        0,
+        0
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "本次passages为空，模型合理守边界；没有回答长期力竭比较和努力范围，按知识题内容不通过，不能因正确insufficient状态而当语义全对。"
+    }
+  },
+  {
+    "id": "FIT100-047",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "说明年龄经验影响效果且不能直接套用，核心外推边界正确；缺“部分研究平均结果”的限定，用一般效果表述代替群体均值，F23已有该限定。其余旁枝有各自来源。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F23保留年龄经验影响部分平均、不能直接套所有新手及不能预测个人反应，不给剂量。"
+    }
+  },
+  {
+    "id": "FIT100-048",
+    "base": {
+      "mustConveyGrades": [
+        0.5,
+        1,
+        0.5
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": false,
+      "reason": "说某些肌群/不同肌群结果不同，并不把无感觉判无效；但没保留有限新手实验条件，也没清楚阻止推广所有动作目标，只泛说需评估。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "F58具体说明新手实验肘屈肌与股四头肌不同结果、无感觉非无效、体验记录和有限人群周期；这种肌群差异及范围已否定所有动作目标普遍更优。"
+    }
+  },
+  {
+    "id": "FIT100-049",
+    "base": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "本次无passage，明确“未提供…支持具体数字”，结合所问睡眠时长，已说明不能确定最佳小时数；没有补造数字或引用。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "本次无passage，说明没有支持本题依据、无法给确定数字；语境明确指最佳睡眠时长，守住缺证边界。"
+    }
+  },
+  {
+    "id": "FIT100-050",
+    "base": {
+      "mustConveyGrades": [
+        0,
+        0
+      ],
+      "forbiddenTriggered": true,
+      "unsupportedClaim": true,
+      "citationFaithful": false,
+      "strictContentPass": false,
+      "reason": "检索只误召F08；却用“保持60–90秒以平衡收益与效率”回答并练间隔，跨用了组间休息证据，且F08本身也没给该最佳区间/效率建议。"
+    },
+    "atlas": {
+      "mustConveyGrades": [
+        1,
+        1
+      ],
+      "forbiddenTriggered": false,
+      "unsupportedClaim": false,
+      "citationFaithful": true,
+      "strictContentPass": true,
+      "reason": "仅给F08组间休息卡并不能回答跑步/力量并练间隔；答“本次资料没有支持…无法给相应结论”在本题语境明确拒作保证，无固定小时数或错误跨用，守边界。"
+    }
+  }
+]

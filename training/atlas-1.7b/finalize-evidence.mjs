@@ -1,0 +1,20 @@
+import fs from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=fileURLToPath(new URL('../../',import.meta.url)),workspace=path.resolve(root,'../..');
+const read=async name=>JSON.parse(await fs.readFile(path.join(root,name),'utf8'));
+const run=JSON.parse(await fs.readFile(path.join(workspace,'work/atlas-1.7b-run-01-resume/run.json'),'utf8'));
+const base=await read('evaluation/fitness-100/base.report.json'),atlas=await read('evaluation/fitness-100/atlas.report.json'),semantic=await read('evaluation/fitness-100/semantic-review.json'),workflow=await read('evaluation/fitness-100/workflow.report.json');
+const initialLog=await fs.readFile(path.join(workspace,'work/atlas-1.7b-run-01.log'),'utf8');
+const initial=JSON.parse(initialLog.split(/\r?\n/).find(line=>line.startsWith('{"baselineValidationMetrics"')));
+const start=await fs.stat(path.join(workspace,'work/atlas-1.7b-run-01.log')),end=await fs.stat(path.join(workspace,'work/atlas-1.7b-run-01-resume/run.json'));
+const summary={completedDate:'2026-11-14',name:'LiftLog Atlas',base:'Qwen/Qwen3-1.7B',revision:run.baseModelManifest.revision,trainableParameters:run.trainableParameters,epochsCompleted:run.epochsCompleted,selectedCheckpoint:path.basename(run.bestCheckpoint),validationLosses:{beforeTraining:initial.baselineValidationMetrics.eval_loss,epochs:run.epochEvaluations.map(x=>({epoch:x.epoch,loss:x.eval_loss}))},wallClockIncludingValidationAndResumeSeconds:(end.mtimeMs-start.birthtimeMs)/1000,wallClockBoundary:'Creation of original redirected training log to final resumed run metadata write; includes interruption and resume',trainingRows:run.trainingRows,validationRows:run.validationRows,knowledgeCards:61,questions:100,baseAutomatic:base.totals,atlasAutomatic:atlas.totals,semantic:semantic.summary,workflow:{passed:workflow.passed,total:workflow.total},completeMergedModel:true,paidTrainingApiCalls:0,notDeployed:true,readyForFullReplacement:false};
+const results=path.join(root,'training/atlas-1.7b/results');await fs.mkdir(results,{recursive:true});
+await fs.writeFile(path.join(results,'summary.json'),JSON.stringify(summary,null,2)+'\n');
+await fs.writeFile(path.join(results,'initial-validation.json'),JSON.stringify(initial,null,2)+'\n');
+// Keep original run metadata untouched; normalize only the repository copy's EOL.
+await fs.writeFile(path.join(results,'run.json'),(await fs.readFile(path.join(workspace,'work/atlas-1.7b-run-01-resume/run.json'),'utf8')).replace(/\r\n/g,'\n'));
+const destination=path.join(workspace,'outputs/LiftLog-Atlas-1.7B-Run01');
+await fs.writeFile(path.join(destination,'SUMMARY.json'),JSON.stringify(summary,null,2)+'\n');
+await fs.copyFile(path.join(workspace,'outputs/atlas17-tests.log'),path.join(destination,'PROGRAM-TESTS.log'));
+console.log(JSON.stringify({saved:true,selectedCheckpoint:summary.selectedCheckpoint,epochs:summary.epochsCompleted,contentStrict:semantic.summary.atlas.strictContentPass,workflowPassed:workflow.passed,wallClockSeconds:summary.wallClockIncludingValidationAndResumeSeconds}));

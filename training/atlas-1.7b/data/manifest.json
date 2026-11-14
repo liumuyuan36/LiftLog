@@ -1,0 +1,36 @@
+{
+  "version": "atlas-1.7b-sft-v1",
+  "createdAt": "2026-11-14T07:28:01.708Z",
+  "base": "Qwen/Qwen3-1.7B",
+  "knowledgeVersion": "fitness-notes-2026-11-14-v3",
+  "knowledgeCards": 61,
+  "authorship": "AI-authored synthetic, no independent professional review; personal experiment",
+  "task": "Evidence-grounded knowledge JSON, intake JSON, bounded review and decision ID selection; not memorization of all fitness knowledge",
+  "training": {
+    "knowledge": 312,
+    "insufficient": 40,
+    "intake": 480,
+    "review-selection": 81,
+    "decision-selection": 64
+  },
+  "validation": {
+    "knowledge": 54,
+    "insufficient": 12,
+    "intake": 48,
+    "review-selection": 9,
+    "decision-selection": 8
+  },
+  "testQuestionsReadByBuilder": 0,
+  "splitPolicy": "Knowledge validation cards excluded from SFT training; 100 test questions generated separately, may share evidence/concepts; not independent-world-knowledge test",
+  "files": {
+    "train.sft.jsonl": {
+      "rows": 977,
+      "sha256": "9cd21d05369a15575c96d875c04435df2539afe938e927167d517f734146d25e"
+    },
+    "validation.sft.jsonl": {
+      "rows": 131,
+      "sha256": "f84a9f8e2c92dad3e82dc93551fb88f6fe7454d6203b06fc7a65f63022d46af4"
+    }
+  },
+  "excludedOldLabels": []
+}

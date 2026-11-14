@@ -1,0 +1,190 @@
+{
+  "total": 100,
+  "covered": 86,
+  "fullEvidenceHit": 70,
+  "missing": [
+    {
+      "id": "FIT100-006",
+      "split": "development",
+      "gold": [
+        [
+          "F04",
+          "F19"
+        ]
+      ],
+      "retrieved": [
+        "F19",
+        "F37",
+        "F07"
+      ]
+    },
+    {
+      "id": "FIT100-027",
+      "split": "development",
+      "gold": [
+        [
+          "F22"
+        ]
+      ],
+      "retrieved": [
+        "F35",
+        "F30",
+        "F26"
+      ]
+    },
+    {
+      "id": "FIT100-045",
+      "split": "development",
+      "gold": [
+        [
+          "F08"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-046",
+      "split": "development",
+      "gold": [
+        [
+          "F03"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-065",
+      "split": "heldout",
+      "gold": [
+        [
+          "F20",
+          "F21"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-066",
+      "split": "heldout",
+      "gold": [
+        [
+          "F20",
+          "F21"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-067",
+      "split": "heldout",
+      "gold": [
+        [
+          "F21"
+        ]
+      ],
+      "retrieved": [
+        "F26",
+        "F54",
+        "F30"
+      ]
+    },
+    {
+      "id": "FIT100-069",
+      "split": "heldout",
+      "gold": [
+        [
+          "F27"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-070",
+      "split": "heldout",
+      "gold": [
+        [
+          "F27"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-075",
+      "split": "heldout",
+      "gold": [
+        [
+          "F32"
+        ]
+      ],
+      "retrieved": [
+        "F11",
+        "F27",
+        "F28"
+      ]
+    },
+    {
+      "id": "FIT100-076",
+      "split": "heldout",
+      "gold": [
+        [
+          "F32"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-086",
+      "split": "heldout",
+      "gold": [
+        [
+          "F35"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-087",
+      "split": "heldout",
+      "gold": [
+        [
+          "F36"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-089",
+      "split": "heldout",
+      "gold": [
+        [
+          "F37"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-090",
+      "split": "heldout",
+      "gold": [
+        [
+          "F37"
+        ]
+      ],
+      "retrieved": []
+    },
+    {
+      "id": "FIT100-100",
+      "split": "heldout",
+      "gold": [
+        [
+          "F27"
+        ]
+      ],
+      "retrieved": [
+        "F35",
+        "F37",
+        "F39"
+      ]
+    }
+  ]
+}

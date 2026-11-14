@@ -1,0 +1,11 @@
+{
+  "intake": {
+    "ready": 405,
+    "clarify": 51,
+    "not_log": 24
+  },
+  "reviewExcluded": 0,
+  "decision": {
+    "recommend": 64
+  }
+}

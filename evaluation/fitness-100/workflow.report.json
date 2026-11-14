@@ -1,0 +1,105 @@
+{
+  "total": 16,
+  "executed": 16,
+  "passed": 12,
+  "scope": "Synthetic functional smoke, not overall model accuracy; no production writes",
+  "rows": [
+    {
+      "id": "WF-I01",
+      "kind": "intake",
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"杠铃卧推\",\"source\":\"今天杠铃卧推总重42.5kg，两组分别11次和9次。\",\"sets\":[{\"weightKg\":42.5,\"reps\":11,\"rir\":null,\"type\":\"working\"},{\"weightKg\":42.5,\"reps\":9,\"rir\":null,\"type\":\"working\"}]}]}",
+      "passed": true
+    },
+    {
+      "id": "WF-I03",
+      "kind": "intake",
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"坐姿划船\",\"source\":\"坐姿划船总重量35kg，第一组12次，第二组11次，第三组9次。\",\"sets\":[{\"weightKg\":35,\"reps\":12,\"rir\":null,\"type\":\"working\"},{\"weightKg\":35,\"reps\":11,\"rir\":null,\"type\":\"working\"},{\"weightKg\":35,\"reps\":9,\"rir\":null,\"type\":\"working\"}]}]}",
+      "passed": true
+    },
+    {
+      "id": "WF-I05",
+      "kind": "intake",
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"哑铃肩推\",\"source\":\"哑铃肩推双侧总重24公斤，完成2组，每组10次。\",\"sets\":[{\"weightKg\":24,\"reps\":10,\"rir\":null,\"type\":\"working\"},{\"weightKg\":24,\"reps\":10,\"rir\":null,\"type\":\"working\"}]}]}",
+      "passed": true
+    },
+    {
+      "id": "WF-I09",
+      "kind": "intake",
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"俯卧撑\",\"source\":\"今天俯卧撑完成两组，分别14次、11次，没有记RIR。\",\"sets\":[{\"weightKg\":null,\"reps\":14,\"rir\":null,\"type\":\"working\"},{\"weightKg\":null,\"reps\":11,\"rir\":null,\"type\":\"working\"}]}]}",
+      "passed": true
+    },
+    {
+      "id": "WF-I16",
+      "kind": "intake",
+      "rawOutput": "{\"status\":\"clarify\",\"date\":\"2026-11-14\",\"questions\":[\"请补充或核对训练描述。\"],\"exercises\":[]}",
+      "passed": true
+    },
+    {
+      "id": "WF-I23",
+      "kind": "intake",
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"杠铃深蹲\",\"source\":\"下周一准备杠铃深蹲55kg做三组六次，现在还没开始。\",\"sets\":[{\"weightKg\":55,\"reps\":6,\"rir\":null,\"type\":\"working\"},{\"weightKg\":55,\"reps\":6,\"rir\":null,\"type\":\"working\"},{\"weightKg\":55,\"reps\":6,\"rir\":null,\"type\":\"working\"}]}]}",
+      "passed": false
+    },
+    {
+      "id": "WF-I31",
+      "kind": "intake",
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"杠铃卧推\",\"source\":\"杠铃卧推55kg已完成一组6次，RIR0，不是没有填。\",\"sets\":[{\"weightKg\":55,\"reps\":6,\"rir\":0,\"type\":\"working\"}]}]}",
+      "passed": true
+    },
+    {
+      "id": "WF-I40",
+      "kind": "intake",
+      "rawOutput": "{\"status\":\"ready\",\"date\":\"2026-11-14\",\"questions\":[],\"exercises\":[{\"name\":\"哑铃侧平举\",\"source\":\"今天哑铃侧平举双侧总重10kg，做完两组，但我只记了RIR2和RIR1，实际次数忘了。\",\"sets\":[{\"weightKg\":10,\"reps\":null,\"rir\":2,\"type\":\"working\"},{\"weightKg\":10,\"reps\":null,\"rir\":1,\"type\":\"working\"}]}]}",
+      "passed": false,
+      "error": "模型返回了缺失或无效的训练组。"
+    },
+    {
+      "id": "WF-R0",
+      "kind": "review",
+      "rawOutput": "{\"factIds\":[\"frequency\",\"sets\"],\"actionIds\":[\"log\",\"context\"]}",
+      "passed": true
+    },
+    {
+      "id": "WF-R1",
+      "kind": "review",
+      "rawOutput": "{\"factIds\":[\"volume\",\"sets\"],\"actionIds\":[\"compare\",\"context\"]}",
+      "passed": true
+    },
+    {
+      "id": "WF-R2",
+      "kind": "review",
+      "rawOutput": "{\"factIds\":[\"rir\",\"sets\"],\"actionIds\":[\"rir\",\"context\"]}",
+      "passed": true
+    },
+    {
+      "id": "WF-R3",
+      "kind": "review",
+      "rawOutput": "{\"factIds\":[\"rir\",\"sets\"],\"actionIds\":[\"rir\",\"context\"]}",
+      "passed": false
+    },
+    {
+      "id": "WF-D0",
+      "kind": "decision",
+      "rawOutput": "{\"status\":\"recommend\",\"candidateId\":\"balanced\"}",
+      "passed": true
+    },
+    {
+      "id": "WF-D1",
+      "kind": "decision",
+      "rawOutput": "{\"status\":\"recommend\",\"candidateId\":\"focus\"}",
+      "passed": true
+    },
+    {
+      "id": "WF-D2",
+      "kind": "decision",
+      "rawOutput": "{\"status\":\"recommend\",\"candidateId\":\"compact\"}",
+      "passed": true
+    },
+    {
+      "id": "WF-D3",
+      "kind": "decision",
+      "rawOutput": "{\"status\":\"recommend\",\"candidateId\":\"compact\"}",
+      "passed": false
+    }
+  ]
+}

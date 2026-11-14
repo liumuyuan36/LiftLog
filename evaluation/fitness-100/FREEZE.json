@@ -1,0 +1,38 @@
+{
+  "createdAt": "2026-11-14T07:29:13.454Z",
+  "model": "Qwen/Qwen3-1.7B",
+  "revision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "count": 100,
+  "datasetSha256": "887b1f1ef2e844afd7e5255424412e164f5f349ca46ed91c4e1b4a9f473cd39e",
+  "promptsSha256": "59e90ec845fab5c6e10d811f3185b41c32197be64dc6274b9bbcd205bea0bc1a",
+  "files": {
+    "training/atlas-1.7b/data/train.sft.jsonl": "9cd21d05369a15575c96d875c04435df2539afe938e927167d517f734146d25e",
+    "training/atlas-1.7b/data/validation.sft.jsonl": "f84a9f8e2c92dad3e82dc93551fb88f6fe7454d6203b06fc7a65f63022d46af4",
+    "training/atlas-1.7b/data/manifest.json": "7b90b7097ed8b0530b1508b17d878931cdc028cfdaa0d0ca1f97864164a00b41",
+    "training/intake/train_lora.py": "47ca1569b84e4eaafc78cdfe67f1bc75e99b30cb95cbcc8d9da1cc11edf6dab5",
+    "training/atlas-1.7b/predict.py": "fbdc9e4a72135558c9745599adb0e00e558bb25064e50f534d841b5eb262f673",
+    "dist/knowledge.js": "c7ab8d72ad1ee397159f1329211c2c0950d44384e5a6cb6b51810b3c40046236",
+    "dist/knowledge-data.js": "e6c8e0e992db66b9450b385d43de4b1affcba25e338b89de95e46dfe2a551853"
+  },
+  "training": {
+    "epochs": 3,
+    "earlyStoppingPatience": 1,
+    "learningRate": 0.00005,
+    "rank": 16,
+    "alpha": 32,
+    "batchSize": 2,
+    "accumulation": 4,
+    "seed": 42,
+    "loss": "completion only",
+    "selection": "minimum validation loss, never100 questions"
+  },
+  "decoding": {
+    "thinking": false,
+    "sample": false,
+    "maxNewTokens": 512,
+    "batchSize": 4,
+    "seed": 42
+  },
+  "evaluation": "All100 go through the raw local model, including empty-evidence questions. Application policy is reported separately; no repaired JSON or retries. Semantic checks are AI-reviewed, not expert or user accuracy.",
+  "sftOverlap": "0 exact question strings; concepts and source cards may overlap, not semantic novelty proof"
+}

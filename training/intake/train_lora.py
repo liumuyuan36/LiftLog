@@ -33,13 +33,14 @@ def main():
     parser.add_argument('--early-stopping-patience',type=int,default=0,help='0 disables; otherwise stop after this many non-improving epoch evaluations')
     parser.add_argument('--early-stopping-threshold',type=float,default=0.001)
     parser.add_argument('--baseline-eval',action='store_true',help='Record warm-start validation loss before any training')
+    parser.add_argument('--cache-cleanup-steps',type=int,default=0,help='Release unused CUDA cache periodically and before evaluation; does not change data or math')
     parser.add_argument('--allow-synthetic', action='store_true', help='Acknowledge this pilot is not independently human-reviewed')
     parser.add_argument('--preflight', action='store_true', help='Tokenize and check loss masks, do not load weights or train')
     args = parser.parse_args()
     if args.epochs<=0 or args.early_stopping_patience<0 or args.early_stopping_threshold<0:
         parser.error('Epochs must be positive and early-stopping values non-negative')
     if not args.allow_synthetic:
-        parser.error('Synthetic labels need independent review; experimental pilot requires --allow-synthetic')
+        parser.error('This synthetic experiment requires --allow-synthetic')
     if Path(args.output).exists():
         parser.error('Output already exists; choose a new run directory')
     import torch
@@ -61,7 +62,7 @@ def main():
         return {'input_ids': ids, 'attention_mask': [1] * len(ids), 'labels': [-100] * len(prefix) + completion}
     train = [tokenize(row) for row in read_split('train',args.data)]
     validation = [tokenize(row) for row in read_split('validation',args.data)]
-    info = {'seed':42, 'model':args.model, 'gpu':torch.cuda.get_device_name(0), 'trainingRows':len(train), 'validationRows':len(validation), 'testRowsUsedForTraining':0, 'maxTokens':max(len(r['input_ids']) for r in train+validation), 'loss':'completion only; prompt and padding masked', 'labelQuality':'AI-authored synthetic; pending human review', 'epochs':args.epochs}
+    info = {'seed':42, 'model':args.model, 'gpu':torch.cuda.get_device_name(0), 'trainingRows':len(train), 'validationRows':len(validation), 'testRowsUsedForTraining':0, 'maxTokens':max(len(r['input_ids']) for r in train+validation), 'loss':'completion only; prompt and padding masked', 'labelQuality':'AI-authored synthetic; not independently reviewed', 'epochs':args.epochs}
     download_manifest=Path(args.model)/'DOWNLOAD-MANIFEST.json'
     if download_manifest.is_file():
         info['baseModelManifest']=json.loads(download_manifest.read_text(encoding='utf-8'))
@@ -85,12 +86,17 @@ def main():
     def collate(rows):
         length = max(len(r['input_ids']) for r in rows)
         return {key:torch.tensor([r[key] + [tokenizer.pad_token_id if key=='input_ids' else -100 if key=='labels' else 0]*(length-len(r[key])) for r in rows], dtype=torch.long) for key in ['input_ids','attention_mask','labels']}
-    training_args = TrainingArguments(output_dir=args.output, num_train_epochs=args.epochs, learning_rate=args.learning_rate, per_device_train_batch_size=args.batch_size, per_device_eval_batch_size=args.batch_size, gradient_accumulation_steps=args.accumulation, bf16=True, gradient_checkpointing=True, gradient_checkpointing_kwargs={'use_reentrant':False}, eval_strategy='epoch', save_strategy='epoch', save_total_limit=2, load_best_model_at_end=True, metric_for_best_model='eval_loss', greater_is_better=False, logging_steps=20, report_to='none', push_to_hub=False, dataloader_num_workers=0, seed=42, data_seed=42, optim='adamw_torch', remove_unused_columns=False)
+    training_args = TrainingArguments(output_dir=args.output, num_train_epochs=args.epochs, learning_rate=args.learning_rate, per_device_train_batch_size=args.batch_size, per_device_eval_batch_size=args.batch_size, gradient_accumulation_steps=args.accumulation, bf16=True, gradient_checkpointing=True, gradient_checkpointing_kwargs={'use_reentrant':False}, eval_strategy='epoch', save_strategy='epoch', save_total_limit=2, load_best_model_at_end=True, metric_for_best_model='eval_loss', greater_is_better=False, logging_steps=20, report_to='none', push_to_hub=False, dataloader_num_workers=0, seed=42, data_seed=42, optim='adamw_torch', remove_unused_columns=False, torch_empty_cache_steps=args.cache_cleanup_steps or None)
     callbacks=[]
     if args.early_stopping_patience:
         from transformers import EarlyStoppingCallback
         callbacks.append(EarlyStoppingCallback(early_stopping_patience=args.early_stopping_patience,early_stopping_threshold=args.early_stopping_threshold))
-    trainer = Trainer(model=model, args=training_args, train_dataset=train, eval_dataset=validation, data_collator=collate,callbacks=callbacks)
+    class CacheSafeTrainer(Trainer):
+        def evaluate(self,*values,**options):
+            if args.cache_cleanup_steps:torch.cuda.empty_cache()
+            return super().evaluate(*values,**options)
+    trainer = CacheSafeTrainer(model=model, args=training_args, train_dataset=train, eval_dataset=validation, data_collator=collate,callbacks=callbacks)
+    info['cacheCleanupSteps']=args.cache_cleanup_steps
     info['earlyStopping']={'patience':args.early_stopping_patience,'threshold':args.early_stopping_threshold,'maxEpochs':args.epochs}
     if args.baseline_eval:
         info['baselineValidationMetrics']=trainer.evaluate()

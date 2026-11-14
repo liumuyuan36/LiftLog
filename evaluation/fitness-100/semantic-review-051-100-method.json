@@ -1,0 +1,28 @@
+{
+  "reviewer": "Codex AI",
+  "exactUnderlyingModelId": "not exposed to this reviewer",
+  "date": "2026-11-14",
+  "range": "FIT100-051–FIT100-100",
+  "blinded": false,
+  "professionalReview": false,
+  "userReview": false,
+  "independentOfKnowledgePreparation": false,
+  "conflictNote": "Reviewer participated in the source-research/card-paraphrase task earlier in this chat. This is an AI self-review aid, not independent expert validation.",
+  "instructionSummary": "Read the frozen cases, both original raw answers, actual prompt passages and frozen knowledge snapshot. For each answer, manually judge the meaning of every mustConvey item, prohibited conclusions, unsupported additions and citation support. Do not modify gold, data, prompts, retrieval, model or raw outputs. No paid API calls or subagents. Structural end-to-end evaluation is separate.",
+  "inputs": ["cases.json", "base.report.json", "atlas.report.json", "snapshot/knowledge-data.js", "prompts.jsonl"],
+  "grading": {
+    "mustConveyGrades": "One score per frozen gold item: 1 fully conveyed semantically; 0.5 partial, implicit, incomplete or weakened by conflicting text; 0 absent or contradicted. Exact wording or IDs are not required to earn credit.",
+    "forbiddenTriggered": "Whether the actual answer meaning triggers a frozen forbidden condition. This can include whole-question refusal where a partial-answer test explicitly prohibits refusing the benign supported part, not only unsafe advice.",
+    "unsupportedClaim": "A material claim, asserted evidence absence, recommendation or causal interpretation not supported by passages actually given in this case. Merely declining an empty retrieval is not hallucination. A fact available elsewhere in the snapshot is not automatically evidence supplied to this model call.",
+    "citationFaithful": "Whether each substantive cited point is genuinely supported by its cited provided passage, allowing reasonable paraphrase. Irrelevant or fabricated references and source-content reversals fail. No-citation evidence-bound refusals count as having no false citation; this does not give mustConvey credit or establish answer completeness.",
+    "strictContentPass": "All mustConvey items must receive 1, no forbidden conclusion, no unsupported addition, and faithful citations. Partial questions must answer the supported benign portion rather than reject everything. Raw JSON parse success is not used to determine this content-only field.",
+    "rawJsonFailures": "Read the original text without repairing, rewriting or substituting a product answer. Malformed JSON may still have semantically complete readable content; structure is scored separately by the root task."
+  },
+  "process": "Read and wrote batches of ten cases. Scripts only selected/printed frozen records and checked output completeness, score lengths and field consistency; they did not assign semantic grades from keywords, IDs, status labels, numbers or automatic checks.",
+  "limitations": [
+    "Non-blind, non-independent AI interpretation of a small frozen test set; not a substitute for professional or real-user judgment.",
+    "Fine distinctions between terse paraphrase, implied meaning and unsupported strengthening require judgment. Reasons record the specific missing concept or source mismatch for later review.",
+    "Generic refusal may be appropriate for an uncovered question while still incomplete where gold asks for a specific missing-input distinction or where relevant evidence was actually supplied.",
+    "This review does not establish clinical safety, factual correctness beyond the frozen evidence, market demand, model training progress or production readiness."
+  ]
+}
