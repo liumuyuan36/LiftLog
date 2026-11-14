@@ -1,1 +1,28 @@
-{"checkedAt":"2026-11-14T10:21:27.055Z","kind":"Final package after line-ending cleanup; prior four-task inference unchanged","files":230,"mismatches":[],"status":{"configured":true,"provider":"LiftLog Atlas","model":"liftlog-atlas-1.7b-run02","modelVersion":"atlas17-run02-q8_0","mode":"single-model","atlas":{"configured":true,"ready":true,"archived":false,"artifactSha":"665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658"},"voice":{"configured":false,"mode":"system-dictation","message":"Atlas 处理文字。语音可使用手机输入法听写，核对后提交。"}},"passed":true}
+{
+  "checkedAt": "2026-11-14T10:24:10.203Z",
+  "kind": "Final package after template token-count metadata correction; inference prompts and outputs unchanged",
+  "files": 230,
+  "mismatches": [],
+  "status": {
+    "configured": true,
+    "provider": "LiftLog Atlas",
+    "model": "liftlog-atlas-1.7b-run02",
+    "modelVersion": "atlas17-run02-q8_0",
+    "mode": "single-model",
+    "atlas": {
+      "configured": true,
+      "ready": true,
+      "archived": false,
+      "artifactSha": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658"
+    },
+    "voice": {
+      "configured": false,
+      "mode": "system-dictation",
+      "message": "Atlas 处理文字。语音可使用手机输入法听写，核对后提交。"
+    }
+  },
+  "passed": true,
+  "packageSha256": "96fda2de48bae38c09023e76c0de848e2a79ba7f0aa1cf2522aebfbed01a9144",
+  "sourceCommit": "4e630a0",
+  "templateCountCorrection": "Preflight metadata initially counted BatchEncoding keys; corrected to input_ids before upload. Exact prompt text and all model outputs were unchanged, all56 native input token counts now match tokenizer."
+}

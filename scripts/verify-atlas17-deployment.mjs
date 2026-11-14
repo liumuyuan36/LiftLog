@@ -10,6 +10,7 @@ async function request(path,payload,extra={}){const start=Date.now();const respo
 const checks=[];
 const health=await request('/healthz');checks.push(health.body.version==='1.15.0');
 const status=await request('/api/ai/status');checks.push(status.body.configured===true&&status.body.model===ATLAS_MODEL&&status.body.atlas?.artifactSha===ATLAS_SHA256&&status.body.atlas?.ready===true&&status.body.voice?.configured===false);
+if(!checks.every(Boolean)){report.passed=false;report.stoppedBeforeInference=true;await fs.writeFile(new URL(output,root),JSON.stringify(report,null,2)+'\n');throw Error('Exact Atlas release is not ready; stopped before any model call.');}
 const input=id=>({...cases.find(c=>c.id===id).input,engine:'atlas',consent:true});
 const intake=await request('/api/ai/intake',input('WF-I01'));checks.push(intake.status===200&&intake.body.meta?.model===ATLAS_MODEL);if(intake.status===200)checks.push(validateIntakeOutput(intake.body.result,input('WF-I01')).status==='ready');
 const knowledge=await request('/api/ai/knowledge',{question:'RIR2是什么意思',engine:'atlas',consent:true});checks.push(knowledge.status===200&&knowledge.body.meta?.model===ATLAS_MODEL&&knowledge.body.result?.status==='answered'&&knowledge.body.result.points.some(p=>p.sourceIds.includes('F01')));

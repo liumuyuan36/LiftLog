@@ -1,0 +1,14 @@
+{
+  "checkedAt": "2026-11-14T10:30:03.620Z",
+  "spaceCommit": "67f5f77f82c5fb1dbe8dffbff11309596cf38b38",
+  "modelPointer": "version https://git-lfs.github.com/spec/v1\noid sha256:665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658\nsize 1834426240\n",
+  "runtimePointer": "version https://git-lfs.github.com/spec/v1\noid sha256:93713f6bf0ff11e8bc55e64fd14b2415fd8accd3e6f8aecf6e218973b625becd\nsize 23336797\n",
+  "passed": true,
+  "method": "Public ModelScope git read after owner UI upload; LFS OIDs equal local complete-file SHA256. No credential export.",
+  "appCommit": "8f1abfdb9fcc2f157736c2a6c1a174ba0cc1b45d",
+  "appPointer": "version https://git-lfs.github.com/spec/v1\noid sha256:96fda2de48bae38c09023e76c0de848e2a79ba7f0aa1cf2522aebfbed01a9144\nsize 5925719\n",
+  "localAppSha256": "96fda2de48bae38c09023e76c0de848e2a79ba7f0aa1cf2522aebfbed01a9144",
+  "appMatches": true,
+  "fullRemoteModelDownloadedAndHashVerified": true,
+  "remoteModelSha256": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658"
+}

@@ -42,5 +42,3 @@ await fs.writeFile(path.join(dest,'README.md'),`---\nlicense: apache-2.0\n---\n#
 const manifest={version:'1.15.0',createdAt:new Date().toISOString(),primaryModel:ATLAS_MODEL,ggufSha256:ATLAS_SHA256,appFiles:files.length,appBytes:files.reduce((n,f)=>n+f.bytes,0),secretsIncluded:false,personalRecordsIncluded:false,externalApiFallback:false};
 if(manifest.appBytes>16*1024*1024)throw Error('Restore size exceeded');
 await fs.writeFile(path.join(dest,'UPLOAD-MANIFEST.json'),JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({dest,...manifest}));
-
-

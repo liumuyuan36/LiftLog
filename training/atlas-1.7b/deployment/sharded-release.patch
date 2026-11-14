@@ -1,0 +1,105 @@
+diff --git a/lib/atlas-text-runtime.mjs b/lib/atlas-text-runtime.mjs
+index 9bc63fc..bd5c86f 100644
+--- a/lib/atlas-text-runtime.mjs
++++ b/lib/atlas-text-runtime.mjs
+@@ -1,14 +1,21 @@
+ import {spawn} from 'node:child_process';
+ import {createReadStream} from 'node:fs';
+ import {createHash} from 'node:crypto';
++import fs from 'node:fs/promises';
++import path from 'node:path';
+ import {ATLAS_MODEL,ATLAS_VERSION,ATLAS_SHA256,atlasTextEnabled,atlasTextEndpoint} from './atlas-text-config.mjs';
+ let child=null,verified=false,starting=false;
++const shards=JSON.parse(await fs.readFile(new URL('./atlas-shards.json',import.meta.url),'utf8'));
++export async function verifyAtlasArtifact(modelPath,layout=process.env.ATLAS_GGUF_LAYOUT){
++ const files=layout==='sharded'?shards.files:[{name:path.basename(modelPath),sha256:ATLAS_SHA256}];
++ if(layout==='sharded'&&(shards.sourceSha256!==ATLAS_SHA256||path.basename(modelPath)!==shards.firstShard||files.length!==5))throw Error('shard_manifest');
++ for(const file of files){const hash=createHash('sha256');for await(const bytes of createReadStream(path.join(path.dirname(modelPath),file.name)))hash.update(bytes);if(hash.digest('hex')!==file.sha256)throw Error('model_checksum');}
++}
+ export async function startAtlasText(){
+  if(!atlasTextEnabled()||starting||child)return;
+  starting=true;
+  try{
+-  const hash=createHash('sha256');for await(const bytes of createReadStream(process.env.ATLAS_GGUF_PATH||'/opt/atlas/model.gguf'))hash.update(bytes);
+-  if(hash.digest('hex')!==ATLAS_SHA256)throw Error('model_checksum');
++  await verifyAtlasArtifact(process.env.ATLAS_GGUF_PATH||'/opt/atlas/model.gguf');
+   const endpoint=new URL(atlasTextEndpoint()),env={};
+   for(const key of ['PATH','LD_LIBRARY_PATH','SYSTEMROOT','WINDIR','LANG','LC_ALL'])if(process.env[key])env[key]=process.env[key];
+   const args=['--model',process.env.ATLAS_GGUF_PATH||'/opt/atlas/model.gguf','--alias',ATLAS_MODEL,'--host','127.0.0.1','--port',endpoint.port||'7861','--ctx-size','8192','--parallel','1','--threads','2','--threads-batch','2','--batch-size','256','--ubatch-size','128','--no-webui','--no-slots','--log-disable'];
+@@ -21,6 +28,6 @@ export async function startAtlasText(){
+ export async function atlasTextAvailability(){
+  let ready=false;
+  if(atlasTextEnabled()&&verified&&child&&child.exitCode===null){try{const response=await fetch(atlasTextEndpoint()+'/v1/models',{signal:AbortSignal.timeout(1200),redirect:'error'});const body=response.ok?await response.json():{};ready=body.data?.length===1&&body.data[0].id===ATLAS_MODEL;}catch{}}
+- return {configured:ready,provider:'LiftLog Atlas',model:ATLAS_MODEL,modelVersion:ATLAS_VERSION,mode:'single-model',atlas:{configured:atlasTextEnabled(),ready,archived:false,artifactSha:ATLAS_SHA256},voice:{configured:false,mode:'system-dictation',message:'Atlas 处理文字。语音可使用手机输入法听写，核对后提交。'}};
++ return {configured:ready,provider:'LiftLog Atlas',model:ATLAS_MODEL,modelVersion:ATLAS_VERSION,mode:'single-model',atlas:{configured:atlasTextEnabled(),ready,archived:false,artifactSha:ATLAS_SHA256,layout:process.env.ATLAS_GGUF_LAYOUT==='sharded'?'gguf-sharded-5':'gguf-single'},voice:{configured:false,mode:'system-dictation',message:'Atlas 处理文字。语音可使用手机输入法听写，核对后提交。'}};
+ }
+ export function stopAtlasText(){if(child&&!child.killed)child.kill('SIGTERM');verified=false;}
+diff --git a/scripts/prepare-atlas17-modelscope.mjs b/scripts/prepare-atlas17-modelscope.mjs
+index 85ade2a..625ce76 100644
+--- a/scripts/prepare-atlas17-modelscope.mjs
++++ b/scripts/prepare-atlas17-modelscope.mjs
+@@ -17,24 +17,29 @@ for(const [src,name]of [
+  ['work/atlas17-runtime-tools/llama-linux.tar.gz','llama-linux.tar.gz'],
+  ['outputs/LiftLog-Atlas-1.7B-Run02/model/QWEN-LICENSE.txt','QWEN-LICENSE.txt'],
+  ['work/atlas17-llama-source/LICENSE','LLAMA-LICENSE.txt']]){const target=path.join(dest,name);try{if((await fs.stat(target)).size===(await fs.stat(path.join(workspace,src))).size)continue;}catch{}await fs.copyFile(path.join(workspace,src),target);}
++const shards=JSON.parse(await fs.readFile(path.join(root,'lib/atlas-shards.json'),'utf8'));
+ const body=`USER root
+ RUN apt-get update && apt-get install -y --no-install-recommends libssl3 libgomp1 && rm -rf /var/lib/apt/lists/*
+ WORKDIR /app
+ COPY llama-linux.tar.gz /tmp/llama-linux.tar.gz
+ RUN echo '93713f6bf0ff11e8bc55e64fd14b2415fd8accd3e6f8aecf6e218973b625becd  /tmp/llama-linux.tar.gz' | sha256sum -c - && mkdir -p /opt/llama && tar -xzf /tmp/llama-linux.tar.gz -C /opt/llama && rm /tmp/llama-linux.tar.gz
+-COPY atlas-run02-q8_0.gguf /opt/atlas/model.gguf
+-RUN echo '${ATLAS_SHA256}  /opt/atlas/model.gguf' | sha256sum -c -
++FROM runtime-base AS model-split
++COPY atlas-run02-q8_0.gguf /tmp/source.gguf
++RUN echo '${ATLAS_SHA256}  /tmp/source.gguf' | sha256sum -c - && mkdir -p /opt/atlas && /opt/llama/llama-b12377/llama-gguf-split --split-max-size 384M /tmp/source.gguf /opt/atlas/model
++${shards.files.map(f=>`RUN echo '${f.sha256}  /opt/atlas/${f.name}' | sha256sum -c -`).join('\n')}
++FROM runtime-base
++${shards.files.map(f=>`COPY --from=model-split /opt/atlas/${f.name} /opt/atlas/${f.name}`).join('\n')}
+ COPY QWEN-LICENSE.txt LLAMA-LICENSE.txt /opt/atlas/
+ COPY liftlog-files.json restore.mjs ./
+ RUN node restore.mjs
+-ENV NODE_ENV=production HOST=0.0.0.0 PORT=7860 ATLAS_ENABLED=1 ATLAS_MODEL_SHA256=${ATLAS_SHA256} ATLAS_GGUF_PATH=/opt/atlas/model.gguf ATLAS_LLAMA_BIN=/opt/llama/llama-b12377/llama-server
++ENV NODE_ENV=production HOST=0.0.0.0 PORT=7860 ATLAS_ENABLED=1 ATLAS_MODEL_SHA256=${ATLAS_SHA256} ATLAS_GGUF_PATH=/opt/atlas/${shards.firstShard} ATLAS_GGUF_LAYOUT=sharded ATLAS_LLAMA_BIN=/opt/llama/llama-b12377/llama-server
+ USER node
+ EXPOSE 7860
+ HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 CMD node -e "fetch('http://127.0.0.1:7860/healthz').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+ CMD ["node","server.mjs"]
+ `;
+-await fs.writeFile(path.join(dest,'Dockerfile'),'FROM node:24-bookworm-slim\n'+body);
+-await fs.writeFile(path.join(dest,'Dockerfile.local'),'FROM liftlog-atlas17-node-base:dev\n'+body.replace(/RUN apt-get update[^\n]*\n/,''));
++await fs.writeFile(path.join(dest,'Dockerfile'),'FROM node:24-bookworm-slim AS runtime-base\n'+body);
++await fs.writeFile(path.join(dest,'Dockerfile.local'),'FROM liftlog-atlas17-node-base:dev AS runtime-base\n'+body.replace(/RUN apt-get update[^\n]*\n/,''));
+ let attrs=await fs.readFile(path.join(workspace,'work/liftlog-modelscope-release/.gitattributes'),'utf8');
+ for(const pattern of ['*.gguf','*.tar.gz'])if(!attrs.includes(pattern+' '))attrs+='\n'+pattern+' filter=lfs diff=lfs merge=lfs -text\n';
+ await fs.writeFile(path.join(dest,'.gitattributes'),attrs);
+@@ -42,5 +47,3 @@ await fs.writeFile(path.join(dest,'README.md'),`---\nlicense: apache-2.0\n---\n#
+ const manifest={version:'1.15.0',createdAt:new Date().toISOString(),primaryModel:ATLAS_MODEL,ggufSha256:ATLAS_SHA256,appFiles:files.length,appBytes:files.reduce((n,f)=>n+f.bytes,0),secretsIncluded:false,personalRecordsIncluded:false,externalApiFallback:false};
+ if(manifest.appBytes>16*1024*1024)throw Error('Restore size exceeded');
+ await fs.writeFile(path.join(dest,'UPLOAD-MANIFEST.json'),JSON.stringify(manifest,null,2)+'\n');console.log(JSON.stringify({dest,...manifest}));
+-
+-
+diff --git a/tests/atlas-text.test.mjs b/tests/atlas-text.test.mjs
+index 72cddad..a9c96be 100644
+--- a/tests/atlas-text.test.mjs
++++ b/tests/atlas-text.test.mjs
+@@ -4,6 +4,9 @@ import fs from 'node:fs/promises';
+ import {PassThrough} from 'node:stream';
+ import {EventEmitter} from 'node:events';
+ import {aiRoute} from '../lib/ai-http.mjs';
++import {verifyAtlasArtifact} from '../lib/atlas-text-runtime.mjs';
++import os from 'node:os';
++import path from 'node:path';
+ import {atlasPrompt} from '../lib/atlas-prompt.mjs';
+ import {atlasJSON,atlasCompletionBody} from '../lib/atlas-text.mjs';
+ import {ATLAS_MODEL,atlasTextEndpoint,requireAtlasConsent} from '../lib/atlas-text-config.mjs';
+@@ -45,3 +48,9 @@ test('56条实际CPU推理的输入token数与官方导出tokenizer逐条一致'
+  assert.equal(proof.cases.length,56);assert.equal(predictions.length,56);
+  for(const row of proof.cases)assert.equal(row.tokens,predictions.find(p=>p.id===row.id).inputTokens,row.id);
+ });
++
++test('分片发布保留全部310张量与元数据证据；错误分片文件拒绝启动',async()=>{
++ const manifest=JSON.parse(await fs.readFile(new URL('../lib/atlas-shards.json',import.meta.url),'utf8'));
++ assert.equal(manifest.passed,true);assert.equal(manifest.tensorCount,310);assert.equal(manifest.metadataKeysCompared,32);assert.equal(manifest.files.length,5);
++ const dir=await fs.mkdtemp(path.join(os.tmpdir(),'liftlog-shard-check-')),file=path.join(dir,manifest.firstShard);try{await fs.writeFile(file,'corrupted bytes');await assert.rejects(verifyAtlasArtifact(file,'sharded'),/model_checksum/);await assert.rejects(verifyAtlasArtifact(path.join(dir,'wrong.gguf'),'sharded'),/shard_manifest/);}finally{await fs.unlink(file);await fs.rmdir(dir);}
++});

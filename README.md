@@ -6,7 +6,7 @@
 
 视频使用本机示例空间录制，含中文步骤字幕，无旁白；为真实界面采样录屏的剪辑版。本次演示未调用真实模型，不代表真实训练或用户效果。
 
-当前集成版本：V1.15.0 · LiftLog Atlas 1.7B Run02。四个文字AI功能统一使用本地LoRA微调后的Qwen3-1.7B，合并并转换为Q8_0 GGUF，在魔搭免费CPU容器推理；不回退DeepSeek。语音使用设备/输入法听写，Atlas只处理核对后的文字。公开切换状态以 [公网验收](docs/atlas17-live.json) 为准。
+当前集成版本：V1.15.0 · LiftLog Atlas 1.7B Run02。四个文字AI功能统一使用本地LoRA微调后的Qwen3-1.7B，合并并转换为Q8_0 GGUF，在魔搭免费CPU容器推理；不回退DeepSeek。语音使用设备/输入法听写，Atlas只处理核对后的文字。原魔搭链接已完成切换，[22项公网验收](docs/atlas17-live.json)通过；四个文字任务示例实际耗时约4–24秒。线上使用完整GGUF，分片方案仅本地候选；Vercel链接是历史版本。
 
 143项检查通过，断网2核8GB实际容器验收22项通过。[部署来源与复现](training/atlas-1.7b/deployment/README.md) · [容器记录](docs/atlas17-container.json) · [40问与16跨任务回归](evaluation/atlas17-deployment) · [作品集部署说明](dist/portfolio/atlas-deployment.html)。56条全部完整返回；严格内容AI复核21/40→20/40，2题改善3题退步；跨任务14/16。属于已见合成题回归，不代表真实用户准确率。
 

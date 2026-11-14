@@ -20,6 +20,12 @@ python convert_hf_to_gguf.py <Run02-merged-model-directory> --outfile atlas-run0
 
 本机验收使用与生产相同Node24基础系统及包版本的缓存镜像，2核8GB、`--network none`。真实四任务及失败路径22项通过，见 `docs/atlas17-container.json`。最后行尾清理后的最终包另做字节核验；公网部署以 `docs/atlas17-live.json` 为准，不能只凭本机结果声称已上线。
 
+2026-11-14 公网已验收通过22项：四个真实Atlas任务、重点偏差拒绝、旧DeepSeek同意410、旧音频410、范围拒答免模型调用、跨域拒绝和10个静态文件逐字节一致。实际四任务示例耗时约3.7–23.6秒，不代表所有用户或长输入的延迟保证。线上ModelScope提交为 `8f1abfdb9fcc2f157736c2a6c1a174ba0cc1b45d`，完整GGUF镜像重试后成功推送；发布过程见 `docs/atlas17-publication.json`。
+
+五分片作为本地发布优化候选保留，未应用线上。固定官方工具拆分后310个张量字节、形状、量化类型与32项原始元数据一致，见 `evaluation/atlas17-deployment/shards-verification.json`；分片版断网容器另通过22项验收，见 `docs/atlas17-sharded-container.json`。如需继续候选实验，将本目录 `shards-manifest.json` 复制至 `lib/atlas-shards.json` 后应用 `sharded-release.patch`；当前正式打包脚本仍生成本次已上线的完整GGUF版本。不能把分片本地验收称为已发布，也不能将打包变化称为新一轮训练。
+
+浏览器端仍观察到旧Service Worker及“新版已准备好”提示。关闭空白示例标签后的自动化工具因无法确认当前浏览器URL而停止，未继续输入；未声称亲眼确认重开后的新版UI。公网文件哈希与接口已通过，现有训练结束后关闭全部旧LiftLog窗口再打开即可按既定更新机制加载新版，不清除本机记录。
+
 ## 许可与数据范围
 
 Qwen模型为Apache2.0，llama.cpp为MIT；许可证随模型包分发。知识卡摘要保留原始研究/官方来源。仅包含合成训练和评测，不包含用户训练记录或密钥。运行日志不含提示、回答或音频；Node不会自动收集个人记录进训练集。

@@ -1,0 +1,40 @@
+{
+  "method": "Pinned official llama.cpp b12377 gguf-split --split-max-size 384M. Every tensor raw byte SHA256, name, shape, quantization type and every original metadata value compared to unsplit source. No weights, quantization, prompts or training changed.",
+  "sourceSha256": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+  "passed": true,
+  "tensorCount": 310,
+  "metadataKeysCompared": 32,
+  "firstShard": "model-00001-of-00005.gguf",
+  "files": [
+    {
+      "name": "model-00001-of-00005.gguf",
+      "bytes": 387813120,
+      "sha256": "73423848c51abbb15fd48f31f2b436d71cec4b2558c394350a69dc534c856891",
+      "tensors": 11
+    },
+    {
+      "name": "model-00002-of-00005.gguf",
+      "bytes": 376695104,
+      "sha256": "b66f9c3bfa2f7382e196ff7efd60f6838383ac82a8544d078cf2c80a2a4d99f5",
+      "tensors": 73
+    },
+    {
+      "name": "model-00003-of-00005.gguf",
+      "bytes": 374477664,
+      "sha256": "b50a30e6a5db88f3bc6d3346830cc914f971ba96001595cadf267c0fe8d82b5c",
+      "tensors": 83
+    },
+    {
+      "name": "model-00004-of-00005.gguf",
+      "bytes": 374468160,
+      "sha256": "8bad53744ca7497f361c433ac21a2634061b50857f4f3a6d1aad5e9d7a61c3ea",
+      "tensors": 77
+    },
+    {
+      "name": "model-00005-of-00005.gguf",
+      "bytes": 320972736,
+      "sha256": "44fa16dc542aa9e2f5868c10ce42f146b64a0c3999a334295f2bb9b96200d30e",
+      "tensors": 66
+    }
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "checkedAt": "2026-11-14T11:10:41.199Z",
+  "origin": "http://127.0.0.1:7860",
+  "version": "1.15.0",
+  "model": "liftlog-atlas-1.7b-run02",
+  "ggufSha256": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+  "data": "Synthetic frozen smoke inputs only; no user browser data accessed or saved.",
+  "requests": [
+    {
+      "path": "/healthz",
+      "status": 200,
+      "elapsedMs": 38,
+      "body": {
+        "status": "ok",
+        "version": "1.15.0"
+      }
+    },
+    {
+      "path": "/api/ai/status",
+      "status": 200,
+      "elapsedMs": 4,
+      "body": {
+        "configured": true,
+        "provider": "LiftLog Atlas",
+        "model": "liftlog-atlas-1.7b-run02",
+        "modelVersion": "atlas17-run02-q8_0",
+        "mode": "single-model",
+        "atlas": {
+          "configured": true,
+          "ready": true,
+          "archived": false,
+          "artifactSha": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+          "layout": "gguf-sharded-5"
+        },
+        "voice": {
+          "configured": false,
+          "mode": "system-dictation",
+          "message": "Atlas 处理文字。语音可使用手机输入法听写，核对后提交。"
+        }
+      }
+    },
+    {
+      "path": "/api/ai/intake",
+      "status": 200,
+      "elapsedMs": 28547,
+      "body": {
+        "result": {
+          "status": "ready",
+          "questions": [],
+          "date": "2026-11-14",
+          "exercises": [
+            {
+              "name": "杠铃卧推",
+              "group": "chest",
+              "tracking": "weighted",
+              "source": "今天杠铃卧推总重42.5kg，两组分别11次和9次。",
+              "sets": [
+                {
+                  "weightKg": 42.5,
+                  "reps": 11,
+                  "rir": null,
+                  "type": "working"
+                },
+                {
+                  "weightKg": 42.5,
+                  "reps": 9,
+                  "rir": null,
+                  "type": "working"
+                }
+              ]
+            }
+          ]
+        },
+        "meta": {
+          "provider": "LiftLog Atlas",
+          "engine": "atlas",
+          "model": "liftlog-atlas-1.7b-run02",
+          "modelVersion": "atlas17-run02-q8_0",
+          "artifactSha": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+          "elapsedMs": 28542,
+          "usage": {
+            "inputTokens": 1384,
+            "outputTokens": 107
+          },
+          "promptVersion": "intake-v1"
+        }
+      }
+    },
+    {
+      "path": "/api/ai/knowledge",
+      "status": 200,
+      "elapsedMs": 11381,
+      "body": {
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "RIR2表示估计还能做2次，RIR0表示估计不能再完成一次规范重复。",
+              "sourceIds": [
+                "F01"
+              ]
+            }
+          ],
+          "limitation": "RIR不是精确测量，受训练负荷等条件影响。"
+        },
+        "retrieval": {
+          "question": "RIR2是什么意思",
+          "version": "fitness-notes-2026-11-14-v3",
+          "status": "retrieved",
+          "chunks": [
+            {
+              "id": "F01",
+              "title": "RIR 在记录什么",
+              "topics": [
+                "rir"
+              ],
+              "sources": [
+                "C"
+              ],
+              "text": "RIR 是完成一组后，对还能规范完成多少次的主观估计。例如 RIR2 表示估计还能做2次，RIR0 表示估计不能再完成一次规范重复。它不是已经完成的次数，也不是下一组必须完成的次数。",
+              "scope": "训练感受量尺；不是精确测量。",
+              "reviewStatus": "ai-organized",
+              "independentReview": "not-performed",
+              "unsupportedInferences": [],
+              "score": 25.832,
+              "topicHits": 1
+            },
+            {
+              "id": "F02",
+              "title": "RIR 的估计存在误差",
+              "topics": [
+                "rir",
+                "accuracy"
+              ],
+              "sources": [
+                "D",
+                "P"
+              ],
+              "text": "RIR 估计会受训练负荷等条件影响；研究中的重负荷估计更准确，不能假定所有情境同样可靠。LiftLog 不确定的 RIR 可以留空，空值不会作为零处理。",
+              "scope": "研究样本为受过训练的男性；记录规则为本产品约定。",
+              "reviewStatus": "ai-organized",
+              "independentReview": "not-performed",
+              "unsupportedInferences": [],
+              "score": 22,
+              "topicHits": 1
+            }
+          ],
+          "message": "已找到相关资料，回答仍需保留原文的适用条件。"
+        },
+        "meta": {
+          "provider": "LiftLog Atlas",
+          "engine": "atlas",
+          "model": "liftlog-atlas-1.7b-run02",
+          "modelVersion": "atlas17-run02-q8_0",
+          "artifactSha": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+          "elapsedMs": 11374,
+          "usage": {
+            "inputTokens": 504,
+            "outputTokens": 57
+          },
+          "knowledgeVersion": "fitness-notes-2026-11-14-v3",
+          "promptVersion": "fitness-rag-v2",
+          "modelCalled": true
+        }
+      }
+    },
+    {
+      "path": "/api/ai/decision",
+      "status": 200,
+      "elapsedMs": 5452,
+      "body": {
+        "advice": {
+          "status": "recommend",
+          "candidateId": "balanced"
+        },
+        "meta": {
+          "provider": "LiftLog Atlas",
+          "engine": "atlas",
+          "model": "liftlog-atlas-1.7b-run02",
+          "modelVersion": "atlas17-run02-q8_0",
+          "artifactSha": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+          "elapsedMs": 5450,
+          "usage": {
+            "inputTokens": 358,
+            "outputTokens": 11
+          },
+          "promptVersion": "decision-v1"
+        }
+      }
+    },
+    {
+      "path": "/api/ai/review",
+      "status": 200,
+      "elapsedMs": 4573,
+      "body": {
+        "factIds": [
+          "rir",
+          "sets"
+        ],
+        "actionIds": [
+          "rir",
+          "context"
+        ],
+        "model": "liftlog-atlas-1.7b-run02"
+      }
+    },
+    {
+      "path": "/api/ai/review",
+      "status": 502,
+      "elapsedMs": 4583,
+      "body": {
+        "error": "Atlas 本次选择的重点未通过校验。可查看训练概览，或点击本地整理后继续。",
+        "code": "review_priority_failed"
+      }
+    },
+    {
+      "path": "/api/ai/intake",
+      "status": 410,
+      "elapsedMs": 2,
+      "body": {
+        "error": "AI 服务已切换为 LiftLog Atlas。请结束训练后关闭旧页面，再打开并确认 Atlas 处理方式；原内容不会自动转发。",
+        "code": "provider_changed"
+      }
+    },
+    {
+      "path": "/api/ai/knowledge",
+      "status": 200,
+      "elapsedMs": 2,
+      "body": {
+        "result": {
+          "status": "insufficient",
+          "points": [],
+          "limitation": "当前资料不足以回答这个问题。可以了解余力、负荷、动作行程、训练安排、营养与进步观察等一般增肌知识。"
+        },
+        "retrieval": {
+          "question": "量子计算机是什么",
+          "version": "fitness-notes-2026-11-14-v3",
+          "status": "insufficient",
+          "chunks": [],
+          "message": "当前资料不足以回答这个问题。可以了解余力、负荷、动作行程、训练安排、营养与进步观察等一般增肌知识。"
+        },
+        "meta": {
+          "engine": "retrieval-policy",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v3",
+          "promptVersion": "fitness-rag-v2",
+          "modelCalled": false
+        }
+      }
+    },
+    {
+      "path": "/api/ai/transcribe",
+      "status": 410,
+      "elapsedMs": 1,
+      "body": {
+        "error": "录音转写已调整为手机输入法听写。请核对文字后交给 Atlas 处理。",
+        "code": "feature_changed"
+      }
+    },
+    {
+      "path": "/api/ai/intake",
+      "status": 403,
+      "elapsedMs": 1,
+      "body": {
+        "error": "请求来源无效。"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "path": "app.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "7b11a24c620755d4043c4e7c86ce5f7fc8abbd9414a9233c1ad904fc6705d541"
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "7ded45ae8d3bba716f38c593d17da6f0c7480655be79ed9efb7d56f738f90482"
+    },
+    {
+      "path": "intake-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "aaa6429a39737e82dfe22a18e5a51e1427c177acda4951799877cf69b15254f1"
+    },
+    {
+      "path": "knowledge-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "8241a3c766dd113708afa1ffeca87abcea334fc7fe122b49b4eeff4fc330946e"
+    },
+    {
+      "path": "review-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "1c013639b7e80747b2f7bce4a7fd5cb64adcc2853154414d097d8acf65fa0f18"
+    },
+    {
+      "path": "decision-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "6a61d63564685290b4a4eec17e6b81b731ef78d1cb8cc381bf1cdd160294df63"
+    },
+    {
+      "path": "voice-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "bd8ab1f4bd38b5e6315ef4de3f2f723a162fedf412889f06de4bb075a3de397d"
+    },
+    {
+      "path": "portfolio/index.html",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "dfbb31fd82999ea1fc4ccb957287ef47798507e52162c621b1235b34a589ddb9"
+    },
+    {
+      "path": "portfolio/atlas-deployment.html",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "53b714c3ef3230fc90cb876abdee68fefd2a4e98732292f2ddca37adba11d525"
+    },
+    {
+      "path": "portfolio/atlas-deployment/model-manifest.json",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "45ed7339997ee339d42e069e82bc593ce08ff243642c0c11fb33e916f3c3c8fe"
+    }
+  ],
+  "passed": true,
+  "checks": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "space": "VermouthLau/liftlog",
+  "commit": "8f1abfdb9fcc2f157736c2a6c1a174ba0cc1b45d",
+  "attempts": [
+    {
+      "startedAt": "2026-11-14T10:32:37Z",
+      "observed": "CloneRepoList step remained at git clone after 11 minutes; no application Docker build output."
+    },
+    {
+      "requestedAt": "2026-11-14T10:44:59.522Z",
+      "reason": "Retry same verified commit after stalled clone. No file or cloud resource changes.",
+      "startedAt": "2026-11-14T10:44:49Z",
+      "newRunnerObserved": true,
+      "cloneCompletedAt": "2026-11-14T10:50:59Z",
+      "observed": "Docker image successfully built; pushing image layers. Public health still pending.",
+      "imageBuiltAt": "2026-11-14T10:52:54Z",
+      "publicHealthyAt": "2026-11-14T11:12:42Z",
+      "liveAcceptance": "22 checks passed: four real Atlas tasks, failure guards, retired consent/audio and 10 exact public assets."
+    }
+  ],
+  "publicVerified": true,
+  "liveEvidence": "docs/atlas17-live.json",
+  "publicVersion": "1.15.0",
+  "finalModelLayout": "single GGUF: original image upload eventually succeeded after automatic retry; no sharded image published.",
+  "shardedCandidate": {
+    "published": false,
+    "localContainerChecks": 22,
+    "tensorsBitIdentical": 310,
+    "originalMetadataKeysEqual": 32,
+    "proof": "evaluation/atlas17-deployment/shards-verification.json",
+    "patch": "training/atlas-1.7b/deployment/sharded-release.patch"
+  },
+  "uiVerificationLimit": "Old Service Worker UI and update-ready banner observed. Browser automation stopped after close-tab action because current URL could not be confidently determined; no further UI input, no claim of observing reopened new UI. Exact new assets and public APIs passed."
+}
