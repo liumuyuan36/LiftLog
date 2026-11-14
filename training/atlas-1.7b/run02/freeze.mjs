@@ -1,0 +1,17 @@
+import fs from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {retrieveKnowledge,knowledgeMessages} from '../../../dist/knowledge.js';
+const root=new URL('../../../',import.meta.url),dir=new URL('../../../evaluation/atlas17-run02/',import.meta.url),hash=s=>createHash('sha256').update(s).digest('hex');
+const read=name=>fs.readFile(new URL(name,root),'utf8');
+const raw=await fs.readFile(new URL('fresh40.cases.json',dir),'utf8'),cases=JSON.parse(raw);
+const train=await read('training/atlas-1.7b/run02/data-v2/train.sft.jsonl'),validation=await read('training/atlas-1.7b/run02/data-v2/validation.sft.jsonl');
+for(const c of cases)if(train.includes(JSON.stringify(c.question).slice(1,-1))||validation.includes(JSON.stringify(c.question).slice(1,-1)))throw Error('New test question overlaps SFT: '+c.id);
+const prompts=cases.map(c=>{const retrieval=retrieveKnowledge(c.question),messages=knowledgeMessages(retrieval);return {id:c.id,messages,retrieval,promptSha256:hash(JSON.stringify(messages)),datasetSha256:hash(raw)};});
+const text=prompts.map(r=>JSON.stringify(r)).join('\n')+'\n';
+const names=['training/atlas-1.7b/run02/data-v2/train.sft.jsonl','training/atlas-1.7b/run02/data-v2/validation.sft.jsonl','training/atlas-1.7b/run02/data-v2/manifest.json','training/intake/train_lora.py','training/atlas-1.7b/predict.py','training/atlas-1.7b/run02/seeds.mjs','dist/knowledge.js','dist/knowledge-data.js'];
+const files=Object.fromEntries(await Promise.all(names.map(async name=>[name,hash(await read(name))])));
+const meta={createdAt:new Date().toISOString(),base:'Qwen/Qwen3-1.7B',baseRevision:'70d244cc86ccca08cf5af4e1e306ecf908b1ad5e',parentAdapterSha256:'d1a1249da0639ef2f269afef08da4cd6a21799ba53a4cca879b1c52afe492fb5',training:{maxEpochs:2,learningRate:.00002,batchSize:1,accumulation:8,rank:16,alpha:32,seed:42,cacheCleanup:20,selection:'minimum validation loss; no test-based checkpoint choice'},decoding:{thinking:false,sample:false,maxNewTokens:512,batchSize:4},files,freshCasesSha256:hash(raw),freshPromptsSha256:hash(text),regression100:'Original frozen100 prompts, Run01 predictions and semantic grades preserved; scores are regression, not unseen testing',fresh40:'New authored scenario wording, no exact question in train/validation; shared fitness concepts and source corpus; not independent world-knowledge benchmark',promotion:'Do not replace Run01 unless regression structure and functional smoke remain stable, fresh paired semantic results improve, and no new unsupported advice appears. Otherwise preserve candidate as not promoted.'};
+await fs.writeFile(new URL('FREEZE.json',dir),JSON.stringify(meta,null,2)+'\n',{flag:'wx'});
+await fs.writeFile(new URL('fresh40.prompts.jsonl',dir),text,{flag:'wx'});
+await fs.writeFile(new URL('PROTOCOL.md',dir),'# Atlas1.7B Run02\n\n旧100题是已查看回归，另有40道新场景题。同一个Run01与Run02接收完全相同资料与提示，不修改检索或知识卡。新40题不用于梯度、轮次或检查点选择；知识概念和来源可能与训练共享。原始输出不修复、不静默重试，缺失与截断保留。结构、引文程序检查、语义逐项复核分别报告；语义由Codex AI非盲判读，不是专家或真实用户准确率。原16条跨任务回归同样保留，先生成两边预测再评分。\n\n最多2轮，按新验证集损失选择，再核对新题和回归。表现不足保留Run01，不为了报进步修改金标。\n',{flag:'wx'});
+console.log(JSON.stringify({freshQuestions:cases.length,retrieved:prompts.filter(p=>p.retrieval.chunks.length).length,sourceUnchanged:true,trainingRows:train.trim().split('\n').length,validationRows:validation.trim().split('\n').length}));

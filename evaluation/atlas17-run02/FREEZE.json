@@ -1,0 +1,38 @@
+{
+  "createdAt": "2026-11-14T08:35:00.205Z",
+  "base": "Qwen/Qwen3-1.7B",
+  "baseRevision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "parentAdapterSha256": "d1a1249da0639ef2f269afef08da4cd6a21799ba53a4cca879b1c52afe492fb5",
+  "training": {
+    "maxEpochs": 2,
+    "learningRate": 0.00002,
+    "batchSize": 1,
+    "accumulation": 8,
+    "rank": 16,
+    "alpha": 32,
+    "seed": 42,
+    "cacheCleanup": 20,
+    "selection": "minimum validation loss; no test-based checkpoint choice"
+  },
+  "decoding": {
+    "thinking": false,
+    "sample": false,
+    "maxNewTokens": 512,
+    "batchSize": 4
+  },
+  "files": {
+    "training/atlas-1.7b/run02/data-v2/train.sft.jsonl": "703e39f323324ff4d8ee0cc1faef3a145c7b634a607d296ec231ec4f514cb04f",
+    "training/atlas-1.7b/run02/data-v2/validation.sft.jsonl": "417f65f9bcd8ac7d5e208b265fc369b8b7ec2556ba65d18a64675a98878de358",
+    "training/atlas-1.7b/run02/data-v2/manifest.json": "9f84d3db4058405402338b905ad30ac43943f98d64525caebbf6e31eecd0ab84",
+    "training/intake/train_lora.py": "7b44654a5553e2037f477f38aae9a1c626d1fb0205b6bec8896d1f437dfe1a1f",
+    "training/atlas-1.7b/predict.py": "fbdc9e4a72135558c9745599adb0e00e558bb25064e50f534d841b5eb262f673",
+    "training/atlas-1.7b/run02/seeds.mjs": "bb28066c51a2e54fbec2283982f0d8aa328bf41c1f988d0dfd630a3dda5aad59",
+    "dist/knowledge.js": "c7ab8d72ad1ee397159f1329211c2c0950d44384e5a6cb6b51810b3c40046236",
+    "dist/knowledge-data.js": "e6c8e0e992db66b9450b385d43de4b1affcba25e338b89de95e46dfe2a551853"
+  },
+  "freshCasesSha256": "221cfe05eee1a0dccfee7ca1638d93187a9c5f06313a0cb78a866d1f6d8938ec",
+  "freshPromptsSha256": "72ce2715e9b19e247cd1fbe79062a0bfbd210203175b5b877944e4210473749d",
+  "regression100": "Original frozen100 prompts, Run01 predictions and semantic grades preserved; scores are regression, not unseen testing",
+  "fresh40": "New authored scenario wording, no exact question in train/validation; shared fitness concepts and source corpus; not independent world-knowledge benchmark",
+  "promotion": "Do not replace Run01 unless regression structure and functional smoke remain stable, fresh paired semantic results improve, and no new unsupported advice appears. Otherwise preserve candidate as not promoted."
+}

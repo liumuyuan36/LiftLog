@@ -1,0 +1,49 @@
+{
+  "version": "atlas17-run02-data-v2",
+  "createdAt": "2026-11-14T08:34:14.509Z",
+  "base": "Qwen/Qwen3-1.7B",
+  "parentAdapter": "d1a1249da0639ef2f269afef08da4cd6a21799ba53a4cca879b1c52afe492fb5",
+  "authorship": "AI-authored synthetic, original paraphrases of existing61 source cards; not real user data",
+  "purpose": "Direct and multi-source answers, partial answers despite unsupported additions, evidence/empty contrast, future/actor/missing-reps intake, excluded-review priority, conflict clarification",
+  "training": {
+    "knowledge": 246,
+    "contrast": 26,
+    "intake-future": 72,
+    "intake-missing": 64,
+    "intake-positive": 42,
+    "intake-actor": 20,
+    "review-selection": 96,
+    "decision-selection": 108,
+    "replay-knowledge": 64,
+    "intake-replay": 72
+  },
+  "validation": {
+    "knowledge": 24,
+    "contrast": 10,
+    "intake-future": 12,
+    "intake-missing": 8,
+    "intake-positive": 6,
+    "intake-actor": 4,
+    "review-selection": 12,
+    "decision-selection": 12
+  },
+  "files": {
+    "train.sft.jsonl": {
+      "rows": 810,
+      "sha256": "703e39f323324ff4d8ee0cc1faef3a145c7b634a607d296ec231ec4f514cb04f"
+    },
+    "validation.sft.jsonl": {
+      "rows": 88,
+      "sha256": "417f65f9bcd8ac7d5e208b265fc369b8b7ec2556ba65d18a64675a98878de358"
+    }
+  },
+  "replayCounts": {
+    "knowledge": 64,
+    "insufficient": 8,
+    "intake": 72,
+    "review-selection": 12,
+    "decision-selection": 12
+  },
+  "testFilesReadByBuilder": 0,
+  "splitCaveat": "Validation questions are disjoint. Target-card grouping preserved for QA, but parent Run01 already saw some validation cards as distractors; no claim of unseen knowledge or fully card-independent weights."
+}

@@ -1,0 +1,148 @@
+{
+  "createdAt": "2026-11-14T08:58:07.174Z",
+  "frozenInputsVerified": true,
+  "pairedPromptsAndInputTokensEqual": true,
+  "missingOrTruncated": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "modelAndAdapterHashesVerified": true,
+  "programTests": 137,
+  "programTestsPassed": 137,
+  "syntaxChecks": 43,
+  "online": false,
+  "rawPredictions": {
+    "atlas17-run01.fresh40.predictions.jsonl": "b3abff174ed3a978edfab1b66e6c9c48b871e30788b7376c8600f69c554e0d80",
+    "atlas17-run02.fresh40.predictions.jsonl": "196f613b943499d29f34ffde133afdd8ff1ba6a456d5afc64d412e99893f03ee",
+    "atlas17-run02.regression100.predictions.jsonl": "448e70a823c03e809d8155a4ad4a0db35ceae9346732b0557f21fe686b323b17",
+    "atlas17-run02.workflow16.predictions.jsonl": "db8c667f86dcd19aacd444becb2e4816abb2c9ed47463cac70154fb098dace85"
+  },
+  "workflowFailures": [
+    {
+      "id": "WF-R0",
+      "expected": "frequency",
+      "rawOutput": "{\"factIds\":[\"rir\",\"sets\"],\"actionIds\":[\"rir\",\"context\"]}"
+    },
+    {
+      "id": "WF-R3",
+      "expected": "excluded",
+      "rawOutput": "{\"factIds\":[\"rir\",\"excluded\"],\"actionIds\":[\"rir\",\"context\"]}"
+    }
+  ],
+  "regressionValidationFailures": [
+    {
+      "id": "FIT100-001",
+      "question": "训练日志里的 RIR 到底记录什么？我做了八次，还能再做两次，该怎么理解？",
+      "split": "development",
+      "expected": {
+        "evidenceGroups": [
+          [
+            "F01"
+          ]
+        ],
+        "answerability": "supported",
+        "mustConvey": [
+          "RIR 记录本组结束后估计还能完成的规范重复次数",
+          "例子中 RIR 为 2，已完成次数为 8，两者是不同字段"
+        ],
+        "forbidden": [
+          "把 RIR 2 解释为本组只做了两次",
+          "把 RIR 当作下一组必须增加的次数"
+        ]
+      },
+      "retrievedIds": [
+        "F01",
+        "F02",
+        "F35"
+      ],
+      "applicationPolicy": "retrieved",
+      "rawOutput": "{\"status\":\"answered\",\"points\":[{\"text\":\"RIR 是完成一组后，对还能规范完成多少次的主观估计。\",\"sourceIds\":[\"F01\"]},{\"text\":\"RIR 估计会受训练负荷等条件影响；不能假定所有情境同样可靠。\",\"sourceIds\":[\"F2\"]}],\"limitation\":\"RIR 不是精确测量，不能自动补全其他背景信息。\"}",
+      "limited": false,
+      "checks": {
+        "present": true,
+        "json": true,
+        "structure": true,
+        "providedCitationsAndNumbers": false,
+        "expectedStatus": true,
+        "goldEvidenceInAnswer": true
+      },
+      "validationError": "回答引用了本次未检索到的资料。",
+      "result": {
+        "status": "answered",
+        "points": [
+          {
+            "text": "RIR 是完成一组后，对还能规范完成多少次的主观估计。",
+            "sourceIds": [
+              "F01"
+            ]
+          },
+          {
+            "text": "RIR 估计会受训练负荷等条件影响；不能假定所有情境同样可靠。",
+            "sourceIds": [
+              "F2"
+            ]
+          }
+        ],
+        "limitation": "RIR 不是精确测量，不能自动补全其他背景信息。"
+      }
+    },
+    {
+      "id": "FIT100-004",
+      "question": "今天没记录还能剩几次，系统把 RIR 空白算成零合理吗？",
+      "split": "development",
+      "expected": {
+        "evidenceGroups": [
+          [
+            "F02"
+          ]
+        ],
+        "answerability": "supported",
+        "mustConvey": [
+          "缺失应保留为未知或空白",
+          "RIR 0 有明确含义，不能用它代替缺失"
+        ],
+        "forbidden": [
+          "空白默认力竭",
+          "据缺失值计算精确平均 RIR"
+        ]
+      },
+      "retrievedIds": [
+        "F01",
+        "F02",
+        "F35"
+      ],
+      "applicationPolicy": "retrieved",
+      "rawOutput": "{\"status\":\"answered\",\"points\":[{\"text\":\"RIR 是完成一组后，对还能规范完成多少次的主观估计。\",\"sourceIds\":[\"F01\"]},{\"text\":\"LiftLog 不确定的 RIR 可以留空，空值不会作为零处理。\",\"sourceIds\":[\"F25\"]}],\"limitation\":\"研究样本为受过训练的男性；记录规则为本产品约定。\"}",
+      "limited": false,
+      "checks": {
+        "present": true,
+        "json": true,
+        "structure": true,
+        "providedCitationsAndNumbers": false,
+        "expectedStatus": true,
+        "goldEvidenceInAnswer": false
+      },
+      "validationError": "回答引用了本次未检索到的资料。",
+      "result": {
+        "status": "answered",
+        "points": [
+          {
+            "text": "RIR 是完成一组后，对还能规范完成多少次的主观估计。",
+            "sourceIds": [
+              "F01"
+            ]
+          },
+          {
+            "text": "LiftLog 不确定的 RIR 可以留空，空值不会作为零处理。",
+            "sourceIds": [
+              "F25"
+            ]
+          }
+        ],
+        "limitation": "研究样本为受过训练的男性；记录规则为本产品约定。"
+      }
+    }
+  ]
+}

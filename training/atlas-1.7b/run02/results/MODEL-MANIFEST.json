@@ -1,0 +1,55 @@
+{
+  "name": "LiftLog Atlas",
+  "variant": "LiftLog-Atlas-1.7B-Run02 merged BF16",
+  "base": "Qwen/Qwen3-1.7B",
+  "baseRevision": "70d244cc86ccca08cf5af4e1e306ecf908b1ad5e",
+  "parentAdapterSha256": "bffa62c24fb61a189c350e8f5b7bbbd9f31ccea95fe06d227701f66a2b61e837",
+  "merge": "PEFT merge_and_unload(safe_merge=True), BF16 weights; evaluate this exported artifact separately from unmerged adapter",
+  "files": [
+    {
+      "name": "chat_template.jinja",
+      "bytes": 4256,
+      "sha256": "51fa65c79bb57f058dc7ef8734884bd325fe9d45bb03a61bfef59785d3bc2da9"
+    },
+    {
+      "name": "config.json",
+      "bytes": 1594,
+      "sha256": "14e57248cd7af75ff382816632f640d0fadb53786aca4a8ff4cce2d14105bd78"
+    },
+    {
+      "name": "generation_config.json",
+      "bytes": 227,
+      "sha256": "5b65fda8d61ce3ea8458f34f428ad178f57fe949f66b6fff087e67ef4b0a0800"
+    },
+    {
+      "name": "model-00001-of-00002.safetensors",
+      "bytes": 1981418432,
+      "sha256": "b46b6d8e9ee70085b82c3323bb03ea9a0fb54c3e0dda7989a98a19307c56774b"
+    },
+    {
+      "name": "model-00002-of-00002.safetensors",
+      "bytes": 1459766976,
+      "sha256": "b85bb76e7a8dc53cdbb6795f73961b2e9a2640a3fb124ac58b1c72181bb3bba8"
+    },
+    {
+      "name": "model.safetensors.index.json",
+      "bytes": 25901,
+      "sha256": "8aa847f5bc7cfed8380a964a79f0cfda3ec2f35ce15efd1143bdeaeadd93d55b"
+    },
+    {
+      "name": "QWEN-LICENSE.txt",
+      "bytes": 11343,
+      "sha256": "832dd9e00a68dd83b3c3fb9f5588dad7dcf337a0db50f7d9483f310cd292e92e"
+    },
+    {
+      "name": "tokenizer.json",
+      "bytes": 11422650,
+      "sha256": "be75606093db2094d7cd20f3c2f385c212750648bd6ea4fb2bf507a6a4c55506"
+    },
+    {
+      "name": "tokenizer_config.json",
+      "bytes": 722,
+      "sha256": "b3d4aae9670f7c2de3e3b32675b0118e7e7b517544f5ab32efe04bd74f2238c1"
+    }
+  ]
+}

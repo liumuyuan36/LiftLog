@@ -1,0 +1,14 @@
+{
+  "writtenBeforePredictions": true,
+  "candidate": "Atlas1.7B Run02, selected only by validation loss",
+  "reference": "Atlas1.7B Run01 selected epoch2",
+  "requirements": {
+    "fresh40StrictContent": "Greater than paired Run01 under the same frozen criteria; report numerator and denominator, AI review only",
+    "regression100Json": "At least99/100, preserving raw failures",
+    "workflow16": "At least12/16 and no failure on future-only WF-I23 or missing-repetition WF-I40",
+    "unsupportedAdvice": "No new individual dose, clinical diagnosis or unsupported guarantee in fresh40",
+    "validationLoss": "Best new validation loss below warm-start baseline on the same new validation set"
+  },
+  "ifNotMet": "Keep Run01 as reference, preserve Run02 as an unpromoted experiment; do not change gold or quietly retry",
+  "onlineDeployment": "Not part of this local training iteration; no automatic production replacement"
+}

@@ -1,0 +1,354 @@
+[
+  {
+    "id": "qa-41-0-0",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-41-0-1",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-41-0-2",
+    "kind": "knowledge"
+  },
+  {
+    "id": "empty-validation-41",
+    "kind": "contrast"
+  },
+  {
+    "id": "qa-42-0-0",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-42-0-1",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-42-0-2",
+    "kind": "knowledge"
+  },
+  {
+    "id": "empty-validation-42",
+    "kind": "contrast"
+  },
+  {
+    "id": "qa-43-0-0",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-43-0-1",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-43-0-2",
+    "kind": "knowledge"
+  },
+  {
+    "id": "empty-validation-43",
+    "kind": "contrast"
+  },
+  {
+    "id": "qa-44-0-0",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-44-0-1",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-44-0-2",
+    "kind": "knowledge"
+  },
+  {
+    "id": "empty-validation-44",
+    "kind": "contrast"
+  },
+  {
+    "id": "qa-45-0-0",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-45-0-1",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-45-0-2",
+    "kind": "knowledge"
+  },
+  {
+    "id": "empty-validation-45",
+    "kind": "contrast"
+  },
+  {
+    "id": "qa-46-0-0",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-46-0-1",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-46-0-2",
+    "kind": "knowledge"
+  },
+  {
+    "id": "empty-validation-46",
+    "kind": "contrast"
+  },
+  {
+    "id": "qa-47-0-0",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-47-0-1",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-47-0-2",
+    "kind": "knowledge"
+  },
+  {
+    "id": "empty-validation-47",
+    "kind": "contrast"
+  },
+  {
+    "id": "qa-48-0-0",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-48-0-1",
+    "kind": "knowledge"
+  },
+  {
+    "id": "qa-48-0-2",
+    "kind": "knowledge"
+  },
+  {
+    "id": "empty-validation-48",
+    "kind": "contrast"
+  },
+  {
+    "id": "medical-boundary-validation-0",
+    "kind": "contrast"
+  },
+  {
+    "id": "medical-boundary-validation-1",
+    "kind": "contrast"
+  },
+  {
+    "id": "future-validation-0",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-1",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-2",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-3",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-4",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-5",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-6",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-7",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-8",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-9",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-10",
+    "kind": "intake-future"
+  },
+  {
+    "id": "future-validation-11",
+    "kind": "intake-future"
+  },
+  {
+    "id": "missing-reps-8",
+    "kind": "intake-missing"
+  },
+  {
+    "id": "missing-reps-17",
+    "kind": "intake-missing"
+  },
+  {
+    "id": "missing-reps-26",
+    "kind": "intake-missing"
+  },
+  {
+    "id": "missing-reps-35",
+    "kind": "intake-missing"
+  },
+  {
+    "id": "missing-reps-44",
+    "kind": "intake-missing"
+  },
+  {
+    "id": "missing-reps-53",
+    "kind": "intake-missing"
+  },
+  {
+    "id": "missing-reps-62",
+    "kind": "intake-missing"
+  },
+  {
+    "id": "missing-reps-71",
+    "kind": "intake-missing"
+  },
+  {
+    "id": "mixed-time-7",
+    "kind": "intake-positive"
+  },
+  {
+    "id": "mixed-time-15",
+    "kind": "intake-positive"
+  },
+  {
+    "id": "mixed-time-23",
+    "kind": "intake-positive"
+  },
+  {
+    "id": "mixed-time-31",
+    "kind": "intake-positive"
+  },
+  {
+    "id": "mixed-time-39",
+    "kind": "intake-positive"
+  },
+  {
+    "id": "mixed-time-47",
+    "kind": "intake-positive"
+  },
+  {
+    "id": "actor-5",
+    "kind": "intake-actor"
+  },
+  {
+    "id": "actor-11",
+    "kind": "intake-actor"
+  },
+  {
+    "id": "actor-17",
+    "kind": "intake-actor"
+  },
+  {
+    "id": "actor-23",
+    "kind": "intake-actor"
+  },
+  {
+    "id": "review-priority-7",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-15",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-23",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-31",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-39",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-47",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-55",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-63",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-71",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-79",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-87",
+    "kind": "review-selection"
+  },
+  {
+    "id": "review-priority-95",
+    "kind": "review-selection"
+  },
+  {
+    "id": "decision-boundary-8",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-17",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-26",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-35",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-44",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-53",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-62",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-71",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-80",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-89",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-98",
+    "kind": "decision-selection"
+  },
+  {
+    "id": "decision-boundary-107",
+    "kind": "decision-selection"
+  }
+]
