@@ -1,0 +1,335 @@
+{
+  "checkedAt": "2026-11-14T06:35:53.427Z",
+  "health": {
+    "status": "ok",
+    "version": "1.13.0"
+  },
+  "status": {
+    "configured": true,
+    "provider": "DeepSeek",
+    "model": "deepseek-flash",
+    "mode": "single-model",
+    "atlas": {
+      "configured": false,
+      "ready": false,
+      "archived": true
+    }
+  },
+  "budgetUSD": 0.2,
+  "apiRequests": 8,
+  "maxReservedUSD": 0.0498876,
+  "rows": [
+    {
+      "id": "I01",
+      "path": "/api/ai/intake",
+      "http": 200,
+      "body": {
+        "result": {
+          "status": "ready",
+          "questions": [],
+          "date": "2026-11-14",
+          "exercises": [
+            {
+              "name": "杠铃卧推",
+              "group": "chest",
+              "tracking": "weighted",
+              "source": "杠铃卧推50kg，做了10、9、8次，RIR2",
+              "sets": [
+                {
+                  "weightKg": 50,
+                  "reps": 10,
+                  "rir": 2,
+                  "type": "working"
+                },
+                {
+                  "weightKg": 50,
+                  "reps": 9,
+                  "rir": 2,
+                  "type": "working"
+                },
+                {
+                  "weightKg": 50,
+                  "reps": 8,
+                  "rir": 2,
+                  "type": "working"
+                }
+              ]
+            }
+          ]
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 1285,
+          "usage": {
+            "inputTokens": 1543,
+            "outputTokens": 112
+          },
+          "engine": "deepseek",
+          "promptVersion": "intake-v1"
+        }
+      },
+      "wallMs": 2226,
+      "sameModel": true,
+      "passed": true
+    },
+    {
+      "id": "I02",
+      "path": "/api/ai/intake",
+      "http": 200,
+      "body": {
+        "result": {
+          "status": "ready",
+          "questions": [],
+          "date": "2026-11-14",
+          "exercises": [
+            {
+              "name": "俯卧撑",
+              "group": "chest",
+              "tracking": "reps",
+              "source": "俯卧撑，做了12次和10次",
+              "sets": [
+                {
+                  "weightKg": null,
+                  "reps": 12,
+                  "rir": null,
+                  "type": "working"
+                },
+                {
+                  "weightKg": null,
+                  "reps": 10,
+                  "rir": null,
+                  "type": "working"
+                }
+              ]
+            }
+          ]
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 585,
+          "usage": {
+            "inputTokens": 1541,
+            "outputTokens": 84
+          },
+          "engine": "deepseek",
+          "promptVersion": "intake-v1"
+        }
+      },
+      "wallMs": 1052,
+      "sameModel": true,
+      "passed": true
+    },
+    {
+      "id": "I03",
+      "path": "/api/ai/intake",
+      "http": 200,
+      "body": {
+        "result": {
+          "status": "clarify",
+          "questions": [
+            "请补充杠铃卧推的负重重量（kg）和每组次数"
+          ],
+          "date": "2026-11-14",
+          "exercises": []
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 1396,
+          "usage": {
+            "inputTokens": 1538,
+            "outputTokens": 40
+          },
+          "engine": "deepseek",
+          "promptVersion": "intake-v1"
+        }
+      },
+      "wallMs": 1768,
+      "sameModel": true,
+      "passed": true
+    },
+    {
+      "id": "I04",
+      "path": "/api/ai/intake",
+      "http": 200,
+      "body": {
+        "result": {
+          "status": "not_log",
+          "questions": [
+            "请补充已经完成的动作、重量、次数和组数。"
+          ],
+          "date": "2026-11-14",
+          "exercises": []
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 685,
+          "usage": {
+            "inputTokens": 1538,
+            "outputTokens": 24
+          },
+          "engine": "deepseek",
+          "promptVersion": "intake-v1"
+        }
+      },
+      "wallMs": 986,
+      "sameModel": true,
+      "passed": true
+    },
+    {
+      "id": "I05",
+      "path": "/api/ai/intake",
+      "http": 200,
+      "body": {
+        "result": {
+          "status": "not_log",
+          "questions": [
+            "请补充已经完成的动作、重量、次数和组数。"
+          ],
+          "date": "2026-11-14",
+          "exercises": []
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 1030,
+          "usage": {
+            "inputTokens": 1541,
+            "outputTokens": 24
+          },
+          "engine": "deepseek",
+          "promptVersion": "intake-v1"
+        }
+      },
+      "wallMs": 1457,
+      "sameModel": true,
+      "passed": true
+    },
+    {
+      "id": "K01",
+      "path": "/api/ai/knowledge",
+      "http": 200,
+      "body": {
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "RIR2表示一组完成后，主观估计还能再规范完成2次。",
+              "sourceIds": [
+                "F01"
+              ]
+            },
+            {
+              "text": "RIR是估计的剩余次数，不是已完成的次数，也不是下一组必须完成的次数。",
+              "sourceIds": [
+                "F01"
+              ]
+            },
+            {
+              "text": "RIR估计会有误差，重负荷下研究估计更准确；不确定可在LiftLog留空，不会按零处理。",
+              "sourceIds": [
+                "F02"
+              ]
+            }
+          ],
+          "limitation": "RIR是训练感受量尺而非精确测量；研究样本为受过训练的男性，未必适用于所有情境。"
+        },
+        "retrieval": {
+          "question": "RIR2是什么意思？",
+          "version": "fitness-notes-2026-11-14-v1",
+          "status": "retrieved",
+          "chunks": [
+            {
+              "id": "F01",
+              "title": "RIR 在记录什么",
+              "topics": [
+                "rir"
+              ],
+              "sources": [
+                "C"
+              ],
+              "text": "RIR 是完成一组后，对还能规范完成多少次的主观估计。例如 RIR2 表示估计还能做2次，RIR0 表示估计不能再完成一次规范重复。它不是已经完成的次数，也不是下一组必须完成的次数。",
+              "scope": "训练感受量尺；不是精确测量。",
+              "score": 10.07,
+              "topicHits": 1
+            },
+            {
+              "id": "F02",
+              "title": "RIR 的估计存在误差",
+              "topics": [
+                "rir",
+                "accuracy"
+              ],
+              "sources": [
+                "D",
+                "P"
+              ],
+              "text": "RIR 估计会受训练负荷等条件影响；研究中的重负荷估计更准确，不能假定所有情境同样可靠。LiftLog 不确定的 RIR 可以留空，空值不会作为零处理。",
+              "scope": "研究样本为受过训练的男性；记录规则为本产品约定。",
+              "score": 8,
+              "topicHits": 1
+            }
+          ],
+          "message": "已找到相关资料，回答仍需保留原文的适用条件。"
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 1378,
+          "usage": {
+            "inputTokens": 358,
+            "outputTokens": 132
+          },
+          "engine": "deepseek",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v1",
+          "modelCalled": true
+        }
+      },
+      "wallMs": 1754,
+      "sameModel": true,
+      "passed": true
+    },
+    {
+      "id": "R01",
+      "path": "/api/ai/review",
+      "http": 200,
+      "body": {
+        "factIds": [
+          "frequency",
+          "sets"
+        ],
+        "actionIds": [
+          "log",
+          "context"
+        ],
+        "model": "deepseek-flash"
+      },
+      "wallMs": 1031,
+      "sameModel": true,
+      "passed": true
+    },
+    {
+      "id": "D01",
+      "path": "/api/ai/decision",
+      "http": 200,
+      "body": {
+        "advice": {
+          "status": "recommend",
+          "candidateId": "focus"
+        },
+        "meta": {
+          "model": "deepseek-flash",
+          "elapsedMs": 851,
+          "usage": {
+            "inputTokens": 356,
+            "outputTokens": 12
+          },
+          "promptVersion": "decision-v1"
+        }
+      },
+      "wallMs": 1272,
+      "sameModel": true,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "completedAt": "2026-11-14T06:36:04.993Z",
+  "note": "Synthetic smoke checks only. Costs reserved conservatively; failures not retried. Knowledge citations need separate semantic review."
+}

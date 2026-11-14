@@ -1,0 +1,91 @@
+{
+  "checkedAt": "2026-11-14T06:37:38.803Z",
+  "sourceCommit": "ccda0c5",
+  "modelCalls": 0,
+  "requests": [
+    {
+      "path": "index.html",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "9fe7c1e2744218ed8f9f5175e138d8bf8f4b6cf181ed08978ce4099d6105ca55"
+    },
+    {
+      "path": "app.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "61574da407ee118776e561e46241ce32ac2bc6d548d4bc9413a1d8c268551b78"
+    },
+    {
+      "path": "intake-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "6295c2ca9ff5e1166a8c3aa7078a68605531ed124ddbb7b874dee13403ce4641"
+    },
+    {
+      "path": "knowledge-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "843c273514da5daf98c6eb8c935e1479143aaa6cf214f4644deb777625e02f90"
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "338809598c511658cf609051bda09374bab9f1e44ccedb54fbd527e0d2c786f8"
+    },
+    {
+      "path": "portfolio/index.html",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "bcbec79243ac6225db9a237a8a513d5c9e94e73c545f7f8b2741c2675e31fbcb"
+    },
+    {
+      "path": "portfolio/knowledge-evaluation.html",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "b4b2f9953108c60bad6e181b38c747393dd0c1278e2d08629f662b8a005ebda8"
+    },
+    {
+      "path": "healthz",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "version": "1.13.0"
+      }
+    },
+    {
+      "path": "api/ai/status",
+      "status": 200,
+      "body": {
+        "configured": true,
+        "provider": "DeepSeek",
+        "model": "deepseek-flash",
+        "mode": "single-model",
+        "atlas": {
+          "configured": false,
+          "ready": false,
+          "archived": true
+        }
+      }
+    },
+    {
+      "path": "api/atlas/intake",
+      "status": 410,
+      "body": {
+        "error": "此版本已统一使用 DeepSeek。请关闭并重新打开页面，在确认新的处理方式后重试；原描述不会自动转发。",
+        "code": "provider_retired"
+      },
+      "retired": true
+    },
+    {
+      "path": "api/ai/knowledge",
+      "status": 410,
+      "body": {
+        "error": "此版本已统一使用 DeepSeek。请关闭并重新打开页面，在确认新的处理方式后重试；原描述不会自动转发。",
+        "code": "provider_retired"
+      },
+      "retired": true
+    }
+  ],
+  "passed": true
+}
