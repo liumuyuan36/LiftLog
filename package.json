@@ -1,6 +1,6 @@
 {
   "name": "liftlog",
-  "version": "1.15.0",
+  "version": "1.15.1",
   "private": true,
   "type": "module",
   "description": "可添加到 iPhone 主屏幕、支持离线记录与可追溯复盘的 LiftLog PWA",

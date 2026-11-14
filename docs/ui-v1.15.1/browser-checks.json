@@ -1,0 +1,220 @@
+{
+  "checkedAt": "2026-11-14T12:52:51.815Z",
+  "fixtures": "Built-in synthetic demo records; API status and one knowledge response mocked; no user storage accessed.",
+  "errors": [],
+  "mockedModelCalls": 1,
+  "actualModelCalls": 0,
+  "citationOpen": true,
+  "textCounts": [
+    {
+      "page": "home",
+      "before": 1673,
+      "after": 1338
+    },
+    {
+      "page": "planning",
+      "before": 1071,
+      "after": 935
+    },
+    {
+      "page": "review",
+      "before": 804,
+      "after": 599
+    },
+    {
+      "page": "knowledge",
+      "before": 322,
+      "after": 191
+    },
+    {
+      "page": "sources",
+      "before": 637,
+      "after": 254
+    },
+    {
+      "page": "answer",
+      "before": 729,
+      "after": 460
+    },
+    {
+      "page": "settings",
+      "before": 772,
+      "after": 408
+    },
+    {
+      "page": "desktop-home",
+      "before": 1723,
+      "after": 1388
+    }
+  ],
+  "intake": {
+    "before": 233,
+    "after": 137
+  },
+  "responsive": {
+    "checks": [
+      {
+        "width": 320,
+        "page": "overview",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "page": "train",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "page": "history",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "page": "lab",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "page": "review",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "page": "insights",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "page": "knowledge",
+        "overflow": false
+      },
+      {
+        "width": 320,
+        "page": "settings",
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "page": "overview",
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "page": "train",
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "page": "history",
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "page": "lab",
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "page": "review",
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "page": "insights",
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "page": "knowledge",
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "page": "settings",
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "page": "overview",
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "page": "train",
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "page": "history",
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "page": "lab",
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "page": "review",
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "page": "insights",
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "page": "knowledge",
+        "overflow": false
+      },
+      {
+        "width": 430,
+        "page": "settings",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "page": "overview",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "page": "train",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "page": "history",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "page": "lab",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "page": "review",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "page": "insights",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "page": "knowledge",
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "page": "settings",
+        "overflow": false
+      }
+    ],
+    "passed": 32,
+    "modelCalls": 0
+  }
+}
