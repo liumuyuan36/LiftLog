@@ -1,7 +1,7 @@
 {
   "terms": 132,
   "contextExamples": 264,
-  "status": "prepared_not_trained",
+  "status": "trained_context_adaptation_run07",
   "caseSha": "19d264a0cc787e9acc8898518efc306fdc28b0350155b4ebc607e2109b93f532",
   "sftSha": "99ec56e8e5748a156eab24a2faaa9e9325c0603b2fcd848fd2f83184b8859843",
   "trainedRun06UsesThisData": false,
@@ -42,5 +42,10 @@
       "title": "LiftLog 自有记录字段与输入分类规范；不是医学资料",
       "url": null
     }
-  ]
+  ],
+  "trainedIn": "atlas-run-07",
+  "trainingRows": 679,
+  "replayRows": 415,
+  "trainingSeconds": 78.2803,
+  "capability": "Workout-context extraction only, not knowledge QA"
 }
