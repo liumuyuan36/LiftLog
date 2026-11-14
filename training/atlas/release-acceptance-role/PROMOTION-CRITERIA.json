@@ -1,0 +1,15 @@
+{
+  "createdAt": "2026-11-14T04:54:24.165Z",
+  "beforeAnyTestPredictions": true,
+  "candidate": "Run10",
+  "supersedes": "FREEZE.json promotion text only; cases, labels and fixed rules unchanged",
+  "reason": "Judge progress across all three domains; do not require strictly exceeding a potentially already-perfect single subset.",
+  "criteria": [
+    "All subset quality gates pass: validJSON>=99%, fullPipeline>=95%, unsafeReady=0, criticalNumericErrors=0",
+    "New48 full score at least both Run07 and Run08",
+    "Old36 full>=35/raw>=33; Old48 full48/raw>=46",
+    "Raw score on each subset at least both baselines; total raw strictly greater than both baselines",
+    "Production CPU acceptance required before any online promotion"
+  ],
+  "caveat": "Synthetic evaluation only, not independent human labels or real-user accuracy"
+}

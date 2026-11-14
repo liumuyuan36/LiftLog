@@ -1,0 +1,29 @@
+import {retrieveKnowledge,sources} from './knowledge.js';
+import {openVoice} from './voice-ui.js';
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const display=(text,retrieval)=>String(text).replace(/\bF\d{2}\b/g,id=>{const at=retrieval.chunks.findIndex(c=>c.id===id);return at<0?id:'资料'+(at+1);});
+const examples=['增肌一定要每组力竭吗？','RIR 2 是什么意思？','公斤容量和每周组数是一回事吗？','隔天酸痛是因为乳酸吗？'];
+export function mountKnowledge(root){
+ let question='',retrieval=null,answer=null,engine='',consent=false,busy=false,error='',controller=null,alive=true;
+ const render=()=>{
+  if(!alive)return;
+  root.innerHTML=`<div class="page-heading"><div><p class="eyebrow">LEARN WITH EVIDENCE</p><h1>练得明白一点。</h1><p class="sub">先找到资料，再回答问题。每条结论都可以回看出处。</p></div></div><div class="knowledge-layout"><section class="panel knowledge-input"><label for="knowledge-question">你想了解什么？</label><textarea id="knowledge-question" rows="3" maxlength="600" placeholder="例如：增肌一定要每组力竭吗？" ${busy?'disabled':''}>${esc(question)}</textarea><div class="knowledge-actions"><button class="secondary" data-k="voice" ${busy?'disabled':''}>语音输入</button><span class="muted">一般增肌知识 · 最多 600 字</span></div><div class="knowledge-examples">${examples.map((s,i)=>`<button data-k="example" data-i="${i}" ${busy?'disabled':''}>${esc(s)}</button>`).join('')}</div><button class="primary" data-k="retrieve" ${busy||!question.trim()?'disabled':''}>查找资料</button><p class="sub">查资料在本机完成，不调用模型，不发送训练记录。</p>${retrieval?`<div class="knowledge-service"><label for="knowledge-engine">回答服务</label><select id="knowledge-engine" ${busy?'disabled':''}><option value="">请选择服务</option><option value="atlas" disabled>Atlas · 问答暂未开放</option><option value="deepseek" ${engine==='deepseek'?'selected':''}>DeepSeek · 资料问答</option></select><p class="sub">Atlas 继续整理训练记录。本轮问答由 DeepSeek 提供，需先确认本次处理方式。<a href="./portfolio/knowledge-evaluation.html" target="_blank" rel="noopener">查看同题对照 ↗</a></p><label class="review-consent"><input id="knowledge-consent" type="checkbox" ${consent?'checked':''} ${busy||!engine?'disabled':''}>${engine==='deepseek'?'同意将本次问题与下方资料发送至 DeepSeek。':engine==='atlas'?'同意由 LiftLog 服务器上的 Atlas 处理本次问题与下方资料。':'选择服务后，确认本次问题的处理方式。'} 不发送训练历史，不加入训练集。</label><button class="primary" data-k="answer" ${busy||!engine||!consent||!retrieval.chunks.length?'disabled':''}>${busy?'正在根据资料回答…':'根据资料回答'}</button></div>`:''}<p class="validation" role="status">${esc(error)}</p></section><div class="knowledge-results" aria-live="polite">${answer?`<section class="panel knowledge-answer"><span class="chip">${engine==='atlas'?'Atlas':'DeepSeek'} · 基于本次资料</span><h2>${answer.status==='answered'?'给你的参考':'这次资料还不够'}</h2>${answer.points.map(p=>`<p>${esc(display(p.text,retrieval))} <span class="knowledge-refs">${p.sourceIds.map(id=>`<a href="#fact-${esc(id)}" aria-label="查看资料 ${retrieval.chunks.findIndex(c=>c.id===id)+1}">[${retrieval.chunks.findIndex(c=>c.id===id)+1}]</a>`).join(' ')}</span></p>`).join('')}<p class="sub">${esc(display(answer.limitation,retrieval))}</p><small class="muted">AI 可能误读资料，请结合下方来源与适用范围理解。</small></section>`:''}${retrieval?`<section class="panel knowledge-evidence"><div class="section-head"><h2>${retrieval.chunks.length?'找到的资料':'当前资料范围'}</h2><span class="chip">${retrieval.chunks.length} 条</span></div><p class="sub">${esc(retrieval.message)}</p>${retrieval.chunks.map((c,index)=>`<article id="fact-${c.id}"><span class="eyebrow">参考资料 ${index+1}</span><h3>${esc(c.title)}</h3><p>${esc(c.text)}</p><p class="sub">适用范围：${esc(c.scope)}</p><div class="knowledge-sources">${c.sources.map(id=>{const s=sources[id];return `<a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)} ↗</a>`;}).join('')}</div></article>`).join('')}</section>`:`<section class="panel knowledge-empty"><span class="knowledge-mark" aria-hidden="true">↗</span><h2>把“听说”变成有出处。</h2><p>力竭、余力、休息与训练量，从一个小问题开始。</p><p class="sub">资料选自 ACSM、公开研究与 NIH。当前是精简资料库，尚不能覆盖所有健身问题。</p></section>`}</div></div>`;
+  root.querySelector('#knowledge-question').oninput=e=>{question=e.target.value;retrieval=null;answer=null;consent=false;error='';root.querySelector('[data-k="retrieve"]').disabled=!question.trim();root.querySelector('.knowledge-service')?.remove();root.querySelector('.knowledge-results').innerHTML='<p class="sub">问题已更改，请重新查找资料。</p>';};
+  const select=root.querySelector('#knowledge-engine');if(select)select.onchange=e=>{engine=e.target.value;consent=false;answer=null;error='';render();};
+  const checkbox=root.querySelector('#knowledge-consent');if(checkbox)checkbox.onchange=e=>{consent=e.target.checked;root.querySelector('[data-k="answer"]').disabled=!consent||!engine||busy||!retrieval.chunks.length;};
+ };
+ const setQuestion=text=>{question=text.slice(0,600);retrieval=null;answer=null;consent=false;error='';render();};
+ root.onclick=async e=>{
+  const b=e.target.closest('[data-k]');if(!b||b.disabled)return;
+  if(b.dataset.k==='voice')return openVoice({onAccept:setQuestion,maxLength:600});
+  if(b.dataset.k==='example')return setQuestion(examples[Number(b.dataset.i)]);
+  if(b.dataset.k==='retrieve'){try{retrieval=retrieveKnowledge(question);answer=null;consent=false;error='';}catch(e){error=e.message;}return render();}
+  if(b.dataset.k==='answer'){
+   busy=true;error='';answer=null;controller=new AbortController();const timer=setTimeout(()=>controller.abort(),35000);render();
+   try{const r=await fetch('/api/ai/knowledge',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question,engine,consent:true}),signal:controller.signal});const v=await r.json();if(!r.ok)throw Error(v.error||'暂时无法回答，请稍后重试。');if(alive){answer=v.result;retrieval=v.retrieval;}}
+   catch(e){if(alive)error=e.name==='AbortError'?'这次回答超时，问题和资料已保留。':e instanceof TypeError?'网络暂不可用，仍可直接阅读资料。':e.message;}
+   finally{clearTimeout(timer);busy=false;render();}
+  }
+ };
+ render();return ()=>{alive=false;controller?.abort();};
+}

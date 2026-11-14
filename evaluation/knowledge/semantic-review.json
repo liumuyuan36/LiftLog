@@ -1,0 +1,27 @@
+{
+ "reviewedAt":"2026-11-14",
+ "reviewer":"Codex AI；非盲评，非独立人工/教练审核。用于小样本开发决策。",
+ "method":"人工式逐条读取问题、资料和模型原始输出；程序先校验结构，语义检查单独记录。Atlas格式无效时不修补JSON，只摘录可辨识内容作失败诊断，不计为可交付回答。",
+ "atlas":[
+  {"id":"K01","deliverable":false,"note":"JSON数组括号错误；可辨识内容基本对应RIR资料，但流程无法采用。"},
+  {"id":"K02","deliverable":false,"seriousError":true,"note":"JSON无效；出现‘训练努力程度与肌肥大无关’，与资料‘不意味着努力程度无关’相反。"},
+  {"id":"K03","deliverable":false,"note":"JSON无效；周组数不能互换的陈述仅引F04，缺少直接支持该比较的F07。"},
+  {"id":"K04","deliverable":false,"note":"JSON无效；可辨识结论与60/90秒和研究局限相符。"},
+  {"id":"K05","deliverable":false,"note":"JSON无效且缺少limitation；可辨识主要结论为补充剂不能替代训练。"},
+  {"id":"K06","deliverable":false,"note":"JSON无效；可辨识主要结论和个体差异与资料相符。"},
+  {"id":"K07","deliverable":false,"note":"JSON无效；延迟性酸痛结论基本相符，但limitation保留了模板占位文字。"},
+  {"id":"K08","deliverable":false,"note":"JSON无效；‘训练处方应单独记录’‘无需依赖体脂率计算’超出资料中的产品约定。"}
+ ],
+ "deepseek":[
+  {"id":"K01","answer":true,"faithfulness":true,"citation":true,"scope":true,"note":"区分剩余与已完成次数，保留主观性和样本限制。"},
+  {"id":"K02","answer":true,"faithfulness":true,"citation":true,"scope":true,"note":"没有把非力竭等同于无需努力，没有规定个人强度。"},
+  {"id":"K03","answer":true,"faithfulness":true,"citation":true,"scope":true,"note":"区分公斤容量与周组数；产品规则和研究参考分开。"},
+  {"id":"K04","answer":true,"faithfulness":true,"citation":true,"scope":true,"note":"保留可能、小幅、异质性，未声称90秒是确定最优。"},
+  {"id":"K05","answer":true,"faithfulness":false,"citation":true,"scope":false,"note":"要点与引用支持‘不能代替训练’；limitation追加‘不训练无法支持增肌’，比所给资料更绝对，按严格忠实度不通过。"},
+  {"id":"K06","answer":true,"faithfulness":true,"citation":true,"scope":true,"note":"回答证据范围、个体差异和不能保证增长量，未给剂量。"},
+  {"id":"K07","answer":true,"faithfulness":true,"citation":true,"scope":true,"note":"否定乳酸累积解释，保留非诊疗范围。"},
+  {"id":"K08","answer":true,"faithfulness":true,"citation":true,"scope":true,"note":"外形目标不自动换算体脂率，未提供测量方法或身体数值。"}
+ ],
+ "recommendation":"当前配置下，DeepSeek更适合作为限定资料库问答的候选，Atlas继续训练记录提取，暂不开放Atlas问答。DeepSeek问答仍需主动选择并确认，保留来源展示，不替换默认记录服务。扩展未见问题、反例、引用语义审核和真实用户反馈后再决定扩大范围。",
+ "limitations":["仅8道AI合成题，不是泛化准确率或市场验证。","同Prompt和检索不等于相同解码约束：DeepSeek启用原生JSON对象模式，Atlas仅Prompt约束；格式失败不能直接解释为知识完全缺失。","Atlas使用本地2CPU/8GB float16，DeepSeek是远程API；耗时为模型调用口径而非同硬件算力竞赛。","本轮未在有干扰资料时单独测试模型拒答；3项拒答由应用检索策略完成，不能算作模型能力。","未改Prompt或修补Atlas输出来刷本轮成绩；本集合已查看，今后仅能作为开发回归。"]
+}

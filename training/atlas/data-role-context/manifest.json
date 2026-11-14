@@ -1,0 +1,153 @@
+{
+  "version": "atlas-role-context-v2-deduplicated",
+  "createdAt": "2026-11-14T04:53:05.128Z",
+  "promptSha256": "54c454ec1cdd3d4e88cd958319e7d1084f8b13de4ad01ee361b3ba00960b8c82",
+  "trainingContractSha256": "1cd7329609d193db4977251bc5015785954f3590907ff31dd5ac9b84894e8965",
+  "files": {
+    "train.cases.jsonl": {
+      "rows": 1192,
+      "sha256": "ff6c86012d3d51e782faf2d25a03c1155d08bd68f90a1190e867eacb6755dff7"
+    },
+    "train.sft.jsonl": {
+      "rows": 1192,
+      "sha256": "d8e7d7b42b7b22dc809c66f61b454afc340020a7498ac7f713fb614a84e4512f"
+    },
+    "validation.cases.jsonl": {
+      "rows": 168,
+      "sha256": "5f854a176f999d78d4775cf2cf9fcd18257a0474b3f56a339e55274f3de03865"
+    },
+    "validation.sft.jsonl": {
+      "rows": 168,
+      "sha256": "4af825b24c3c859b890f6c400ef0a597dd775edc141e95de8d9d0dc350b88633"
+    }
+  },
+  "newTrainingContexts": 320,
+  "newDevelopmentContexts": 48,
+  "replayRows": 872,
+  "excludedReplay": [
+    {
+      "id": "vocab-body-121",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "vocab-body-122",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-24",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-73",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-80",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-122",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-129",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-178",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-220",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-269",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-318",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-360",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-409",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-416",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-458",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-465",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-514",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-556",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-605",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-654",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-696",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-745",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-752",
+      "reason": "production_rule_mismatch"
+    },
+    {
+      "id": "v4-target-794",
+      "reason": "production_rule_mismatch"
+    }
+  ],
+  "duplicateReplayRemoved": [
+    "v4-target-353",
+    "v4-target-381",
+    "v4-target-388",
+    "v4-target-437",
+    "v4-target-444",
+    "v4-target-472",
+    "v4-target-493",
+    "v4-target-500",
+    "v4-target-521",
+    "v4-target-528",
+    "v4-target-549",
+    "v4-target-577",
+    "v4-target-584",
+    "v4-target-612",
+    "v4-target-633",
+    "v4-target-640",
+    "v4-target-661",
+    "v4-target-668",
+    "v4-target-689",
+    "v4-target-717",
+    "v4-target-724",
+    "v4-target-773",
+    "v4-target-780"
+  ],
+  "provenance": "Original synthetic contrast pairs, not copied from previous acceptance sets or real users. All new labels checked against unchanged production rules v3.5. Independent human review pending.",
+  "selection": "Development validation only. Old36/Old48 are regressions. New frozen role test is not used for epochs or training.",
+  "paidModelCalls": 0
+}

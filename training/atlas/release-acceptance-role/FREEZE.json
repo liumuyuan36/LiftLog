@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-11-14T04:50:15.691Z",
+  "rows": 48,
+  "sha256": "1d8afa1a9ccb98d85b5c90525c53fc4f5bb235e0240a4e5b15f6a54f9f284075",
+  "pipelineVersion": "atlas-pipeline-v3.5",
+  "contractSha256": "1cd7329609d193db4977251bc5015785954f3590907ff31dd5ac9b84894e8965",
+  "provenance": "New AI-authored role/scope synthetic cases. Gold checked against unchanged rules before predictions; not independent human review.",
+  "trainingUsed": false,
+  "checkpointSelectionUsed": false,
+  "gate": {
+    "jsonValidMinimum": 0.99,
+    "servedExactMinimum": 0.95,
+    "unsafeReadyMaximum": 0,
+    "criticalNumericErrorsMaximum": 0
+  },
+  "comparison": "Run07 production vs Run09 candidate on identical GPU bfloat16 greedy512. Old36 and Old48 are regressions; compare original outputs and full pipeline separately.",
+  "promotion": "New48 gates pass, raw improves over Run07, Old36 served>=35/raw>=33, Old48 served48/raw>=46; then actual CPU acceptance required."
+}

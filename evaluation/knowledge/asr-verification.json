@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-11-14T05:52:48.598Z",
+  "input": "Windows内置TTS生成的公开合成句子；非用户麦克风录音",
+  "expectedText": "今天杠铃卧推五十公斤，做了十次，九次，八次。",
+  "audio": {
+    "durationMs": 6285,
+    "bytes": 201166
+  },
+  "http": 200,
+  "result": {
+    "text": "今天杠铃卧推50kg，做了10次、9次、8次。",
+    "durationMs": 6285,
+    "provider": "DeepSeek ASR"
+  },
+  "wallMs": 1769,
+  "estimateUpperUSD": 0.00022555555555555558,
+  "pricingSource": "https://api-docs.deepseek.com/guides/asr/",
+  "realCalls": 1
+}

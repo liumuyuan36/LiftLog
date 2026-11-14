@@ -1,0 +1,26 @@
+{
+  "checkedAt": "2026-11-14T05:58:29.110Z",
+  "automatedTests": 130,
+  "realPaidCalls": {
+    "comparison": 8,
+    "browserKnowledge": 1,
+    "syntheticAsr": 2,
+    "total": 11
+  },
+  "asr": "Two Windows TTS examples, no user microphone. Direct production endpoint + browser-local UI through a bounded production proxy.",
+  "browserVoice": "Local UI PCM preview → real production ASR → edit/check transcript → Atlas production intake → three draft sets; no save to history.",
+  "productionBrowserKnowledge": "RIR question → opt-in → DeepSeek answer → citations and sources visible.",
+  "limitations": [
+    "Not an iPhone/Safari/WeChat microphone permission test.",
+    "IAB file chooser events from the production iframe were unavailable; local top-level file picker verified, production ASR verified separately.",
+    "Synthetic questions and AI review only."
+  ],
+  "conservativeCost": {
+    "evaluationUSD": 0.0016413,
+    "uiKnowledgeReserveUSD": 0.0012,
+    "asrUSD": 0.00045111111111111117,
+    "totalEstimatedUpperUSD": 0.003292411111111111,
+    "budgetUSD": 1,
+    "note": "API invoice not inspected; peak cache-miss/list speech rates used as conservative estimate."
+  }
+}

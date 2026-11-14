@@ -46,3 +46,12 @@ test('未配置公开域名时只认可实际Host，不信任伪造的代理Host
   assert.equal(normalizePublicOrigin('https://demo.example/'),'https://demo.example');
   for(const value of['https://demo.example/path','https://name:pass@demo.example','http://demo.example','https://demo.example/?x=1','https://demo.example/#a'])assert.throws(()=>normalizePublicOrigin(value));
 });
+
+test('资料拒答不依赖密钥；语音接口拒绝跨站与未经同意的上传',async()=>{
+ const before=process.env.DEEPSEEK_API_KEY;delete process.env.DEEPSEEK_API_KEY;
+ try{await withServer({},async base=>{
+  const r=await fetch(base+'/api/ai/knowledge',{method:'POST',headers:{origin:base,'content-type':'application/json'},body:JSON.stringify({question:'量子计算机怎么工作',engine:'deepseek',consent:true})});assert.equal(r.status,200);assert.equal((await r.json()).meta.modelCalled,false);
+  const voice=await fetch(base+'/api/ai/transcribe',{method:'POST',headers:{origin:base,'content-type':'audio/wav'},body:'bad'});assert.equal(voice.status,403);
+  const external=await fetch(base+'/api/ai/transcribe',{method:'POST',headers:{origin:'https://attacker.example','x-forwarded-host':'attacker.example','content-type':'audio/wav','x-audio-consent':'yes'},body:'bad'});assert.equal(external.status,403);
+ });}finally{if(before===undefined)delete process.env.DEEPSEEK_API_KEY;else process.env.DEEPSEEK_API_KEY=before;}
+});

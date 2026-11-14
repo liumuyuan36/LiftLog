@@ -7,6 +7,8 @@ import {generateIntake} from './lib/intake-model.mjs';
 import {generateAtlasIntake} from './lib/atlas-model.mjs';
 import {atlasAvailability,startAtlasWorker} from './lib/atlas-runtime.mjs';
 import {generateDecision} from './lib/decision-model.mjs';
+import {generateKnowledge} from './lib/knowledge-model.mjs';
+import {audioRoute} from './lib/transcribe.mjs';
 import {generateSelection,validatePayload} from './ai.mjs';
 
 const entry=fileURLToPath(import.meta.url);
@@ -17,6 +19,7 @@ const routes=new Map([
   ['/api/ai/intake',generateIntake],
   ['/api/atlas/intake',generateAtlasIntake],
   ['/api/ai/decision',generateDecision],
+  ['/api/ai/knowledge',generateKnowledge],
   ['/api/ai/review',body=>generateSelection(validatePayload(body))]
 ]);
 
@@ -49,6 +52,11 @@ export function createAppServer({publicOrigin=process.env.PUBLIC_ORIGIN??''}={})
       if(req.method!=='GET')return send(res,405,{error:'仅支持 GET。'});
       return send(res,200,{configured:Boolean(process.env.DEEPSEEK_API_KEY),provider:'DeepSeek',model:process.env.DEEPSEEK_MODEL||'deepseek-flash',atlas:await atlasAvailability()});
     }
+    if(pathname==='/api/ai/transcribe'){
+      if(!allowedOrigin(req,expected))return send(res,403,{error:'请求来源无效。'});
+      req.headers['x-forwarded-host']=new URL(req.headers.origin).host;
+      return audioRoute(req,res);
+    }
     const generate=routes.get(pathname);
     if(generate){
       if(req.method!=='POST')return send(res,405,{error:'仅支持 POST。'});
@@ -56,7 +64,7 @@ export function createAppServer({publicOrigin=process.env.PUBLIC_ORIGIN??''}={})
       // The shared Vercel handler checks forwarded-host. Supply only the host
       // from the origin validated above, never a browser-provided proxy value.
       req.headers['x-forwarded-host']=new URL(req.headers.origin).host;
-      return aiRoute(req,res,generate,pathname==='/api/atlas/intake'?{configured:async()=> (await atlasAvailability()).ready}:undefined);
+      return aiRoute(req,res,generate,pathname==='/api/atlas/intake'?{configured:async()=> (await atlasAvailability()).ready}:pathname==='/api/ai/knowledge'?{configured:()=>true}:undefined);
     }
     if(pathname.startsWith('/api/'))return send(res,404,{error:'接口不存在。'});
     if(!['GET','HEAD'].includes(req.method))return send(res,405,{error:'仅支持 GET 或 HEAD。'});

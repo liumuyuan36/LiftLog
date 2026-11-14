@@ -1,0 +1,365 @@
+{
+  "evaluatedAt": "2026-11-14T05:49:40.948Z",
+  "questionCount": 8,
+  "reviewer": "Codex AI；非盲评，非独立人工/教练审核。用于小样本开发决策。",
+  "atlasValid": 0,
+  "deepseekValid": 8,
+  "deepseekQualified": 7,
+  "deepseekUsage": {
+    "inputTokens": 2395,
+    "outputTokens": 769
+  },
+  "estimatedUpperUSD": 0.0016413,
+  "atlasP95Ms": 12031,
+  "deepseekP95Ms": 1149,
+  "policyControls": [
+    {
+      "question": "量子计算机怎么工作？",
+      "status": "insufficient",
+      "modelCalled": false
+    },
+    {
+      "question": "我有肾病，给我肌酸每日具体剂量。",
+      "status": "outside_scope",
+      "modelCalled": false
+    },
+    {
+      "question": "帮我制定具体计划，每天蛋白质吃多少克？",
+      "status": "outside_scope",
+      "modelCalled": false
+    }
+  ],
+  "recommendation": "当前配置下，DeepSeek更适合作为限定资料库问答的候选，Atlas继续训练记录提取，暂不开放Atlas问答。DeepSeek问答仍需主动选择并确认，保留来源展示，不替换默认记录服务。扩展未见问题、反例、引用语义审核和真实用户反馈后再决定扩大范围。",
+  "limitations": [
+    "仅8道AI合成题，不是泛化准确率或市场验证。",
+    "同Prompt和检索不等于相同解码约束：DeepSeek启用原生JSON对象模式，Atlas仅Prompt约束；格式失败不能直接解释为知识完全缺失。",
+    "Atlas使用本地2CPU/8GB float16，DeepSeek是远程API；耗时为模型调用口径而非同硬件算力竞赛。",
+    "本轮未在有干扰资料时单独测试模型拒答；3项拒答由应用检索策略完成，不能算作模型能力。",
+    "未改Prompt或修补Atlas输出来刷本轮成绩；本集合已查看，今后仅能作为开发回归。"
+  ],
+  "rows": [
+    {
+      "id": "K01",
+      "question": "RIR2是不是我这一组已经做了两次？",
+      "atlas": {
+        "valid": false,
+        "raw": "{\"status\":\"answered\",\"points\":[{\"text\":\"RIR2 表示估计还能做2次\",\"sourceIds\":[\"F01\"]}],{\"text\":\"RIR 估计受训练负荷影响\",\"sourceIds\":[\"F02\"]}],{\"text\":\"LiftLog 不确定的 RIR 可以留空\",\"sourceIds\":[\"F02\"]}],\"limitation\":\"RIR 的估计受训练负荷影响，研究中的重负荷估计更准确，LiftLog 不确定的 RIR 可以留空。\"}",
+        "note": "JSON数组括号错误；可辨识内容基本对应RIR资料，但流程无法采用。",
+        "elapsedMs": 12031
+      },
+      "deepseek": {
+        "valid": true,
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "不是。RIR2表示估计还能规范完成2次，并非已做2次。",
+              "sourceIds": [
+                "F01"
+              ]
+            },
+            {
+              "text": "RIR是完成一组后的主观估计量尺，不是精确测量。",
+              "sourceIds": [
+                "F01"
+              ]
+            }
+          ],
+          "limitation": "RIR估计受负荷等条件影响，重负荷下研究估计更准；资料样本为受过训练男性，不能假定所有情境同样可靠。"
+        },
+        "review": {
+          "id": "K01",
+          "answer": true,
+          "faithfulness": true,
+          "citation": true,
+          "scope": true,
+          "note": "区分剩余与已完成次数，保留主观性和样本限制。"
+        },
+        "qualified": true,
+        "elapsedMs": 1137
+      }
+    },
+    {
+      "id": "K02",
+      "question": "为了增肌，每组都必须练到力竭吗？",
+      "atlas": {
+        "valid": false,
+        "raw": "{\"status\":\"answered\",\"points\":[{\"text\":\"增肌并不等于每组绝对力竭\",\"sourceIds\":[\"F03\"]}],{\"text\":\"力竭训练可能对肌肥大有帮助\",\"sourceIds\":[\"F03\"]}],{\"text\":\"训练努力程度与肌肥大无关\",\"sourceIds\":[\"F03\"]}],{\"limitation\":\"该综述未明确力竭训练对肌肥大的影响，且不同研究的定义和条件存在差异\"}]",
+        "note": "JSON无效；出现‘训练努力程度与肌肥大无关’，与资料‘不意味着努力程度无关’相反。",
+        "elapsedMs": 8746
+      },
+      "deepseek": {
+        "valid": true,
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "综述未发现瞬时力竭训练对肌肥大始终优于非力竭训练，因此每组都练到力竭并非必需。",
+              "sourceIds": [
+                "F03"
+              ]
+            },
+            {
+              "text": "这不意味着努力程度无关紧要；力竭定义和训练条件在不同研究中存在差异。",
+              "sourceIds": [
+                "F03"
+              ]
+            }
+          ],
+          "limitation": "结论来自研究综述，适用范围有限，不能据此为个人规定所有组的强度或力竭安排。"
+        },
+        "review": {
+          "id": "K02",
+          "answer": true,
+          "faithfulness": true,
+          "citation": true,
+          "scope": true,
+          "note": "没有把非力竭等同于无需努力，没有规定个人强度。"
+        },
+        "qualified": true,
+        "elapsedMs": 1064
+      }
+    },
+    {
+      "id": "K03",
+      "question": "LiftLog的公斤容量与每周肌群工作组数可以直接互换吗？",
+      "atlas": {
+        "valid": false,
+        "raw": "{\"status\":\"answered\",\"points\":[{\"text\":\"LiftLog的负重容量是已完成负重工作组的重量乘次数之和，不含热身组，自重组不计公斤容量。\",\"sourceIds\":[\"F07\"]}],{\"text\":\"周工作组是观察增肌训练量的一种口径，不能直接互换。\",\"sourceIds\":[\"F04\"]}],{\"text\":\"适用条件或资料局限\":\"前半为产品计算约定；不代表肌肉增长量。\"}]}",
+        "note": "JSON无效；周组数不能互换的陈述仅引F04，缺少直接支持该比较的F07。",
+        "elapsedMs": 10200
+      },
+      "deepseek": {
+        "valid": true,
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "不能直接互换：公斤容量是已完成负重工作组重量×次数之和，不含热身组，自重组不计。",
+              "sourceIds": [
+                "F07"
+              ]
+            },
+            {
+              "text": "周肌群工作组数采用另一口径，是观察训练量的一种方式，与公斤容量口径不同。",
+              "sourceIds": [
+                "F07",
+                "F04"
+              ]
+            }
+          ],
+          "limitation": "F07前半为产品计算约定，不代表肌肉增长量；F04为健康成人一般证据，约每周10组仅为参考，非固定处方。"
+        },
+        "review": {
+          "id": "K03",
+          "answer": true,
+          "faithfulness": true,
+          "citation": true,
+          "scope": true,
+          "note": "区分公斤容量与周组数；产品规则和研究参考分开。"
+        },
+        "qualified": true,
+        "elapsedMs": 1108
+      }
+    },
+    {
+      "id": "K04",
+      "question": "组间休息是不是越短越有利于增肌？",
+      "atlas": {
+        "valid": false,
+        "raw": "{\"status\":\"answered\",\"points\":[{\"text\":\"组间休息并非越短越好\",\"sourceIds\":[\"F08\"]}],{\"text\":\"研究结果存在异质性\",\"sourceIds\":[\"F08\"]}],{\"text\":\"不能给所有人规定唯一最佳休息时间\",\"sourceIds\":[\"F08\"]}], \"limitation\":\"该综述提示，超过60秒的组间休息可能有小幅肌肥大收益；超过90秒后未发现明显的额外差异，研究结果仍有异质性。不能据此给所有人规定唯一最佳休息时间。\"}",
+        "note": "JSON无效；可辨识结论与60/90秒和研究局限相符。",
+        "elapsedMs": 10043
+      },
+      "deepseek": {
+        "valid": true,
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "并非越短越好；超过60秒的组间休息可能带来小幅肌肥大收益。",
+              "sourceIds": [
+                "F08"
+              ]
+            },
+            {
+              "text": "超过90秒后未发现明显的额外差异，且研究结果存在异质性。",
+              "sourceIds": [
+                "F08"
+              ]
+            }
+          ],
+          "limitation": "该结论来自健康成人研究汇总，不能据此为所有人规定唯一最佳休息时间，也不等同于个人训练处方。"
+        },
+        "review": {
+          "id": "K04",
+          "answer": true,
+          "faithfulness": true,
+          "citation": true,
+          "scope": true,
+          "note": "保留可能、小幅、异质性，未声称90秒是确定最优。"
+        },
+        "qualified": true,
+        "elapsedMs": 1009
+      }
+    },
+    {
+      "id": "K05",
+      "question": "只喝蛋白粉、不训练，也能代替增肌训练吗？",
+      "atlas": {
+        "valid": false,
+        "raw": "{\"status\":\"answered\",\"points\":[{\"text\":\"蛋白粉不能代替训练，需结合饮食和训练计划\",\"sourceIds\":[\"F09\"]}],{\"text\":\"补充蛋白粉需结合饮食，资料不能直接确定摄入量\",\"sourceIds\":[\"F09\"]}],{\"text\":\"蛋白粉仅作为补充，不能替代抗阻训练\",\"sourceIds\":[\"F09\"]}]",
+        "note": "JSON无效且缺少limitation；可辨识主要结论为补充剂不能替代训练。",
+        "elapsedMs": 7310
+      },
+      "deepseek": {
+        "valid": true,
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "蛋白粉是补充形式，可补足饮食需要，但不能代替抗阻训练和整体饮食。",
+              "sourceIds": [
+                "F09"
+              ]
+            },
+            {
+              "text": "蛋白质与训练适应有关，但补充剂不能替代增肌所需的训练刺激。",
+              "sourceIds": [
+                "F09"
+              ]
+            }
+          ],
+          "limitation": "资料为一般运动营养说明，不提供个人摄入克数或营养方案；仅喝蛋白粉、不训练无法支持增肌。"
+        },
+        "review": {
+          "id": "K05",
+          "answer": true,
+          "faithfulness": false,
+          "citation": true,
+          "scope": false,
+          "note": "要点与引用支持‘不能代替训练’；limitation追加‘不训练无法支持增肌’，比所给资料更绝对，按严格忠实度不通过。"
+        },
+        "qualified": false,
+        "elapsedMs": 1038
+      }
+    },
+    {
+      "id": "K06",
+      "question": "肌酸主要支持哪类表现，能保证我长多少肌肉吗？",
+      "atlas": {
+        "valid": false,
+        "raw": "{\"status\":\"answered\",\"points\":[{\"text\":\"肌酸主要支持短时、重复高强度运动表现，个体反应可能不同。\",\"sourceIds\":[\"F10\"]}],{\"text\":\"不能将使用补充剂直接等同于一定增加多少肌肉，也不据此给个人指定用量。\",\"sourceIds\":[\"F10\"]}],{\"text\":\"适用条件或资料局限\":\"本库不覆盖肾病、孕期或用药相关问题。\"}]}",
+        "note": "JSON无效；可辨识主要结论和个体差异与资料相符。",
+        "elapsedMs": 8750
+      },
+      "deepseek": {
+        "valid": true,
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "肌酸证据较充分的是短时、重复高强度运动表现，个体反应可能不同。",
+              "sourceIds": [
+                "F10"
+              ]
+            },
+            {
+              "text": "不能把使用肌酸直接等同于一定增加多少肌肉，无法保证长肌肉量。",
+              "sourceIds": [
+                "F10"
+              ]
+            }
+          ],
+          "limitation": "资料仅说明证据范围，不涉及个体化用量；本库不覆盖肾病、孕期或用药相关问题。"
+        },
+        "review": {
+          "id": "K06",
+          "answer": true,
+          "faithfulness": true,
+          "citation": true,
+          "scope": true,
+          "note": "回答证据范围、个体差异和不能保证增长量，未给剂量。"
+        },
+        "qualified": true,
+        "elapsedMs": 1089
+      }
+    },
+    {
+      "id": "K07",
+      "question": "练完隔天酸痛，是因为乳酸一直堆在肌肉里吗？",
+      "atlas": {
+        "valid": false,
+        "raw": "{\"status\":\"answered\",\"points\":[{\"text\":\"延迟性肌肉酸痛与乳酸不是同一回事\",\"sourceIds\":[\"F11\"]}],{\"text\":\"延迟性肌肉酸痛通常在运动后逐渐出现\",\"sourceIds\":[\"F11\"]}],{\"text\":\"延迟性肌肉酸痛不是由乳酸积累引起的\",\"sourceIds\":[\"F11\"]}], \"limitation\":\"适用条件或资料局限\"}",
+        "note": "JSON无效；延迟性酸痛结论基本相符，但limitation保留了模板占位文字。",
+        "elapsedMs": 8180
+      },
+      "deepseek": {
+        "valid": true,
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "不是。延迟性肌肉酸痛通常在运动后逐渐出现，ACSM指出它并非由乳酸积累造成。",
+              "sourceIds": [
+                "F11"
+              ]
+            }
+          ],
+          "limitation": "仅适用于一般知识；持续、急性或异常疼痛不在本资料范围内。"
+        },
+        "review": {
+          "id": "K07",
+          "answer": true,
+          "faithfulness": true,
+          "citation": true,
+          "scope": true,
+          "note": "否定乳酸累积解释，保留非诊疗范围。"
+        },
+        "qualified": true,
+        "elapsedMs": 971
+      }
+    },
+    {
+      "id": "K08",
+      "question": "我说想练薄肌和宽肩窄腰，能自动算出我的体脂率吗？",
+      "atlas": {
+        "valid": false,
+        "raw": "{\"status\":\"answered\",\"points\":[{\"text\":\"外形目标不自动换算为体脂率\",\"sourceIds\":[\"F12\"]}],{\"text\":\"训练处方应单独记录\",\"sourceIds\":[\"F12\"]}],{\"text\":\"无需依赖体脂率计算\",\"sourceIds\":[\"F12\"]}],{\"limitation\":\"适用条件或资料局限\"}",
+        "note": "JSON无效；‘训练处方应单独记录’‘无需依赖体脂率计算’超出资料中的产品约定。",
+        "elapsedMs": 7529
+      },
+      "deepseek": {
+        "valid": true,
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "“薄肌”“宽肩窄腰”只是外形目标用语，LiftLog不会据此自动换算体脂率。",
+              "sourceIds": [
+                "F12"
+              ]
+            },
+            {
+              "text": "体脂率、肌肉量需实际测量并单独记录，不由这类目标推算。",
+              "sourceIds": [
+                "F12"
+              ]
+            }
+          ],
+          "limitation": "该约定属产品词表，非医学分类；资料未说明体脂率的具体测量方法。"
+        },
+        "review": {
+          "id": "K08",
+          "answer": true,
+          "faithfulness": true,
+          "citation": true,
+          "scope": true,
+          "note": "外形目标不自动换算体脂率，未提供测量方法或身体数值。"
+        },
+        "qualified": true,
+        "elapsedMs": 1149
+      }
+    }
+  ]
+}

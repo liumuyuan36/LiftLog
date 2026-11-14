@@ -1,0 +1,9 @@
+{
+  "createdAt": "2026-11-14T04:53:29.399Z",
+  "candidate": "Run10",
+  "warmStart": "Run08 selected adapter",
+  "originalFreeze": "FREEZE.json",
+  "newTrainingDataSha256": "e3a0018a38bb3d535e7eb5c27f0ccc1c3e5f1481da961b04e8c5147f93918c6b",
+  "abortedRun09": "Duplicate rows discovered and trial stopped before any test inference",
+  "testNotUsedForTrainingOrEpochSelection": true
+}
