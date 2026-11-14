@@ -1,0 +1,6 @@
+# Frozen experiment inputs use byte-level SHA256. Preserve their checked-in EOL.
+evaluation/** -text
+training/atlas-1.7b/** -text
+training/intake/train_lora.py -text
+dist/knowledge.js -text
+dist/knowledge-data.js -text
