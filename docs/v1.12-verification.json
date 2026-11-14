@@ -7,7 +7,7 @@
     "syntheticAsr": 2,
     "total": 11
   },
-  "asr": "Two Windows TTS examples, no user microphone. Direct production endpoint + browser-local UI through a bounded production proxy.",
+  "asr": "One Windows TTS sample, transcribed twice; no user microphone. Direct production endpoint + browser-local UI through a bounded production proxy.",
   "browserVoice": "Local UI PCM preview → real production ASR → edit/check transcript → Atlas production intake → three draft sets; no save to history.",
   "productionBrowserKnowledge": "RIR question → opt-in → DeepSeek answer → citations and sources visible.",
   "limitations": [
