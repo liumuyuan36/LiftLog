@@ -1,0 +1,99 @@
+{
+  "createdAt": "2026-11-14T09:07:52.990Z",
+  "environment": "existing Node24 Docker image, external network disabled",
+  "modelCalls": 0,
+  "restoredChecksumsVerified": true,
+  "knowledgeCards": 61,
+  "requests": [
+    {
+      "path": "/",
+      "status": 200,
+      "sha256": "9fe7c1e2744218ed8f9f5175e138d8bf8f4b6cf181ed08978ce4099d6105ca55"
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "sha256": "52259b71bb7c033155310ecd426f013f0d2bf2af751db6e39a07f7cce1d04ea6"
+    },
+    {
+      "path": "/sw.js",
+      "status": 200,
+      "sha256": "dc05ed22ee26db2f6e868998f0fb8f9ad8453ffa3e540f166c2ad2a4628b0033"
+    },
+    {
+      "path": "/knowledge.js",
+      "status": 200,
+      "sha256": "c7ab8d72ad1ee397159f1329211c2c0950d44384e5a6cb6b51810b3c40046236"
+    },
+    {
+      "path": "/knowledge-data.js",
+      "status": 200,
+      "sha256": "e6c8e0e992db66b9450b385d43de4b1affcba25e338b89de95e46dfe2a551853"
+    },
+    {
+      "path": "/portfolio/index.html",
+      "status": 200,
+      "sha256": "e832b89b35a72c5c35dd6be388ef065ba981fdd51284e86fc417b8f04a104549"
+    },
+    {
+      "path": "/portfolio/atlas-run02.html",
+      "status": 200,
+      "sha256": "ac927978fd9ff3424dadebde6ed68660d4c4a2ba65269227c71b381e84f8fc88"
+    },
+    {
+      "path": "/portfolio/atlas-run02/semantic.fresh40.json",
+      "status": 200,
+      "sha256": "9bac42ae174e84bbfc80b8e7aa3d2c8b1a3ce275a263efcd279ae2a93fed2412"
+    },
+    {
+      "path": "/healthz",
+      "status": 200,
+      "sha256": "0071980b35ca61a3a6d41f41739fa6238ddf67937e6823e3f3c77ebbf410db46",
+      "body": {
+        "status": "ok",
+        "version": "1.14.1"
+      }
+    },
+    {
+      "path": "/api/ai/status",
+      "status": 200,
+      "sha256": "1c0fb60afd402a23a9ae464d5f427ef2a5a1d9cc1ceb469512c6c07650f02896",
+      "body": {
+        "configured": false,
+        "provider": "DeepSeek",
+        "model": "deepseek-flash",
+        "mode": "single-model",
+        "atlas": {
+          "configured": false,
+          "ready": false,
+          "archived": true
+        }
+      }
+    },
+    {
+      "path": "/api/ai/knowledge out of scope",
+      "status": 200,
+      "body": {
+        "result": {
+          "status": "insufficient",
+          "points": [],
+          "limitation": "当前资料不足以回答这个问题。可以了解余力、负荷、动作行程、训练安排、营养与进步观察等一般增肌知识。"
+        },
+        "retrieval": {
+          "question": "量子计算机是什么",
+          "version": "fitness-notes-2026-11-14-v3",
+          "status": "insufficient",
+          "chunks": [],
+          "message": "当前资料不足以回答这个问题。可以了解余力、负荷、动作行程、训练安排、营养与进步观察等一般增肌知识。"
+        },
+        "meta": {
+          "engine": "retrieval-policy",
+          "knowledgeVersion": "fitness-notes-2026-11-14-v3",
+          "promptVersion": "fitness-rag-v2",
+          "modelCalled": false
+        }
+      }
+    }
+  ],
+  "passed": true
+}

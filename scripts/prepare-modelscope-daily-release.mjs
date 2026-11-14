@@ -1,0 +1,38 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
+const root=fileURLToPath(new URL('../',import.meta.url)),workspace=path.resolve(root,'../..');
+const version='1.14.1',dest=path.join(workspace,'outputs/LiftLog-2026-11-14-ModelScopeUpload');
+const read=name=>fs.readFile(path.join(root,name),'utf8');
+const write=(name,text)=>fs.writeFile(path.join(root,name),text);
+const pkg=JSON.parse(await read('package.json'));pkg.version=version;await write('package.json',JSON.stringify(pkg,null,2)+'\n');
+let app=await read('dist/app.js');app=app.replace(/V1\.14\.\d+ · 主屏幕网页 App/,`V${version} · 主屏幕网页 App`);await write('dist/app.js',app);
+let sw=await read('dist/sw.js');sw=sw.replace(/v1\.14\.\d+-r\d+/,`v${version}-r1`);await write('dist/sw.js',sw);
+const publicResults='dist/portfolio/atlas-run02';await fs.mkdir(path.join(root,publicResults),{recursive:true});
+for(const name of ['semantic.fresh40.json','PROMOTION.json','VERIFICATION.json','run02.workflow16.report.json','run01.fresh40.report.json','run02.fresh40.report.json','DECISION.json'])await fs.copyFile(path.join(root,'evaluation/atlas17-run02',name),path.join(root,publicResults,name));
+let report=await read('evaluation/atlas17-run02/REPORT.html');
+report=report.replaceAll('href="semantic.fresh40.json"','href="atlas-run02/semantic.fresh40.json"').replaceAll('href="PROMOTION.json"','href="atlas-run02/PROMOTION.json"').replaceAll('href="VERIFICATION.json"','href="atlas-run02/VERIFICATION.json"').replaceAll('href="run02.workflow16.report.json"','href="atlas-run02/run02.workflow16.report.json"');
+report=report.replace('<main>','<main><a href="index.html">← 返回项目案例</a>').replace('</main>','<p><a href="atlas-run02/run01.fresh40.report.json">Run01 原始回答</a> · <a href="atlas-run02/run02.fresh40.report.json">Run02 原始回答</a></p></main>');
+await write('dist/portfolio/atlas-run02.html',report);
+let portfolio=await read('dist/portfolio/index.html');
+portfolio=portfolio.replace(/<aside class="evaluation-note" style="margin:24px 0">.*?<\/aside>/s,`<aside class="evaluation-note" style="margin:24px 0"><b>2026.11.14 更新 · V${version}</b><span>公开体验包含 61 条增肌资料与来源说明，在线 AI 功能仍使用 DeepSeek。Atlas 1.7B Run02 已完成本地微调：新增40题严格内容 AI 复核 19/40 → 21/40，跨任务 12/16 → 14/16；尚未部署为在线推理服务。合成评测不代表真实用户准确率。</span></aside>`);
+if(!portfolio.includes('href="atlas-run02.html"'))portfolio=portfolio.replace('<p><a href="fitness-rag.html">','<p><a href="atlas-run02.html">查看今天的 Atlas Run02 训练与逐题对照 ↗</a></p><p><a href="fitness-rag.html">');
+portfolio=portfolio.replace('当前线上统一使用 DeepSeek API；历史实验为微调与应用实现，不是自研基础模型。','当前线上使用 DeepSeek API；Atlas 1.7B 为本地微调实验，尚未接入线上推理。实验为微调与应用实现，不是自研基础模型。');
+await write('dist/portfolio/index.html',portfolio);
+let previous=await read('dist/portfolio/fitness-rag.html');
+if(!previous.includes('atlas-run02.html'))previous=previous.replace('<main>','<main><aside class="panel"><b>Run01 历史实验快照</b><p>后续 Run02 已完成，<a href="atlas-run02.html">查看今天的训练结果与退步记录 ↗</a>。Run01 部分验证卡曾作为干扰资料出现在训练上下文，不能视为未见知识测试；原题、预测和分数保持原样。</p></aside>');
+await write('dist/portfolio/fitness-rag.html',previous);
+await fs.mkdir(dest,{recursive:true});
+const files=[];async function add(name,bytes){files.push({name,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex'),base64:bytes.toString('base64')});}
+async function tree(dir){for(const e of await fs.readdir(path.join(root,dir),{withFileTypes:true})){const name=dir+'/'+e.name;if(e.isDirectory())await tree(name);else await add(name,await fs.readFile(path.join(root,name)));}}
+await tree('dist');await tree('lib');for(const name of ['package.json','server.mjs','ai.mjs'])await add(name,await fs.readFile(path.join(root,name)));
+await add('THIRD-PARTY-NOTICE.txt',await fs.readFile(path.join(root,'artwork/MODEL-NOTICE.txt')));
+await fs.writeFile(path.join(dest,'liftlog-files.json'),JSON.stringify({version:1,files}));
+await fs.copyFile(path.join(workspace,'outputs/LiftLog-DeepSeek-ModelScopeUpload/restore.mjs'),path.join(dest,'restore.mjs'));
+await fs.copyFile(path.join(workspace,'outputs/LiftLog-DeepSeek-ModelScopeUpload/Dockerfile'),path.join(dest,'Dockerfile'));
+await fs.writeFile(path.join(dest,'README.md'),`---\nlicense: apache-2.0\n---\n# LiftLog ${version} · 2026-11-14\n\n个人 AI 产品经理作品体验。今日更新：61条带来源增肌资料、问题检索与范围说明、Atlas 1.7B Run01与Run02的真实本地训练报告和失败记录。App /portfolio/index.html 中可查看案例，/portfolio/atlas-run02.html 展示本轮对照。\n\n在线AI仍统一使用DeepSeek API；Atlas 1.7B Run02仅为本地LoRA训练实验，本发布包不包含或加载Atlas权重，不冒充Atlas已上线。旧0.6B adapter文件是历史遗留，不被Docker加载。\n\n保留原PUBLIC_ORIGIN和后台密文DEEPSEEK_API_KEY。Node端口7860，无新增云资源或付费API验收调用。记录在用户浏览器本机保存，不随发布上传；仅用户主动确认的AI请求会发送所需内容。训练与评测均为合成数据，不代表真实用户准确率。\n`);
+const manifest={version,createdAt:new Date().toISOString(),appFiles:files.length,appBytes:files.reduce((n,f)=>n+f.bytes,0),knowledgeCards:61,onlineModel:'DeepSeek',atlasRun02Online:false,secretsIncluded:false,personalRecordsIncluded:false,uploadFiles:['Dockerfile','liftlog-files.json','restore.mjs','README.md']};
+if(manifest.appBytes>16*1024*1024)throw Error('Restore size limit exceeded');
+await fs.writeFile(path.join(dest,'UPLOAD-MANIFEST.json'),JSON.stringify(manifest,null,2)+'\n');
+console.log(JSON.stringify({dest,...manifest}));

@@ -1,0 +1,50 @@
+{
+  "name": "LiftLog Atlas",
+  "version": "1.7B Run02",
+  "promotedAsLocalReference": true,
+  "checks": {
+    "freshContentImproved": true,
+    "regressionJsonStable": true,
+    "workflowStable": true,
+    "futureOnlyBlocked": true,
+    "missingRepsBlocked": true,
+    "noNewUnsupportedAdvice": true,
+    "validationImproved": true
+  },
+  "online": false,
+  "adapterSha256": "bffa62c24fb61a189c350e8f5b7bbbd9f31ccea95fe06d227701f66a2b61e837",
+  "knowledgeCards": 61,
+  "trainingRows": 810,
+  "validationRows": 88,
+  "epochsCompleted": 2,
+  "selectedCheckpoint": "checkpoint-204",
+  "fresh40": {
+    "run01": {
+      "n": 40,
+      "strictContentPass": 19,
+      "endToEndPass": 19,
+      "itemMean": 0.6451612903225806,
+      "unsupported": 0,
+      "forbidden": 1
+    },
+    "run02": {
+      "n": 40,
+      "strictContentPass": 21,
+      "endToEndPass": 21,
+      "itemMean": 0.7311827956989247,
+      "unsupported": 0,
+      "forbidden": 0
+    }
+  },
+  "regression100": {
+    "present": 100,
+    "json": 100,
+    "structure": 100,
+    "providedCitationsAndNumbers": 98,
+    "expectedStatus": 85,
+    "goldEvidenceInAnswer": 62
+  },
+  "workflow16": {
+    "passed": 14
+  }
+}
