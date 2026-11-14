@@ -1,0 +1,125 @@
+{
+  "checkedAt": "2026-11-14T12:56:35.511Z",
+  "origin": "https://vermouthlau-liftlog.ms.show",
+  "version": "1.15.1",
+  "actualModelCalls": 0,
+  "requests": [
+    {
+      "path": "/healthz",
+      "status": 200,
+      "body": {
+        "status": "ok",
+        "version": "1.15.1"
+      }
+    },
+    {
+      "path": "/api/ai/status",
+      "status": 200,
+      "body": {
+        "configured": true,
+        "provider": "LiftLog Atlas",
+        "model": "liftlog-atlas-1.7b-run02",
+        "modelVersion": "atlas17-run02-q8_0",
+        "mode": "single-model",
+        "atlas": {
+          "configured": true,
+          "ready": true,
+          "archived": false,
+          "artifactSha": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658"
+        },
+        "voice": {
+          "configured": false,
+          "mode": "system-dictation",
+          "message": "Atlas 处理文字。语音可使用手机输入法听写，核对后提交。"
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "path": "app.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "06cd80397cee6ab1ce8c8ae046da8d03b496df5eec513eaa7490a292c01a60cf"
+    },
+    {
+      "path": "trail-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "1da526725c2d671981e6269292c77f82872606a4a8eff94bb14c97beddca58ae"
+    },
+    {
+      "path": "intake-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "a0aa0a9c53fe18de9b6850979328f8be7b296bc728966ec5fedc7d2c5db24630"
+    },
+    {
+      "path": "voice-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "58f5f99b8f1f2942edc140a8f54084e1e97d996f277745bb2dadac5f8e911294"
+    },
+    {
+      "path": "decision-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "5380425822e6dbb82cc3b1a18bb6aa391fb95cee6b832b92d7cb9bb84fea119b"
+    },
+    {
+      "path": "review-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "3ed7785f0ffcb6be77757740e057e77d24bc70b771d85e0bc75c38bfcfc260e4"
+    },
+    {
+      "path": "knowledge-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "4d79dc6a218f6d48b777bcdcb0aea9ab0f536f05fe12e58d5b6c80f97dfeacde"
+    },
+    {
+      "path": "fitness-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "3cc300b786fb09f0e1ccdf4217e7f6d70bfa1e98c0d3b568882a67b25fd0f910"
+    },
+    {
+      "path": "routine-ui.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "cb0712d046213cf60f4eabcf26537367960bd94563063bbe0b8751d743b0d1d2"
+    },
+    {
+      "path": "product.css",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "786e4fc349c6d50516d4210b72b7de566edea490bc629b929e138fea213b5d05"
+    },
+    {
+      "path": "knowledge.css",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "e7f3c62063c8e27991b4d7dfa55860b1fdca683483f63e3e451a121a7edb7c0f"
+    },
+    {
+      "path": "sw.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "f37d9548270b25271aaf289b770cde05ada13faaaec3909cea4785aeb03534bd"
+    },
+    {
+      "path": "knowledge.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "c7ab8d72ad1ee397159f1329211c2c0950d44384e5a6cb6b51810b3c40046236"
+    },
+    {
+      "path": "knowledge-data.js",
+      "status": 200,
+      "matchesLocal": true,
+      "sha256": "e6c8e0e992db66b9450b385d43de4b1affcba25e338b89de95e46dfe2a551853"
+    }
+  ],
+  "passed": 20
+}

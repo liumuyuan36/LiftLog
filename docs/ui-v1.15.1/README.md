@@ -13,3 +13,5 @@
 [检查记录](browser-checks.json) · [首页](home.png) · [录入](intake.png) · [复盘](review.png) · [问答引用](answer.png) · [桌面](desktop-home.png)
 
 发布包通过 `node scripts/prepare-atlas17-ui-release.mjs` 生成，继承此前已发布的 Atlas 容器镜像，只更新应用文件。未修改模型权重、知识卡内容或训练/评测集。版本缓存为 `v1.15.1-ui-r1`；为保护正在记录的训练，新壳在旧窗口全部关闭后生效。
+
+魔搭已实际发布 V1.15.1，源提交 a0c3b8968ac45169b06cd750715f7b804fed72c4；[20 项公网核对](live-checks.json)通过，含 14 个资源逐字节一致、健康版本与 Atlas 身份/就绪状态。本次未发起真实模型推理。发布镜像继承的原镜像摘要为 sha256:c72cd9f995a798db313015a78c3290598a640f88a8cbe4c7911743d119079924，新镜像摘要为 sha256:a4183ca9323ce230aeb73340c5a2c77127ec97f7da01373ce8e5e964c56b8673。
