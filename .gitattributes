@@ -1,5 +1,7 @@
 # Frozen experiment inputs use byte-level SHA256. Preserve their checked-in EOL.
 evaluation/** -text
+# Python raw predictions retain Windows CRLF so their recorded byte hashes match.
+evaluation/atlas17-run02/raw/*.jsonl whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 training/atlas-1.7b/** -text
 training/intake/train_lora.py -text
 dist/knowledge.js -text
