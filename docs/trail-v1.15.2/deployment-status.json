@@ -14,5 +14,7 @@
   "previousPendingAt": "2026-11-15T02:01:47.345Z",
   "publicChecks": 21,
   "imageDigest": "sha256:163f6c9829d0b31d367f7377ce60f8c70577e89c7ed87385f1f3fef93007ddfc",
-  "imagePushedAt": "2026-11-15T02:02:02Z"
+  "imagePushedAt": "2026-11-15T02:02:02Z",
+  "browserUiObserved": true,
+  "browserUiNote": "Public ModelScope full view reopened without clearing storage; new curve and replay control observed after service-worker activation."
 }
