@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-11-15T02:26:08.478Z",
+  "passed": 8,
+  "errors": [],
+  "offsetSamples": [
+    999.929,
+    913.405,
+    705.681,
+    437.377,
+    191.575,
+    28.4377,
+    0
+  ],
+  "fixture": "Isolated Edge, synthetic demo; no user data or model calls",
+  "checks": [
+    "no moving cursor",
+    "one-way spread",
+    "fully reveals path",
+    "sequential node reveal",
+    "selection unchanged during spread",
+    "history selection does not rewind/reflow",
+    "reduced motion immediate",
+    "cleanup and data unchanged"
+  ]
+}
