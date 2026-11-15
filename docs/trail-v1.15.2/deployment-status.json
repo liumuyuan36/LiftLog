@@ -1,14 +1,18 @@
 {
-  "checkedAt": "2026-11-15T02:01:47.345Z",
+  "checkedAt": "2026-11-15T02:05:26.970Z",
   "version": "1.15.2",
   "sourceCommit": "97a9d56ec6ce0c2fc866c676267c7ae7db017718",
   "bundleSha256": "f98f5964222ca7d6f2c1ac12fd3a842d9a2b37e4df2f8db98962349f1882bd3a",
-  "status": "pending_platform_image_push",
-  "publicHealthStatus": 404,
-  "liveAcceptancePassed": false,
+  "status": "live_verified",
+  "publicHealthStatus": 200,
+  "liveAcceptancePassed": true,
   "localTests": 143,
   "browserMotionChecks": 7,
   "responsiveChecks": 32,
   "recordAndOfflineChecks": 4,
-  "notes": "Build completed; registry image push still pending at last readable log. Native browser checks blocked by minimized window/user-input guard. Do not claim live release or blindly restart pending deployment."
+  "notes": "Platform push completed. Public version is 1.15.2; 15 deployed assets match local bytes, Atlas identity/hash/readiness verified. No inference calls performed.",
+  "previousPendingAt": "2026-11-15T02:01:47.345Z",
+  "publicChecks": 21,
+  "imageDigest": "sha256:163f6c9829d0b31d367f7377ce60f8c70577e89c7ed87385f1f3fef93007ddfc",
+  "imagePushedAt": "2026-11-15T02:02:02Z"
 }
