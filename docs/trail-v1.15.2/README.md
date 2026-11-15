@@ -11,3 +11,5 @@
 [预览截图](preview.png) · [保存与离线记录](record-flow.json)
 
 [动态预览（APNG，合成示例界面录制）](motion.png) · [动效交互检查](motion-checks.json)
+
+发布状态：代码与发布包已上传魔搭，源提交 97a9d56ec6ce0c2fc866c676267c7ae7db017718。最后可读日志显示镜像构建完成、仓库推送待完成；公网健康检查仍为404，尚未通过线上验收。后续先检查当前部署结果，不要误称已发布或盲目重启。[发布状态](deployment-status.json)
