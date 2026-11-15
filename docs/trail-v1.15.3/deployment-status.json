@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-11-15T02:44:59.404Z",
+  "status": "live_verified",
+  "version": "1.15.3",
+  "sourceCommit": "77ba0abfb065c746cc01c88cd6b0a377b11b5416",
+  "bundleSha256": "cb8703f222f98508883e7789d24bece42764ea2aa2d30aef98faa191dc6e8ae3",
+  "liveAcceptancePassed": true,
+  "localTests": 143,
+  "responsiveChecks": 32,
+  "browserChecks": 8,
+  "recordFlowChecks": 4,
+  "publicHealthStatus": 200,
+  "publicChecks": 21,
+  "actualModelCalls": 0,
+  "nativeBrowserUiObserved": false,
+  "notes": "15 deployed assets match local bytes; Atlas identity, artifact hash and readiness verified. Native browser was minimized and left untouched; browser interaction checks used isolated local Edge."
+}
