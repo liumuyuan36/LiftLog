@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-15T01:46:53.632Z",
+  "fixture": "Isolated headless Edge; synthetic demo records; no model calls",
+  "passed": 7,
+  "errors": [],
+  "checks": [
+    "replay stays in segment",
+    "pause stops advancement",
+    "cursor reaches selected node",
+    "reduced motion positions instantly",
+    "reduced motion disables pulse",
+    "navigation stops replay",
+    "browsing preserves records"
+  ]
+}
