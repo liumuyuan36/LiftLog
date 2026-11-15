@@ -1,16 +1,18 @@
 # LiftLog · iPhone 主屏幕训练日志
 
-[大陆体验（魔搭）](https://modelscope.cn/studios/VermouthLau/liftlog?mode=full) · [Vercel 历史版本](https://liftlog-pwa.vercel.app/) · [功能流程视频（V1.5，89 秒）](docs/demo.mp4)
+[大陆体验（魔搭）](https://modelscope.cn/studios/VermouthLau/liftlog?mode=full) · [完整功能视频（V1.15.4，约 03:46）](docs/demo-v1.15.4/LiftLog-v1.15.4-demo.mp4) · [中文流程说明](docs/demo-v1.15.4/README.md) · [下载演示资料包](docs/releases/LiftLog-v1.15.4-demo-kit.zip)
 
-<a href="docs/demo.mp4"><img src="docs/demo-poster.png" width="320" alt="LiftLog 功能流程视频预览"></a>
+<a href="docs/demo-v1.15.4/LiftLog-v1.15.4-demo.mp4"><img src="docs/demo-v1.15.4/poster.png" width="300" alt="LiftLog V1.15.4 完整功能演示"></a>
 
-视频使用本机示例空间录制，含中文步骤字幕，无旁白；为真实界面采样录屏的剪辑版。本次演示未调用真实模型，不代表真实训练或用户效果。
+20 个功能章节，中文步骤说明，无旁白。真实界面采样录屏剪辑，使用隔离的示例数据；四个 AI 入口实际调用本机 Atlas，非预设答案，不产生云 API 费用。含草稿核对、专注训练、模板、时间规划、复盘、RAG 引用、备份与离线查看；[演示与验证口径](docs/demo-v1.15.4/README.md)。
 
-当前集成版本：V1.15.3 · LiftLog Atlas 1.7B Run02。四个文字AI功能统一使用本地LoRA微调后的Qwen3-1.7B，合并并转换为Q8_0 GGUF，在魔搭免费CPU容器推理；不回退DeepSeek。语音使用设备/输入法听写，Atlas只处理核对后的文字。原魔搭链接已完成切换，[22项公网验收](docs/atlas17-live.json)通过；四个文字任务示例实际耗时约4–24秒。线上使用完整GGUF，分片方案仅本地候选；Vercel链接是历史版本。
+当前集成版本：V1.15.4 · LiftLog Atlas 1.7B Run02。四个文字AI功能统一使用本地LoRA微调后的Qwen3-1.7B，合并并转换为Q8_0 GGUF，在魔搭免费CPU容器推理；不回退DeepSeek。语音使用设备/输入法听写，Atlas只处理核对后的文字。原魔搭链接已完成切换，[22项公网验收](docs/atlas17-live.json)通过；四个文字任务示例实际耗时约4–24秒。线上使用完整GGUF，分片方案仅本地候选；Vercel链接是历史版本。
 
 143项检查通过，断网2核8GB实际容器验收22项通过。[部署来源与复现](training/atlas-1.7b/deployment/README.md) · [容器记录](docs/atlas17-container.json) · [40问与16跨任务回归](evaluation/atlas17-deployment) · [作品集部署说明](dist/portfolio/atlas-deployment.html)。56条全部完整返回；严格内容AI复核21/40→20/40，2题改善3题退步；跨任务14/16。属于已见合成题回归，不代表真实用户准确率。
 
-V1.15.3 轨迹蔓延：取消移动光点与往返动画，线条从起点单向铺开，沿途节点依次显现。查看历史不收缩路线。[变更与预览](docs/trail-v1.15.3/README.md)。
+V1.15.4 日期队列：五个日期窗口每次推进一条记录，最早退出、保留节点沿曲线平移，新日期从末端出现。143 功能、32 布局、8 交互和 21 公网核对通过。[变更、预览与上线证据](docs/trail-v1.15.4/README.md)。
+
+V1.15.3 轨迹蔓延（历史版本）：取消移动光点与往返动画，线条从起点单向铺开，沿途节点依次显现。查看历史不收缩路线。[变更与预览](docs/trail-v1.15.3/README.md)。
 
 V1.15.2 历史轨迹更新：曲线展开、光点沿路径移动、节点呼吸与本段回放，支持减少动态效果。[变更说明与动效预览](docs/trail-v1.15.2/README.md)。
 
@@ -322,3 +324,5 @@ node --env-file=.env scripts/evaluate-intake.mjs --live
 
 模型接口测试使用模拟响应；生产环境的 DeepSeek 配置状态可以确认，但本轮尚未完成新增取舍接口的真实模型调用验证，不报告模型准确率。真机 iPhone 的安装、离线与微信入口仍应分别验收。生产更新不会强制中断正在训练的旧窗口；关闭所有旧窗口再打开以加载新版。
 
+
+历史演示：[V1.5 功能视频](docs/demo.mp4)（未调用真实模型） · [Vercel 历史版本](https://liftlog-pwa.vercel.app/)。当前版本以顶部魔搭链接和 V1.15.4 资料为准。

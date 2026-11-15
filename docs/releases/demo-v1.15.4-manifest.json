@@ -1,0 +1,11 @@
+{
+  "version": "1.15.4",
+  "file": "LiftLog-v1.15.4-demo-kit.zip",
+  "bytes": 5738493,
+  "sha256": "c138e547e0336d09b02a709edea11f397a1ecf5d35a602fbed016955f100502e",
+  "files": 16,
+  "allCrcAndSourceHashChecksPassed": true,
+  "secretsScanPassed": true,
+  "syntheticDemoOnly": true,
+  "modelWeightsIncluded": false
+}

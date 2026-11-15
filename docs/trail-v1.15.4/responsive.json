@@ -1,0 +1,166 @@
+{
+  "checks": [
+    {
+      "width": 320,
+      "page": "overview",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "page": "train",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "page": "history",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "page": "lab",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "page": "review",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "page": "insights",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "page": "knowledge",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "page": "settings",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "page": "overview",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "page": "train",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "page": "history",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "page": "lab",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "page": "review",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "page": "insights",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "page": "knowledge",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "page": "settings",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "page": "overview",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "page": "train",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "page": "history",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "page": "lab",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "page": "review",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "page": "insights",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "page": "knowledge",
+      "overflow": false
+    },
+    {
+      "width": 430,
+      "page": "settings",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "page": "overview",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "page": "train",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "page": "history",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "page": "lab",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "page": "review",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "page": "insights",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "page": "knowledge",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "page": "settings",
+      "overflow": false
+    }
+  ],
+  "passed": 32,
+  "modelCalls": 0
+}

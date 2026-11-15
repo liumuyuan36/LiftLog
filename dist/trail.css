@@ -16,3 +16,5 @@
 .trail-curve-bloom{stroke:#90b56e;stroke-width:9;stroke-opacity:.14;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:1000;pointer-events:none}.trail-node b{transition:background .55s,box-shadow .55s,opacity .55s}.trail-node:not(.trail-grown) b{opacity:.28;background:#b8c9aa;box-shadow:none}.trail-node.trail-grown b{opacity:1;background:#8ca972;box-shadow:0 0 0 4px #eef3e8}.trail-node.trail-grown[aria-pressed=true] b{background:#6b8d4e;box-shadow:0 0 0 5px #e3edd9}.trail-node:not(.trail-grown) span{color:#a7b39c}.trail-position button{min-height:44px}.trail-position button:disabled{opacity:.65;cursor:default}
 @media(prefers-reduced-motion:reduce){.trail-node b{transition:none}}
 .trail-map.trail-reset .trail-node b{transition:none}
+
+.trail-ghost{pointer-events:none}.trail-node{will-change:left,top,opacity}.trail-node b{transform-origin:center}

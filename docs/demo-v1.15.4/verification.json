@@ -1,0 +1,38 @@
+{
+  "checkedAt": "2026-11-15T03:31:37.767Z",
+  "version": "1.15.4",
+  "functionalTests": 143,
+  "responsiveChecks": 32,
+  "queueInteractionChecks": 8,
+  "publicReadOnlyChecks": 21,
+  "fullFlow": {
+    "chapters": 20,
+    "completed": true,
+    "scriptErrors": [],
+    "realLocalModelCalls": 4,
+    "statuses": [
+      200,
+      200,
+      200,
+      200
+    ],
+    "offlineReloadAndHistory": true
+  },
+  "video": {
+    "durationSeconds": 226.162,
+    "width": 1080,
+    "height": 1920,
+    "fps": 12,
+    "codec": "h264",
+    "audio": false,
+    "fullDecodeCheckPassed": true,
+    "bytes": 3614939,
+    "sha256": "4a3c9935ad63fc7b9fb840613f07a68a0a5b2fb2dedcdea91dc942838e006145"
+  },
+  "limitations": [
+    "Synthetic demonstration, not real user outcome or accuracy evaluation",
+    "Desktop mobile viewport, not iPhone hardware validation",
+    "Real inference recorded locally with same artifact as ModelScope; public checks are read-only"
+  ],
+  "deploymentEvidence": "../trail-v1.15.4/deployment-status.json"
+}

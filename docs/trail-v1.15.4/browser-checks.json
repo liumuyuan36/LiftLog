@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-15T03:25:33.480Z",
+  "passed": 8,
+  "errors": [],
+  "checks": [
+    "initial 5 dates",
+    "intermediate common-node movement and retiring node",
+    "10.17 exits and 11.04 enters",
+    "next step keeps four shared dates",
+    "selection keeps window",
+    "rapid reverse switching settles",
+    "reduced motion immediate",
+    "cleanup and records unchanged"
+  ]
+}

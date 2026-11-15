@@ -1,0 +1,565 @@
+{
+  "version": "1.15.4",
+  "status": "complete",
+  "startedAt": "2026-11-15T03:28:53.348Z",
+  "end": 226444,
+  "width": 430,
+  "height": 900,
+  "synthetic": true,
+  "modelMode": "real-local-atlas-cpu-2cores-8GB",
+  "api": [
+    {
+      "path": "/api/ai/intake",
+      "status": 200,
+      "elapsedMs": 28506,
+      "input": {
+        "text": "今天杠铃卧推总重42.5kg，两组分别11次和9次。",
+        "today": "2026-11-15",
+        "catalog": [
+          {
+            "name": "杠铃卧推",
+            "group": "chest",
+            "tracking": "weighted"
+          },
+          {
+            "name": "上斜哑铃卧推",
+            "group": "chest",
+            "tracking": "weighted"
+          },
+          {
+            "name": "器械夹胸",
+            "group": "chest",
+            "tracking": "weighted"
+          },
+          {
+            "name": "哑铃卧推",
+            "group": "chest",
+            "tracking": "weighted"
+          },
+          {
+            "name": "器械推胸",
+            "group": "chest",
+            "tracking": "weighted"
+          },
+          {
+            "name": "绳索夹胸",
+            "group": "chest",
+            "tracking": "weighted"
+          },
+          {
+            "name": "哑铃飞鸟",
+            "group": "chest",
+            "tracking": "weighted"
+          },
+          {
+            "name": "俯卧撑",
+            "group": "chest",
+            "tracking": "reps"
+          },
+          {
+            "name": "跪姿俯卧撑",
+            "group": "chest",
+            "tracking": "reps"
+          },
+          {
+            "name": "上斜杠铃卧推",
+            "group": "chest",
+            "tracking": "weighted"
+          },
+          {
+            "name": "演示器械推胸",
+            "group": "chest",
+            "tracking": "weighted"
+          },
+          {
+            "name": "哑铃肩推",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "哑铃侧平举",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "反向飞鸟",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "杠铃推举",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "器械推肩",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "绳索侧平举",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "哑铃前平举",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "面拉",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "俯身哑铃反向飞鸟",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "固定器械推肩",
+            "group": "shoulders",
+            "tracking": "weighted"
+          },
+          {
+            "name": "高位下拉",
+            "group": "back",
+            "tracking": "weighted"
+          },
+          {
+            "name": "坐姿划船",
+            "group": "back",
+            "tracking": "weighted"
+          },
+          {
+            "name": "杠铃划船",
+            "group": "back",
+            "tracking": "weighted"
+          },
+          {
+            "name": "引体向上",
+            "group": "back",
+            "tracking": "reps"
+          },
+          {
+            "name": "反手引体向上",
+            "group": "back",
+            "tracking": "reps"
+          },
+          {
+            "name": "单臂哑铃划船",
+            "group": "back",
+            "tracking": "weighted"
+          },
+          {
+            "name": "胸托哑铃划船",
+            "group": "back",
+            "tracking": "weighted"
+          },
+          {
+            "name": "直臂下压",
+            "group": "back",
+            "tracking": "weighted"
+          },
+          {
+            "name": "器械划船",
+            "group": "back",
+            "tracking": "weighted"
+          },
+          {
+            "name": "窄握高位下拉",
+            "group": "back",
+            "tracking": "weighted"
+          },
+          {
+            "name": "哑铃弯举",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "绳索下压",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "锤式弯举",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "杠铃弯举",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "牧师凳弯举",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "上斜哑铃弯举",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "绳索弯举",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "仰卧臂屈伸",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "绳索过顶臂屈伸",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "哑铃过顶臂屈伸",
+            "group": "arms",
+            "tracking": "weighted"
+          },
+          {
+            "name": "杠铃深蹲",
+            "group": "legs",
+            "tracking": "weighted"
+          },
+          {
+            "name": "腿举",
+            "group": "legs",
+            "tracking": "weighted"
+          },
+          {
+            "name": "罗马尼亚硬拉",
+            "group": "legs",
+            "tracking": "weighted"
+          },
+          {
+            "name": "高脚杯深蹲",
+            "group": "legs",
+            "tracking": "weighted"
+          },
+          {
+            "name": "徒手深蹲",
+            "group": "legs",
+            "tracking": "reps"
+          },
+          {
+            "name": "哑铃箭步蹲",
+            "group": "legs",
+            "tracking": "weighted"
+          },
+          {
+            "name": "保加利亚分腿蹲",
+            "group": "legs",
+            "tracking": "weighted"
+          },
+          {
+            "name": "坐姿腿屈伸",
+            "group": "legs",
+            "tracking": "weighted"
+          },
+          {
+            "name": "俯卧腿弯举",
+            "group": "legs",
+            "tracking": "weighted"
+          },
+          {
+            "name": "站姿提踵",
+            "group": "legs",
+            "tracking": "weighted"
+          },
+          {
+            "name": "仰卧起坐",
+            "group": "core",
+            "tracking": "reps"
+          },
+          {
+            "name": "悬挂举腿",
+            "group": "core",
+            "tracking": "reps"
+          },
+          {
+            "name": "绳索卷腹",
+            "group": "core",
+            "tracking": "weighted"
+          },
+          {
+            "name": "器械卷腹",
+            "group": "core",
+            "tracking": "weighted"
+          },
+          {
+            "name": "卷腹",
+            "group": "core",
+            "tracking": "reps"
+          },
+          {
+            "name": "反向卷腹",
+            "group": "core",
+            "tracking": "reps"
+          },
+          {
+            "name": "仰卧举腿",
+            "group": "core",
+            "tracking": "reps"
+          },
+          {
+            "name": "死虫式",
+            "group": "core",
+            "tracking": "reps"
+          },
+          {
+            "name": "鸟狗式",
+            "group": "core",
+            "tracking": "reps"
+          },
+          {
+            "name": "俄罗斯转体",
+            "group": "core",
+            "tracking": "weighted"
+          }
+        ],
+        "engine": "atlas",
+        "consent": true
+      },
+      "output": {
+        "result": {
+          "status": "ready",
+          "questions": [],
+          "date": "2026-11-15",
+          "exercises": [
+            {
+              "name": "杠铃卧推",
+              "group": "chest",
+              "tracking": "weighted",
+              "source": "今天杠铃卧推总重42.5kg，两组分别11次和9次。",
+              "sets": [
+                {
+                  "weightKg": 42.5,
+                  "reps": 11,
+                  "rir": null,
+                  "type": "working"
+                },
+                {
+                  "weightKg": 42.5,
+                  "reps": 9,
+                  "rir": null,
+                  "type": "working"
+                }
+              ]
+            }
+          ]
+        },
+        "meta": {
+          "provider": "LiftLog Atlas",
+          "engine": "atlas",
+          "model": "liftlog-atlas-1.7b-run02",
+          "modelVersion": "atlas17-run02-q8_0",
+          "artifactSha": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+          "elapsedMs": 28497,
+          "usage": {
+            "inputTokens": 1399,
+            "outputTokens": 107
+          },
+          "promptVersion": "intake-v1"
+        }
+      }
+    },
+    {
+      "path": "/api/ai/decision",
+      "status": 200,
+      "elapsedMs": 5428,
+      "input": {
+        "goal": "今天优先保留主要动作的组数。",
+        "candidates": [
+          {
+            "id": "balanced",
+            "estimatedMinutes": 23,
+            "workingSets": 6,
+            "exerciseCount": 3,
+            "switches": 2,
+            "removedWorkSets": 3
+          },
+          {
+            "id": "focus",
+            "estimatedMinutes": 22,
+            "workingSets": 6,
+            "exerciseCount": 2,
+            "switches": 1,
+            "removedWorkSets": 3
+          },
+          {
+            "id": "compact",
+            "estimatedMinutes": 12,
+            "workingSets": 3,
+            "exerciseCount": 1,
+            "switches": 0,
+            "removedWorkSets": 6
+          }
+        ],
+        "memory": [],
+        "engine": "atlas",
+        "consent": true
+      },
+      "output": {
+        "advice": {
+          "status": "recommend",
+          "candidateId": "focus"
+        },
+        "meta": {
+          "provider": "LiftLog Atlas",
+          "engine": "atlas",
+          "model": "liftlog-atlas-1.7b-run02",
+          "modelVersion": "atlas17-run02-q8_0",
+          "artifactSha": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+          "elapsedMs": 5425,
+          "usage": {
+            "inputTokens": 354,
+            "outputTokens": 11
+          },
+          "promptVersion": "decision-v1"
+        }
+      }
+    },
+    {
+      "path": "/api/ai/review",
+      "status": 200,
+      "elapsedMs": 5251,
+      "input": {
+        "goal": "quality",
+        "days": 7,
+        "facts": [
+          {
+            "id": "frequency",
+            "text": "近 7 天有 5 次有效训练记录；前 7 天有 2 次。"
+          },
+          {
+            "id": "sets",
+            "text": "本期 35 组，前期 12 组；排除热身和未完成组。"
+          },
+          {
+            "id": "volume",
+            "text": "本期 12260 kg，前期 4088 kg；自重动作不计入。"
+          },
+          {
+            "id": "rir",
+            "text": "35 / 35 个工作组填写了 RIR（100%）；空值保留为未知。"
+          },
+          {
+            "id": "limits",
+            "text": "未记录的训练无法统计；不能根据日志推断肌肉增长、动作质量或身体恢复状态。"
+          }
+        ],
+        "engine": "atlas",
+        "consent": true
+      },
+      "output": {
+        "factIds": [
+          "rir",
+          "sets"
+        ],
+        "actionIds": [
+          "rir",
+          "context"
+        ],
+        "model": "liftlog-atlas-1.7b-run02"
+      }
+    },
+    {
+      "path": "/api/ai/knowledge",
+      "status": 200,
+      "elapsedMs": 10858,
+      "input": {
+        "question": "RIR2是什么意思",
+        "consent": true,
+        "engine": "atlas"
+      },
+      "output": {
+        "result": {
+          "status": "answered",
+          "points": [
+            {
+              "text": "RIR2表示估计还能做2次，RIR0表示估计不能再完成一次规范重复。",
+              "sourceIds": [
+                "F01"
+              ]
+            }
+          ],
+          "limitation": "RIR不是精确测量，受训练负荷等条件影响。"
+        },
+        "retrieval": {
+          "question": "RIR2是什么意思",
+          "version": "fitness-notes-2026-11-14-v3",
+          "status": "retrieved",
+          "chunks": [
+            {
+              "id": "F01",
+              "title": "RIR 在记录什么",
+              "topics": [
+                "rir"
+              ],
+              "sources": [
+                "C"
+              ],
+              "text": "RIR 是完成一组后，对还能规范完成多少次的主观估计。例如 RIR2 表示估计还能做2次，RIR0 表示估计不能再完成一次规范重复。它不是已经完成的次数，也不是下一组必须完成的次数。",
+              "scope": "训练感受量尺；不是精确测量。",
+              "reviewStatus": "ai-organized",
+              "independentReview": "not-performed",
+              "unsupportedInferences": [],
+              "score": 25.832,
+              "topicHits": 1
+            },
+            {
+              "id": "F02",
+              "title": "RIR 的估计存在误差",
+              "topics": [
+                "rir",
+                "accuracy"
+              ],
+              "sources": [
+                "D",
+                "P"
+              ],
+              "text": "RIR 估计会受训练负荷等条件影响；研究中的重负荷估计更准确，不能假定所有情境同样可靠。LiftLog 不确定的 RIR 可以留空，空值不会作为零处理。",
+              "scope": "研究样本为受过训练的男性；记录规则为本产品约定。",
+              "reviewStatus": "ai-organized",
+              "independentReview": "not-performed",
+              "unsupportedInferences": [],
+              "score": 22,
+              "topicHits": 1
+            }
+          ],
+          "message": "已找到相关资料，回答仍需保留原文的适用条件。"
+        },
+        "meta": {
+          "provider": "LiftLog Atlas",
+          "engine": "atlas",
+          "model": "liftlog-atlas-1.7b-run02",
+          "modelVersion": "atlas17-run02-q8_0",
+          "artifactSha": "665f64068c254f73fccd732b03c6904cfc939ee66998437d77da3e4771545658",
+          "elapsedMs": 10846,
+          "usage": {
+            "inputTokens": 504,
+            "outputTokens": 57
+          },
+          "knowledgeVersion": "fitness-notes-2026-11-14-v3",
+          "promptVersion": "fitness-rag-v2",
+          "modelCalled": true
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "editing": {
+    "takes": 2,
+    "replacedChapters": [
+      1,
+      2
+    ],
+    "speed": 1,
+    "note": "Opening and trajectory navigation re-recorded with viewport fixed; model tasks and all later chapters retain the completed original capture. No generated model answers or simulated UI."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-11-15T03:26:06.476Z",
+  "status": "live_verified",
+  "version": "1.15.4",
+  "sourceCommit": "d25b434e3d07391e99f2100b41e5affc6579d91e",
+  "bundleSha256": "4c2742d26eb765d0c795ee4acb366315e780649504bbe4764ce0dde207283744",
+  "liveAcceptancePassed": true,
+  "localTests": 143,
+  "responsiveChecks": 32,
+  "browserChecks": 8,
+  "publicHealthStatus": 200,
+  "publicChecks": 21,
+  "actualModelCalls": 0,
+  "modelChanged": false,
+  "notes": "15 deployed assets match local bytes; model identity, SHA and readiness verified. Functional demo inference receipts are reported separately."
+}
